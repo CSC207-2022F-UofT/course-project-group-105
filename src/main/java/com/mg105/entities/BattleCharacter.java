@@ -1,7 +1,7 @@
 package com.mg105.entities;
 
 
-public class BattleCharacter{
+public class BattleCharacter implements Comparable<BattleCharacter>{
     private int maxHealth;
     private int currentHealth;
 
@@ -50,6 +50,18 @@ public class BattleCharacter{
         this.currentHealth = Math.max(0, this.currentHealth - damage);
     }
 
+    /**
+     * Characters are compared by speed
+     * */
+    @Override
+    public int compareTo(BattleCharacter o) {
+        if(this.speed < o.speed){
+            return -1;
 
+        } else if(this.speed == o.speed){
+            return 0;
+        }
 
+        return 1;
+    }
 }
