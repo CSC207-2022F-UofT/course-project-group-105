@@ -7,17 +7,20 @@ public class BattleCharacter implements Comparable<BattleCharacter>{
 
     private int attack;
     private int speed;
+
+    private String name;
 //    Need to build move class
 //    private Moves[4];
 //    private int sprite;
 
 //    TODO: create Moves class and implement moves list (and its Methods) and implement character sprite
 
-    public BattleCharacter(int maxHealth, int attack, int speed){
+    public BattleCharacter(int maxHealth, int attack, int speed, String name){
         this.attack = attack;
         this.maxHealth = maxHealth;
         this.currentHealth = maxHealth;
         this.speed = speed;
+        this.name = name;
     }
 
     public int getAttack(){
@@ -31,6 +34,8 @@ public class BattleCharacter implements Comparable<BattleCharacter>{
     public int getSpeed(){
         return this.speed;
     }
+
+    public String getName(){return this.name;}
 
 
     public void increaseMaxHealth(){
