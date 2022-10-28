@@ -3,12 +3,7 @@ import java.util.ArrayList;
 
 public class Inventory {
     final static int inventoryLimit = 10;
-    private static ArrayList<Item> items;
-
-    public Inventory(){
-
-        items = new ArrayList<>(inventoryLimit);
-    }
+    private static ArrayList<Item> items = new ArrayList<>();
 
     public static int getInventoryLimit(){
         return inventoryLimit;
@@ -24,8 +19,12 @@ public class Inventory {
 
     /**
      * Precondition: Inventory is not full
+     * If precondition is violated, the function throws a RuntimeException
      * */
-    public static void addItem(Item item){
+    public static void addItem(Item item) throws RuntimeException{
+        if(isInventoryFull()){
+            throw new RuntimeException("Item cannot be added when Inventory is full");
+        }
         items.add(item);
 
     }
