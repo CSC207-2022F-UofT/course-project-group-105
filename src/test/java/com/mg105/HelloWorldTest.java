@@ -1,4 +1,4 @@
-package tutorial;
+package com.mg105;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

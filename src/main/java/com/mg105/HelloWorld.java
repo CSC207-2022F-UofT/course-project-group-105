@@ -1,4 +1,4 @@
-package tutorial;
+package com.mg105;
 
 public class HelloWorld {
 
@@ -10,7 +10,7 @@ public class HelloWorld {
 
     public static String convert(int decide) {
         if (decide % 15 == 0) {
-            return "tutorial.HelloWorld";
+            return "com.mg105.HelloWorld";
         }
         if (decide % 3 == 0) {
             return "Hello";
