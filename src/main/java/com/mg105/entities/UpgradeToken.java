@@ -1,4 +1,5 @@
 package com.mg105.entities;
+import com.mg105.utils.ItemConstants;
 
 public class UpgradeToken extends Item {
     /**
@@ -7,7 +8,8 @@ public class UpgradeToken extends Item {
 
 
     public UpgradeToken(){
-        super("Upgrade Token", "One use increases a specific stat on a specific character by one");
+        super(ItemConstants.UpgradeTokenName,
+            ItemConstants.UpgradeTokenDescription);
     }
 
 

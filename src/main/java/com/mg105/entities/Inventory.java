@@ -29,8 +29,6 @@ public class Inventory {
 
     }
 
-    // TODO: Make both of these methods pass in class types instead of item names
-
     public static boolean removeItemByType(String itemName){
         for(int i = 0; i < getNumberOfItems(); i++){
             if(items.get(i).getItemName().equals(itemName)){
