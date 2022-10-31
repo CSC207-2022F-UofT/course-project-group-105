@@ -10,12 +10,12 @@ public class Inventory {
         return this.INVENTORY_LIMIT;
     }
 
-    public int getNumberOfItems() {
+    public int numberOfItems() {
         return this.items.size();
     }
 
     public boolean isInventoryFull() {
-        return getNumberOfItems() >= this.INVENTORY_LIMIT;
+        return numberOfItems() >= this.INVENTORY_LIMIT;
     }
 
     // Precondition: Inventory is not full
@@ -27,7 +27,7 @@ public class Inventory {
     }
 
     public boolean removeItem(String itemName) {
-        for (int i = 0; i < getNumberOfItems(); i++) {
+        for (int i = 0; i < numberOfItems(); i++) {
             if (this.items.get(i).getName().equals(itemName)) {
                 this.items.remove(i);
                 return true;
@@ -36,7 +36,7 @@ public class Inventory {
         return false;
     }
 
-    public int numberOfItems(String itemName) {
+    public int numberOfItemsByType(String itemName) {
         int count = 0;
         for (Item item : this.items) {
             if (item.getName().equals(itemName)) {
