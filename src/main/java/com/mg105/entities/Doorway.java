@@ -2,12 +2,12 @@ package com.mg105.entities;
 
 public class Doorway {
     private int position;
-    private int NextRoomPosition;
+    private int nextRoomPosition;
 
     public Doorway(int pos, int NextPos)
     {
         this.position = pos;
-        this.NextRoomPosition = NextPos;
+        this.nextRoomPosition = NextPos;
     }
 
     public int getPosition()
@@ -17,7 +17,7 @@ public class Doorway {
 
     public int getNextRoomPosition()
     {
-        return this.NextRoomPosition;
+        return this.nextRoomPosition;
     }
 
 }
