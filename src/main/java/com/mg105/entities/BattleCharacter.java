@@ -1,7 +1,9 @@
 package com.mg105.entities;
 
-public class BattleCharacter implements Comparable<BattleCharacter>{
+public class BattleCharacter implements Comparable<BattleCharacter> {
     private int hp;
+    private int maxHp;
+    private final String name;
     private int dmg;
     private int speed;
 
@@ -10,8 +12,10 @@ public class BattleCharacter implements Comparable<BattleCharacter>{
 
     //Don't know how to handle the sprite instance
 
-    public BattleCharacter(int health, int attack, int speed, Move first, Move second){
+    public BattleCharacter(int health, String name, int attack, int speed, Move first, Move second) {
         this.hp = health;
+        this.maxHp = health;
+        this.name = name;
         this.dmg = attack;
         this.speed = speed;
         this.moves[0] = first;
@@ -20,6 +24,14 @@ public class BattleCharacter implements Comparable<BattleCharacter>{
 
     public int getHp() {
         return hp;
+    }
+
+    public int getMaxHp() {
+        return maxHp;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getDmg() {
@@ -38,24 +50,34 @@ public class BattleCharacter implements Comparable<BattleCharacter>{
         return moves[1];
     }
 
-    public void modifyHealth(int healthChange){
+    public void modifyHealth(int healthChange) {
         this.hp += healthChange;
 
         // If character faints, reset hp to 0
-        if (this.hp <= 0){
+        if (this.hp <= 0) {
             this.hp = 0;
+        } else if (this.hp >= this.maxHp) {
+            this.hp = this.maxHp;
         }
     }
 
-    public void modifyDamage(int damageChange){
+    public void modifyMaxHp(int maximumChange) {
+        this.maxHp += maximumChange;
+    }
+
+    public void modifyDamage(int damageChange) {
         this.dmg += damageChange;
     }
 
+    public void modifySpeed(int speedChange) {
+        this.speed += speedChange;
+    }
+
     @Override
-    public int compareTo(BattleCharacter other){
-        if (this.speed < other.speed){
+    public int compareTo(BattleCharacter other) {
+        if (this.speed < other.speed) {
             return -1;
-        } else if (this.speed > other.speed){
+        } else if (this.speed > other.speed) {
             return 1;
         } else {
             return 0;
