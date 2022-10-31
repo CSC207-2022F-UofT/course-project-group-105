@@ -2,8 +2,8 @@ package com.mg105.entities;
 
 
 public abstract class Item {
-    final public String NAME;
-    final public String DESCRIPTION;
+    final private String NAME;
+    final private String DESCRIPTION;
 
 
      // Item name and description should never be change after given initial values

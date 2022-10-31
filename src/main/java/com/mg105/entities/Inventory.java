@@ -3,10 +3,10 @@ package com.mg105.entities;
 import java.util.ArrayList;
 
 public class Inventory {
-    public final int INVENTORY_LIMIT = 10;
+    private final static int INVENTORY_LIMIT = 10;
     private final ArrayList<Item> items = new ArrayList<>();
 
-    public int getInventoryLimit(){
+    public int getInventoryLimit() {
         return this.INVENTORY_LIMIT;
     }
 
@@ -46,7 +46,7 @@ public class Inventory {
         return count;
     }
 
-    public boolean inInventory(String itemName){
+    public boolean inInventory(String itemName) {
         for (Item item : this.items) {
             if (item.getName().equals(itemName)) {
                 return true;
