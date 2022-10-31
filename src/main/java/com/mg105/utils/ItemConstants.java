@@ -8,7 +8,7 @@ public class ItemConstants {
         "specific stat on a specific character by one.";
 
     public static final String HEALTH_POTION_NAME = "Health Potion";
-    public static final String HEALTH_POTION_DESCRIPTION = "This potion will heal a character by a certain amount.";
+    public static final String HEALTH_POTION_DESCRIPTION = "This potion will heal a character by a certain amount";
 
 
     public static String[] allItemNames() {
