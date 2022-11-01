@@ -15,7 +15,7 @@ public class Inventory {
     }
 
     public boolean isInventoryFull() {
-        return numberOfItems() >= this.INVENTORY_LIMIT;
+        return numberOfItems() >= INVENTORY_LIMIT;
     }
 
     // Precondition: Inventory is not full
