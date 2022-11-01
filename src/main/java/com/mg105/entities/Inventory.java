@@ -7,7 +7,7 @@ public class Inventory {
     private final ArrayList<Item> items = new ArrayList<>();
 
     public int getInventoryLimit() {
-        return this.INVENTORY_LIMIT;
+        return INVENTORY_LIMIT;
     }
 
     public int numberOfItems() {
