@@ -1,6 +1,5 @@
 package com.mg105.entities;
 
-
 public abstract class Item {
     final private String NAME;
     final private String DESCRIPTION;
@@ -22,6 +21,4 @@ public abstract class Item {
     public String getDescription() {
         return this.DESCRIPTION;
     }
-
-
 }
