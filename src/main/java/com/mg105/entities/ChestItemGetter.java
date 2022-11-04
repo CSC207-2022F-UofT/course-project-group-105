@@ -6,7 +6,7 @@ public class ChestItemGetter {
 
 
     public ChestItemGetter() {
-        this.
+        //        this.
 
 
     }
