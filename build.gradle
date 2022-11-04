@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'application'
     id 'org.openjfx.javafxplugin' version '0.0.13'
 }
 
@@ -10,6 +11,7 @@ repositories {
 dependencies {
     implementation 'junit:junit:4.13.1'
     testImplementation('org.junit.jupiter:junit-jupiter:5.6.0')
+    implementation 'org.openjfx:javafx-plugin:0.0.13'
 }
 
 java {
@@ -28,3 +30,9 @@ javafx {
     version = '12'
     modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.base', 'javafx.graphics', 'javafx.media' ]
 }
+
+application {
+    mainClassName = 'src/main/java/MountainClimberApp.java'
+}
+
+apply plugin: "org.openjfx.javafxplugin"

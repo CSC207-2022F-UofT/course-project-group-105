@@ -1,4 +1,4 @@
-package com.mg105.UI;
+package com.mg105.user_interface;
 
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -21,7 +21,7 @@ public class GameWindow extends Application {
         Stage stage = new Stage();
 
         Text text = new Text();
-        text.setText("Is it working?");
+        text.setText("Testing text");
         text.setX(50);
         text.setY(50);
 
