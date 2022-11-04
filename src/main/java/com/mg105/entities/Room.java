@@ -1,5 +1,6 @@
 package com.mg105.entities;
 
+
 import java.util.List;
 
 public class Room {
@@ -48,4 +49,5 @@ public class Room {
     public List<Doorway> getDoorways() {
         return doorways;
     }
+
 }

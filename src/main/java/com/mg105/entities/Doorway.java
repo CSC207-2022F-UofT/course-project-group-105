@@ -1,6 +1,5 @@
 package com.mg105.entities;
 
-public class Doorway {
     private final RoomPosition position;
     private final Room nextRoom;
 
