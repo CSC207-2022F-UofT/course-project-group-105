@@ -1,7 +1,6 @@
 package com.mg105.entities;
 
 public class GameState {
-
-    public Room[][] map;
-
+    public Room firstRoom;
+    public Room lastRoom;
 }
