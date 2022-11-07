@@ -11,7 +11,7 @@ repositories {
 dependencies {
     implementation 'junit:junit:4.13.1'
     testImplementation('org.junit.jupiter:junit-jupiter:5.6.0')
-    implementation 'org.openjfx:javafx-plugin:0.0.13'
+    //implementation 'org.openjfx:javafx-plugin:0.0.13'
 }
 
 java {
@@ -27,7 +27,7 @@ test {
 }
 
 javafx {
-    version = '12'
+    version = '17'
     modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.base', 'javafx.graphics', 'javafx.media' ]
 }
 
