@@ -73,20 +73,53 @@ public class Inventory {
     }
 
     /**
-     * Removes ONE instance of an item from the inventory that has the same itemName
+     * Removes ONE instance of an item from the inventory that has the same itemName.
      *
      * @param itemName The name of item that should be removed
-     * @return if an item was removed from the inventory
+     * @throws RuntimeException if itemName is not the name of an item in the inventory
      * @see Item
      */
-    public boolean removeItem(String itemName) {
+    public void removeItem(String itemName) throws RuntimeException{
         for (int i = 0; i < numberOfItems(); i++) {
             if (this.items.get(i).getName().equals(itemName)) {
                 this.items.remove(i);
-                return true;
+                return;
             }
         }
-        return false;
+        throw new RuntimeException("An item of the given name was not found in the inventory");
+    }
+
+    /**
+     * Uses the item on the given character
+     * @param character The character to use the item on
+     * @param itemName The name of the item to use
+     * @throws RuntimeException if item is not usable or if the item is not in the inventory
+     * @see Item
+     * @see Consumable
+     */
+
+    public void useItem(BattleCharacter character, String itemName) throws RuntimeException{
+        for(int i = 0; i < numberOfItems(); i++){
+            Item item = this.items.get(i);
+
+            if (item.getName().equals(itemName)) {
+
+                if(item instanceof Consumable){
+                    Consumable consumableItem = (Consumable) item;
+                    consumableItem.consume(character);
+                    this.items.remove(i);
+                    return;
+
+                } else {
+
+                    throw new RuntimeException("An item of the given name cannot be used");
+
+                }
+            }
+        }
+
+        throw new RuntimeException("An item of the given name was not found in the inventory");
+
     }
 
     /**

@@ -1,4 +1,6 @@
+import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.Inventory;
+import com.mg105.entities.Move;
 import com.mg105.entities.items.HealthPotion;
 import com.mg105.entities.items.UpgradeToken;
 import com.mg105.utils.ItemConstants;
@@ -136,7 +138,8 @@ class InventoryTest {
 
         Inventory inventory = new Inventory();
 
-        assertTrue(!inventory.removeItem(ItemConstants.UPGRADE_TOKEN_NAME));
+        assertThrows(RuntimeException.class, () -> inventory.removeItem(ItemConstants.HEALTH_POTION_NAME));
+
 
     }
 
@@ -149,7 +152,7 @@ class InventoryTest {
 
         assertEquals(1, inventory.numberOfItems());
 
-        assertTrue(inventory.removeItem(ItemConstants.UPGRADE_TOKEN_NAME));
+        inventory.removeItem(ItemConstants.UPGRADE_TOKEN_NAME);
 
         assertEquals(0, inventory.numberOfItems());
 
@@ -165,17 +168,18 @@ class InventoryTest {
 
         assertEquals(2, inventory.numberOfItems());
 
-        assertTrue(inventory.removeItem(ItemConstants.UPGRADE_TOKEN_NAME));
+        inventory.removeItem(ItemConstants.UPGRADE_TOKEN_NAME);
 
         assertEquals(1, inventory.numberOfItems());
 
-        assertTrue(inventory.removeItem(ItemConstants.HEALTH_POTION_NAME));
+        inventory.removeItem(ItemConstants.HEALTH_POTION_NAME);
 
         assertEquals(0, inventory.numberOfItems());
 
-        assertTrue(!inventory.removeItem(ItemConstants.UPGRADE_TOKEN_NAME));
+        assertThrows(RuntimeException.class, () -> inventory.removeItem(ItemConstants.UPGRADE_TOKEN_NAME));
 
-        assertTrue(!inventory.removeItem(ItemConstants.HEALTH_POTION_NAME));
+        assertThrows(RuntimeException.class, () -> inventory.removeItem(ItemConstants.HEALTH_POTION_NAME));
+
 
     }
 
@@ -192,15 +196,15 @@ class InventoryTest {
 
         assertEquals(4, inventory.numberOfItems());
 
-        assertTrue(inventory.removeItem(ItemConstants.UPGRADE_TOKEN_NAME));
+        inventory.removeItem(ItemConstants.UPGRADE_TOKEN_NAME);
 
         assertEquals(3, inventory.numberOfItems());
 
-        assertTrue(!inventory.removeItem(ItemConstants.HEALTH_POTION_NAME));
+        assertThrows(RuntimeException.class, () -> inventory.removeItem(ItemConstants.HEALTH_POTION_NAME));
 
         assertEquals(3, inventory.numberOfItems());
 
-        assertTrue(inventory.removeItem(ItemConstants.UPGRADE_TOKEN_NAME));
+        inventory.removeItem(ItemConstants.UPGRADE_TOKEN_NAME);
 
         assertEquals(2, inventory.numberOfItems());
 
@@ -218,14 +222,14 @@ class InventoryTest {
 
         assertEquals(4, inventory.numberOfItems());
 
-        assertTrue(inventory.removeItem(ItemConstants.UPGRADE_TOKEN_NAME));
+        inventory.removeItem(ItemConstants.UPGRADE_TOKEN_NAME);
 
         assertEquals(3, inventory.numberOfItems());
 
-        assertTrue(inventory.removeItem(ItemConstants.HEALTH_POTION_NAME));
+        inventory.removeItem(ItemConstants.HEALTH_POTION_NAME);
 
 
-        assertTrue(!inventory.removeItem(ItemConstants.HEALTH_POTION_NAME));
+        assertThrows(RuntimeException.class, () -> inventory.removeItem(ItemConstants.HEALTH_POTION_NAME));
 
         assertEquals(2, inventory.numberOfItems());
 
@@ -326,10 +330,44 @@ class InventoryTest {
 
         assertTrue(inventory.has(ItemConstants.UPGRADE_TOKEN_NAME));
         assertTrue(inventory.has(ItemConstants.HEALTH_POTION_NAME));
-        assertTrue(inventory.removeItem(ItemConstants.UPGRADE_TOKEN_NAME));
-        assertTrue(inventory.removeItem(ItemConstants.UPGRADE_TOKEN_NAME));
+        inventory.removeItem(ItemConstants.UPGRADE_TOKEN_NAME);
+        inventory.removeItem(ItemConstants.UPGRADE_TOKEN_NAME);
         assertTrue(!inventory.has(ItemConstants.UPGRADE_TOKEN_NAME));
 
+
+    }
+
+
+    @Test
+    void useItemNotInInventory(){
+
+        BattleCharacter character = new BattleCharacter(1,"John", 1, 1,
+            new Move(1, 1), new Move(1, 1));
+
+        Inventory inventory = new Inventory();
+
+        inventory.addItem(new HealthPotion());
+        inventory.addItem(new HealthPotion());
+
+        assertThrows(RuntimeException.class, () -> inventory.useItem(character, ItemConstants.UPGRADE_TOKEN_NAME));
+
+    }
+
+
+    @Test
+    void useItemHasUsableItems(){
+
+        BattleCharacter character = new BattleCharacter(1,"John", 1, 1,
+            new Move(1, 1), new Move(1, 1));
+
+        Inventory inventory = new Inventory();
+
+        inventory.addItem(new HealthPotion());
+        inventory.addItem(new HealthPotion());
+
+        inventory.useItem(character, ItemConstants.HEALTH_POTION_NAME);
+
+        assertEquals(1, inventory.numberOfItems());
 
     }
 }

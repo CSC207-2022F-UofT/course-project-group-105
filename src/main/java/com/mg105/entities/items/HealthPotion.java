@@ -1,9 +1,11 @@
 package com.mg105.entities.items;
 
+import com.mg105.entities.BattleCharacter;
+import com.mg105.entities.Consumable;
 import com.mg105.entities.Item;
 import com.mg105.utils.ItemConstants;
 
-public class HealthPotion extends Item {
+public class HealthPotion extends Item implements Consumable {
 
     /**
      * A health potion is an item that can be used to heal a character by a certain amount of points.
@@ -20,5 +22,10 @@ public class HealthPotion extends Item {
 
     public static int getHealingPoints() {
         return HEALING_POINTS;
+    }
+
+    public void consume(BattleCharacter character){
+        character.modifyHealth(HEALING_POINTS);
+
     }
 }
