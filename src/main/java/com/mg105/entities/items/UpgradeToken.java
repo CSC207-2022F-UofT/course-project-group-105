@@ -8,7 +8,7 @@ public class UpgradeToken extends Item {
     /**
      * An item that is used upgrade a characters stat
      *
-     * <p>One upgrade token is equal to a boost a single stat of a single character</p>
+     * <p>One upgrade token boosts every stat of to a single character</p>
      */
 
     public UpgradeToken() {

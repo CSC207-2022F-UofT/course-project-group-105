@@ -3,6 +3,11 @@ package com.mg105.entities;
 import java.util.ArrayList;
 
 public class Inventory {
+
+    /**
+     * An inventory is a class that manages items
+     *
+     */
     private final static int INVENTORY_LIMIT = 10;
     private final ArrayList<Item> items = new ArrayList<>();
 
