@@ -1,5 +1,4 @@
 package com.mg105.entities;
-
 public abstract class Item {
     final private String NAME;
     final private String DESCRIPTION;
