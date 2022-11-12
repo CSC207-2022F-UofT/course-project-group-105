@@ -83,7 +83,13 @@ public class Inventory {
         }
         return false;
     }
-
+    public void removeAll()
+    {
+        for (int i = 0; i < numberOfItems(); i++)
+        {
+                this.items.remove(i);
+        }
+    }
     /**
      * Returns if there is at LEAST one item in inventory with itemName
      * @param itemName the name of item that needs to be searched for
