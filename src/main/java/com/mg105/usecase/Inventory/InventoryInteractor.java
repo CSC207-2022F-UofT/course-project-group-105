@@ -42,7 +42,7 @@ public class InventoryInteractor {
         if (!itemKindExists(itemName)) {
             return response.addItemView(false, itemName, getItemCount(itemName));
         }
-        
+
         boolean addedItem = gameState.getInventory().addItem(itemFactory.createItem(itemName));
 
         if (!addedItem) {
@@ -62,12 +62,7 @@ public class InventoryInteractor {
 
     public String[] removeItem(String itemName) {
 
-        if (!itemKindExists(itemName)) {
-            return response.removeItemView(false, itemName, getItemCount(itemName));
-        }
-        boolean itemInInventory = gameState.getInventory().has(itemName);
-
-        if (!itemInInventory) {
+        if (!gameState.getInventory().has(itemName)) {
             return response.removeItemView(false, itemName, getItemCount(itemName));
         }
 
@@ -88,7 +83,7 @@ public class InventoryInteractor {
 
     public String[] useItem(String itemName, String characterName) {
 
-        if (!(isItemUsable(itemName) && inParty(characterName))) {
+        if (!(isItemUsable(itemName) && inParty(characterName) && gameState.getInventory().has(itemName))) {
             return response.useItemView(false, itemName, characterName, getItemCount(itemName));
         }
         BattleCharacter partyMember = gameState.getPartyMember(characterName);
