@@ -17,7 +17,13 @@ public class UpgradeToken extends Item implements Consumable {
         super(ItemConstants.UPGRADE_TOKEN_NAME, ItemConstants.UPGRADE_TOKEN_DESCRIPTION);
     }
 
-    public void consume(BattleCharacter character){
+    /**
+     * Upgrades the stats of the given character
+     *
+     * @param character the battleCharacter to use the item on
+     */
+    @Override
+    public void consume(BattleCharacter character) {
         character.modifyDamage(1);
         character.modifyMaxHp(1);
         character.modifySpeed(1);

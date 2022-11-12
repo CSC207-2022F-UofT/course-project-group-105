@@ -1,12 +1,12 @@
 package com.mg105.entities;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 public class Inventory {
 
     /**
      * An inventory is a class that manages items
-     *
      */
     private final static int INVENTORY_LIMIT = 10;
     private final ArrayList<Item> items = new ArrayList<>();
@@ -56,7 +56,6 @@ public class Inventory {
     }
 
     /**
-     *
      * Adds an item to the inventory. An item is not added to the inventory iff the inventory is full.
      *
      * @param item The item to be added to the inventory
@@ -64,7 +63,7 @@ public class Inventory {
      */
 
     public boolean addItem(Item item) {
-        if(isFull()){
+        if (isFull()) {
             return false;
         }
         this.items.add(item);
@@ -76,54 +75,55 @@ public class Inventory {
      * Removes ONE instance of an item from the inventory that has the same itemName.
      *
      * @param itemName The name of item that should be removed
-     * @throws RuntimeException if itemName is not the name of an item in the inventory
+     * @throws NoSuchElementException if itemName is not the name of an item in the inventory
      * @see Item
      */
-    public void removeItem(String itemName) throws RuntimeException{
+    public void removeItem(String itemName) throws NoSuchElementException {
         for (int i = 0; i < numberOfItems(); i++) {
             if (this.items.get(i).getName().equals(itemName)) {
                 this.items.remove(i);
                 return;
             }
         }
-        throw new RuntimeException("An item of the given name was not found in the inventory");
+        throw new NoSuchElementException("An item of the given name was not found in the inventory");
     }
 
     /**
      * Uses the item on the given character
+     *
      * @param character The character to use the item on
-     * @param itemName The name of the item to use
-     * @throws RuntimeException if item is not usable or if the item is not in the inventory
+     * @param itemName  The name of the item to use
+     * @throws NoSuchElementException if item is not usable or if the item is not in the inventory
      * @see Item
      * @see Consumable
      */
 
-    public void useItem(BattleCharacter character, String itemName) throws RuntimeException{
-        for(int i = 0; i < numberOfItems(); i++){
+    public void useItem(BattleCharacter character, String itemName) throws NoSuchElementException {
+        for (int i = 0; i < numberOfItems(); i++) {
             Item item = this.items.get(i);
 
             if (item.getName().equals(itemName)) {
 
-                if(item instanceof Consumable){
-                    Consumable consumableItem = (Consumable) item;
+                if (item instanceof Consumable consumableItem) {
                     consumableItem.consume(character);
                     this.items.remove(i);
                     return;
 
                 } else {
 
-                    throw new RuntimeException("An item of the given name cannot be used");
+                    throw new NoSuchElementException("No item exists of this name that is usable");
 
                 }
             }
         }
 
-        throw new RuntimeException("An item of the given name was not found in the inventory");
+        throw new NoSuchElementException("An item of the given name was not found in the inventory");
 
     }
 
     /**
      * Returns if there is at LEAST one item in inventory with itemName
+     *
      * @param itemName the name of item that needs to be searched for
      * @return if there is an item in the inventory with a name that is itemName
      */

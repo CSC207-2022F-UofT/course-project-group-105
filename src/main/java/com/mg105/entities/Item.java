@@ -1,11 +1,11 @@
 package com.mg105.entities;
+
 public abstract class Item {
 
     /**
      * An item represents something that can be used in some manner to change something about the game environment
-     *
+     * <p>
      * Items can be used on characters, change something about a battle, or alter something else about the game.
-     *
      */
     final private String NAME;
     final private String DESCRIPTION;

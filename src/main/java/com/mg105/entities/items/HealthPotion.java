@@ -9,7 +9,6 @@ public class HealthPotion extends Item implements Consumable {
 
     /**
      * A health potion is an item that can be used to heal a character by a certain amount of points.
-     *
      */
 
     // This number could change later
@@ -24,7 +23,14 @@ public class HealthPotion extends Item implements Consumable {
         return HEALING_POINTS;
     }
 
-    public void consume(BattleCharacter character){
+    /**
+     * Heals the battleCharacter provided
+     *
+     * @param character the battleCharacter to use the item on
+     * @see Consumable
+     */
+    @Override
+    public void consume(BattleCharacter character) {
         character.modifyHealth(HEALING_POINTS);
 
     }
