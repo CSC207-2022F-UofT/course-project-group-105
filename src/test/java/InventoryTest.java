@@ -6,6 +6,8 @@ import com.mg105.entities.items.UpgradeToken;
 import com.mg105.utils.ItemConstants;
 import org.junit.jupiter.api.Test;
 
+import java.util.NoSuchElementException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class InventoryTest {
@@ -349,7 +351,27 @@ class InventoryTest {
         inventory.addItem(new HealthPotion());
         inventory.addItem(new HealthPotion());
 
-        assertThrows(RuntimeException.class, () -> inventory.useItem(character, ItemConstants.UPGRADE_TOKEN_NAME));
+        assertThrows(NoSuchElementException.class, () -> inventory.useItem(character, ItemConstants.UPGRADE_TOKEN_NAME));
+
+    }
+
+    @Test
+    void useItemSingle(){
+
+        BattleCharacter character = new BattleCharacter(1,"John", 2, 3,
+            new Move(1, 1), new Move(1, 1));
+
+        Inventory inventory = new Inventory();
+
+        inventory.addItem(new UpgradeToken());
+
+        inventory.useItem(character, ItemConstants.UPGRADE_TOKEN_NAME);
+
+        assertEquals(0, inventory.numberOfItems());
+
+        assertEquals(2, character.getMaxHp());
+        assertEquals(3, character.getDmg());
+        assertEquals(4, character.getSpeed());
 
     }
 
@@ -357,8 +379,10 @@ class InventoryTest {
     @Test
     void useItemHasUsableItems(){
 
-        BattleCharacter character = new BattleCharacter(1,"John", 1, 1,
+        BattleCharacter character = new BattleCharacter(100,"John", 1, 1,
             new Move(1, 1), new Move(1, 1));
+
+        character.modifyHealth(-10);
 
         Inventory inventory = new Inventory();
 
@@ -368,6 +392,8 @@ class InventoryTest {
         inventory.useItem(character, ItemConstants.HEALTH_POTION_NAME);
 
         assertEquals(1, inventory.numberOfItems());
+
+        assertEquals(100, character.getHp());
 
     }
 }
