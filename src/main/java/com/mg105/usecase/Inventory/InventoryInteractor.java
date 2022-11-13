@@ -45,10 +45,6 @@ public class InventoryInteractor {
 
         boolean addedItem = gameState.getInventory().addItem(itemFactory.createItem(itemName));
 
-        if (!addedItem) {
-            return response.addItemView(false, itemName, getItemCount(itemName));
-        }
-
         return response.addItemView(true, itemName, getItemCount(itemName));
     }
 
