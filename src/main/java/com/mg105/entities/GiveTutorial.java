@@ -7,6 +7,12 @@ public class GiveTutorial {
     private boolean attacked = false;
     private boolean usedItem = false;
 
+    public GiveTutorial(boolean moved, boolean attacked, boolean usedItem){
+        this.moved = moved;
+        this.attacked = attacked;
+        this.usedItem = usedItem;
+    }
+
     /**
      * Set moved, attacked, usedItem to true if they have been performed by player
      *
@@ -26,7 +32,7 @@ public class GiveTutorial {
     }
 
     /**
-     * Set moved, attacked, usedItem to true if they have been performed by player
+     * Get if player has moved, attacked, and usedItem.
      *
      * action should be a valid action
      *
