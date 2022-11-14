@@ -17,7 +17,8 @@ public class WalkingCharacter {
     /**
      * @return the coordinates that the walking character is at.
      */
-    public RoomPosition getCharPosition(RoomPosition position) {
+    public RoomPosition getCharPosition() {
         return this.charPosition;
     }
+}
 

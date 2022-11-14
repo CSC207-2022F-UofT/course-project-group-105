@@ -13,8 +13,9 @@ public class InventoryInteractor {
      * @param item The item to be added to the inventory
      * @return whether the item was added to the inventory
      */
-    public boolean addItem(Item item) {
+    public static boolean addItem(Item item) {
         return GameState.inventory.addItem(item);
+        // unsure how to fix these static issues because I don't know what GameState's going to look like
     }
 
     /**
@@ -22,7 +23,7 @@ public class InventoryInteractor {
      *
      * @return if the inventory is full.
      */
-    public boolean isInventoryFull() {
+    public static boolean isInventoryFull() {
         return GameState.inventory.isFull();
     }
 
