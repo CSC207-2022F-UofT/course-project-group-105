@@ -1,5 +1,6 @@
 package com.mg105.entities;
 
+import java.awt.*;
 import java.util.List;
 
 public class ChestVerifier {
@@ -12,16 +13,14 @@ public class ChestVerifier {
      *
      * @return the TreasureChest if chest is found. Otherwise, return null.
      */
-    public TreasureChest verifyChest() {
+    public static TreasureChest verifyChest() {
 
-        // there are issues here with static and nonstatic methods and I don't fully understand lmao
-
-        RoomPosition charPosition = GameState.walkingCharacter.charPosition;
-        Room room = GameState.walkingCharacter.currentRoom;
+        Point charPosition = GameState.walkingCharacter.charPosition;
+        Room room = GameState.getCurrentRoom;
         List<TreasureChest> chests = room.getChests();
-        List<RoomPosition> adjacents = PositionChecker.getAdjacents(charPosition);
+        List<Point> adjacents = PositionChecker.getAdjacents(charPosition);
 
-        for (RoomPosition adjacentSpot : adjacents) {
+        for (Point adjacentSpot : adjacents) {
             if (ChestLooper.compareLists(adjacentSpot, chests) != null) {
                 return ChestLooper.compareLists(adjacentSpot, chests);
             }

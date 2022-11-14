@@ -13,8 +13,7 @@ public class ChestItemGetter {
      */
     public void getChestItem() {
 
-        // there are issues here with static and nonstatic methods and I don't fully understand how to resolve lmao
-        // I have to make an instance of each class it's complaining about?
+        // there are issues here with static and nonstatic methods that I don't fully understand how to resolve lmao
 
         TreasureChest chest = ChestVerifier.verifyChest();
         // will this be an issue if the chest is null??
