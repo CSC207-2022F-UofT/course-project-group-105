@@ -1,23 +1,25 @@
 package com.mg105.entities;
 
-public class WalkingCharacter {
-    public RoomPosition charPosition;
+import java.awt.*;
 
-    public WalkingCharacter(RoomPosition position) {
+public class WalkingCharacter {
+    public Point charPosition;
+
+    public WalkingCharacter(Point position) {
         this.charPosition = position;
     }
 
     /**
      * Set the walking character's coordinates.
      */
-    public void setCharPosition(RoomPosition position) {
+    public void setCharPosition(Point position) {
         charPosition = position;
     }
 
     /**
      * @return the coordinates that the walking character is at.
      */
-    public RoomPosition getCharPosition() {
+    public Point getCharPosition() {
         return this.charPosition;
     }
 }
