@@ -1,8 +1,10 @@
 package com.mg105.entities;
 
+import java.awt.*;
+
 public class TreasureChest {
     private final Item reward;
-    private final RoomPosition position;
+    private final Point position;
     private boolean opened;
 
     /**
@@ -13,7 +15,7 @@ public class TreasureChest {
      * @param reward   the reward for opening the chest.
      * @param position the in-room position of the chest.
      */
-    public TreasureChest(Item reward, RoomPosition position) {
+    public TreasureChest(Item reward, Point position) {
         this.reward = reward;
         this.position = position;
         this.opened = false;
@@ -24,7 +26,7 @@ public class TreasureChest {
      *
      * @return the position of the chest.
      */
-    public RoomPosition getPosition() {
+    public Point getPosition() {
         return position;
     }
 

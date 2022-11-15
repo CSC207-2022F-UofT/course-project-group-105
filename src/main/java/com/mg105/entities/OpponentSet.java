@@ -1,9 +1,10 @@
 package com.mg105.entities;
 
+import java.awt.*;
 import java.util.List;
 
 public class OpponentSet {
-    private final RoomPosition position;
+    private final Point position;
     private final List<BattleCharacter> opponents;
 
     /**
@@ -14,7 +15,7 @@ public class OpponentSet {
      * @param position  the in-room position of this OpponentSet.
      * @param opponents the opponents that will need to be fought.
      */
-    public OpponentSet(RoomPosition position, List<BattleCharacter> opponents) {
+    public OpponentSet(Point position, List<BattleCharacter> opponents) {
         this.position = position;
         this.opponents = opponents;
     }
@@ -24,7 +25,7 @@ public class OpponentSet {
      *
      * @return the position of the OpponentSet.
      */
-    public RoomPosition getPosition() {
+    public Point getPosition() {
         return position;
     }
 
