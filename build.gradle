@@ -31,5 +31,5 @@ javafx {
 }
 
 application {
-    mainClassName = 'src/main/java/MountainClimberApp.java'
+    mainClassName = 'com.mg105.Main'
 }
