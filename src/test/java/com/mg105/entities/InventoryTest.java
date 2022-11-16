@@ -1,3 +1,5 @@
+package com.mg105.entities;
+
 import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.Inventory;
 import com.mg105.entities.Move;
