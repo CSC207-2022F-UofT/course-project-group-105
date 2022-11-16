@@ -19,19 +19,16 @@ public class ChestItemGetter {
         // will this be an issue if the chest is null??
 
         if (chest != null) {
-            boolean failure = InventoryInteractor.isInventoryFull();
-            if (!failure){
-                Item reward = chest.open();
-                InventoryInteractor.addItem(reward);
+            Item reward = chest.open();
+            success = InventoryInteractor.addItem(reward);
+            if (success) {
                 TextGenerator.generateText("chest", reward);
                 // get TextGenerator to write something about how a chest was opened and this item was added to inventory
             }
             else {
                 TextGenerator.generateText("inventory full");
                 // get TextGenerator to write something about how the chest can't be opened because the inventory is full
-
             }
-
         }
 
         //problem??? what if there are multiple adjacent chests? how do we stop that from happening?
