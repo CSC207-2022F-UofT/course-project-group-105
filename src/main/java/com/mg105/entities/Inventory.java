@@ -1,13 +1,11 @@
 package com.mg105.entities;
 
 import java.util.ArrayList;
-import java.util.NoSuchElementException;
 
+/**
+ * An inventory is a class that manages items
+ */
 public class Inventory {
-
-    /**
-     * An inventory is a class that manages items
-     */
     private final static int INVENTORY_LIMIT = 10;
     private final ArrayList<Item> items = new ArrayList<>();
 
@@ -75,17 +73,17 @@ public class Inventory {
      * Removes ONE instance of an item from the inventory that has the same itemName.
      *
      * @param itemName The name of item that should be removed
-     * @throws NoSuchElementException if itemName is not the name of an item in the inventory
+     * @return true iff an item with itemName was removed from the inventory
      * @see Item
      */
-    public void removeItem(String itemName) throws NoSuchElementException {
+    public boolean removeItem(String itemName) {
         for (int i = 0; i < numberOfItems(); i++) {
             if (this.items.get(i).getName().equals(itemName)) {
                 this.items.remove(i);
-                return;
+                return true;
             }
         }
-        throw new NoSuchElementException("An item of the given name was not found in the inventory");
+        return false;
     }
 
     /**
@@ -93,12 +91,12 @@ public class Inventory {
      *
      * @param character The character to use the item on
      * @param itemName  The name of the item to use
-     * @throws NoSuchElementException if item is not usable or if the item is not in the inventory
+     * @return true iff the item with a name of itemName was used
      * @see Item
      * @see Consumable
      */
 
-    public void useItem(BattleCharacter character, String itemName) throws NoSuchElementException {
+    public boolean useItem(BattleCharacter character, String itemName) {
         for (int i = 0; i < numberOfItems(); i++) {
             Item item = this.items.get(i);
 
@@ -107,17 +105,17 @@ public class Inventory {
                 if (item instanceof Consumable consumableItem) {
                     consumableItem.consume(character);
                     this.items.remove(i);
-                    return;
+                    return true;
 
                 } else {
 
-                    throw new NoSuchElementException("No item exists of this name that is usable");
+                    return false;
 
                 }
             }
         }
 
-        throw new NoSuchElementException("An item of the given name was not found in the inventory");
+        return false;
 
     }
 

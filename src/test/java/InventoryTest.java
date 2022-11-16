@@ -131,7 +131,7 @@ class InventoryTest {
         inventory.addItem(new UpgradeToken());
         assertTrue(inventory.addItem(new HealthPotion()));
 
-        assertTrue(!inventory.addItem(new UpgradeToken()));
+        assertFalse(inventory.addItem(new UpgradeToken()));
 
     }
 
@@ -140,7 +140,7 @@ class InventoryTest {
 
         Inventory inventory = new Inventory();
 
-        assertThrows(RuntimeException.class, () -> inventory.removeItem(ItemConstants.HEALTH_POTION_NAME));
+        assertFalse(inventory.removeItem(ItemConstants.HEALTH_POTION_NAME));
 
 
     }
@@ -178,9 +178,9 @@ class InventoryTest {
 
         assertEquals(0, inventory.numberOfItems());
 
-        assertThrows(RuntimeException.class, () -> inventory.removeItem(ItemConstants.UPGRADE_TOKEN_NAME));
+        assertFalse(inventory.removeItem(ItemConstants.UPGRADE_TOKEN_NAME));
 
-        assertThrows(RuntimeException.class, () -> inventory.removeItem(ItemConstants.HEALTH_POTION_NAME));
+        assertFalse(inventory.removeItem(ItemConstants.HEALTH_POTION_NAME));
 
 
     }
@@ -202,7 +202,7 @@ class InventoryTest {
 
         assertEquals(3, inventory.numberOfItems());
 
-        assertThrows(RuntimeException.class, () -> inventory.removeItem(ItemConstants.HEALTH_POTION_NAME));
+        assertFalse(inventory.removeItem(ItemConstants.HEALTH_POTION_NAME));
 
         assertEquals(3, inventory.numberOfItems());
 
@@ -231,7 +231,7 @@ class InventoryTest {
         inventory.removeItem(ItemConstants.HEALTH_POTION_NAME);
 
 
-        assertThrows(RuntimeException.class, () -> inventory.removeItem(ItemConstants.HEALTH_POTION_NAME));
+        assertFalse(inventory.removeItem(ItemConstants.HEALTH_POTION_NAME));
 
         assertEquals(2, inventory.numberOfItems());
 
@@ -257,6 +257,7 @@ class InventoryTest {
         assertEquals(0, inventory.numberOfItems(ItemConstants.HEALTH_POTION_NAME));
 
     }
+
     @Test
     void numberOfItemsMultipleDifferent() {
 
@@ -277,7 +278,7 @@ class InventoryTest {
 
         Inventory inventory = new Inventory();
 
-        assertTrue(!inventory.has(ItemConstants.UPGRADE_TOKEN_NAME));
+        assertFalse(inventory.has(ItemConstants.UPGRADE_TOKEN_NAME));
     }
 
     @Test
@@ -287,7 +288,7 @@ class InventoryTest {
         inventory.addItem(new HealthPotion());
 
 
-        assertTrue(!inventory.has(ItemConstants.UPGRADE_TOKEN_NAME));
+        assertFalse(inventory.has(ItemConstants.UPGRADE_TOKEN_NAME));
         assertTrue(inventory.has(ItemConstants.HEALTH_POTION_NAME));
 
     }
@@ -301,7 +302,7 @@ class InventoryTest {
         inventory.addItem(new HealthPotion());
 
 
-        assertTrue(!inventory.has(ItemConstants.UPGRADE_TOKEN_NAME));
+        assertFalse(inventory.has(ItemConstants.UPGRADE_TOKEN_NAME));
         assertTrue(inventory.has(ItemConstants.HEALTH_POTION_NAME));
 
     }
@@ -334,16 +335,16 @@ class InventoryTest {
         assertTrue(inventory.has(ItemConstants.HEALTH_POTION_NAME));
         inventory.removeItem(ItemConstants.UPGRADE_TOKEN_NAME);
         inventory.removeItem(ItemConstants.UPGRADE_TOKEN_NAME);
-        assertTrue(!inventory.has(ItemConstants.UPGRADE_TOKEN_NAME));
+        assertFalse(inventory.has(ItemConstants.UPGRADE_TOKEN_NAME));
 
 
     }
 
 
     @Test
-    void useItemNotInInventory(){
+    void useItemNotInInventory() {
 
-        BattleCharacter character = new BattleCharacter(1,"John", 1, 1,
+        BattleCharacter character = new BattleCharacter(1, "John", 1, 1,
             new Move(1, 1), new Move(1, 1));
 
         Inventory inventory = new Inventory();
@@ -351,14 +352,14 @@ class InventoryTest {
         inventory.addItem(new HealthPotion());
         inventory.addItem(new HealthPotion());
 
-        assertThrows(NoSuchElementException.class, () -> inventory.useItem(character, ItemConstants.UPGRADE_TOKEN_NAME));
+        assertFalse(inventory.useItem(character, ItemConstants.UPGRADE_TOKEN_NAME));
 
     }
 
     @Test
-    void useItemSingle(){
+    void useItemSingle() {
 
-        BattleCharacter character = new BattleCharacter(1,"John", 2, 3,
+        BattleCharacter character = new BattleCharacter(1, "John", 2, 3,
             new Move(1, 1), new Move(1, 1));
 
         Inventory inventory = new Inventory();
@@ -377,9 +378,9 @@ class InventoryTest {
 
 
     @Test
-    void useItemHasUsableItems(){
+    void useItemHasUsableItems() {
 
-        BattleCharacter character = new BattleCharacter(100,"John", 1, 1,
+        BattleCharacter character = new BattleCharacter(100, "John", 1, 1,
             new Move(1, 1), new Move(1, 1));
 
         character.modifyHealth(-10);

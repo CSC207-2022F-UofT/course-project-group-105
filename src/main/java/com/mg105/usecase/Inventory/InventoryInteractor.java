@@ -2,100 +2,94 @@ package com.mg105.usecase.Inventory;
 
 import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.GameState;
-import com.mg105.entities.Inventory;
 import com.mg105.outputds.ItemDetails;
 import com.mg105.presenterinterfaces.InventoryPresenterInterface;
 import com.mg105.utils.ItemConstants;
 import com.mg105.utils.PartyConstants;
 
-import java.util.NoSuchElementException;
+/**
+ * This class is the only class that should directly interact with the inventory
+ * <p>
+ * It is responsible for all things related to get information from the inventory and updating the
+ * inventory.
+ */
 
 public class InventoryInteractor {
 
-    /**
-     * This class is the only class that should directly interact with the inventory
-     * <p>
-     * It is responsible for all things related to get information from the inventory and updating the
-     * inventory.
-     */
-
-    private final GameState gameState;
+    private final GameState state;
 
     private final ItemFactory itemFactory = new ItemFactory();
 
     private final InventoryPresenterInterface response;
 
     public InventoryInteractor(GameState gamestate, InventoryPresenterInterface response) {
-        this.gameState = gamestate;
+        this.state = gamestate;
         this.response = response;
     }
 
     /**
-     * Returns an object that represents if an item was successfully added
+     * Attempts to add an item to the inventory based on the itemName and sends action data to the
+     * appropriate class
      *
      * @param itemName the name of the item to be added
-     * @return the state of the item in the inventory and a description on if the item was added
      * @see InventoryPresenterInterface
      */
 
-    public String[] addItem(String itemName) {
+    public void addItem(String itemName) {
         if (!itemKindExists(itemName)) {
-            return response.addItemView(false, itemName, getItemCount(itemName));
+            response.addItemView(false, itemName, getItemCount(itemName));
+            return;
         }
 
-        boolean addedItem = gameState.getInventory().addItem(itemFactory.createItem(itemName));
+        boolean addedItem = state.getInventory().addItem(itemFactory.createItem(itemName));
 
-        return response.addItemView(true, itemName, getItemCount(itemName));
+        response.addItemView(addedItem, itemName, getItemCount(itemName));
     }
 
     /**
-     * Returns an object that represents if the item was removed
+     * Attempts to remove an item of itemName to the inventory and sends action data to the
+     * appropriate class
      *
      * @param itemName the name of the item to be removed
-     * @return the state of the item in the inventory and a description on if the item was removed
      * @see InventoryPresenterInterface
      */
 
-    public String[] removeItem(String itemName) {
+    public void removeItem(String itemName) {
 
-        if (!gameState.getInventory().has(itemName)) {
-            return response.removeItemView(false, itemName, getItemCount(itemName));
-        }
+        boolean isRemoved = state.getInventory().removeItem(itemName);
 
-        gameState.getInventory().removeItem(itemName);
-
-        return response.removeItemView(true, itemName, getItemCount(itemName));
+        response.removeItemView(isRemoved, itemName, getItemCount(itemName));
 
     }
 
     /**
-     * Returns an object that represents if an item was used
+     * Attempts to use an item of itemName and sends action data to the
+     * appropriate class
      *
      * @param itemName      the name of the item to be used
      * @param characterName the name of character the item should be used on
-     * @return the state of the item in the inventory and a description on if the item was used
      * @see InventoryPresenterInterface
      */
 
-    public String[] useItem(String itemName, String characterName) {
+    public void useItem(String itemName, String characterName) {
 
-        if (!(isItemUsable(itemName) && inParty(characterName) && gameState.getInventory().has(itemName))) {
-            return response.useItemView(false, itemName, characterName, getItemCount(itemName));
+        if (!(inParty(characterName))) {
+            response.useItemView(false, itemName, characterName, getItemCount(itemName));
+            return;
         }
-        BattleCharacter partyMember = gameState.getPartyMember(characterName);
-        gameState.getInventory().useItem(partyMember, itemName);
+        BattleCharacter partyMember = state.getPartyMember(characterName);
+        boolean isUsed = state.getInventory().useItem(partyMember, itemName);
 
-        return response.useItemView(true, itemName, characterName, getItemCount(itemName));
+        response.useItemView(isUsed, itemName, characterName, getItemCount(itemName));
     }
 
     /**
-     * Returns an object that represents the state of the inventory
+     * Collects data the represents the state of the inventory (i.e. the items in it and their details) and sends action
+     * data to the appropriate class
      *
-     * @return an array of arrays of strings that state of each item type in the inventory
      * @see InventoryPresenterInterface
      */
-    public String[][] getInventoryDetails() {
-        Inventory inventory = gameState.getInventory();
+    public void getInventoryDetails() {
         ItemDetails[] output = new ItemDetails[ItemConstants.ALL_ITEM_NAMES.length];
         for (int i = 0; i < ItemConstants.ALL_ITEM_NAMES.length; i++) {
             String itemName = ItemConstants.ALL_ITEM_NAMES[i];
@@ -106,7 +100,7 @@ public class InventoryInteractor {
             output[i] = new ItemDetails(itemName, itemDescription, numOfItems, isUsable);
         }
 
-        return response.inventoryDetailsView(output);
+        response.inventoryDetailsView(output);
 
     }
 
@@ -121,7 +115,7 @@ public class InventoryInteractor {
     }
 
     private int getItemCount(String itemName) {
-        return gameState.getInventory().numberOfItems(itemName);
+        return state.getInventory().numberOfItems(itemName);
     }
 
     private boolean inParty(String characterName) {
@@ -130,18 +124,7 @@ public class InventoryInteractor {
                 return true;
             }
         }
-
         return false;
-    }
-
-    private String getItemDescription(String itemName) throws NoSuchElementException {
-        for (int i = 0; i < ItemConstants.ALL_ITEM_NAMES.length; i++) {
-            if (ItemConstants.ALL_ITEM_NAMES[i].equals(itemName)) {
-                return ItemConstants.ALL_ITEM_DESCRIPTIONS[i];
-            }
-        }
-
-        throw new NoSuchElementException("Given Item Name does not exist");
     }
 
     private boolean isItemUsable(String itemName) {
