@@ -20,7 +20,7 @@ public class ChestItemGetter {
 
         if (chest != null) {
             Item reward = chest.open();
-            success = InventoryInteractor.addItem(reward);
+            boolean success = InventoryInteractor.addItem(reward);
             if (success) {
                 TextGenerator.generateText("chest", reward);
                 // get TextGenerator to write something about how a chest was opened and this item was added to inventory
