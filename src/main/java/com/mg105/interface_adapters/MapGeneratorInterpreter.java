@@ -8,7 +8,7 @@ import org.jetbrains.annotations.NotNull;
  * All it does is pass control on to the use case component of map generation.
  */
 public class MapGeneratorInterpreter {
-    private final MapGenerator generator;
+    private final @NotNull MapGenerator generator;
 
     /**
      * Create a new MapGeneratorInterpreter.
