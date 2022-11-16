@@ -1,6 +1,7 @@
 package com.mg105;
 
 import com.mg105.entities.GameState;
+import com.mg105.interface_adapters.MapGeneratorInterpreter;
 import com.mg105.use_cases.MapGenerator;
 
 /**
@@ -18,5 +19,8 @@ public class Main {
 
         // Setup the initial use cases
         MapGenerator mapGenerator = new MapGenerator(state);
+
+        // Setup the initial interface adapters
+        MapGeneratorInterpreter mapGeneratorInterpreter = new MapGeneratorInterpreter(mapGenerator);
     }
 }
