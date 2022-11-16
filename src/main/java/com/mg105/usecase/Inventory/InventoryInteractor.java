@@ -7,6 +7,8 @@ import com.mg105.presenterinterfaces.InventoryPresenterInterface;
 import com.mg105.utils.ItemConstants;
 import com.mg105.utils.PartyConstants;
 
+import java.util.NoSuchElementException;
+
 /**
  * This class is the only class that should directly interact with the inventory
  * <p>
@@ -37,13 +39,13 @@ public class InventoryInteractor {
 
     public void addItem(String itemName) {
         if (!itemKindExists(itemName)) {
-            response.addItemView(false, itemName, getItemCount(itemName));
+            response.addItemView(false, getItemDetails(itemName));
             return;
         }
 
         boolean addedItem = state.getInventory().addItem(itemFactory.createItem(itemName));
 
-        response.addItemView(addedItem, itemName, getItemCount(itemName));
+        response.addItemView(addedItem, getItemDetails(itemName));
     }
 
     /**
@@ -58,7 +60,7 @@ public class InventoryInteractor {
 
         boolean isRemoved = state.getInventory().removeItem(itemName);
 
-        response.removeItemView(isRemoved, itemName, getItemCount(itemName));
+        response.removeItemView(isRemoved, getItemDetails(itemName));
 
     }
 
@@ -74,13 +76,13 @@ public class InventoryInteractor {
     public void useItem(String itemName, String characterName) {
 
         if (!(inParty(characterName))) {
-            response.useItemView(false, itemName, characterName, getItemCount(itemName));
+            response.useItemView(false, characterName, getItemDetails(itemName));
             return;
         }
         BattleCharacter partyMember = state.getPartyMember(characterName);
         boolean isUsed = state.getInventory().useItem(partyMember, itemName);
 
-        response.useItemView(isUsed, itemName, characterName, getItemCount(itemName));
+        response.useItemView(isUsed, characterName, getItemDetails(itemName));
     }
 
     /**
@@ -102,6 +104,10 @@ public class InventoryInteractor {
 
         response.inventoryDetailsView(output);
 
+    }
+
+    private ItemDetails getItemDetails(String itemName) {
+        return new ItemDetails(itemName, getItemDescription(itemName), getItemCount(itemName), isItemUsable(itemName));
     }
 
     private Boolean itemKindExists(String itemName) {
@@ -135,5 +141,16 @@ public class InventoryInteractor {
         }
 
         return false;
+    }
+
+    private String getItemDescription(String itemName) {
+        for (int i = 0; i < ItemConstants.ALL_ITEM_NAMES.length; i++) {
+            if (ItemConstants.ALL_ITEM_NAMES[i].equals(itemName)) {
+                return ItemConstants.ALL_ITEM_DESCRIPTIONS[i];
+            }
+        }
+
+        // should only be called iff the itemName does not exist
+        return "";
     }
 }

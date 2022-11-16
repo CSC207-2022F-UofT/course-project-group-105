@@ -9,7 +9,6 @@ import com.mg105.entities.items.UpgradeToken;
 import com.mg105.outputds.ItemDetails;
 import com.mg105.presenterinterfaces.InventoryPresenterInterface;
 import com.mg105.utils.ItemConstants;
-import com.mg105.utils.PartyConstants;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -18,25 +17,26 @@ class InventoryInteractorTest {
 
     // Some implementation of the interface (it's not really important for the tests since it really only
     // testing if the interactor mutates the entities properly)
+
     InventoryPresenterInterface res = new InventoryPresenterInterface() {
         @Override
-        public String[] addItemView(boolean isSuccessful, String itemName, int itemCount) {
-            return new String[0];
+        public void addItemView(boolean isSuccessful, ItemDetails itemDetails) {
+
         }
 
         @Override
-        public String[] removeItemView(boolean isSuccessful, String itemName, int itemCount) {
-            return new String[0];
+        public void removeItemView(boolean isSuccessful, ItemDetails itemDetails) {
+
         }
 
         @Override
-        public String[] useItemView(boolean isSuccessful, String itemName, String characterName, int itemCount) {
-            return new String[0];
+        public void useItemView(boolean isSuccessful, String characterName, ItemDetails itemDetails) {
+
         }
 
         @Override
-        public String[][] inventoryDetailsView(ItemDetails[] allItemsDetails) {
-            return new String[0][];
+        public void inventoryDetailsView(ItemDetails[] allItemsDetails) {
+
         }
     };
 
