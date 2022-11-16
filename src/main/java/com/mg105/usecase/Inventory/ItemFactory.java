@@ -7,11 +7,11 @@ import com.mg105.utils.ItemConstants;
 
 import java.util.NoSuchElementException;
 
-public class ItemFactory {
+/**
+ * This classes sole responsibility is to create new items
+ */
 
-    /**
-     * This classes sole responsibility is to create new items
-     */
+public class ItemFactory {
 
     /**
      * Returns a new instance of an item given the item's name

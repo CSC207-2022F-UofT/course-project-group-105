@@ -5,11 +5,10 @@ import com.mg105.entities.Consumable;
 import com.mg105.entities.Item;
 import com.mg105.utils.ItemConstants;
 
+/**
+ * A health potion is an item that can be used to heal a character by a certain amount of points.
+ */
 public class HealthPotion extends Item implements Consumable {
-
-    /**
-     * A health potion is an item that can be used to heal a character by a certain amount of points.
-     */
 
     // This number could change later
 

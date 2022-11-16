@@ -1,14 +1,14 @@
 package com.mg105.outputds;
 
+/**
+ * This is a struct like class who's sole purpose is represent the state of a particular item in the inventory
+ */
 public class ItemDetails {
     private final int count;
     private final String description;
     private final String name;
     private final Boolean isUsable;
 
-    /**
-     * This is a struct like class who's sole purpose is represent the state of a particular item in the inventory
-     */
     public ItemDetails(String name, String description, int count, boolean isUsable) {
         this.name = name;
         this.description = description;

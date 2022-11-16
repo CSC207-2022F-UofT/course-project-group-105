@@ -2,13 +2,13 @@ package com.mg105.presenterinterfaces;
 
 import com.mg105.outputds.ItemDetails;
 
-public interface InventoryPresenterInterface {
+/**
+ * This interface should be implemented by the InventoryPresenter class
+ * <p>
+ * It represents the data that should be sent and displayed by the view
+ */
 
-    /**
-     * This interface should be implemented by the InventoryPresenter class
-     *
-     * It represents the data that should be displayed to the user
-     */
+public interface InventoryPresenterInterface {
 
     /**
      * Returns an object that represents the action of adding the item
