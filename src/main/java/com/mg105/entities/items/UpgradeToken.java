@@ -19,7 +19,7 @@ public class UpgradeToken extends Item implements Consumable {
     /**
      * Upgrades the stats of the given character
      *
-     * @param character the battleCharacter to use the item on
+     * @param character the BattleCharacter to use the item on
      */
     @Override
     public void consume(BattleCharacter character) {
