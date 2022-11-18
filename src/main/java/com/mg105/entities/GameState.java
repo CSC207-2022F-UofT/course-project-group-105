@@ -1,5 +1,7 @@
 package com.mg105.entities;
 
+import org.jetbrains.annotations.NotNull;
+
 public class GameState {
     private Room firstRoom;
     private Room lastRoom;
@@ -11,12 +13,10 @@ public class GameState {
      *
      * Additionally, the current room is also set as the first room.
      *
-     * Both firstRoom and lastRoom should not be null.
-     *
      * @param firstRoom the first room of the map (where the tutorial is played).
      * @param lastRoom  the end room of the map (where the game is won).
      */
-    public void setMap(Room firstRoom, Room lastRoom) {
+    public void setMap(@NotNull Room firstRoom, @NotNull Room lastRoom) {
         this.firstRoom = firstRoom;
         this.currentRoom = firstRoom;
         this.lastRoom = lastRoom;
