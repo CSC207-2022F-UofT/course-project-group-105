@@ -43,6 +43,15 @@ public class GameState {
 
         throw new NoSuchElementException("No Battle Character with this name exists");
     }
+    
+    /**
+     * Get the current WalkingCharacter the user is controlling.
+     *
+     * @return the walkingCharacter.
+     */
+    public WalkingCharacter getWalkingCharacter() {
+        return walkingCharacter;
+    }
 
     /**
      * Swap out the map of the game state to a new one defined by an interconnected graph between firstRoom and
@@ -68,15 +77,6 @@ public class GameState {
      */
     public Room getCurrentRoom() {
         return currentRoom;
-    }
-
-    /**
-     * Get the room the player happes to currently be in.
-     *
-     * @return the current room.
-     */
-    public WalkingCharacter getWalkingCharacter() {
-        return walkingCharacter;
     }
 
     /**

@@ -1,7 +1,9 @@
 package com.mg105.entities;
 
+import java.awt.*;
+
 public class Doorway {
-    private final RoomPosition position;
+    private final Point position;
     private final Room nextRoom;
 
     /**
@@ -10,7 +12,7 @@ public class Doorway {
      * @param position the in-room position of this doorway.
      * @param nextRoom the room that should be travelled to if this doorway is entered.
      */
-    public Doorway(RoomPosition position, Room nextRoom) {
+    public Doorway(Point position, Room nextRoom) {
         this.position = position;
         this.nextRoom = nextRoom;
     }
@@ -20,7 +22,7 @@ public class Doorway {
      *
      * @return the position of the doorway.
      */
-    public RoomPosition getPosition() {
+    public Point getPosition() {
         return position;
     }
 
