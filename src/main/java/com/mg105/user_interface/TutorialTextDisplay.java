@@ -9,7 +9,7 @@ import java.awt.*;
 
 
 public class TutorialTextDisplay {
-    public TutorialTextController tutorialControl = new TutorialTextController();
+    private final TutorialTextController tutorialControl = new TutorialTextController();
 
     public TutorialTextDisplay() {
     }
@@ -23,7 +23,7 @@ public class TutorialTextDisplay {
      */
     public String showBottomText(String displayedText) {
         String tutorialText;
-        int phase_idx = tutorialControl.tutorial.allPhases().indexOf(displayedText);
+        int phase_idx = tutorialControl.getTutorial().allPhases().indexOf(displayedText);
         tutorialText = TutorialTexts.PHASES_TEXT.get(phase_idx);
         return tutorialText;
 
@@ -38,6 +38,15 @@ public class TutorialTextDisplay {
         Label bottomText = new Label();
         bottomText.setFont(Font.font(TutorialTexts.textSize));
         return bottomText;
+    }
+
+    /**
+     * Get a tutorial controller which is used to switch text
+     *
+     * @return instance of the controller
+     */
+    public TutorialTextController getController() {
+        return this.tutorialControl;
     }
 }
 

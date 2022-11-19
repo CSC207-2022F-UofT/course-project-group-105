@@ -6,7 +6,7 @@ import com.mg105.utils.TutorialTexts;
 
 public class TutorialTextController {
 
-    public PlayerGetsTutorial tutorial = new PlayerGetsTutorial(TutorialTexts.PHASES, 0, new GiveTutorial(false, false, false));
+    private final PlayerGetsTutorial tutorial = new PlayerGetsTutorial(TutorialTexts.PHASES, 0, new GiveTutorial(false, false, false));
 
     public TutorialTextController() {
     }
@@ -24,6 +24,15 @@ public class TutorialTextController {
      * Go to the next tutorial phase
      */
     public void nextPhase() { this.tutorial.nextPhase(); }
+
+    /**
+     * Get an instance of the PlayerGetsTutorial use case
+     *
+     * @ return the tutorial instance
+     */
+    public PlayerGetsTutorial getTutorial() {
+        return this.tutorial;
+    }
 
 }
 

@@ -51,10 +51,10 @@ public class TutorialTest {
     @Test
     void testTutorialBottomText(){
         TutorialTextDisplay tutorialDisplay = new TutorialTextDisplay();
-        tutorialDisplay. tutorialControl.nextPhase();
-        tutorialDisplay. tutorialControl.nextPhase();
-        int phase_num = tutorialDisplay.tutorialControl.tutorial.currentPhase();
-        String phase = tutorialDisplay.tutorialControl.tutorial.allPhases().get(phase_num);
+        tutorialDisplay.getController().nextPhase();
+        tutorialDisplay.getController().nextPhase();
+        int phase_num = tutorialDisplay.getController().getTutorial().currentPhase();
+        String phase = tutorialDisplay.getController().getTutorial().allPhases().get(phase_num);
         String tutorialText = tutorialDisplay.showBottomText(phase);
         String expected = "Move your character with the arrow keys.";
         assertEquals(tutorialText, expected);

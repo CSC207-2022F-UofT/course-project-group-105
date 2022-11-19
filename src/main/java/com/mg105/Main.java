@@ -25,7 +25,7 @@ public class Main extends Application {
      *
      * @param args the commandline arguments.  They are passed to JavaFX.
      */
-    private TutorialTextDisplay tutorialDisplay = new TutorialTextDisplay();
+    private final TutorialTextDisplay tutorialDisplay = new TutorialTextDisplay();
     private Label bottomText;
 
     public static void main(String[] args) {
@@ -96,9 +96,9 @@ public class Main extends Application {
             // 5e9 is 5 seconds
             if (timeChange > 4e9) {
                 prevTime = now;
-                tutorialDisplay. tutorialControl.nextPhase();
-                int phase_num = tutorialDisplay.tutorialControl.tutorial.currentPhase();
-                String tutorialText = tutorialDisplay.tutorialControl.tutorial.allPhases().get(phase_num);
+                tutorialDisplay.getController().nextPhase();
+                int phase_num = tutorialDisplay.getController().getTutorial().currentPhase();
+                String tutorialText = tutorialDisplay.getController().getTutorial().allPhases().get(phase_num);
                 bottomText.setText(tutorialDisplay.showBottomText(tutorialText));
 
             }
