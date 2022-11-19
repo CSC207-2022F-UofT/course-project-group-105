@@ -1,12 +1,16 @@
 package com.mg105;
 
+import com.mg105.controllers.InventoryController;
 import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.GameState;
 import com.mg105.entities.Inventory;
 import com.mg105.entities.Move;
 import com.mg105.interface_adapters.MapGeneratorInterpreter;
+import com.mg105.presenters.InventoryPresenter;
 import com.mg105.use_cases.MapGenerator;
+import com.mg105.use_cases.inventory.InventoryInteractor;
 import com.mg105.user_interface.MapGeneratorButton;
+import com.mg105.user_interface.inventory.InventoryDisplay;
 import com.mg105.utils.PartyConstants;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -39,11 +43,17 @@ public class Main extends Application {
         // Set up should probably be moved to private method(s) or separate class?
         Inventory inventory = new Inventory();
         BattleCharacter[] party = new BattleCharacter[PartyConstants.ALL_PARTY_MEMBER_NAMES.length];
-        for(int i = 0; i < PartyConstants.ALL_PARTY_MEMBER_NAMES.length; i++){
+        for (int i = 0; i < PartyConstants.ALL_PARTY_MEMBER_NAMES.length; i++) {
             party[i] = new BattleCharacter(1, PartyConstants.ALL_PARTY_MEMBER_NAMES[i],
-                1,1, new Move(1, 1), new Move(1, 1));
+                1, 1, new Move(1, 1), new Move(1, 1));
         }
         GameState state = new GameState(inventory, party);
+
+        // Inventory set up
+        InventoryPresenter inventoryPresenter = new InventoryPresenter();
+        InventoryDisplay inventoryDisplay = new InventoryDisplay(new InventoryController(
+            new InventoryInteractor(state, inventoryPresenter)));
+        inventoryPresenter.setView(inventoryDisplay);
 
         // Set up the initial use cases
         MapGenerator mapGenerator = new MapGenerator(state);
@@ -55,8 +65,13 @@ public class Main extends Application {
         Button generateMapButton = new Button("Generate Map");
         generateMapButton.setOnAction(new MapGeneratorButton(mapGeneratorInterpreter));
 
+        Button displayInventoryButton = new Button("Show Inventory");
+        displayInventoryButton.setOnAction(e -> {
+            inventoryDisplay.display();
+        });
+
         StackPane mainMenuLayout = new StackPane();
-        mainMenuLayout.getChildren().add(generateMapButton);
+        mainMenuLayout.getChildren().addAll(generateMapButton, displayInventoryButton);
 
         Scene mainMenuScene = new Scene(mainMenuLayout);
 

@@ -23,7 +23,7 @@ import java.util.HashMap;
  */
 
 public class InventoryDisplay implements InventoryViewInterface {
-    private final VBox itemsDisplay = new VBox(10);
+    private VBox itemsDisplay;
     private final HashMap<String, HBox> itemNameToInfo = new HashMap<>();
     private final Stage window = new Stage();
     private InventoryController controller;
@@ -37,7 +37,7 @@ public class InventoryDisplay implements InventoryViewInterface {
         return this.characterSelected;
     }
 
-    private ComboBox<String> buildCharacterDropdown() {
+    private @NotNull ComboBox<String> buildCharacterDropdown() {
         ComboBox<String> partySelector = new ComboBox<>();
         partySelector.getItems().addAll(PartyConstants.ALL_PARTY_MEMBER_NAMES);
         partySelector.setOnAction(e -> {
@@ -47,6 +47,8 @@ public class InventoryDisplay implements InventoryViewInterface {
     }
 
     private @NotNull VBox buildLayout() {
+        this.itemsDisplay = new VBox(10);
+        controller.getInventoryDetails();
         VBox layout = new VBox(5, this.itemsDisplay, buildCharacterDropdown());
         Button closeButton = new Button("Close");
         closeButton.setOnAction(e -> this.window.close());
@@ -58,6 +60,7 @@ public class InventoryDisplay implements InventoryViewInterface {
      * displays the inventory to the user
      */
     public void display() {
+
         // Makes this modal and blocks user from performing events on other modals
         this.window.initModality(Modality.APPLICATION_MODAL);
 
@@ -67,8 +70,6 @@ public class InventoryDisplay implements InventoryViewInterface {
         this.window.setHeight(400);
 
         this.window.setResizable(false);
-
-        controller.getInventoryDetails();
 
         Scene scene = new Scene(buildLayout(), 200, 200, Color.LIGHTBLUE);
         this.window.setScene(scene);

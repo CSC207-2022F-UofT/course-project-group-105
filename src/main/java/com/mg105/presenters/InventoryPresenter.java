@@ -3,6 +3,7 @@ package com.mg105.presenters;
 import com.mg105.outputds.ItemDetails;
 import com.mg105.presenter_interfaces.InventoryPresenterInterface;
 import com.mg105.view_interfaces.InventoryViewInterface;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * A class whose purpose is to update the view with the current state of the inventory and update it based on
@@ -13,7 +14,13 @@ public class InventoryPresenter implements InventoryPresenterInterface {
 
     InventoryViewInterface display;
 
-    public InventoryPresenter(InventoryViewInterface view) {
+    /**
+     * Sets the view of the of this presenter
+     * This should be called right after the presenter is created
+     *
+     * @param view
+     */
+    public void setView(@NotNull InventoryViewInterface view) {
         this.display = view;
     }
 
