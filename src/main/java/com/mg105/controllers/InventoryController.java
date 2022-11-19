@@ -1,6 +1,6 @@
 package com.mg105.controllers;
 
-import com.mg105.usecase.Inventory.InventoryInteractor;
+import com.mg105.use_cases.inventory.InventoryInteractor;
 
 /**
  * A class that serves the UI and allows users to make the desired changes to the Inventory

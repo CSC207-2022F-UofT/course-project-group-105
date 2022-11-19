@@ -1,4 +1,4 @@
-package com.mg105.user_interface.inventory_display;
+package com.mg105.user_interface.inventory;
 
 import com.mg105.user_interface.AlertBox;
 import com.mg105.view_interfaces.InventoryViewInterface;
