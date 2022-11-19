@@ -11,7 +11,6 @@ public class InventoryController {
 
     public InventoryController(InventoryInteractor interactor) {
         this.interactor = interactor;
-
     }
 
     /**

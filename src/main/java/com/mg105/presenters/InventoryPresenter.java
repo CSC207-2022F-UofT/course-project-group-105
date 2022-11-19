@@ -19,6 +19,7 @@ public class InventoryPresenter implements InventoryPresenterInterface {
 
     /**
      * Send the information to update the exact state of the inventory to the view
+     * Should only be called right when the view is displayed
      *
      * @param allItemsDetails a list of object that represent a state of single item type in the inventory
      */
