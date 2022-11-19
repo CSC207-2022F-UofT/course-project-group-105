@@ -1,9 +1,13 @@
 package com.mg105;
 
+import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.GameState;
+import com.mg105.entities.Inventory;
+import com.mg105.entities.Move;
 import com.mg105.interface_adapters.MapGeneratorInterpreter;
 import com.mg105.use_cases.MapGenerator;
 import com.mg105.user_interface.MapGeneratorButton;
+import com.mg105.utils.PartyConstants;
 import com.mg105.user_interface.TutorialTextDisplay;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
@@ -41,7 +45,14 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         // Set up the initial entities
-        GameState state = new GameState();
+        // Set up should probably be moved to private method(s) or separate class?
+        Inventory inventory = new Inventory();
+        BattleCharacter[] party = new BattleCharacter[PartyConstants.ALL_PARTY_MEMBER_NAMES.length];
+        for(int i = 0; i < PartyConstants.ALL_PARTY_MEMBER_NAMES.length; i++){
+            party[i] = new BattleCharacter(1, PartyConstants.ALL_PARTY_MEMBER_NAMES[i],
+                1,1, new Move(1, 1), new Move(1, 1));
+        }
+        GameState state = new GameState(inventory, party);
 
         // Set up the initial use cases
         MapGenerator mapGenerator = new MapGenerator(state);
