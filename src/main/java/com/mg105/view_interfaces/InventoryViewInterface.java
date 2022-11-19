@@ -5,7 +5,7 @@ package com.mg105.view_interfaces;
  * modify the information of the Inventory
  */
 
-public interface InventoryView extends AlertBox {
+public interface InventoryViewInterface extends Alert {
 
     /**
      * Removes the item with the given name of the Inventory ui

@@ -5,7 +5,7 @@ package com.mg105.view_interfaces;
  * An interface that defines one function that alerts the user of something
  */
 
-public interface AlertBox {
+public interface Alert {
 
     /**
      * Display an alert to the user

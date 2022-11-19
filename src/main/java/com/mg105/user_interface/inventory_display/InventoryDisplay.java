@@ -1,7 +1,7 @@
 package com.mg105.user_interface.inventory_display;
 
 import com.mg105.user_interface.AlertBox;
-import com.mg105.view_interfaces.InventoryView;
+import com.mg105.view_interfaces.InventoryViewInterface;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.HBox;
@@ -13,11 +13,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import org.jetbrains.annotations.NotNull;
 
-import java.awt.*;
 import java.util.HashMap;
 
 // just for demonstration purposes (needs a lot more changes before it can actually be displayed)
-public class InventoryDisplay implements InventoryView {
+public class InventoryDisplay implements InventoryViewInterface {
 
     // Controller Attribute
 
@@ -58,6 +57,7 @@ public class InventoryDisplay implements InventoryView {
         return layout;
     }
 
+    @Override
     public void removeItemView(String name) {
         HBox itemInfo = itemNameToInfo.get(name);
         if (itemInfo == null) {
@@ -66,11 +66,13 @@ public class InventoryDisplay implements InventoryView {
         itemsDisplay.getChildren().remove(itemInfo);
     }
 
+    @Override
     public void alert(String msg) {
         AlertBox alert = new AlertBox();
         alert.display(msg);
     }
 
+    @Override
     public void addItemView(String name, String description, boolean isUsable, String quantity) {
         Label a = new Label(name);
         Label b = new Label(quantity);
@@ -79,6 +81,7 @@ public class InventoryDisplay implements InventoryView {
         itemNameToInfo.put(name, info);
     }
 
+    @Override
     public void changeItemView(String name, String description, boolean isUsable, String quantity) {
         HBox itemInfo = itemNameToInfo.get(name);
         if (itemInfo != null) {
