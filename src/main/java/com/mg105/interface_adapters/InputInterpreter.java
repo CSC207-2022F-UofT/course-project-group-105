@@ -6,42 +6,31 @@ import org.jetbrains.annotations.NotNull;
 import java.awt.*;
 
 /**
- * TODO
+ * InputInterpreter takes in keyboard inputs and distributes them to their appropriate use cases.
  */
 public class InputInterpreter {
     private final @NotNull CharacterMover mover;
 
     /**
-     * TODO
+     * Create a new InputInterpreter that translates keyboard inputs to appropriate function invocations.
      *
-     * @param mover
+     * @param mover the character mover.
      */
     public InputInterpreter(@NotNull CharacterMover mover) {
         this.mover = mover;
     }
 
     /**
-     * TODO
+     * Interpret key being pressed as an action.
      *
-     * @param key
+     * @param key the key being pressed as a string.
      */
     public void interpret(String key) {
         switch (key) {
-            case "w":
-                mover.generateMapMoveBy(new Point(0, -1));
-                break;
-
-            case "a":
-                mover.generateMapMoveBy(new Point(-1, 0));
-                break;
-
-            case "s":
-                mover.generateMapMoveBy(new Point(0, 1));
-                break;
-
-            case "d":
-                mover.generateMapMoveBy(new Point(1, 0));
-                break;
+            case "w" -> mover.generateMapMoveBy(new Point(0, -1));
+            case "a" -> mover.generateMapMoveBy(new Point(-1, 0));
+            case "s" -> mover.generateMapMoveBy(new Point(0, 1));
+            case "d" -> mover.generateMapMoveBy(new Point(1, 0));
         }
     }
 }

@@ -1,11 +1,13 @@
 package com.mg105.use_cases;
 
 /**
- * TODO
+ * RoomUpdater interface defines an object that needs to be told when the room updates.
  */
 public interface RoomUpdater {
     /**
-     * TODO
+     * Update the current visual representation of the room.
+     *
+     * It only needs to be called on changes to the underlying room.
      */
-    public void updateRoom();
+    void updateRoom();
 }

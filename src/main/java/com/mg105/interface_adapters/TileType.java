@@ -1,7 +1,7 @@
 package com.mg105.interface_adapters;
 
 /**
- * TODO
+ * Types of tiles that can appear within a room.
  */
 public enum TileType {
     FLOOR,

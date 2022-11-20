@@ -7,8 +7,6 @@ import com.mg105.presenterinterfaces.InventoryPresenterInterface;
 import com.mg105.utils.ItemConstants;
 import com.mg105.utils.PartyConstants;
 
-import java.util.NoSuchElementException;
-
 /**
  * This class is the only class that should directly interact with the inventory
  * <p>

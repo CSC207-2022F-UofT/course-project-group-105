@@ -1,8 +1,9 @@
 package com.mg105.entities;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.awt.*;
 import java.util.NoSuchElementException;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * A class that represents the state of the game

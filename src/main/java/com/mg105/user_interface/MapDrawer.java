@@ -7,16 +7,13 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * TODO
+ * MapDrawer draws the map as a grid of tiles.
  */
 public class MapDrawer implements RoomUpdater {
     private @NotNull RoomInterpreter interpreter;
@@ -27,9 +24,9 @@ public class MapDrawer implements RoomUpdater {
     private @NotNull Map<TileType, Image> tiles;
 
     /**
-     * TODO
+     * Create an instance of MapDrawer.
      *
-     * @param interpreter
+     * @param interpreter the room interpreter used to format the data in an acceptable way for this class.
      */
     public MapDrawer(@NotNull RoomInterpreter interpreter) {
         this.interpreter = interpreter;
@@ -47,16 +44,17 @@ public class MapDrawer implements RoomUpdater {
     }
 
     /**
-     * TODO
+     * Get the scene that will be used to draw to.
      *
-     * @return
+     * @return the scene that the MapDrawer will draw to.
      */
     public Scene getScene() {
         return scene;
     }
 
     /**
-     * TODO
+     * Redraw the current room.  This method only needs to be called if something has changed in the underlying
+     * current room.
      */
     @Override
     public void updateRoom() {

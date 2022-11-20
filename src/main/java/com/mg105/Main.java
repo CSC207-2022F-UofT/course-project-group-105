@@ -5,26 +5,16 @@ import com.mg105.entities.GameState;
 import com.mg105.entities.Inventory;
 import com.mg105.entities.Move;
 import com.mg105.interface_adapters.InputInterpreter;
-import com.mg105.interface_adapters.MapGeneratorInterpreter;
 import com.mg105.interface_adapters.RoomInterpreter;
 import com.mg105.use_cases.CharacterMover;
 import com.mg105.use_cases.MapGenerator;
 import com.mg105.use_cases.RoomGetter;
-import com.mg105.use_cases.RoomUpdater;
 import com.mg105.user_interface.InputListener;
 import com.mg105.user_interface.MapDrawer;
-import com.mg105.user_interface.MapGeneratorButton;
 import com.mg105.utils.PartyConstants;
 import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-
-import java.io.InputStream;
 
 /**
  * The main class that sets up the clean architecture mountain group 105 game!

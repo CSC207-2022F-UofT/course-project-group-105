@@ -7,33 +7,35 @@ import org.jetbrains.annotations.NotNull;
 import java.awt.*;
 
 /**
- * TODO
+ * RoomGetter is responsible for getting the state current room.
  */
 public class RoomGetter {
     private final @NotNull GameState state;
 
     /**
-     * TODO
+     * Create a new RoomGetter for a given sate.
      *
-     * @param state
+     * @param state the game state that this room getter operates on.
      */
     public RoomGetter(@NotNull GameState state) {
         this.state = state;
     }
 
     /**
-     * TODO
+     * Get the current room.
      *
-     * @return
+     * By definition this only gets the environment of the room.
+     *
+     * @return the current room.
      */
     public Room getCurrentRoom() {
         return state.getCurrentRoom();
     }
 
     /**
-     * TODO
+     * Get the position of the player in the room.
      *
-     * @return
+     * @return the position of the player in the room.
      */
     public Point getPositionInRoom() {
         return state.currentPosition;

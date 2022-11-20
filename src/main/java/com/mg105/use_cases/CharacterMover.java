@@ -5,15 +5,18 @@ import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
 
+/**
+ * Move the player within a room.
+ */
 public class CharacterMover {
     private final @NotNull GameState state;
     private final @NotNull RoomUpdater updater;
 
     /**
-     * TODO
+     * Create a CharacterMover to operate on state and to update the room visuals via the updater
      *
-     * @param state
-     * @param updater
+     * @param state   the current game state.
+     * @param updater something that will update the visual representation of the room on change.
      */
     public CharacterMover(@NotNull GameState state, @NotNull RoomUpdater updater) {
         this.state = state;
@@ -21,7 +24,7 @@ public class CharacterMover {
     }
 
     /**
-     * TODO
+     * Attempt to move by direction.  Taking to account walls, chests, battles, exits, etc.
      *
      * @param direction the direction to move. The direction must have a magnitude of 1 and be in exactly one
      *                  cardinal direction.

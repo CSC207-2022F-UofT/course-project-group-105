@@ -10,24 +10,26 @@ import org.jetbrains.annotations.NotNull;
 import java.awt.*;
 
 /**
- * TODO
+ * RoomInterpreter interprets the current room in a format that is easier to draw from.
  */
 public class RoomInterpreter {
     private final @NotNull RoomGetter getter;
 
     /**
-     * TODO
+     * Create a new RoomInterpreter that will get its information from getter.
      *
-     * @param getter
+     * @param getter the information source for the RoomInterpreter.
      */
     public RoomInterpreter(@NotNull RoomGetter getter) {
         this.getter = getter;
     }
 
     /**
-     * TODO
+     * Get the current room as represented in an easier to draw grid.
      *
-     * @return
+     * @return the room as a 2 dimension array of TileType representing the current state of the room. Note that (0, 0)
+     *         represents the top-left corner and (MapConstants.ROOM_SIZE, MapConstants.ROOM_SIZE) represents the bottom
+     *         right corner.
      */
     public TileType[][] getCurrentRoom() {
         TileType[][] canvas = new TileType[8][8];
