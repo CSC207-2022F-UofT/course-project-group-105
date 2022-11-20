@@ -5,6 +5,7 @@ import com.mg105.entities.OpponentSet;
 import com.mg105.entities.Room;
 import com.mg105.entities.TreasureChest;
 import com.mg105.use_cases.RoomGetter;
+import com.mg105.utils.MapConstants;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
@@ -32,19 +33,19 @@ public class RoomInterpreter {
      *         right corner.
      */
     public TileType[][] getCurrentRoom() {
-        TileType[][] canvas = new TileType[8][8];
+        TileType[][] canvas = new TileType[MapConstants.ROOM_SIZE][MapConstants.ROOM_SIZE];
 
-        for (int y = 1; y < 7; y++) {
-            for (int x = 1; x < 7; x++) {
+        for (int y = 1; y < MapConstants.ROOM_SIZE-1; y++) {
+            for (int x = 1; x < MapConstants.ROOM_SIZE-1; x++) {
                 canvas[y][x] = TileType.FLOOR;
             }
         }
 
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < MapConstants.ROOM_SIZE; i++) {
             canvas[0][i] = TileType.WALL;
-            canvas[7][i] = TileType.WALL;
             canvas[i][0] = TileType.WALL;
-            canvas[i][7] = TileType.WALL;
+            canvas[MapConstants.ROOM_SIZE-1][i] = TileType.WALL;
+            canvas[i][MapConstants.ROOM_SIZE-1] = TileType.WALL;
         }
 
         Room room = getter.getCurrentRoom();

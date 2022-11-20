@@ -3,6 +3,7 @@ package com.mg105.user_interface;
 import com.mg105.interface_adapters.RoomInterpreter;
 import com.mg105.interface_adapters.TileType;
 import com.mg105.use_cases.RoomUpdater;
+import com.mg105.utils.MapConstants;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -16,12 +17,12 @@ import java.util.Map;
  * MapDrawer draws the map as a grid of tiles.
  */
 public class MapDrawer implements RoomUpdater {
-    private @NotNull RoomInterpreter interpreter;
+    private final @NotNull RoomInterpreter interpreter;
 
-    private @NotNull Scene scene;
-    private @NotNull Group group;
+    private final @NotNull Scene scene;
+    private final @NotNull Group group;
 
-    private @NotNull Map<TileType, Image> tiles;
+    private final @NotNull Map<TileType, Image> tiles;
 
     /**
      * Create an instance of MapDrawer.
@@ -32,7 +33,11 @@ public class MapDrawer implements RoomUpdater {
         this.interpreter = interpreter;
 
         group = new Group();
-        scene = new Scene(group, 8*32, 8*32);
+        scene = new Scene(
+            group,
+            MapConstants.ROOM_SIZE*MapConstants.TILE_SIZE,
+            MapConstants.ROOM_SIZE*MapConstants.TILE_SIZE
+        );
 
         tiles = new HashMap<>(6);
         tiles.put(TileType.FLOOR, new Image(RoomUpdater.class.getResourceAsStream("/tiles/floor.png")));
@@ -48,7 +53,7 @@ public class MapDrawer implements RoomUpdater {
      *
      * @return the scene that the MapDrawer will draw to.
      */
-    public Scene getScene() {
+    public @NotNull Scene getScene() {
         return scene;
     }
 
@@ -62,13 +67,15 @@ public class MapDrawer implements RoomUpdater {
 
         group.getChildren().clear();
 
-        for (int y = 0; y < room.length; y++) {
-            for (int x = 0; x < room.length; x++) {
+        for (int y = 0; y < MapConstants.ROOM_SIZE; y++) {
+            for (int x = 0; x < MapConstants.ROOM_SIZE; x++) {
                 ImageView tile = new ImageView(tiles.get(room[y][x]));
 
                 tile.setPreserveRatio(true);
-                tile.setX(x * 32);
-                tile.setY(y * 32);
+                tile.setX(x * MapConstants.TILE_SIZE);
+                tile.setY(y * MapConstants.TILE_SIZE);
+                tile.setFitHeight(MapConstants.TILE_SIZE);
+                tile.setFitWidth(MapConstants.TILE_SIZE);
 
                 group.getChildren().add(tile);
             }

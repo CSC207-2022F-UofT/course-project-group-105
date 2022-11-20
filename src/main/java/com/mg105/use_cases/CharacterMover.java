@@ -1,6 +1,7 @@
 package com.mg105.use_cases;
 
 import com.mg105.entities.*;
+import com.mg105.utils.MapConstants;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
@@ -42,11 +43,13 @@ public class CharacterMover {
 
         Room room = state.getCurrentRoom();
 
-        if (nextPosition.x == 0 || nextPosition.x == 7 ||
-            nextPosition.y == 0 || nextPosition.y == 7) {
+        // walls are not impassible
+        if (nextPosition.x == 0 || nextPosition.x == MapConstants.ROOM_SIZE-1 ||
+            nextPosition.y == 0 || nextPosition.y == MapConstants.ROOM_SIZE-1) {
             nextPositionValid = false;
         }
 
+        // doorways are can be passed and embedded in a wall
         for (Doorway doorway : room.getDoorways()) {
             if (doorway.getPosition().equals(nextPosition)) {
                 nextPositionValid = true;
@@ -54,6 +57,7 @@ public class CharacterMover {
             }
         }
 
+        // treasure chests are impassible
         for (TreasureChest chest : room.getChests()) {
             if (chest.getPosition().equals(nextPosition)) {
                 nextPositionValid = false;
@@ -61,6 +65,7 @@ public class CharacterMover {
             }
         }
 
+        // opponentsets are impassible
         for (OpponentSet opponents : room.getOpponents()) {
             if (opponents.getPosition().equals(nextPosition)) {
                 nextPositionValid = false;
