@@ -44,17 +44,9 @@ public class CharacterMover {
         Room room = state.getCurrentRoom();
 
         // walls are not impassible
-        if (nextPosition.x == 0 || nextPosition.x == MapConstants.ROOM_SIZE-1 ||
-            nextPosition.y == 0 || nextPosition.y == MapConstants.ROOM_SIZE-1) {
+        if (nextPosition.x <= 0 || nextPosition.x >= MapConstants.ROOM_SIZE-1 ||
+            nextPosition.y <= 0 || nextPosition.y >= MapConstants.ROOM_SIZE-1) {
             nextPositionValid = false;
-        }
-
-        // doorways are can be passed and embedded in a wall
-        for (Doorway doorway : room.getDoorways()) {
-            if (doorway.getPosition().equals(nextPosition)) {
-                nextPositionValid = true;
-                break;
-            }
         }
 
         // treasure chests are impassible
@@ -69,6 +61,23 @@ public class CharacterMover {
         for (OpponentSet opponents : room.getOpponents()) {
             if (opponents.getPosition().equals(nextPosition)) {
                 nextPositionValid = false;
+                break;
+            }
+        }
+
+        // doorways are can be passed and are embedded in a wall
+        for (Doorway doorway : room.getDoorways()) {
+            if (doorway.getPosition().equals(nextPosition)) {
+                // TODO this is not supposed to be in this use case, but for time a hacky version is included here
+                Room nextRoom = doorway.getNextRoom();
+                state.setCurrentRoom(nextRoom);
+                for (Doorway nextDoorway : nextRoom.getDoorways()) {
+                    if (nextDoorway.getNextRoom() == room) {
+                        nextPosition = new Point(nextDoorway.getPosition());
+                        break;
+                    }
+                }
+                nextPositionValid = true;
                 break;
             }
         }

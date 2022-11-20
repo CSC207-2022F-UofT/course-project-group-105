@@ -73,7 +73,7 @@ public class GameState {
      *
      * @return the current room.
      */
-    public Room getCurrentRoom() {
+    public @NotNull Room getCurrentRoom() {
         return currentRoom;
     }
 
@@ -99,5 +99,14 @@ public class GameState {
         // we actually care that this is exactly the same instance of the room, not just two rooms that happen to have
         // the same configuration.
         return currentRoom == lastRoom;
+    }
+
+    /**
+     * Set the current room.  room must be graph-connected to the rest of the map.
+     *
+     * @param room the room to be set.
+     */
+    public void setCurrentRoom(@NotNull Room room) {
+        this.currentRoom = room;
     }
 }
