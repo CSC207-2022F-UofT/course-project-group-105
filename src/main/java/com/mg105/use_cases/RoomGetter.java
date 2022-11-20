@@ -4,6 +4,8 @@ import com.mg105.entities.GameState;
 import com.mg105.entities.Room;
 import org.jetbrains.annotations.NotNull;
 
+import java.awt.*;
+
 /**
  * TODO
  */
@@ -26,5 +28,14 @@ public class RoomGetter {
      */
     public Room getCurrentRoom() {
         return state.getCurrentRoom();
+    }
+
+    /**
+     * TODO
+     *
+     * @return
+     */
+    public Point getPositionInRoom() {
+        return state.currentPosition;
     }
 }

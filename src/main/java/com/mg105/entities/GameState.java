@@ -1,5 +1,6 @@
 package com.mg105.entities;
 
+import java.awt.*;
 import java.util.NoSuchElementException;
 import org.jetbrains.annotations.NotNull;
 
@@ -15,6 +16,8 @@ public class GameState {
     private Room currentRoom;
     private final BattleCharacter[] party;
     private final Inventory inventory;
+
+    public Point currentPosition = new Point(1,1); // TODO Temporary, remove when WalkingCharacter geets merged
 
     public GameState(Inventory inventory, BattleCharacter[] party) {
         this.inventory = inventory;

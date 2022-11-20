@@ -7,6 +7,8 @@ import com.mg105.entities.TreasureChest;
 import com.mg105.use_cases.RoomGetter;
 import org.jetbrains.annotations.NotNull;
 
+import java.awt.*;
+
 /**
  * TODO
  */
@@ -56,6 +58,9 @@ public class RoomInterpreter {
         for (OpponentSet opponents : room.getOpponents()) {
             canvas[opponents.getPosition().y][opponents.getPosition().x] = TileType.OPPONENT_SET;
         }
+
+        Point playerPosition = getter.getPositionInRoom();
+        canvas[playerPosition.y][playerPosition.x] = TileType.PLAYER;
 
         return canvas;
     }
