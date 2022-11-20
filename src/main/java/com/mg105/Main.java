@@ -5,16 +5,20 @@ import com.mg105.entities.GameState;
 import com.mg105.entities.Inventory;
 import com.mg105.entities.Move;
 import com.mg105.interface_adapters.InputInterpreter;
+import com.mg105.interface_adapters.MapGeneratorInterpreter;
 import com.mg105.interface_adapters.RoomInterpreter;
+import com.mg105.interface_adapters.Toggler;
 import com.mg105.use_cases.CharacterMover;
 import com.mg105.use_cases.MapGenerator;
 import com.mg105.use_cases.RoomGetter;
-import com.mg105.user_interface.InputListener;
-import com.mg105.user_interface.MapDrawer;
+import com.mg105.user_interface.*;
 import com.mg105.utils.PartyConstants;
 import javafx.application.Application;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * The main class that sets up the clean architecture mountain group 105 game!
@@ -46,20 +50,32 @@ public class Main extends Application {
         }
         GameState state = new GameState(inventory, party);
 
+        Map<Toggler.ToggleableComponent, Toggleable> drawableComponents = new HashMap<>();
+        // We fill this map in later because of the ordering of parameters
+        SceneController sceneController = new SceneController(
+            primaryStage,
+            drawableComponents,
+            Toggler.ToggleableComponent.MAP
+        );
+
         MapGenerator mapGenerator = new MapGenerator(state);
-        mapGenerator.generateMap();
+        MapGeneratorInterpreter mapGeneratorInterpreter = new MapGeneratorInterpreter(mapGenerator);
+        MapGeneratorButton generateMapButton = new MapGeneratorButton(mapGeneratorInterpreter, sceneController);
+        MainMenu mainMenu = new MainMenu(generateMapButton);
 
         RoomGetter roomGetter = new RoomGetter(state);
+        RoomInterpreter roomInterpreter = new RoomInterpreter(roomGetter);
+        MapDrawer mapDrawer = new MapDrawer(roomInterpreter);
 
-        MapDrawer mapDrawer = new MapDrawer(new RoomInterpreter(roomGetter));
-        mapDrawer.updateRoom();
+        drawableComponents.put(Toggler.ToggleableComponent.MAIN_MENU, mainMenu);
+        drawableComponents.put(Toggler.ToggleableComponent.MAP, mapDrawer);
 
         CharacterMover characterMover = new CharacterMover(state, mapDrawer);
-        InputInterpreter inputInterpreter = new InputInterpreter(characterMover);
+        InputInterpreter inputInterpreter = new InputInterpreter(characterMover, sceneController);
         InputListener inputListener = new InputListener(inputInterpreter);
         primaryStage.addEventFilter(KeyEvent.KEY_TYPED, inputListener);
 
-        primaryStage.setScene(mapDrawer.getScene());
+        sceneController.toggle(Toggler.ToggleableComponent.MAIN_MENU);
         primaryStage.setTitle("Mountain Group 105");
         primaryStage.setResizable(false);
         primaryStage.show();

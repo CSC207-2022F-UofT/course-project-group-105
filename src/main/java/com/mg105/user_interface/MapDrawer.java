@@ -16,11 +16,12 @@ import java.util.Map;
 /**
  * MapDrawer draws the map as a grid of tiles.
  */
-public class MapDrawer implements RoomUpdater {
+public class MapDrawer implements RoomUpdater, Toggleable {
     private final @NotNull RoomInterpreter interpreter;
 
     private final @NotNull Scene scene;
     private final @NotNull Group group;
+    private boolean isVisible;
 
     private final @NotNull Map<TileType, Image> tiles;
 
@@ -38,6 +39,7 @@ public class MapDrawer implements RoomUpdater {
             MapConstants.ROOM_SIZE*MapConstants.TILE_SIZE,
             MapConstants.ROOM_SIZE*MapConstants.TILE_SIZE
         );
+        isVisible = false;
 
         tiles = new HashMap<>(6);
         tiles.put(TileType.FLOOR, new Image(RoomUpdater.class.getResourceAsStream("/tiles/floor.png")));
@@ -46,6 +48,8 @@ public class MapDrawer implements RoomUpdater {
         tiles.put(TileType.CHEST, new Image(RoomUpdater.class.getResourceAsStream("/tiles/chest.png")));
         tiles.put(TileType.PLAYER, new Image(RoomUpdater.class.getResourceAsStream("/tiles/player.png")));
         tiles.put(TileType.OPPONENT_SET, new Image(RoomUpdater.class.getResourceAsStream("/tiles/battle.png")));
+        // While in theory getResourceAsStream can fail, in practice this will never happen because the images are
+        // bundled in the Jar.  If this isn't the case then the nullpointerexception is the least of your worries.
     }
 
     /**
@@ -53,8 +57,23 @@ public class MapDrawer implements RoomUpdater {
      *
      * @return the scene that the MapDrawer will draw to.
      */
+    @Override
     public @NotNull Scene getScene() {
         return scene;
+    }
+
+    /**
+     * Toggle the visibility of map drawer.  In this case we need to make sure the map drawing is up to date.
+     *
+     * @param isVisible true if the map is now visible, false otherwise.
+     */
+    @Override
+    public void toggle(boolean isVisible) {
+        this.isVisible = isVisible;
+
+        if (isVisible) {
+            updateRoom();
+        }
     }
 
     /**
@@ -63,6 +82,11 @@ public class MapDrawer implements RoomUpdater {
      */
     @Override
     public void updateRoom() {
+        if (!isVisible) {
+            // As per the specification of Toggleable, we do nothing if we are not visible.
+            return;
+        }
+
         TileType[][] room = interpreter.getCurrentRoom();
 
         group.getChildren().clear();

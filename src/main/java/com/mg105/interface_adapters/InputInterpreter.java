@@ -10,14 +10,16 @@ import java.awt.*;
  */
 public class InputInterpreter {
     private final @NotNull CharacterMover mover;
+    private final @NotNull Toggler toggler;
 
     /**
      * Create a new InputInterpreter that translates keyboard inputs to appropriate function invocations.
      *
      * @param mover the character mover.
      */
-    public InputInterpreter(@NotNull CharacterMover mover) {
+    public InputInterpreter(@NotNull CharacterMover mover, @NotNull Toggler toggler) {
         this.mover = mover;
+        this.toggler = toggler;
     }
 
     /**
@@ -26,11 +28,15 @@ public class InputInterpreter {
      * @param key the key being pressed as a string.
      */
     public void interpret(String key) {
-        switch (key) {
-            case "w" -> mover.generateMapMoveBy(new Point(0, -1));
-            case "a" -> mover.generateMapMoveBy(new Point(-1, 0));
-            case "s" -> mover.generateMapMoveBy(new Point(0, 1));
-            case "d" -> mover.generateMapMoveBy(new Point(1, 0));
+        switch (toggler.getCurrentComponent()) {
+            case MAP -> {
+                switch (key) {
+                    case "w" -> mover.generateMapMoveBy(new Point(0, -1));
+                    case "a" -> mover.generateMapMoveBy(new Point(-1, 0));
+                    case "s" -> mover.generateMapMoveBy(new Point(0, 1));
+                    case "d" -> mover.generateMapMoveBy(new Point(1, 0));
+                }
+            }
         }
     }
 }
