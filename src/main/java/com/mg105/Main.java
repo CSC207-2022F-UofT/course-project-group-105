@@ -26,14 +26,14 @@ import java.util.Map;
  * The main class that sets up the clean architecture mountain group 105 game!
  */
 public class Main extends Application {
+    private final TutorialTextDisplay tutorialDisplay = new TutorialTextDisplay();
+    private Label bottomText;
+
     /**
      * The main method.  See Main.start().
      *
      * @param args the commandline arguments.  They are passed to JavaFX.
      */
-    private final TutorialTextDisplay tutorialDisplay = new TutorialTextDisplay();
-    private Label bottomText;
-
     public static void main(String[] args) {
         Main.launch(args);
     }
