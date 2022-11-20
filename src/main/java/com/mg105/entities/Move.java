@@ -10,8 +10,8 @@ public class Move {
 
     private final String name;
 
-    public Move(int healthDamage, int damageChange, String name, boolean isFriendly) {
-        this.healthChange = healthDamage;
+    public Move(int healthChange, int damageChange, String name, boolean isFriendly) {
+        this.healthChange = healthChange;
         this.damageChange = damageChange;
         this.name = name;
         this.isFriendly = isFriendly;

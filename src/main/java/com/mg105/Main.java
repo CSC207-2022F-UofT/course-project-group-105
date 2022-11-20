@@ -38,11 +38,24 @@ public class Main extends Application {
         // Set up the initial entities
         // Set up should probably be moved to private method(s) or separate class?
         Inventory inventory = new Inventory();
-        BattleCharacter[] party = new BattleCharacter[PartyConstants.ALL_PARTY_MEMBER_NAMES.length];
-        for(int i = 0; i < PartyConstants.ALL_PARTY_MEMBER_NAMES.length; i++){
-            party[i] = new BattleCharacter(1, PartyConstants.ALL_PARTY_MEMBER_NAMES[i],
-                1,1, new Move(1, 1), new Move(1, 1));
-        }
+
+        BattleCharacter a = new BattleCharacter(30, "A", 4, 5, false,
+            new Move(-3, 0, "Slow swing", false),
+            new Move(0, -1, "Nullify", false));
+
+        BattleCharacter b = new BattleCharacter(20, "B", 6, 8, false,
+            new Move(-4, 0, "Strong swing", false),
+            new Move(3, 0, "Weak heal", true));
+
+        BattleCharacter c = new BattleCharacter(25, "C", 3, 6, false,
+            new Move(6, 0, "Strong heal", true),
+            new Move(2, 2, "Reinforce", true));
+
+        BattleCharacter d = new BattleCharacter(15, "D", 9, 10, false,
+            new Move(-5, 0, "Surprise attack", false),
+            new Move(-2, -2, "Sabotage", false));
+
+        BattleCharacter[] party = {a, b, c, d};
         GameState state = new GameState(inventory, party);
 
         // Set up the initial use cases

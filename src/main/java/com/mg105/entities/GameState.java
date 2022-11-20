@@ -16,36 +16,19 @@ public class GameState {
     private Room currentRoom;
     private final ArrayList<BattleCharacter> party;
     private final Inventory inventory;
-    
+
     private Battle currEncounter = null;
 
     //Potentially useless. Keeps track of party characters who faint in battle.
     private final ArrayList<BattleCharacter> fainted = new ArrayList<BattleCharacter>();
 
-    public GameState(Inventory inventory) {
+    public GameState(Inventory inventory, BattleCharacter[] party) {
         this.inventory = inventory;
-        //Create four characters (names, stats can be discussed later) and add them to the party.
-        BattleCharacter alan = new BattleCharacter(30, "Alan", 4, 5, false,
-            new Move(-3, 0, "Slow swing", false),
-            new Move(0, -1, "Nullify", false));
-
-        BattleCharacter beatrice = new BattleCharacter(20, "Beatrice", 6, 8, false,
-            new Move(-4, 0, "Strong swing", false),
-            new Move(3, 0, "Weak heal", true));
-
-        BattleCharacter callum = new BattleCharacter(25, "Callum", 3, 6, false,
-            new Move(6, 0, "Strong heal", true),
-            new Move(2, 2, "Reinforce", true));
-
-        BattleCharacter diana = new BattleCharacter(15, "Diana", 9, 10, false,
-            new Move(-5, 0, "Surprise attack", false),
-            new Move(-2, -2, "Sabotage", false));
-
         this.party = new ArrayList<BattleCharacter>();
-        party.add(alan);
-        party.add(beatrice);
-        party.add(callum);
-        party.add(diana);
+
+        for (BattleCharacter c : party) {
+            this.party.add(c);
+        }
     }
 
     /**

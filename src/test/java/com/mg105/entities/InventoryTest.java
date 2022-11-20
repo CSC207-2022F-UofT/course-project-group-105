@@ -346,8 +346,9 @@ class InventoryTest {
     @Test
     void useItemNotInInventory() {
 
-        BattleCharacter character = new BattleCharacter(1, "John", 1, 1,
-            new Move(1, 1), new Move(1, 1));
+        BattleCharacter character = new BattleCharacter(1, "John", 1, 1, false,
+            new Move(1, 1, "m1", true),
+            new Move(1, 1, "m2", true));
 
         Inventory inventory = new Inventory();
 
@@ -361,8 +362,9 @@ class InventoryTest {
     @Test
     void useItemSingle() {
 
-        BattleCharacter character = new BattleCharacter(1, "John", 2, 3,
-            new Move(1, 1), new Move(1, 1));
+        BattleCharacter character = new BattleCharacter(1, "John", 2, 3, false,
+            new Move(1, 1, "m1", true),
+            new Move(1, 1, "m2", true));
 
         Inventory inventory = new Inventory();
 
@@ -382,8 +384,9 @@ class InventoryTest {
     @Test
     void useItemHasUsableItems() {
 
-        BattleCharacter character = new BattleCharacter(100, "John", 1, 1,
-            new Move(1, 1), new Move(1, 1));
+        BattleCharacter character = new BattleCharacter(100, "John", 1, 1, false,
+            new Move(1, 1, "m1", true),
+            new Move(1, 1, "m2", true));
 
         character.modifyHealth(-10);
 

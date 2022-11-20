@@ -40,16 +40,17 @@ class InventoryInteractorTest {
         }
     };
 
-    BattleCharacter b1 = new BattleCharacter(1, "A", 2, 3,
-        new Move(0, 0), new Move(0, 0));
-    BattleCharacter b2 = new BattleCharacter(1, "B", 2, 3,
-        new Move(0, 0), new Move(0, 0));
-    BattleCharacter b3 = new BattleCharacter(1, "C", 2, 3,
-        new Move(0, 0), new Move(0, 0));
+    BattleCharacter b1 = new BattleCharacter(1, "A", 2, 3, false,
+        new Move(0, 0, "m1", false),
+        new Move(0, 0, "m2", false));
+    BattleCharacter b2 = new BattleCharacter(1, "B", 2, 3, false,
+        new Move(0, 0, "m1", false),
+        new Move(0, 0, "m2", false));
+    BattleCharacter b3 = new BattleCharacter(1, "C", 2, 3, false,
+        new Move(0, 0, "m1", false),
+        new Move(0, 0, "m2", false));
 
     BattleCharacter[] party = {b1, b2, b3};
-
-    //
 
     @Test
     void addItem() {

@@ -9,7 +9,7 @@ public class BattleCharacter implements Comparable<BattleCharacter> {
     private int maxHp;
     private final String name;
     private int dmg;
-    private final int speed;
+    private int speed;
 
     private boolean isOpponent;
 
@@ -133,10 +133,20 @@ public class BattleCharacter implements Comparable<BattleCharacter> {
     /**
      * Updates the character's attack damage by the given amount.
      *
-     * @param damageChange the amount by which the BattleCharacter's maximum hp should change.
+     * @param damageChange the amount by which the BattleCharacter's damage should change.
      */
     public void modifyDamage(int damageChange) {
         this.dmg += damageChange;
+    }
+
+    /**
+     * Updates the character's speed by the given amount.
+     * Only used outside active Battle.
+     *
+     * @param speedChange the amount by which the BattleCharacter's speed should change.
+     */
+    public void modifySpeed(int speedChange) {
+        this.speed += speedChange;
     }
 
     /**
