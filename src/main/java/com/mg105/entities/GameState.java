@@ -1,6 +1,7 @@
 package com.mg105.entities;
 
 import java.util.NoSuchElementException;
+import org.jetbrains.annotations.NotNull;
 
 public class GameState {
     private Room firstRoom;
