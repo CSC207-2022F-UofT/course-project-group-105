@@ -1,3 +1,5 @@
+package com.mg105.entities;
+
 import com.mg105.entities.Battle;
 import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.Move;
@@ -13,8 +15,8 @@ class BattleTest {
 
     @Test
     void getMovingCharacter() {
-        Move m1 = new Move(5, 0);
-        Move m2 = new Move(0, 1);
+        Move m1 = new Move(5, 0, "m1", false);
+        Move m2 = new Move(0, 1, "m2", false);
 
         BattleCharacter op1 = new BattleCharacter(10, "Michael", 10, 10, m1, m2);
         BattleCharacter op2 = new BattleCharacter(6, "Alex", 12, 14, m1, m2);
@@ -45,8 +47,8 @@ class BattleTest {
 
     @Test
     void removeChar() {
-        Move m1 = new Move(5, 0);
-        Move m2 = new Move(0, 1);
+        Move m1 = new Move(5, 0, "m1", false);
+        Move m2 = new Move(0, 1, "m2", false);
 
         BattleCharacter op1 = new BattleCharacter(10, "Michael", 10, 10, m1, m2);
         BattleCharacter op2 = new BattleCharacter(6, "Alex", 12, 14, m1, m2);

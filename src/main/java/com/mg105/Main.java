@@ -13,8 +13,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.awt.*;
@@ -51,7 +49,7 @@ public class Main extends Application {
         WalkingCharacter walkingCharacter = new WalkingCharacter(position);
         for(int i = 0; i < PartyConstants.ALL_PARTY_MEMBER_NAMES.length; i++){
             party[i] = new BattleCharacter(1, PartyConstants.ALL_PARTY_MEMBER_NAMES[i],
-                1,1, new Move(1, 1), new Move(1, 1));
+                1,1, new Move(1, 1, "m1", false), new Move(1, 1, "m2", false));
         }
         GameState state = new GameState(inventory, party, walkingCharacter);
 

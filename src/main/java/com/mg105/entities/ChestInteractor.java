@@ -3,7 +3,7 @@ package com.mg105.entities;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-import com.mg105.use_case.Inventory.InventoryInteractor;
+import com.mg105.use_cases.Inventory.InventoryInteractor;
 
 public class ChestInteractor {
 

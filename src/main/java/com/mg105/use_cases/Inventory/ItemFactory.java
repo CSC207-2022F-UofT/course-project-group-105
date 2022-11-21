@@ -1,4 +1,4 @@
-package com.mg105.use_case.Inventory;
+package com.mg105.use_cases.Inventory;
 import com.mg105.entities.items.*;
 import com.mg105.entities.Item;
 import com.mg105.utils.ItemConstants;

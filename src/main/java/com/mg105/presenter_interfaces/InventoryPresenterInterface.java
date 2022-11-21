@@ -1,4 +1,4 @@
-package com.mg105.presenterinterfaces;
+package com.mg105.presenter_interfaces;
 
 import com.mg105.outputds.ItemDetails;
 
