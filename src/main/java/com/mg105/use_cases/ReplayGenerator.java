@@ -14,7 +14,7 @@ public class ReplayGenerator {
      * @param battleCharacter the battleCharacter in the previous game
      * @return a new BattleCharacter that inherit all the previous player's attributes
      */
-    public BattleCharacter AttributeInheritance(BattleCharacter battleCharacter) {
+    public BattleCharacter attributeInheritance(BattleCharacter battleCharacter) {
         BattleCharacter reincarnation_character = new BattleCharacter(battleCharacter.getHp(), battleCharacter.getName(), battleCharacter.getDmg(), battleCharacter.getSpeed(), battleCharacter.getMoveOne(), battleCharacter.getMoveTwo());
 
         return reincarnation_character;
@@ -25,7 +25,7 @@ public class ReplayGenerator {
      *
      * @param inventory a previous player's inventory that contains items
      */
-    public void InventoryClean(Inventory inventory) {
+    public void inventoryClean(Inventory inventory) {
         inventory.removeAll();
     }
 
@@ -35,9 +35,9 @@ public class ReplayGenerator {
      * @param state           a Gamestate type that contains all the state for game.
      * @param battleCharacter a battleCharacter who lost in the previous game and need to restart.
      */
-    public void Replay(GameState state, BattleCharacter battleCharacter) {
+    public void replay(GameState state, BattleCharacter battleCharacter) {
         // incomplete remake, need to amend later. exactly implementation should depend on other use cases' implementation
         MapGenerator isekai = new MapGenerator(state);
-        BattleCharacter reincarnationPlayer = AttributeInheritance(battleCharacter);
+        BattleCharacter reincarnationPlayer = attributeInheritance(battleCharacter);
     }
 }

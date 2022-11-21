@@ -4,7 +4,6 @@ import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.Inventory;
 import com.mg105.entities.Move;
 import com.mg105.entities.items.UpgradeToken;
-import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,7 +14,7 @@ class ReplayGeneratorTest {
         Move m2 = new Move(0, 1);
         BattleCharacter p1 = new BattleCharacter(5, "p1", 5, 5, m1, m2);
         ReplayGenerator master = new ReplayGenerator();
-        BattleCharacter p2 = master.AttributeInheritance(p1);
+        BattleCharacter p2 = master.attributeInheritance(p1);
         assertEquals(p1.getHp(), p2.getHp());
         assertEquals(p1.getDmg(), p2.getDmg());
         assertEquals(p1.getName(), p2.getName());
@@ -30,7 +29,7 @@ class ReplayGeneratorTest {
         Inventory inventory = new Inventory();
         inventory.addItem(new UpgradeToken());
         ReplayGenerator master = new ReplayGenerator();
-        master.InventoryClean(inventory);
+        master.inventoryClean(inventory);
         assertEquals(0, inventory.numberOfItems());
     }
 
