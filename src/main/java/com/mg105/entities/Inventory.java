@@ -2,6 +2,9 @@ package com.mg105.entities;
 
 import java.util.ArrayList;
 
+/**
+ * An inventory is a class that manages items
+ */
 public class Inventory {
     private final static int INVENTORY_LIMIT = 10;
     private final ArrayList<Item> items = new ArrayList<>();
@@ -51,7 +54,6 @@ public class Inventory {
     }
 
     /**
-     *
      * Adds an item to the inventory. An item is not added to the inventory iff the inventory is full.
      *
      * @param item The item to be added to the inventory
@@ -59,7 +61,7 @@ public class Inventory {
      */
 
     public boolean addItem(Item item) {
-        if(isFull()){
+        if (isFull()) {
             return false;
         }
         this.items.add(item);
@@ -68,10 +70,10 @@ public class Inventory {
     }
 
     /**
-     * Removes ONE instance of an item from the inventory that has the same itemName
+     * Removes ONE instance of an item from the inventory that has the same itemName.
      *
      * @param itemName The name of item that should be removed
-     * @return if an item was removed from the inventory
+     * @return true iff an item with itemName was removed from the inventory
      * @see Item
      */
     public boolean removeItem(String itemName) {
@@ -91,7 +93,41 @@ public class Inventory {
         }
     }
     /**
+     * Uses the item on the given character
+     *
+     * @param character The character to use the item on
+     * @param itemName  The name of the item to use
+     * @return true iff the item with a name of itemName was used
+     * @see Item
+     * @see Consumable
+     */
+
+    public boolean useItem(BattleCharacter character, String itemName) {
+        for (int i = 0; i < numberOfItems(); i++) {
+            Item item = this.items.get(i);
+
+            if (item.getName().equals(itemName)) {
+
+                if (item instanceof Consumable consumableItem) {
+                    consumableItem.consume(character);
+                    this.items.remove(i);
+                    return true;
+
+                } else {
+
+                    return false;
+
+                }
+            }
+        }
+
+        return false;
+
+    }
+
+    /**
      * Returns if there is at LEAST one item in inventory with itemName
+     *
      * @param itemName the name of item that needs to be searched for
      * @return if there is an item in the inventory with a name that is itemName
      */
