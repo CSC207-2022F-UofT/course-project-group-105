@@ -33,8 +33,11 @@ public class InventoryPresenter implements InventoryPresenterInterface {
     @Override
     public void inventoryDetails(ItemDetails[] allItemsDetails) {
         for (ItemDetails itemDetails : allItemsDetails) {
-            this.display.addItemView(itemDetails.getName(), itemDetails.getDescription(), itemDetails.isUsable(),
-                String.valueOf(itemDetails.getCount()));
+            if (itemDetails.getCount() > 0) {
+                this.display.addItemView(itemDetails.getName(), itemDetails.getDescription(), itemDetails.isUsable(),
+                    String.valueOf(itemDetails.getCount()));
+            }
+
         }
 
     }
