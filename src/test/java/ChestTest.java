@@ -41,7 +41,8 @@ class ChestTest {
         assertTrue(chest.isOpened());
         assertThrows(AssertionError.class, chest::open);
     }
-
+    
+    @Test
     void noChest(){
         TreasureChest chest = new TreasureChest(new HealthPotion(), coordinates1);
         chestInteractor.getChestItem();
@@ -49,7 +50,8 @@ class ChestTest {
         assertEquals(0, in.numberOfItems());
         assertFalse(chest.isOpened());
     }
-
+    
+    @Test
     void yesChest(){
         TreasureChest chest = new TreasureChest(new HealthPotion(), coordinates1);
         chestInteractor.getChestItem();
