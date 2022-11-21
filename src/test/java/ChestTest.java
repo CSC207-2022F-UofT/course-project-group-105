@@ -1,17 +1,9 @@
 import com.mg105.entities.*;
 import com.mg105.entities.items.HealthPotion;
-import com.mg105.entities.items.UpgradeToken;
-import com.mg105.presenterinterfaces.InventoryPresenterInterface;
-import com.mg105.usecase.Inventory.InventoryInteractor;
-import com.mg105.utils.ItemConstants;
 import com.mg105.utils.PartyConstants;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
-
 import java.awt.*;
-import java.util.NoSuchElementException;
-
+import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ChestTest {
@@ -27,38 +19,56 @@ class ChestTest {
 
     @Test
     void openChestTest() {
-        TreasureChest chest = new TreasureChest(new HealthPotion(), coordinates1);
-        assertEquals(coordinates1, chest.getPosition());
-        assertFalse(chest.isOpened());
-        chest.open();
-        assertTrue(chest.isOpened());
+        TreasureChest chest1 = new TreasureChest(new HealthPotion(), coordinates1);
+        assertEquals(coordinates1, chest1.getPosition());
+        assertFalse(chest1.isOpened());
+        chest1.open();
+        assertTrue(chest1.isOpened());
     }
 
     @Test
     void alreadyOpenChestTest() {
-        TreasureChest chest = new TreasureChest(new HealthPotion(), coordinates1);
-        chest.open();
-        assertTrue(chest.isOpened());
-        assertThrows(AssertionError.class, chest::open);
+        TreasureChest chest1 = new TreasureChest(new HealthPotion(), coordinates1);
+        chest1.open();
+        assertTrue(chest1.isOpened());
+        assertThrows(AssertionError.class, chest1::open);
     }
-    
+
     @Test
     void noChest(){
-        TreasureChest chest = new TreasureChest(new HealthPotion(), coordinates1);
+        TreasureChest testChest1 = new TreasureChest(new HealthPotion(), coordinates1);
+        ArrayList<TreasureChest> chestList1 = new ArrayList<>();
+        ArrayList<TreasureChest> chestList2 = new ArrayList<>();
+        chestList1.add(testChest1);
+        ArrayList<OpponentSet> opponents = new ArrayList<>();
+        ArrayList<Doorway> doors = new ArrayList<>();
+        Room firstRoom = new Room(chestList1, opponents, doors);
+        Room lastRoom = new Room(chestList2, opponents, doors);
+        game.setMap(firstRoom, lastRoom);
+
         chestInteractor.getChestItem();
         Inventory in = game.getInventory();
         assertEquals(0, in.numberOfItems());
-        assertFalse(chest.isOpened());
+        assertFalse(testChest1.isOpened());
     }
-    
+
     @Test
     void yesChest(){
-        TreasureChest chest = new TreasureChest(new HealthPotion(), coordinates1);
+        TreasureChest testChest2 = new TreasureChest(new HealthPotion(), coordinates2);
+        ArrayList<TreasureChest> chestList1 = new ArrayList<>();
+        ArrayList<TreasureChest> chestList2 = new ArrayList<>();
+        chestList1.add(testChest2);
+        ArrayList<OpponentSet> opponents = new ArrayList<>();
+        ArrayList<Doorway> doors = new ArrayList<>();
+        Room firstRoom = new Room(chestList1, opponents, doors);
+        Room lastRoom = new Room(chestList2, opponents, doors);
+        game.setMap(firstRoom, lastRoom);
+
         chestInteractor.getChestItem();
         Inventory in = game.getInventory();
         assertEquals(1, in.numberOfItems());
         assertTrue(in.has("Health Potion"));
-        assertTrue(chest.isOpened());
+        assertTrue(testChest2.isOpened());
     }
 }
 

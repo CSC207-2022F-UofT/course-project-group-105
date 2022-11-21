@@ -3,6 +3,7 @@ package com.mg105.entities;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import com.mg105.use_case.Inventory.InventoryInteractor;
 
 public class ChestInteractor {
 
@@ -27,7 +28,7 @@ public class ChestInteractor {
         int charY = coordinates.y;
         ArrayList<Point> adjacents = new ArrayList<Point>();
         Point adjacentOne = new Point((charX - 1), charY);
-        Point adjacentTwo = new Point((charX + 1), charY);
+;        Point adjacentTwo = new Point((charX + 1), charY);
         Point adjacentThree = new Point(charX, (charY - 1));
         Point adjacentFour = new Point(charX, (charY + 1));
         adjacents.add(adjacentOne);
@@ -44,7 +45,7 @@ public class ChestInteractor {
      */
     public static TreasureChest compareLists(Point coordinates, List<TreasureChest> chests) {
         for (TreasureChest roomChest : chests) {
-            if (coordinates == roomChest.getPosition() && !roomChest.isOpened()) {
+            if (coordinates.equals(roomChest.getPosition()) && !roomChest.isOpened()) {
                 return roomChest;
             }
         }
@@ -83,7 +84,7 @@ public class ChestInteractor {
 
         if (chest != null) {
             Item reward = chest.open();
-            // boolean success = InventoryInteractor.addItem(reward);
+            InventoryInteractor.addItem(reward.getName());
             // if (success) {
                 // TextGenerator.generateText("chest", reward);
                 // get TextGenerator to write something about how a chest was opened and this item was added to inventory

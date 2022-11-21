@@ -20,10 +20,10 @@ public class ItemConstants {
         String.valueOf(MegaPotion.getHealingPoints()) + "points";
 
     // Names and items should be parallel list that where index of the name has the same index in the description
-    public static final String[] ALL_ITEM_NAMES = {UPGRADE_TOKEN_NAME, HEALTH_POTION_NAME};
+    public static final String[] ALL_ITEM_NAMES = {UPGRADE_TOKEN_NAME, HEALTH_POTION_NAME, MEGA_POTION_NAME};
 
-    public static final String[] ALL_ITEM_DESCRIPTIONS = {UPGRADE_TOKEN_DESCRIPTION, HEALTH_POTION_DESCRIPTION};
+    public static final String[] ALL_ITEM_DESCRIPTIONS = {UPGRADE_TOKEN_DESCRIPTION, HEALTH_POTION_DESCRIPTION, MEGA_POTION_DESCRIPTION};
 
-    public static final String[] ALL_USABLE_ITEM_NAMES = {UPGRADE_TOKEN_NAME, HEALTH_POTION_NAME};
+    public static final String[] ALL_USABLE_ITEM_NAMES = {UPGRADE_TOKEN_NAME, HEALTH_POTION_NAME, MEGA_POTION_NAME};
 
 }

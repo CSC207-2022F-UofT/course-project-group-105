@@ -1,4 +1,4 @@
-package com.mg105.usecase.Inventory;
+package com.mg105.use_case.Inventory;
 import com.mg105.entities.items.*;
 import com.mg105.entities.Item;
 import com.mg105.utils.ItemConstants;
@@ -6,7 +6,7 @@ import com.mg105.utils.ItemConstants;
 import java.util.NoSuchElementException;
 
 /**
- * This classes sole responsibility is to create new items
+ * This class' sole responsibility is to create new items
  */
 
 public class ItemFactory {
@@ -25,6 +25,9 @@ public class ItemFactory {
         } else if (itemName.equals(ItemConstants.UPGRADE_TOKEN_NAME)) {
             return new UpgradeToken();
         }
+        else if (itemName.equals(ItemConstants.MEGA_POTION_NAME)) {
+            return new MegaPotion();
+
 
         throw new NoSuchElementException("No item of this type exists");
     }
