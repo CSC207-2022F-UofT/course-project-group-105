@@ -1,5 +1,6 @@
 package com.mg105.entities;
 
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import org.jetbrains.annotations.NotNull;
 
@@ -13,12 +14,21 @@ public class GameState {
     private Room firstRoom;
     private Room lastRoom;
     private Room currentRoom;
-    private final BattleCharacter[] party;
+    private final ArrayList<BattleCharacter> party;
     private final Inventory inventory;
+
+    private Battle currEncounter = null;
+
+    //Potentially useless. Keeps track of party characters who faint in battle.
+    private final ArrayList<BattleCharacter> fainted = new ArrayList<BattleCharacter>();
 
     public GameState(Inventory inventory, BattleCharacter[] party) {
         this.inventory = inventory;
-        this.party = party;
+        this.party = new ArrayList<BattleCharacter>();
+
+        for (BattleCharacter c : party) {
+            this.party.add(c);
+        }
     }
 
     /**
@@ -71,6 +81,42 @@ public class GameState {
      */
     public Room getCurrentRoom() {
         return currentRoom;
+    }
+
+    /**
+     * Returns the active Battle, or null if there is none.
+     *
+     * @return the current Battle, or null if there is no active encounter.
+     */
+    public Battle getCurrEncounter() {
+        return currEncounter;
+    }
+
+    /**
+     * Set currEncounter to the given active Battle.
+     *
+     * @param currEncounter the Battle to set currEncounter to.
+     */
+    public void setCurrEncounter(Battle currEncounter) {
+        this.currEncounter = currEncounter;
+    }
+
+    /**
+     * Returns an ArrayList of the player's characters.
+     *
+     * @return An ArrayList of the player's characters.
+     */
+    public ArrayList<BattleCharacter> getParty() {
+        return this.party;
+    }
+
+    /**
+     * Returns an ArrayList of the player's fainted characters.
+     *
+     * @return An ArrayList of the player's fainted characters.
+     */
+    public ArrayList<BattleCharacter> getFainted() {
+        return this.fainted;
     }
 
     /**
