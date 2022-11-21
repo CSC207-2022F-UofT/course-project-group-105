@@ -18,6 +18,7 @@ public class GameState {
     private Room lastRoom;
     private Room currentRoom;
     private final ArrayList<BattleCharacter> party;
+    private final WalkingCharacter walkingCharacter;
     private final Inventory inventory;
 
     public Point currentPosition = new Point(1,1); // TODO Temporary, remove when WalkingCharacter geets merged
@@ -26,13 +27,14 @@ public class GameState {
     //Potentially useless. Keeps track of party characters who faint in battle.
     private final ArrayList<BattleCharacter> fainted = new ArrayList<BattleCharacter>();
 
-    public GameState(Inventory inventory, BattleCharacter[] party) {
+    public GameState(Inventory inventory, BattleCharacter[] party, WalkingCharacter walkingCharacter) {
         this.inventory = inventory;
         this.party = new ArrayList<BattleCharacter>();
 
         for (BattleCharacter c : party) {
             this.party.add(c);
         }
+        this.walkingCharacter = walkingCharacter;
     }
 
     /**
@@ -49,7 +51,7 @@ public class GameState {
     /**
      * Returns the character in party based on the given name
      *
-     * @param characterName
+     * @param characterName the name of the character
      * @return a character in party
      * @throws NoSuchElementException if no character in the party has the given name
      */
@@ -61,6 +63,15 @@ public class GameState {
         }
 
         throw new NoSuchElementException("No Battle Character with this name exists");
+    }
+
+    /**
+     * Get the current WalkingCharacter the user is controlling.
+     *
+     * @return the walkingCharacter.
+     */
+    public WalkingCharacter getWalkingCharacter() {
+        return walkingCharacter;
     }
 
     /**
@@ -79,7 +90,7 @@ public class GameState {
     }
 
     /**
-     * Get the room the player happes to currently be in.
+     * Get the room the player happens to currently be in.
      *
      * @return the current room.
      */

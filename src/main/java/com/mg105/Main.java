@@ -1,9 +1,6 @@
 package com.mg105;
 
-import com.mg105.entities.BattleCharacter;
-import com.mg105.entities.GameState;
-import com.mg105.entities.Inventory;
-import com.mg105.entities.Move;
+import com.mg105.entities.*;
 import com.mg105.interface_adapters.InputInterpreter;
 import com.mg105.interface_adapters.MapGeneratorInterpreter;
 import com.mg105.interface_adapters.RoomInterpreter;
@@ -12,13 +9,13 @@ import com.mg105.use_cases.CharacterMover;
 import com.mg105.use_cases.MapGenerator;
 import com.mg105.use_cases.RoomGetter;
 import com.mg105.user_interface.*;
-import com.mg105.utils.PartyConstants;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -66,7 +63,7 @@ public class Main extends Application {
             new Move(-2, -2, "Sabotage", false));
 
         BattleCharacter[] party = {a, b, c, d};
-        GameState state = new GameState(inventory, party);
+        GameState state = new GameState(inventory, party, new WalkingCharacter(new Point(0, 0)));
 
         Map<Toggler.ToggleableComponent, Toggleable> drawableComponents = new HashMap<>();
         // We fill this map in later because of the ordering of parameters
