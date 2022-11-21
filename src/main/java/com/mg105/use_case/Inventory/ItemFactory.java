@@ -24,11 +24,9 @@ public class ItemFactory {
             return new HealthPotion();
         } else if (itemName.equals(ItemConstants.UPGRADE_TOKEN_NAME)) {
             return new UpgradeToken();
-        }
-        else if (itemName.equals(ItemConstants.MEGA_POTION_NAME)) {
+        } else if (itemName.equals(ItemConstants.MEGA_POTION_NAME)) {
             return new MegaPotion();
-
-
+        }
         throw new NoSuchElementException("No item of this type exists");
     }
 }

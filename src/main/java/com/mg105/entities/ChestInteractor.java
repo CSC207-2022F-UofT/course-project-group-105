@@ -7,17 +7,19 @@ import com.mg105.use_case.Inventory.InventoryInteractor;
 
 public class ChestInteractor {
 
-    private GameState gameState;
+    private final GameState gameState;
+    private final InventoryInteractor interactor;
 
     /**
      * Creates a ChestInteractor to interact with chests in a GameState.
      *
      * @param gameState the game state.
+     * @param interactor the inventory interactor.
      */
-    public ChestInteractor(GameState gameState) {
+    public ChestInteractor(GameState gameState, InventoryInteractor interactor) {
         this.gameState = gameState;
+        this.interactor = interactor;
     }
-
 
     /**
      * Creates a list of four adjacent coordinates on the map next to the WalkingCharacter.
@@ -26,9 +28,9 @@ public class ChestInteractor {
     public static List<Point> getAdjacents(Point coordinates) {
         int charX = coordinates.x;
         int charY = coordinates.y;
-        ArrayList<Point> adjacents = new ArrayList<Point>();
+        ArrayList<Point> adjacents = new ArrayList<>();
         Point adjacentOne = new Point((charX - 1), charY);
-;        Point adjacentTwo = new Point((charX + 1), charY);
+        Point adjacentTwo = new Point((charX + 1), charY);
         Point adjacentThree = new Point(charX, (charY - 1));
         Point adjacentFour = new Point(charX, (charY + 1));
         adjacents.add(adjacentOne);
@@ -84,7 +86,7 @@ public class ChestInteractor {
 
         if (chest != null) {
             Item reward = chest.open();
-            InventoryInteractor.addItem(reward.getName());
+            interactor.addItem(reward.getName());
             // if (success) {
                 // TextGenerator.generateText("chest", reward);
                 // get TextGenerator to write something about how a chest was opened and this item was added to inventory
