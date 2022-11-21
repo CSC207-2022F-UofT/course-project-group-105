@@ -1,24 +1,23 @@
 package com.mg105.use_cases.Inventory;
+import com.mg105.entities.*;
+import com.mg105.entities.items.HealthPotion;
+import com.mg105.entities.items.UpgradeToken;
+import com.mg105.outputds.ItemDetails;
+import com.mg105.presenter_interfaces.InventoryPresenterInterface;
+import com.mg105.use_cases.Inventory.InventoryInteractor;
+import com.mg105.utils.ItemConstants;
+import org.junit.jupiter.api.Test;
 
-    import com.mg105.entities.*;
-    import com.mg105.entities.items.HealthPotion;
-    import com.mg105.entities.items.UpgradeToken;
-    import com.mg105.outputds.ItemDetails;
-    import com.mg105.use_cases.Inventory.InventoryInteractor;
-    import com.mg105.presenter_interfaces.InventoryPresenterInterface;
-    import com.mg105.utils.ItemConstants;
-    import org.junit.jupiter.api.Test;
+import java.awt.*;
 
-    import java.awt.*;
-
-    import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 class InventoryInteractorTest {
 
     // Some implementation of the interface (it's not really important for the tests since it really only
     // testing if the interactor mutates the entities properly)
 
-    com.mg105.presenter_interfaces.InventoryPresenterInterface res = new InventoryPresenterInterface() {
+    InventoryPresenterInterface res = new InventoryPresenterInterface() {
         @Override
         public void addItemView(boolean isSuccessful, ItemDetails itemDetails) {
 
@@ -40,19 +39,18 @@ class InventoryInteractorTest {
         }
     };
 
-    BattleCharacter b1 = new BattleCharacter(1, "A", 2, 3,
+    BattleCharacter b1 = new BattleCharacter(1, "A", 2, 3, false,
         new Move(0, 0, "m1", false),
         new Move(0, 0, "m2", false));
-    BattleCharacter b2 = new BattleCharacter(1, "B", 2, 3,
+    BattleCharacter b2 = new BattleCharacter(1, "B", 2, 3, false,
         new Move(0, 0, "m1", false),
         new Move(0, 0, "m2", false));
-    BattleCharacter b3 = new BattleCharacter(1, "C", 2, 3,
+    BattleCharacter b3 = new BattleCharacter(1, "C", 2, 3, false,
         new Move(0, 0, "m1", false),
         new Move(0, 0, "m2", false));
 
     BattleCharacter[] party = {b1, b2, b3};
-
-    WalkingCharacter walkingCharacter = new WalkingCharacter(new Point(0, 0));
+    WalkingCharacter walkingCharacter = new WalkingCharacter((new Point(0, 0)));
 
     @Test
     void addItem() {
