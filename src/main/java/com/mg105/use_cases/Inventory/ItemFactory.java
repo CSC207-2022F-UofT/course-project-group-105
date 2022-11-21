@@ -1,4 +1,4 @@
-package com.mg105.usecase.Inventory;
+package com.mg105.use_cases.Inventory;
 
 import com.mg105.entities.HealthPotion;
 import com.mg105.entities.Item;
