@@ -1,4 +1,4 @@
-package com.mg105.interfaceadapter;
+package com.mg105.interface_adapters;
 
 import com.mg105.entities.Battle;
 import com.mg105.entities.BattleCharacter;
@@ -21,12 +21,20 @@ public class BattlePresenter {
 
     private BattleMenu view;
 
-    public BattlePresenter(GameState state, BattleMenu view) {
+    public BattlePresenter(GameState state) {
         this.state = state;
         this.encounter = state.getCurrEncounter();
-        this.view = view;
+        BattleMenu.setPresenter(this);
     }
 
+    /**
+     * Sets the view attribute.
+     *
+     * @param view the BattleMenu instance to set the view attribute to.
+     */
+    public void setView(BattleMenu view) {
+        this.view = view;
+    }
     /**
      * Creates a new encounter with random opponents and sets it as the current encounter in GameState
      */
@@ -45,9 +53,43 @@ public class BattlePresenter {
                 charDmg, charSpeed, true, m1, m2);
             opponents.add(character);
         }
-        Battle b = new Battle(opponents, this.state.getParty());
+        ArrayList<BattleCharacter> party = this.state.getParty();
+        Battle b = new Battle(opponents, party);
         this.state.setCurrEncounter(b);
         this.encounter = b;
+
+        String[] partyNames = new String[party.size()];
+        String[] opponentNames = new String[opponents.size()];
+
+        for (int i = 0; i < party.size(); ++i) {
+            partyNames[i] = party.get(i).getName();
+            opponentNames[i] = opponents.get(i).getName();
+        }
+
+        this.view.setNames(partyNames, opponentNames);
+    }
+
+    /**
+     * Returns whether the given name is associated with a fainted character.
+     * Assumes that the inputted name corresponds to a character who was in the encounter at some point.
+     *
+     * @param name the name of the character being checked.
+     * @return whether the given name corresponds to a fainted character.
+     */
+    public boolean givenCharacterFainted(String name) {
+        for (BattleCharacter c : encounter.getPlayerCharacters()) {
+            if (c.getName().equals(name)) {
+                return false;
+            }
+        }
+
+        for (BattleCharacter c : encounter.getOpponents()) {
+            if (c.getName().equals(name)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     /**
@@ -252,7 +294,7 @@ public class BattlePresenter {
         target.modifyDamage(m.getDamageChange());
 
         //Currently unimplemented, will notify the view to  update the impacted character
-        //this.view.updateCharacter(target.getName());
+        this.view.updateCharacter(target.getName());
     }
 
     private void _addReward() {
