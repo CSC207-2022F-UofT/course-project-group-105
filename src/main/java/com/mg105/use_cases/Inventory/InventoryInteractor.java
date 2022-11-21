@@ -1,4 +1,4 @@
-package com.mg105.use_cases.inventory;
+package com.mg105.use_cases.Inventory;
 
 import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.GameState;

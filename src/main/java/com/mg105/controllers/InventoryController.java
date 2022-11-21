@@ -1,26 +1,17 @@
 package com.mg105.controllers;
 
-import com.mg105.use_cases.inventory.InventoryInteractor;
+import com.mg105.use_cases.Inventory.InventoryInteractor;
 
 /**
  * A class that serves the UI and allows users to make the desired changes to the Inventory
  */
 
 public class InventoryController {
+
     InventoryInteractor interactor;
 
-    public InventoryController(InventoryInteractor interactor) {
+    public InventoryController(com.mg105.use_cases.Inventory.InventoryInteractor interactor) {
         this.interactor = interactor;
-    }
-
-    /**
-     * Attempts to add the item to the inventory
-     *
-     * @param itemName the item to add to the inventory
-     * @see InventoryInteractor
-     */
-    public void addItem(String itemName) {
-        interactor.addItem(itemName);
     }
 
     /**

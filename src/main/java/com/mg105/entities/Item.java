@@ -30,8 +30,4 @@ public abstract class Item {
      *
      * @return the description of this item
      */
-
-    public String getDescription() {
-        return this.DESCRIPTION;
-    }
 }

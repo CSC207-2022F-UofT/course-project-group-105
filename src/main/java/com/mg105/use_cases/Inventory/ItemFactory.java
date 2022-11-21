@@ -1,7 +1,7 @@
-package com.mg105.use_cases.inventory;
+package com.mg105.use_cases.Inventory;
 
-import com.mg105.entities.HealthPotion;
 import com.mg105.entities.Item;
+import com.mg105.entities.items.HealthPotion;
 import com.mg105.entities.items.UpgradeToken;
 import com.mg105.utils.ItemConstants;
 
