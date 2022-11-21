@@ -1,9 +1,6 @@
 package com.mg105;
 
-import com.mg105.entities.BattleCharacter;
-import com.mg105.entities.GameState;
-import com.mg105.entities.Inventory;
-import com.mg105.entities.Move;
+import com.mg105.entities.*;
 import com.mg105.interface_adapters.MapGeneratorInterpreter;
 import com.mg105.use_cases.MapGenerator;
 import com.mg105.user_interface.MapGeneratorButton;
@@ -19,6 +16,8 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+
+import java.awt.*;
 
 /**
  * The main class that sets up the clean architecture mountain group 105 game!
@@ -65,7 +64,7 @@ public class Main extends Application {
             new Move(-2, -2, "Sabotage", false));
 
         BattleCharacter[] party = {a, b, c, d};
-        GameState state = new GameState(inventory, party);
+        GameState state = new GameState(inventory, party, new WalkingCharacter(new Point(0, 0)));
 
         // Set up the initial use cases
         MapGenerator mapGenerator = new MapGenerator(state);
