@@ -8,6 +8,11 @@ public class ChestInteractor {
 
     private GameState gameState;
 
+    /**
+     * Creates a ChestInteractor to interact with chests in a GameState.
+     *
+     * @param gameState the game state.
+     */
     public ChestInteractor(GameState gameState) {
         this.gameState = gameState;
     }
