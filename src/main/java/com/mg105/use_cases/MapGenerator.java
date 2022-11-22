@@ -186,7 +186,7 @@ public class MapGenerator {
                     List<Point> neighbours = getNeighbours(map, new Point(x, y), Objects::isNull);
                     for (Point neighbour : neighbours) {
                         Room neighbourRoom = map[neighbour.y][neighbour.x];
-                        int wallPosition = 2 + random.nextInt(MapConstants.ROOM_SIZE-6);
+                        int wallPosition = 3 + random.nextInt(MapConstants.ROOM_SIZE-7);
 
                         Doorway doorway;
                         if (neighbour.y < y) {
