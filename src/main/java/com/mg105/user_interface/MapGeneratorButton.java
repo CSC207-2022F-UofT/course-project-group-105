@@ -1,6 +1,7 @@
 package com.mg105.user_interface;
 
 import com.mg105.interface_adapters.MapGeneratorInterpreter;
+import com.mg105.interface_adapters.Toggler;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import org.jetbrains.annotations.NotNull;
@@ -10,14 +11,17 @@ import org.jetbrains.annotations.NotNull;
  */
 public class MapGeneratorButton implements EventHandler<ActionEvent> {
     private final @NotNull MapGeneratorInterpreter interpreter;
+    private final @NotNull Toggler toggler;
 
     /**
      * Create a new MapGeneratorButton.
      *
      * @param interpreter the interpreter for the map generator button
+     * @param toggler     the toggler used to close the user interface once pressed.
      */
-    public MapGeneratorButton(@NotNull MapGeneratorInterpreter interpreter) {
+    public MapGeneratorButton(@NotNull MapGeneratorInterpreter interpreter, @NotNull Toggler toggler) {
         this.interpreter = interpreter;
+        this.toggler = toggler;
     }
 
     /**
@@ -28,5 +32,6 @@ public class MapGeneratorButton implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event) {
         interpreter.generateMap();
+        toggler.toggle(Toggler.ToggleableComponent.MAIN_MENU);
     }
 }

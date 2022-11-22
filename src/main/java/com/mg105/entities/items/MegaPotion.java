@@ -6,16 +6,14 @@ import com.mg105.entities.Item;
 import com.mg105.utils.ItemConstants;
 
 /**
- * A health potion is an item that can be used to heal a character by a certain amount of points.
+ * A mega health potion is larger health potion that can be used to heal a character by a greater number of points.
  */
-public class HealthPotion extends Item implements Consumable {
+public class MegaPotion extends Item implements Consumable {
 
-    // This number could change later
+    private final static int HEALING_POINTS = 40;
 
-    private final static int HEALING_POINTS = 25;
-
-    public HealthPotion() {
-        super(ItemConstants.HEALTH_POTION_NAME, ItemConstants.HEALTH_POTION_DESCRIPTION);
+    public MegaPotion() {
+        super(ItemConstants.MEGA_POTION_NAME, ItemConstants.MEGA_POTION_DESCRIPTION);
     }
 
     public static int getHealingPoints() {

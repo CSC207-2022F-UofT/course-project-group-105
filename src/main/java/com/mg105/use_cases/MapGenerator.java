@@ -1,13 +1,16 @@
 package com.mg105.use_cases;
 
-import com.mg105.entities.*;
+import com.mg105.entities.Doorway;
+import com.mg105.entities.GameState;
+import com.mg105.entities.Room;
 import com.mg105.utils.PointComparator;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.TestOnly;
 
 import java.awt.*;
-import java.util.*;
 import java.util.List;
+import java.util.Queue;
+import java.util.*;
 import java.util.function.Predicate;
 
 public class MapGenerator {
@@ -38,6 +41,7 @@ public class MapGenerator {
      * Generates a map.
      */
     public void generateMap() {
+        // First we create the first and last rooms and create the between rooms
         Room firstRoom = generateEmptyRoom();
         Room lastRoom  = generateEmptyRoom();
         generateBetweenRooms(firstRoom, lastRoom);
