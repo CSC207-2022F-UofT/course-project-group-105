@@ -3,6 +3,7 @@ package com.mg105.use_cases;
 import com.mg105.entities.Doorway;
 import com.mg105.entities.GameState;
 import com.mg105.entities.Room;
+import com.mg105.utils.MapConstants;
 import com.mg105.utils.PointComparator;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.TestOnly;
@@ -141,14 +142,14 @@ public class MapGenerator {
      * @param lastRoom  the end room.
      */
     private void generateBetweenRooms(@NotNull Room firstRoom, @NotNull Room lastRoom) {
-        final int mapHeight = 8 + random.nextInt(4);
-        final int mapWidth  = 6 + random.nextInt(3);
+        final int mapHeight = random.nextInt(MapConstants.MAPGEN_MIN_MAP_HEIGHT, MapConstants.MAPGEN_MAX_MAP_HEIGHT);
+        final int mapWidth  = random.nextInt(MapConstants.MAPGEN_MIN_MAP_WIDTH,  MapConstants.MAPGEN_MAX_MAP_WIDTH);
         Room[][] map = new Room[mapHeight][mapWidth];
 
         // First fill in some random 'anchor' rooms
         for (int y = 0; y < mapHeight; y++) {
             for (int x = 0; x < mapWidth; x++) {
-                if (random.nextInt(100) > 63) {
+                if (random.nextInt(100) > MapConstants.MAPGEN_ANCHOR_SPARSITY) {
                     map[y][x] = generateEmptyRoom();
                 }
             }
@@ -185,7 +186,7 @@ public class MapGenerator {
                     List<Point> neighbours = getNeighbours(map, new Point(x, y), Objects::isNull);
                     for (Point neighbour : neighbours) {
                         Room neighbourRoom = map[neighbour.y][neighbour.x];
-                        int wallPosition = 3;
+                        int wallPosition = 2 + random.nextInt(MapConstants.ROOM_SIZE-6);
 
                         Doorway doorway;
                         if (neighbour.y < y) {
@@ -193,13 +194,13 @@ public class MapGenerator {
                             doorway = new Doorway(new Point(wallPosition, 0), neighbourRoom);
                         } else if (neighbour.y > y) {
                             // neighbourRoom is below the currentRoom
-                            doorway = new Doorway(new Point(wallPosition, 7), neighbourRoom);
+                            doorway = new Doorway(new Point(wallPosition, MapConstants.ROOM_SIZE-1), neighbourRoom);
                         } else if (neighbour.x < x) {
                             // neighbourRoom is to the left of the currentRoom
                             doorway = new Doorway(new Point(0, wallPosition), neighbourRoom);
                         } else {
                             // neighbourRoom is to the right of the currentRoom\
-                            doorway = new Doorway(new Point(7, wallPosition), neighbourRoom);
+                            doorway = new Doorway(new Point(MapConstants.ROOM_SIZE-1, wallPosition), neighbourRoom);
                         }
                         currentRoom.getDoorways().add(doorway);
                     }
