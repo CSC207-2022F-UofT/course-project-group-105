@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import org.jetbrains.annotations.NotNull;
 
+import java.awt.*;
+import java.util.NoSuchElementException;
+
 /**
  * A class that represents the state of the game
  * <p>
@@ -18,6 +21,7 @@ public class GameState {
     private final WalkingCharacter walkingCharacter;
     private final Inventory inventory;
 
+    public Point currentPosition = new Point(1,1); // TODO Temporary, remove when WalkingCharacter geets merged
     private Battle currEncounter = null;
 
     //Potentially useless. Keeps track of party characters who faint in battle.
@@ -90,7 +94,7 @@ public class GameState {
      *
      * @return the current room.
      */
-    public Room getCurrentRoom() {
+    public @NotNull Room getCurrentRoom() {
         return currentRoom;
     }
 
@@ -152,5 +156,14 @@ public class GameState {
         // we actually care that this is exactly the same instance of the room, not just two rooms that happen to have
         // the same configuration.
         return currentRoom == lastRoom;
+    }
+
+    /**
+     * Set the current room.  room must be graph-connected to the rest of the map.
+     *
+     * @param room the room to be set.
+     */
+    public void setCurrentRoom(@NotNull Room room) {
+        this.currentRoom = room;
     }
 }

@@ -1,36 +1,36 @@
 package com.mg105;
 
 import com.mg105.entities.*;
+import com.mg105.interface_adapters.InputInterpreter;
 import com.mg105.interface_adapters.MapGeneratorInterpreter;
+import com.mg105.interface_adapters.RoomInterpreter;
+import com.mg105.interface_adapters.Toggler;
+import com.mg105.use_cases.CharacterMover;
 import com.mg105.use_cases.MapGenerator;
-import com.mg105.user_interface.MapGeneratorButton;
-import com.mg105.utils.PartyConstants;
-import com.mg105.user_interface.TutorialTextDisplay;
+import com.mg105.use_cases.RoomGetter;
+import com.mg105.user_interface.*;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.awt.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * The main class that sets up the clean architecture mountain group 105 game!
  */
 public class Main extends Application {
+    private final TutorialTextDisplay tutorialDisplay = new TutorialTextDisplay();
+    private Label bottomText;
+
     /**
      * The main method.  See Main.start().
      *
      * @param args the commandline arguments.  They are passed to JavaFX.
      */
-    private final TutorialTextDisplay tutorialDisplay = new TutorialTextDisplay();
-    private Label bottomText;
-
     public static void main(String[] args) {
         Main.launch(args);
     }
@@ -43,7 +43,6 @@ public class Main extends Application {
      */
     @Override
     public void start(Stage primaryStage) {
-        // Set up the initial entities
         // Set up should probably be moved to private method(s) or separate class?
         Inventory inventory = new Inventory();
 
@@ -66,38 +65,34 @@ public class Main extends Application {
         BattleCharacter[] party = {a, b, c, d};
         GameState state = new GameState(inventory, party, new WalkingCharacter(new Point(0, 0)));
 
-        // Set up the initial use cases
+        Map<Toggler.ToggleableComponent, Toggleable> drawableComponents = new HashMap<>();
+        // We fill this map in later because of the ordering of parameters
+        SceneController sceneController = new SceneController(
+            primaryStage,
+            drawableComponents,
+            Toggler.ToggleableComponent.MAP
+        );
+
         MapGenerator mapGenerator = new MapGenerator(state);
-
-        // Set up the initial interface adapters
         MapGeneratorInterpreter mapGeneratorInterpreter = new MapGeneratorInterpreter(mapGenerator);
+        MapGeneratorButton generateMapButton = new MapGeneratorButton(mapGeneratorInterpreter, sceneController);
+        MainMenu mainMenu = new MainMenu(generateMapButton);
 
-        // ... and finally we start the user interface
-        Button generateMapButton = new Button("Generate Map");
-        generateMapButton.setOnAction(new MapGeneratorButton(mapGeneratorInterpreter));
+        RoomGetter roomGetter = new RoomGetter(state);
+        RoomInterpreter roomInterpreter = new RoomInterpreter(roomGetter);
+        MapDrawer mapDrawer = new MapDrawer(roomInterpreter);
 
-        StackPane mainMenuLayout = new StackPane();
-        mainMenuLayout.getChildren().add(generateMapButton);
+        drawableComponents.put(Toggler.ToggleableComponent.MAIN_MENU, mainMenu);
+        drawableComponents.put(Toggler.ToggleableComponent.MAP, mapDrawer);
 
-        Scene mainMenuScene = new Scene(mainMenuLayout, 600, 600);
+        CharacterMover characterMover = new CharacterMover(state, mapDrawer);
+        InputInterpreter inputInterpreter = new InputInterpreter(characterMover, sceneController);
+        InputListener inputListener = new InputListener(inputInterpreter);
+        primaryStage.addEventFilter(KeyEvent.KEY_TYPED, inputListener);
 
-
-        ////////// TUTORIAL CODE BEGINS /////////////////////////////////
-
-        // set up text that will show at bottom of the screen. Might change to different scene in the future.
-        bottomText = tutorialDisplay.tutorialLabel();
-        StackPane.setAlignment(bottomText, Pos.BOTTOM_CENTER);
-        mainMenuLayout.getChildren().add(bottomText);
-
-        // update the text with a timer. The timer is a private class in Main because it needs to access & change private attributes of it.
-        AnimationTimer timer = new TutorialTimer();
-        timer.start();
-
-        ///////// TUTORIAL CODE ENDS ////////////////////////////////////
-
-
-        primaryStage.setScene(mainMenuScene);
+        sceneController.toggle(Toggler.ToggleableComponent.MAIN_MENU);
         primaryStage.setTitle("Mountain Group 105");
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 
