@@ -3,8 +3,8 @@ package com.mg105.use_cases.Inventory;
 import com.mg105.entities.*;
 import com.mg105.entities.items.HealthPotion;
 import com.mg105.entities.items.UpgradeToken;
-import com.mg105.outputds.ItemDetails;
 import com.mg105.presenter_interfaces.InventoryPresenterInterface;
+import com.mg105.presenters.InventoryPresenter;
 import com.mg105.utils.ItemConstants;
 import org.junit.jupiter.api.Test;
 
@@ -17,27 +17,7 @@ class InventoryInteractorTest {
     // Some implementation of the interface (it's not really important for the tests since it really only
     // testing if the interactor mutates the entities properly)
 
-    InventoryPresenterInterface res = new InventoryPresenterInterface() {
-        @Override
-        public void addItem(boolean isSuccessful, ItemDetails itemDetails) {
-
-        }
-
-        @Override
-        public void removeItem(boolean isSuccessful, ItemDetails itemDetails) {
-
-        }
-
-        @Override
-        public void useItem(boolean isSuccessful, String characterName, ItemDetails itemDetails) {
-
-        }
-
-        @Override
-        public void inventoryDetails(ItemDetails[] allItemsDetails) {
-
-        }
-    };
+    InventoryPresenterInterface res = new InventoryPresenter();
 
     BattleCharacter b1 = new BattleCharacter(1, "A", 2, 3, false,
         new Move(0, 0, "m1", false),
