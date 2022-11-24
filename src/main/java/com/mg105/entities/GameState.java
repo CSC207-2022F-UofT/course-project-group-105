@@ -1,7 +1,11 @@
 package com.mg105.entities;
 
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import org.jetbrains.annotations.NotNull;
+
+import java.awt.*;
+import java.util.NoSuchElementException;
 
 /**
  * A class that represents the state of the game
@@ -13,12 +17,24 @@ public class GameState {
     private Room firstRoom;
     private Room lastRoom;
     private Room currentRoom;
-    private final BattleCharacter[] party;
+    private final ArrayList<BattleCharacter> party;
+    private final WalkingCharacter walkingCharacter;
     private final Inventory inventory;
 
-    public GameState(Inventory inventory, BattleCharacter[] party) {
+    public Point currentPosition = new Point(1,1); // TODO Temporary, remove when WalkingCharacter geets merged
+    private Battle currEncounter = null;
+
+    //Potentially useless. Keeps track of party characters who faint in battle.
+    private final ArrayList<BattleCharacter> fainted = new ArrayList<BattleCharacter>();
+
+    public GameState(Inventory inventory, BattleCharacter[] party, WalkingCharacter walkingCharacter) {
         this.inventory = inventory;
-        this.party = party;
+        this.party = new ArrayList<BattleCharacter>();
+
+        for (BattleCharacter c : party) {
+            this.party.add(c);
+        }
+        this.walkingCharacter = walkingCharacter;
     }
 
     /**
@@ -35,7 +51,7 @@ public class GameState {
     /**
      * Returns the character in party based on the given name
      *
-     * @param characterName
+     * @param characterName the name of the character
      * @return a character in party
      * @throws NoSuchElementException if no character in the party has the given name
      */
@@ -47,6 +63,15 @@ public class GameState {
         }
 
         throw new NoSuchElementException("No Battle Character with this name exists");
+    }
+
+    /**
+     * Get the current WalkingCharacter the user is controlling.
+     *
+     * @return the walkingCharacter.
+     */
+    public WalkingCharacter getWalkingCharacter() {
+        return walkingCharacter;
     }
 
     /**
@@ -65,12 +90,48 @@ public class GameState {
     }
 
     /**
-     * Get the room the player happes to currently be in.
+     * Get the room the player happens to currently be in.
      *
      * @return the current room.
      */
-    public Room getCurrentRoom() {
+    public @NotNull Room getCurrentRoom() {
         return currentRoom;
+    }
+
+    /**
+     * Returns the active Battle, or null if there is none.
+     *
+     * @return the current Battle, or null if there is no active encounter.
+     */
+    public Battle getCurrEncounter() {
+        return currEncounter;
+    }
+
+    /**
+     * Set currEncounter to the given active Battle.
+     *
+     * @param currEncounter the Battle to set currEncounter to.
+     */
+    public void setCurrEncounter(Battle currEncounter) {
+        this.currEncounter = currEncounter;
+    }
+
+    /**
+     * Returns an ArrayList of the player's characters.
+     *
+     * @return An ArrayList of the player's characters.
+     */
+    public ArrayList<BattleCharacter> getParty() {
+        return this.party;
+    }
+
+    /**
+     * Returns an ArrayList of the player's fainted characters.
+     *
+     * @return An ArrayList of the player's fainted characters.
+     */
+    public ArrayList<BattleCharacter> getFainted() {
+        return this.fainted;
     }
 
     /**
@@ -95,5 +156,14 @@ public class GameState {
         // we actually care that this is exactly the same instance of the room, not just two rooms that happen to have
         // the same configuration.
         return currentRoom == lastRoom;
+    }
+
+    /**
+     * Set the current room.  room must be graph-connected to the rest of the map.
+     *
+     * @param room the room to be set.
+     */
+    public void setCurrentRoom(@NotNull Room room) {
+        this.currentRoom = room;
     }
 }

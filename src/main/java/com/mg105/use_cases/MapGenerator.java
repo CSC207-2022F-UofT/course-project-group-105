@@ -44,8 +44,9 @@ public class MapGenerator {
         // Add battles
         List<BattleCharacter> firstRoomBattle = new ArrayList<>();
         firstRoomBattle.add(new BattleCharacter(
-            10, "Mr. Dr. Professor Chad", 10, 10,
-            new Move(10, 10), new Move(1, 1))
+            10, "Mr. Dr. Professor Chad", 10, 10, true,
+            new Move(-10, -10, "Move1", false),
+            new Move(1, 1, "Move2", false))
         );
         firstRoom.getOpponents().add(new OpponentSet(new Point(6, 2), firstRoomBattle));
 
