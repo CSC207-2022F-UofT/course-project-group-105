@@ -1,14 +1,9 @@
 package com.mg105.entities;
 
-import com.mg105.entities.BattleCharacter;
-import com.mg105.entities.Inventory;
-import com.mg105.entities.Move;
 import com.mg105.entities.items.HealthPotion;
 import com.mg105.entities.items.UpgradeToken;
-import com.mg105.utils.ItemConstants;
+import com.mg105.entities.items.utils.ItemConstants;
 import org.junit.jupiter.api.Test;
-
-import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.*;
 

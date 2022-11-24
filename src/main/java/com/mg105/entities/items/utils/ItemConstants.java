@@ -1,4 +1,4 @@
-package com.mg105.utils;
+package com.mg105.entities.items.utils;
 
 
 import com.mg105.entities.items.HealthPotion;

@@ -1,5 +1,6 @@
 package com.mg105.interface_adapters;
 
+import com.mg105.controllers.TutorialTextController;
 import com.mg105.use_cases.CharacterMover;
 import org.jetbrains.annotations.NotNull;
 
@@ -12,14 +13,17 @@ public class InputInterpreter {
     private final @NotNull CharacterMover mover;
     private final @NotNull Toggler toggler;
 
+    private final @NotNull TutorialTextController textChanger;
+
     /**
      * Create a new InputInterpreter that translates keyboard inputs to appropriate function invocations.
      *
      * @param mover the character mover.
      */
-    public InputInterpreter(@NotNull CharacterMover mover, @NotNull Toggler toggler) {
+    public InputInterpreter(@NotNull CharacterMover mover, @NotNull Toggler toggler, @NotNull TutorialTextController textChanger) {
         this.mover = mover;
         this.toggler = toggler;
+        this.textChanger = textChanger;
     }
 
     /**
@@ -30,6 +34,8 @@ public class InputInterpreter {
     public void interpret(String key) {
         switch (toggler.getCurrentComponent()) {
             case MAP -> {
+                textChanger.setChangeText(); // start displaying tutorial if they click any button
+
                 switch (key) {
                     case "w" -> mover.generateMapMoveBy(new Point(0, -1));
                     case "a" -> mover.generateMapMoveBy(new Point(-1, 0));

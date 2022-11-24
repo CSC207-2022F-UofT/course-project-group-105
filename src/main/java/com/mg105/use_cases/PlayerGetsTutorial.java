@@ -1,15 +1,15 @@
 package com.mg105.use_cases;
 
 import com.mg105.entities.GiveTutorial;
-import com.mg105.utils.TutorialTexts;
+import com.mg105.entities.items.utils.TutorialTexts;
 
 import java.util.List;
 
 public class PlayerGetsTutorial {
-    private List<String> tutorialPhases;  // Go through multiple phases of tutorial in order
+    private final List<String> tutorialPhases;  // Go through multiple phases of tutorial in order
     private int currentPhase;
 
-    private GiveTutorial tutorial;
+    private final GiveTutorial tutorial;
 
     public PlayerGetsTutorial(List<String> tutorialPhases, int currentPhase, GiveTutorial tutorial) {
         this.tutorialPhases = tutorialPhases;

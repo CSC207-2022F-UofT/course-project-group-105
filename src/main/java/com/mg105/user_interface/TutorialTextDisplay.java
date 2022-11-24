@@ -1,15 +1,13 @@
 package com.mg105.user_interface;
 
 import com.mg105.controllers.TutorialTextController;
-import com.mg105.utils.TutorialTexts;
+import com.mg105.entities.items.utils.TutorialTexts;
 import javafx.scene.control.Label;
 import javafx.scene.text.Font;
 
-import java.awt.*;
-
 
 public class TutorialTextDisplay {
-    private final TutorialTextController tutorialControl = new TutorialTextController();
+    private final TutorialTextController tutorialControl = new TutorialTextController(false);
 
     public TutorialTextDisplay() {
     }

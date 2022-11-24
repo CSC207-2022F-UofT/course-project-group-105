@@ -1,7 +1,7 @@
 package com.mg105.use_cases;
 
 import com.mg105.entities.*;
-import com.mg105.utils.MapConstants;
+import com.mg105.entities.items.utils.MapConstants;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;

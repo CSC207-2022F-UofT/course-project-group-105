@@ -1,5 +1,6 @@
 package com.mg105;
 
+import com.mg105.controllers.TutorialTextController;
 import com.mg105.entities.*;
 import com.mg105.interface_adapters.InputInterpreter;
 import com.mg105.interface_adapters.MapGeneratorInterpreter;
@@ -23,9 +24,6 @@ import java.util.Map;
  * The main class that sets up the clean architecture mountain group 105 game!
  */
 public class Main extends Application {
-    private final TutorialTextDisplay tutorialDisplay = new TutorialTextDisplay();
-    private Label bottomText;
-
     /**
      * The main method.  See Main.start().
      *
@@ -85,8 +83,10 @@ public class Main extends Application {
         drawableComponents.put(Toggler.ToggleableComponent.MAIN_MENU, mainMenu);
         drawableComponents.put(Toggler.ToggleableComponent.MAP, mapDrawer);
 
+        TutorialTextController textChanger = new TutorialTextController(false);
+
         CharacterMover characterMover = new CharacterMover(state, mapDrawer);
-        InputInterpreter inputInterpreter = new InputInterpreter(characterMover, sceneController);
+        InputInterpreter inputInterpreter = new InputInterpreter(characterMover, sceneController, textChanger);
         InputListener inputListener = new InputListener(inputInterpreter);
         primaryStage.addEventFilter(KeyEvent.KEY_TYPED, inputListener);
 
@@ -94,33 +94,16 @@ public class Main extends Application {
         primaryStage.setTitle("Mountain Group 105");
         primaryStage.setResizable(false);
         primaryStage.show();
-    }
 
-    private class TutorialTimer extends AnimationTimer {
-        private long prevTime = 0;
-
-        /**
-         * This method needs to be overridden by extending classes. It is going to
-         * be called in every frame while the {@code AnimationTimer} is active.
-         *
-         * @param now The timestamp of the current frame given in nanoseconds. This
-         *            value will be the same for all {@code AnimationTimers} called
-         *            during one frame.
-         */
-        @Override
-        public void handle(long now) {
-            long timeChange = now - prevTime;
-
-            // 5e9 is 5 seconds
-            if (timeChange > 4e9) {
-                prevTime = now;
-                tutorialDisplay.getController().nextPhase();
-                int phase_num = tutorialDisplay.getController().getTutorial().currentPhase();
-                String tutorialText = tutorialDisplay.getController().getTutorial().allPhases().get(phase_num);
-                bottomText.setText(tutorialDisplay.showBottomText(tutorialText));
-
-            }
-
+        // make new window for tutorial
+        if (state.isCurrentRoomFirstRoom()) {
+            TutorialTextWindow tutorialWindow = new TutorialTextWindow(textChanger);
+            Stage tutorialStage = new Stage();
+            tutorialStage.setX(660);
+            tutorialStage.setY(780);
+            tutorialWindow.start(tutorialStage);
         }
+
     }
+
 }

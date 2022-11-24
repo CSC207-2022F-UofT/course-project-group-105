@@ -3,7 +3,7 @@ package com.mg105.entities.items;
 import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.Consumable;
 import com.mg105.entities.Item;
-import com.mg105.utils.ItemConstants;
+import com.mg105.entities.items.utils.ItemConstants;
 
 /**
  * A health potion is an item that can be used to heal a character by a certain amount of points.
