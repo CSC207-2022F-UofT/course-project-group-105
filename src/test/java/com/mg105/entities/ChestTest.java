@@ -1,8 +1,8 @@
 package com.mg105.entities;
 
 import com.mg105.entities.items.HealthPotion;
-import com.mg105.outputds.ItemDetails;
 import com.mg105.presenter_interfaces.InventoryPresenterInterface;
+import com.mg105.presenters.InventoryPresenter;
 import com.mg105.use_cases.Inventory.InventoryInteractor;
 import com.mg105.utils.PartyConstants;
 import org.junit.jupiter.api.Test;
@@ -21,27 +21,7 @@ class ChestTest {
     Inventory inventory = new Inventory();
     BattleCharacter[] party = new BattleCharacter[PartyConstants.ALL_PARTY_MEMBER_NAMES.length];
     GameState game = new GameState(inventory, party, character);
-    InventoryPresenterInterface res = new InventoryPresenterInterface() {
-        @Override
-        public void addItemView(boolean isSuccessful, ItemDetails itemDetails) {
-
-        }
-
-        @Override
-        public void removeItemView(boolean isSuccessful, ItemDetails itemDetails) {
-
-        }
-
-        @Override
-        public void useItemView(boolean isSuccessful, String characterName, ItemDetails itemDetails) {
-
-        }
-
-        @Override
-        public void inventoryDetailsView(ItemDetails[] allItemsDetails) {
-
-        }
-    };
+    InventoryPresenterInterface res = new InventoryPresenter();
     InventoryInteractor interactor = new InventoryInteractor(game, res);
     ChestInteractor chestInteractor = new ChestInteractor(game, interactor);
 
