@@ -63,7 +63,7 @@ public class Main extends Application {
             new Move(-2, -2, "Sabotage", false));
 
         BattleCharacter[] party = {a, b, c, d};
-        GameState state = new GameState(inventory, party, new WalkingCharacter(new Point(0, 0)));
+        GameState state = new GameState(inventory, party, new WalkingCharacter(new Point(1, 1)));
 
         Map<Toggler.ToggleableComponent, Toggleable> drawableComponents = new HashMap<>();
         // We fill this map in later because of the ordering of parameters

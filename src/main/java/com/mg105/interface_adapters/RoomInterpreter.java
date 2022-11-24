@@ -1,9 +1,6 @@
 package com.mg105.interface_adapters;
 
-import com.mg105.entities.Doorway;
-import com.mg105.entities.OpponentSet;
-import com.mg105.entities.Room;
-import com.mg105.entities.TreasureChest;
+import com.mg105.entities.*;
 import com.mg105.use_cases.RoomGetter;
 import com.mg105.utils.MapConstants;
 import org.jetbrains.annotations.NotNull;
@@ -62,7 +59,8 @@ public class RoomInterpreter {
             canvas[opponents.getPosition().y][opponents.getPosition().x] = TileType.OPPONENT_SET;
         }
 
-        Point playerPosition = getter.getPositionInRoom();
+        WalkingCharacter player = getter.getWalkingCharacter();
+        Point playerPosition = player.getCharPosition();
         canvas[playerPosition.y][playerPosition.x] = TileType.PLAYER;
 
         return canvas;

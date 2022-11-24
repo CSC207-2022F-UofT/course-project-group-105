@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import org.jetbrains.annotations.NotNull;
 
-import java.awt.*;
-import java.util.NoSuchElementException;
-
 /**
  * A class that represents the state of the game
  * <p>
@@ -21,7 +18,6 @@ public class GameState {
     private final WalkingCharacter walkingCharacter;
     private final Inventory inventory;
 
-    public Point currentPosition = new Point(1,1); // TODO Temporary, remove when WalkingCharacter geets merged
     private Battle currEncounter = null;
 
     //Potentially useless. Keeps track of party characters who faint in battle.
@@ -70,14 +66,14 @@ public class GameState {
      *
      * @return the walkingCharacter.
      */
-    public WalkingCharacter getWalkingCharacter() {
+    public @NotNull WalkingCharacter getWalkingCharacter() {
         return walkingCharacter;
     }
 
     /**
      * Swap out the map of the game state to a new one defined by an interconnected graph between firstRoom and
      * lastRoom.  It should be noted that the interconnectedness is not checked here.
-     *
+     * <p>
      * Additionally, the current room is also set as the first room.
      *
      * @param firstRoom the first room of the map (where the tutorial is played).
