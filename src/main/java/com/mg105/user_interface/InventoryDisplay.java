@@ -42,6 +42,7 @@ public class InventoryDisplay implements InventoryViewInterface {
         partySelector.setOnAction(e -> {
             this.characterSelected = partySelector.getSelectionModel().getSelectedItem();
         });
+        partySelector.setValue(PartyConstants.ALL_PARTY_MEMBER_NAMES[0]);
         return partySelector;
     }
 
