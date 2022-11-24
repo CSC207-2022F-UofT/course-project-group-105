@@ -101,7 +101,7 @@ class InventoryTest {
         Inventory inventory = new Inventory();
         assertEquals(0, inventory.numberOfItems());
         inventory.addItem(new UpgradeToken());
-        assertEquals(0, inventory.numberOfItems());
+        assertEquals(1, inventory.numberOfItems());
     }
 
     @Test
