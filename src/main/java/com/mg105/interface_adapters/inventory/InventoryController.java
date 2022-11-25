@@ -1,4 +1,4 @@
-package com.mg105.controllers;
+package com.mg105.interface_adapters.inventory;
 
 import com.mg105.use_cases.Inventory.InventoryInteractor;
 

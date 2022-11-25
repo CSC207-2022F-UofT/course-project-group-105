@@ -1,4 +1,4 @@
-package com.mg105.view_interfaces;
+package com.mg105.user_interface;
 
 
 /**

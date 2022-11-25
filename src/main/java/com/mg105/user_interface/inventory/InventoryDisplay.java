@@ -1,8 +1,8 @@
-package com.mg105.user_interface;
+package com.mg105.user_interface.inventory;
 
-import com.mg105.controllers.InventoryController;
+import com.mg105.interface_adapters.inventory.InventoryController;
+import com.mg105.user_interface.AlertBox;
 import com.mg105.utils.PartyConstants;
-import com.mg105.view_interfaces.InventoryViewInterface;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;

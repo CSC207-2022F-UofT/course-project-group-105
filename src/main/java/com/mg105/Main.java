@@ -1,17 +1,18 @@
 package com.mg105;
 
-import com.mg105.controllers.InventoryController;
 import com.mg105.entities.*;
 import com.mg105.interface_adapters.InputInterpreter;
 import com.mg105.interface_adapters.MapGeneratorInterpreter;
 import com.mg105.interface_adapters.RoomInterpreter;
 import com.mg105.interface_adapters.Toggler;
-import com.mg105.presenters.InventoryPresenter;
+import com.mg105.interface_adapters.inventory.InventoryController;
+import com.mg105.interface_adapters.inventory.InventoryPresenter;
 import com.mg105.use_cases.CharacterMover;
 import com.mg105.use_cases.Inventory.InventoryInteractor;
 import com.mg105.use_cases.MapGenerator;
 import com.mg105.use_cases.RoomGetter;
 import com.mg105.user_interface.*;
+import com.mg105.user_interface.inventory.InventoryDisplay;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.control.Label;

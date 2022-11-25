@@ -1,4 +1,6 @@
-package com.mg105.view_interfaces;
+package com.mg105.user_interface.inventory;
+
+import com.mg105.user_interface.Alert;
 
 /**
  * The interface defines all the functions that should be called to update the ui to add or
