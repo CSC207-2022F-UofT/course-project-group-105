@@ -3,7 +3,7 @@ package com.mg105.user_interface;
 import com.mg105.interface_adapters.RoomInterpreter;
 import com.mg105.interface_adapters.TileType;
 import com.mg105.use_cases.RoomUpdater;
-import com.mg105.entities.items.utils.MapConstants;
+import com.mg105.utils.MapConstants;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;

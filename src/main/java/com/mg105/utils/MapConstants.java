@@ -1,4 +1,4 @@
-package com.mg105.entities.items.utils;
+package com.mg105.utils;
 
 /**
  * Constants used in the map.

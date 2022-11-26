@@ -5,7 +5,7 @@ import com.mg105.entities.OpponentSet;
 import com.mg105.entities.Room;
 import com.mg105.entities.TreasureChest;
 import com.mg105.use_cases.RoomGetter;
-import com.mg105.entities.items.utils.MapConstants;
+import com.mg105.utils.MapConstants;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;

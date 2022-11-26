@@ -34,13 +34,15 @@ public class InputInterpreter {
     public void interpret(String key) {
         switch (toggler.getCurrentComponent()) {
             case MAP -> {
-                textChanger.setChangeText(); // start displaying tutorial if they click any button
+                textChanger.setChangeText();
 
                 switch (key) {
                     case "w" -> mover.generateMapMoveBy(new Point(0, -1));
                     case "a" -> mover.generateMapMoveBy(new Point(-1, 0));
                     case "s" -> mover.generateMapMoveBy(new Point(0, 1));
                     case "d" -> mover.generateMapMoveBy(new Point(1, 0));
+
+                    case "k" -> textChanger.setShowControls(true);
                 }
             }
         }

@@ -1,7 +1,7 @@
 package com.mg105.entities;
 
 
-import com.mg105.entities.items.utils.TutorialTexts;
+import com.mg105.utils.TutorialTexts;
 
 public class GiveTutorial {
 

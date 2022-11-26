@@ -48,7 +48,7 @@ public class MapGenerator {
             new Move(-10, -10, "Move1", false),
             new Move(1, 1, "Move2", false))
         );
-        firstRoom.getOpponents().add(new OpponentSet(new Point(6, 2), firstRoomBattle));
+        firstRoom.getOpponents().add(new OpponentSet(new Point(4, 6), firstRoomBattle));
 
         // Add chests
         firstRoom.getChests().add(new TreasureChest(new HealthPotion(), new Point(2, 2)));

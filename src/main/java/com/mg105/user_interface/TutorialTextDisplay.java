@@ -1,7 +1,7 @@
 package com.mg105.user_interface;
 
 import com.mg105.controllers.TutorialTextController;
-import com.mg105.entities.items.utils.TutorialTexts;
+import com.mg105.utils.TutorialTexts;
 import javafx.scene.control.Label;
 import javafx.scene.text.Font;
 
@@ -24,6 +24,16 @@ public class TutorialTextDisplay {
         int phase_idx = tutorialControl.getTutorial().allPhases().indexOf(displayedText);
         tutorialText = TutorialTexts.PHASES_TEXT.get(phase_idx);
         return tutorialText;
+
+    }
+
+    /**
+     * String for reminding user of controls
+     *
+     * @return the actual text displayed to the user
+     */
+    public String showControlsText() {
+        return TutorialTexts.CONTROLS;
 
     }
 

@@ -10,9 +10,8 @@ import com.mg105.use_cases.CharacterMover;
 import com.mg105.use_cases.MapGenerator;
 import com.mg105.use_cases.RoomGetter;
 import com.mg105.user_interface.*;
-import javafx.animation.AnimationTimer;
+import com.mg105.utils.TutorialTexts;
 import javafx.application.Application;
-import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
@@ -95,15 +94,12 @@ public class Main extends Application {
         primaryStage.setResizable(false);
         primaryStage.show();
 
-        // make new window for tutorial
-        if (state.isCurrentRoomFirstRoom()) {
-            TutorialTextWindow tutorialWindow = new TutorialTextWindow(textChanger);
-            Stage tutorialStage = new Stage();
-            tutorialStage.setX(660);
-            tutorialStage.setY(780);
-            tutorialWindow.start(tutorialStage);
+        TutorialTextWindow tutorialWindow = new TutorialTextWindow(textChanger);
+        Stage tutorialStage = new Stage();
+        tutorialStage.setX(TutorialTexts.tutorialTextX);
+        tutorialStage.setY(TutorialTexts.tutorialTextY);
+        tutorialWindow.start(tutorialStage);
         }
 
     }
 
-}

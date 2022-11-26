@@ -3,11 +3,8 @@ package com.mg105.use_cases.Tutorial;
 import com.mg105.entities.GiveTutorial;
 import com.mg105.use_cases.PlayerGetsTutorial;
 import com.mg105.user_interface.TutorialTextDisplay;
-import com.mg105.entities.items.utils.TutorialTexts;
+import com.mg105.utils.TutorialTexts;
 import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -16,6 +13,7 @@ public class TutorialTest {
     void testActionGetterSetter() {
         GiveTutorial newTutorial = new GiveTutorial(false, false, false);
         newTutorial.ActionPerformedSetter(TutorialTexts.attacked);
+
         assertFalse(newTutorial.ActionPerformedGetter(TutorialTexts.moved));
         assertTrue(newTutorial.ActionPerformedGetter(TutorialTexts.attacked));
         assertFalse(newTutorial.ActionPerformedGetter(TutorialTexts.usedItem));
@@ -26,7 +24,6 @@ public class TutorialTest {
         PlayerGetsTutorial tutorialPlayer
             = new PlayerGetsTutorial(TutorialTexts.PHASES, 0,
             new GiveTutorial(false, false, false));
-        List<String> expectedPhases = Arrays.asList("", "story", "tell move", "tell attack", "tell use item", "exit room");
 
         assertEquals(tutorialPlayer.currentPhase(), 0);
         tutorialPlayer.nextPhase();
@@ -58,6 +55,7 @@ public class TutorialTest {
         String phase = tutorialDisplay.getController().getTutorial().allPhases().get(phase_num);
         String tutorialText = tutorialDisplay.showBottomText(phase);
         String expected = "Move your character with the arrow keys.";
+
         assertEquals(tutorialText, expected);
     }
 }

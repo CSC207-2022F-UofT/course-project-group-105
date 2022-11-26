@@ -1,26 +1,29 @@
 package com.mg105.user_interface;
 
 import com.mg105.controllers.TutorialTextController;
-import com.mg105.interface_adapters.InputInterpreter;
+import com.mg105.utils.TutorialTexts;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
-import javafx.scene.Group;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-
-import javax.swing.plaf.ColorUIResource;
-import java.awt.*;
-import java.text.BreakIterator;
 
 public class TutorialTextWindow extends Application {
     TutorialTextDisplay tutorialDisplay = new TutorialTextDisplay();
     Label bottomText = new Label();
+    Label helpText = new Label();
     TutorialTextController textController;
 
-    public TutorialTextWindow(TutorialTextController textController){
+    Pane tutorialPane = new Pane();
+
+    public TutorialTextWindow(TutorialTextController textController) {
         this.textController = textController;
     }
 
@@ -31,14 +34,18 @@ public class TutorialTextWindow extends Application {
 
     @Override
     public void start(Stage tutorialStage) {
-        Group tutorialWindow = new Group();
-        Pane tutorialPane = new Pane();
-
         bottomText = tutorialDisplay.tutorialLabel();
-        bottomText.setFont(Font.font("Courier", 16));
-        tutorialPane.getChildren().add(bottomText);
+        bottomText.setFont(Font.font(TutorialTexts.textFont1, TutorialTexts.textSize));
 
-        Scene tutorialScene = new Scene(tutorialPane,550, 70);
+        helpText = tutorialDisplay.tutorialLabel();
+        helpText.setFont(Font.font(TutorialTexts.textFont2, TutorialTexts.textSize));
+        helpText.setBackground(new Background(new BackgroundFill(Color.rgb(255, 215, 0, 1),
+            new CornerRadii(30.0), new Insets(-40.0))));
+
+        tutorialPane.getChildren().add(bottomText);
+        tutorialPane.getChildren().add(helpText);
+
+        Scene tutorialScene = new Scene(tutorialPane, TutorialTexts.helperPaneX, TutorialTexts.helperPaneY);
 
         AnimationTimer timer = new TutorialTimer();
         timer.start();
@@ -46,8 +53,10 @@ public class TutorialTextWindow extends Application {
         tutorialStage.setScene(tutorialScene);
         tutorialStage.show();
     }
+
     private class TutorialTimer extends AnimationTimer {
         private long prevTime = 0;
+        private double helpTimer = TutorialTexts.helpTime;
 
         /**
          * This method needs to be overridden by extending classes. It is going to
@@ -61,8 +70,8 @@ public class TutorialTextWindow extends Application {
         public void handle(long now) {
             long timeChange = now - prevTime;
 
-            // 5e9 is 5 seconds
-            if (timeChange > 4e9 & textController.changeText()) {
+            // 4e9 is 4 seconds
+            if (timeChange > TutorialTexts.TEXT_DURATION1 * 1e9 & textController.changeText()) {
                 prevTime = now;
                 tutorialDisplay.getController().nextPhase();
                 String tutorialText = tutorialDisplay.getController().bottomText();
@@ -70,9 +79,23 @@ public class TutorialTextWindow extends Application {
 
             }
 
+            if (textController.getShowControls()){
+                helpText.setText(TutorialTexts.CONTROLS);
+                helpTimer --;
+                if (helpTimer < 1){
+                    textController.setShowControls(false);
+                    helpTimer = TutorialTexts.helpTime;
+                }
+            }
+            else {
+                helpText.setText("");
+            }
+
         }
     }
-
 }
+
+
+
 
 

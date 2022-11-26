@@ -3,7 +3,7 @@ package com.mg105.entities.items;
 import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.Consumable;
 import com.mg105.entities.Item;
-import com.mg105.entities.items.utils.ItemConstants;
+import com.mg105.utils.ItemConstants;
 
 /**
  * A mega health potion is larger health potion that can be used to heal a character by a greater number of points.
