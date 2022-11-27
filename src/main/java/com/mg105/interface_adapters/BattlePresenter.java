@@ -17,7 +17,7 @@ public class BattlePresenter {
 
     private final GameState state;
     private Battle encounter;
-
+    
     private BattleMenu view;
 
     public BattlePresenter(GameState state) {
@@ -49,7 +49,7 @@ public class BattlePresenter {
             Move m1 = new Move(-rand.nextInt(1, 8), 0, "first", false);
             Move m2 = new Move(rand.nextInt(1, 4), 0, "second", true);
             BattleCharacter character = new BattleCharacter(charHealth, "Opponent " + i,
-                charDmg, charSpeed, true, m1, m2);
+            charDmg, charSpeed, true, m1, m2);
             opponents.add(character);
         }
         ArrayList<BattleCharacter> party = this.state.getParty();

@@ -50,7 +50,7 @@ public class BattleMenu extends Application implements EventHandler<ActionEvent>
     private String moving;
     private int moveNum;
 
-
+    
     public BattleMenu() {
         presenter.setView(this);
         presenter.createEncounter();

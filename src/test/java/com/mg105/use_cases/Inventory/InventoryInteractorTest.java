@@ -1,15 +1,14 @@
-package com.mg105.usecase.Inventory;
-
-import com.mg105.entities.BattleCharacter;
-import com.mg105.entities.GameState;
-import com.mg105.entities.Inventory;
-import com.mg105.entities.Move;
+package com.mg105.use_cases.Inventory;
+import com.mg105.entities.*;
 import com.mg105.entities.items.HealthPotion;
 import com.mg105.entities.items.UpgradeToken;
 import com.mg105.outputds.ItemDetails;
-import com.mg105.presenterinterfaces.InventoryPresenterInterface;
+import com.mg105.presenter_interfaces.InventoryPresenterInterface;
+import com.mg105.use_cases.Inventory.InventoryInteractor;
 import com.mg105.utils.ItemConstants;
 import org.junit.jupiter.api.Test;
+
+import java.awt.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -51,6 +50,7 @@ class InventoryInteractorTest {
         new Move(0, 0, "m2", false));
 
     BattleCharacter[] party = {b1, b2, b3};
+    WalkingCharacter walkingCharacter = new WalkingCharacter((new Point(0, 0)));
 
     @Test
     void addItem() {
@@ -60,7 +60,7 @@ class InventoryInteractorTest {
     @Test
     void addItemEmptyInventoryExists() {
         Inventory inventory = new Inventory();
-        GameState state = new GameState(inventory, party);
+        GameState state = new GameState(inventory, party, walkingCharacter);
         InventoryInteractor inventoryInteractor = new InventoryInteractor(state, res);
 
         assertFalse(inventory.has(ItemConstants.UPGRADE_TOKEN_NAME));
@@ -76,7 +76,7 @@ class InventoryInteractorTest {
         inventory.addItem(new UpgradeToken());
         inventory.addItem(new HealthPotion());
         inventory.addItem(new HealthPotion());
-        GameState state = new GameState(inventory, party);
+        GameState state = new GameState(inventory, party, walkingCharacter);
         InventoryInteractor inventoryInteractor = new InventoryInteractor(state, res);
 
         assertFalse(inventory.has("Master ball"));
@@ -91,7 +91,7 @@ class InventoryInteractorTest {
         inventory.addItem(new UpgradeToken());
         inventory.addItem(new HealthPotion());
         inventory.addItem(new HealthPotion());
-        GameState state = new GameState(inventory, party);
+        GameState state = new GameState(inventory, party, walkingCharacter);
         InventoryInteractor inventoryInteractor = new InventoryInteractor(state, res);
 
         assertEquals(1, inventory.numberOfItems(ItemConstants.UPGRADE_TOKEN_NAME));
@@ -114,7 +114,7 @@ class InventoryInteractorTest {
         inventory.addItem(new HealthPotion());
         inventory.addItem(new UpgradeToken());
 
-        GameState state = new GameState(inventory, party);
+        GameState state = new GameState(inventory, party, walkingCharacter);
         InventoryInteractor inventoryInteractor = new InventoryInteractor(state, res);
 
         assertEquals(6, inventory.numberOfItems(ItemConstants.HEALTH_POTION_NAME));
@@ -135,7 +135,7 @@ class InventoryInteractorTest {
         inventory.addItem(new UpgradeToken());
         inventory.addItem(new HealthPotion());
         inventory.addItem(new HealthPotion());
-        GameState state = new GameState(inventory, party);
+        GameState state = new GameState(inventory, party, walkingCharacter);
         InventoryInteractor inventoryInteractor = new InventoryInteractor(state, res);
 
         assertFalse(inventory.has("Master ball"));
@@ -150,7 +150,7 @@ class InventoryInteractorTest {
         inventory.addItem(new UpgradeToken());
         inventory.addItem(new HealthPotion());
         inventory.addItem(new HealthPotion());
-        GameState state = new GameState(inventory, party);
+        GameState state = new GameState(inventory, party, walkingCharacter);
         InventoryInteractor inventoryInteractor = new InventoryInteractor(state, res);
 
         assertEquals(1, inventory.numberOfItems(ItemConstants.UPGRADE_TOKEN_NAME));
@@ -173,7 +173,7 @@ class InventoryInteractorTest {
         inventory.addItem(new HealthPotion());
         inventory.addItem(new UpgradeToken());
 
-        GameState state = new GameState(inventory, party);
+        GameState state = new GameState(inventory, party, walkingCharacter);
         InventoryInteractor inventoryInteractor = new InventoryInteractor(state, res);
 
         assertEquals(6, inventory.numberOfItems(ItemConstants.HEALTH_POTION_NAME));
@@ -194,7 +194,7 @@ class InventoryInteractorTest {
         inventory.addItem(new UpgradeToken());
         inventory.addItem(new HealthPotion());
         inventory.addItem(new HealthPotion());
-        GameState state = new GameState(inventory, party);
+        GameState state = new GameState(inventory, party, walkingCharacter);
         InventoryInteractor inventoryInteractor = new InventoryInteractor(state, res);
 
         inventoryInteractor.useItem(ItemConstants.UPGRADE_TOKEN_NAME, "GHI");
@@ -215,7 +215,7 @@ class InventoryInteractorTest {
         inventory.addItem(new UpgradeToken());
         inventory.addItem(new HealthPotion());
         inventory.addItem(new HealthPotion());
-        GameState state = new GameState(inventory, party);
+        GameState state = new GameState(inventory, party, walkingCharacter);
         InventoryInteractor inventoryInteractor = new InventoryInteractor(state, res);
 
 
@@ -254,7 +254,7 @@ class InventoryInteractorTest {
 
         assertEquals(0, party[1].getHp());
 
-        GameState state = new GameState(inventory, party);
+        GameState state = new GameState(inventory, party, walkingCharacter);
         InventoryInteractor inventoryInteractor = new InventoryInteractor(state, res);
 
         assertEquals(6, inventory.numberOfItems(ItemConstants.HEALTH_POTION_NAME));
