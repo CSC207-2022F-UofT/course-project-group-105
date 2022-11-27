@@ -44,14 +44,10 @@ jobs:
           distribution: 'adopt'
       - name: Validate Gradle Wrapper
         uses: gradle/wrapper-validation-action@v1
-      - name: Generate Tarball Distribution
+      - name: Generate Pre-built Jars
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: distTar
-      - name: Generate Zip Distribution
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: distZip
+          arguments: assembleDist
       - name: Generate Javadoc
         uses: gradle/gradle-build-action@v2
         with:
