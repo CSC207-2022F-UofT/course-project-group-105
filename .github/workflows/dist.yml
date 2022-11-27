@@ -32,7 +32,7 @@ jobs:
         with:
           folder: build/docs/javadoc
   release:
-    name: Release
+    name: GitHub Release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
