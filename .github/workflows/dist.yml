@@ -9,7 +9,7 @@ permissions:
   contents: write
 jobs:
   docs-site:
-    name: docs.mg105.com Javadoc
+    name: Javadoc Website
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -54,12 +54,22 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           arguments: distZip
+      - name: Generate Javadoc
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: javadoc
+      - name: Zip Javadoc
+        working-directory: build/docs/javadoc
+        run: zip -r ../../distributions/javadoc.zip .
+      - name: Tar Javadoc
+        working-directory: build/docs/javadoc
+        run: tar czf ../../distributions/javadoc.tar.gz .
       - name: Create GitHub Release
         uses: ncipollo/release-action@v1
         with:
           name: Prerelease for ${{ github.sha }}
           body: This release is created automatically via GitHub actions. Its artifacts are based on ${{ github.sha }}.
-          tag: prerelease
           commit: ${{ github.sha }}
+          tag: prerelease-${{ github.sha }}
           prerelease: true
           artifacts: 'build/distributions/*'
