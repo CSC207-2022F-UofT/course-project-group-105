@@ -27,8 +27,6 @@ jobs:
           arguments: javadoc
       - name: Create .nojekyll File
         run: touch build/docs/javadoc/.nojekyll
-      - name: Set Domain Name
-        run: echo "docs.mg105.com" > build/docs/javadoc/CNAME
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
