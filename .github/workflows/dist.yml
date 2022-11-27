@@ -65,9 +65,9 @@ jobs:
       - name: Create GitHub Release
         uses: ncipollo/release-action@v1
         with:
-          name: Prerelease for ${{ github.sha }}
+          name: 'Prerelease #${{ github.run_number }}'
           body: This release is created automatically via GitHub actions. Its artifacts are based on ${{ github.sha }}.
           commit: ${{ github.sha }}
-          tag: prerelease-${{ github.sha }}
+          tag: prerelease-${{ github.run_number }}
           prerelease: true
           artifacts: 'build/distributions/*'
