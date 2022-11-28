@@ -150,4 +150,10 @@ public class InventoryInteractor {
         // should only be called iff the itemName does not exist
         return "";
     }
+
+    public void removeInventory()
+    {
+        this.state.getInventory().removeAll();
+    }
 }
+
