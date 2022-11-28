@@ -1,22 +1,21 @@
 package com.mg105.use_cases;
 
 import com.mg105.entities.*;
+import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MapGenerator {
-    private final GameState state;
+    private final @NotNull GameState state;
 
     /**
      * Creates a new MapGenerator that acts on a GameState.
      *
-     * state must not be null.
-     *
      * @param state the game state.
      */
-    public MapGenerator(GameState state) {
+    public MapGenerator(@NotNull GameState state) {
         this.state = state;
     }
 
