@@ -1,8 +1,9 @@
 package com.mg105.use_cases;
 
-import com.mg105.entities.Doorway;
-import com.mg105.entities.GameState;
-import com.mg105.entities.Room;
+import com.mg105.entities.*;
+import com.mg105.entities.items.HealthPotion;
+import com.mg105.entities.items.MegaPotion;
+import com.mg105.entities.items.UpgradeToken;
 import com.mg105.utils.MapConstants;
 import com.mg105.utils.PointComparator;
 import org.jetbrains.annotations.NotNull;
@@ -42,12 +43,13 @@ public class MapGenerator {
      * Generates a map.
      */
     public void generateMap() {
-        // First we create the first and last rooms and create the between rooms
         Room firstRoom = generateEmptyRoom();
         Room lastRoom  = generateEmptyRoom();
+
         generateBetweenRooms(firstRoom, lastRoom);
 
-        // Finally we set the map
+        populateBetweenRooms(firstRoom, lastRoom);
+
         state.setMap(firstRoom, lastRoom);
     }
 
@@ -175,8 +177,8 @@ public class MapGenerator {
             closest = getClosestPointTo(map, startPos, endPos);
         }
 
-        //System.out.println("Final:");
-        //printMap(map, firstRoom, lastRoom);
+        System.out.println("Final:");
+        printMap(map, firstRoom, lastRoom);
 
         // Finally we actually connect the connectible rooms
         for (int y = 0; y < mapHeight; y++) {
@@ -186,7 +188,7 @@ public class MapGenerator {
                     List<Point> neighbours = getNeighbours(map, new Point(x, y), Objects::isNull);
                     for (Point neighbour : neighbours) {
                         Room neighbourRoom = map[neighbour.y][neighbour.x];
-                        int wallPosition = 3 + random.nextInt(MapConstants.ROOM_SIZE-7);
+                        int wallPosition = 3 + random.nextInt(MapConstants.ROOM_SIZE-6);
 
                         Doorway doorway;
                         if (neighbour.y < y) {
@@ -210,6 +212,83 @@ public class MapGenerator {
 
         // Note: if there are completely disconnected regions no references to them will exist at this point, and
         // so they will be handled automatically.
+    }
+
+    /**
+     * Populate room with some number of chests. (Currently only 1).
+     * <p>
+     * Precondition: room does not already contain a chest.
+     *
+     * @param room the room to populate with a chest.
+     */
+    private void populateRoomWithChests(@NotNull Room room) {
+        assert room.getChests().size() == 0;
+
+        Point chestLocation = new Point(
+            MapConstants.ROOM_SIZE/2 - 1 + random.nextInt(2),
+            MapConstants.ROOM_SIZE/2 - 1 + random.nextInt(2)
+        );
+
+        // By generating two booleans, there is a 50% chance of upgrade token, 25% chance of each potion.
+        Item reward;
+        if (random.nextBoolean()) {
+            reward = new UpgradeToken();
+        } else if (random.nextBoolean()) {
+            reward = new HealthPotion();
+        } else {
+            reward = new MegaPotion();
+        }
+
+        TreasureChest chest = new TreasureChest(reward, chestLocation);
+
+        room.getChests().add(chest);
+    }
+
+    /**
+     * Populate some doorways of room with battles.
+     *
+     * @param room the room to populate with battles.
+     */
+    private void populateRoomWithBattles(@NotNull Room room) {
+        for (Doorway door : room.getDoorways()) {
+            // Each door has a 50% chance of having a battle added to it.
+            if (random.nextBoolean()) {
+                // TODO Battle battle = new Battle();
+            }
+        }
+    }
+
+    /**
+     * Populate all the rooms connected between firstRoom and lastRoom with either a battle or a chest.
+     *
+     * @param firstRoom the first room of the map.
+     * @param lastRoom  the last room of the map.
+     */
+    private void populateBetweenRooms(@NotNull Room firstRoom, @NotNull Room lastRoom) {
+        Queue<Room> unpopulatedRooms = new LinkedList<>();
+        Set<Room> visited = new HashSet<>();
+
+        // We do BFS on all the rooms
+        unpopulatedRooms.add(firstRoom);
+        while (!unpopulatedRooms.isEmpty()) {
+            Room current = unpopulatedRooms.remove();
+
+            for (Doorway door: current.getDoorways()) {
+                if (!visited.contains(door.getNextRoom())) {
+                    unpopulatedRooms.add(door.getNextRoom());
+                    visited.add(door.getNextRoom());
+                }
+            }
+
+            // We leave the first and last room as hardcoded.
+            if (current != firstRoom && current != lastRoom) {
+                if (random.nextBoolean()) {
+                    populateRoomWithChests(current);
+                } else {
+                    populateRoomWithBattles(current);
+                }
+            }
+        }
     }
 
     /**
