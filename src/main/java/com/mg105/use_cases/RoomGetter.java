@@ -2,9 +2,8 @@ package com.mg105.use_cases;
 
 import com.mg105.entities.GameState;
 import com.mg105.entities.Room;
+import com.mg105.entities.WalkingCharacter;
 import org.jetbrains.annotations.NotNull;
-
-import java.awt.*;
 
 /**
  * RoomGetter is responsible for getting the state current room.
@@ -23,7 +22,7 @@ public class RoomGetter {
 
     /**
      * Get the current room.
-     *
+     * <p>
      * By definition this only gets the environment of the room.
      *
      * @return the current room.
@@ -33,11 +32,11 @@ public class RoomGetter {
     }
 
     /**
-     * Get the position of the player in the room.
+     * Get the position current walking character.
      *
-     * @return the position of the player in the room.
+     * @return the current walking character.
      */
-    public Point getPositionInRoom() {
-        return state.currentPosition;
+    public @NotNull WalkingCharacter getWalkingCharacter() {
+        return state.getWalkingCharacter();
     }
 }
