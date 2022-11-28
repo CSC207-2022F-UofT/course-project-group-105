@@ -36,7 +36,7 @@ public class TreasureChest {
      * @return the reward of the chest.
      */
     public Item open() {
-        assert !opened;
+        assert !opened : "chest is already open!";
         opened = true;
         return reward;
     }

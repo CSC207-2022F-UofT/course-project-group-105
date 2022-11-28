@@ -1,14 +1,12 @@
-package com.mg105.usecase.Inventory;
-
-import com.mg105.entities.HealthPotion;
+package com.mg105.use_cases.Inventory;
+import com.mg105.entities.items.*;
 import com.mg105.entities.Item;
-import com.mg105.entities.items.UpgradeToken;
 import com.mg105.utils.ItemConstants;
 
 import java.util.NoSuchElementException;
 
 /**
- * This classes sole responsibility is to create new items
+ * This class' sole responsibility is to create new items
  */
 
 public class ItemFactory {
@@ -26,8 +24,9 @@ public class ItemFactory {
             return new HealthPotion();
         } else if (itemName.equals(ItemConstants.UPGRADE_TOKEN_NAME)) {
             return new UpgradeToken();
+        } else if (itemName.equals(ItemConstants.MEGA_POTION_NAME)) {
+            return new MegaPotion();
         }
-
         throw new NoSuchElementException("No item of this type exists");
     }
 }
