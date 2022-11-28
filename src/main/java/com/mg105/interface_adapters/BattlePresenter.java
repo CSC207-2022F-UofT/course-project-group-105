@@ -18,7 +18,7 @@ public class BattlePresenter {
     private final GameState state;
     private Battle encounter;
 
-    private BattleMenu view;
+    private BattleMenuInterface view;
 
     public BattlePresenter(GameState state) {
         this.state = state;
@@ -29,9 +29,9 @@ public class BattlePresenter {
     /**
      * Sets the view attribute.
      *
-     * @param view the BattleMenu instance to set the view attribute to.
+     * @param view the BattleMenuInterface instance to set the view attribute to.
      */
-    public void setView(BattleMenu view) {
+    public void setView(BattleMenuInterface view) {
         this.view = view;
     }
     /**

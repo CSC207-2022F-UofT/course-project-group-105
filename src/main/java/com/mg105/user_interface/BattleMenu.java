@@ -1,5 +1,6 @@
 package com.mg105.user_interface;
 
+import com.mg105.interface_adapters.BattleMenuInterface;
 import com.mg105.interface_adapters.BattlePresenter;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -12,7 +13,7 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
-public class BattleMenu extends Application implements EventHandler<ActionEvent> {
+public class BattleMenu extends Application implements EventHandler<ActionEvent>, BattleMenuInterface {
 
     private static BattlePresenter presenter;
     private String[] playerNames = new String[4];
@@ -45,6 +46,7 @@ public class BattleMenu extends Application implements EventHandler<ActionEvent>
     private Button targetO2;
     private Button targetO3;
     private GridPane grid;
+    private Scene scene;
 
     //Used in Button handle event
     private String moving;
@@ -71,6 +73,7 @@ public class BattleMenu extends Application implements EventHandler<ActionEvent>
      * @param playerNames array of name Strings representing player characters.
      * @param opponentNames array of name Strings representing opponents.
      */
+    @Override
     public void setNames(String[] playerNames, String[] opponentNames) {
         this.playerNames = playerNames;
         this.opponentNames = opponentNames;
@@ -89,6 +92,7 @@ public class BattleMenu extends Application implements EventHandler<ActionEvent>
      *
      * @param character the character who needs to be updated on the screen.
      */
+    @Override
     public void updateCharacter(String character){
         if (playerNames[0].equals(character)) {
             updateCharacterData(character, 0, p0, false);
@@ -190,7 +194,7 @@ public class BattleMenu extends Application implements EventHandler<ActionEvent>
         moveTwo.setOnAction(this);
         moveTwo.setVisible(false);
 
-        Scene scene = new Scene(grid, 800, 800);
+        scene = new Scene(grid, 800, 800);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
