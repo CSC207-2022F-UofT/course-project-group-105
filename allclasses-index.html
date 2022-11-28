@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="script-dir/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="script.js"></script>
-<script type="text/javascript" src="script-dir/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="script-dir/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="all-classes-index-page">
@@ -59,6 +59,14 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary" aria-labelledby="all-classes-table-tab0">
 <div class="table-header col-first">Class</div>
 <div class="table-header col-last">Description</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="com/mg105/user_interface/Alert.html" title="interface in com.mg105.user_interface">Alert</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab1">
+<div class="block">An interface that defines one function that alerts the user of something</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/user_interface/AlertBox.html" title="class in com.mg105.user_interface">AlertBox</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="block">AlertBox is a component that creates a new window and display a users a message.</div>
+</div>
 <div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/Application.html" title="class in com.mg105">Application</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Effectively, the main class that sets up the clean architecture mountain group 105 game!</div>
@@ -113,13 +121,32 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">An inventory is a class that manages items</div>
 </div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/interface_adapters/inventory/InventoryController.html" title="class in com.mg105.interface_adapters.inventory">InventoryController</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="block">A class that serves the UI and allows users to make the desired changes to the Inventory</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/user_interface/inventory/InventoryDisplay.html" title="class in com.mg105.user_interface.inventory">InventoryDisplay</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="block">A user interface class that displays the state of the inventory to the user and allows them to
+ perform actions that relate to the inventory and its items.</div>
+</div>
 <div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/use_cases/Inventory/InventoryInteractor.html" title="class in com.mg105.use_cases.Inventory">InventoryInteractor</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">This class is the only class that should directly interact with the inventory</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="com/mg105/presenter_interfaces/InventoryPresenterInterface.html" title="interface in com.mg105.presenter_interfaces">InventoryPresenterInterface</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab1">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/interface_adapters/inventory/InventoryPresenter.html" title="class in com.mg105.interface_adapters.inventory">InventoryPresenter</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="block">A class whose purpose is to update the view with the current state of the inventory and update it based on
+ a user's actions</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="com/mg105/use_cases/Inventory/InventoryPresenterInterface.html" title="interface in com.mg105.use_cases.Inventory">InventoryPresenterInterface</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
 <div class="block">This interface should be implemented by the InventoryPresenter class</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="com/mg105/interface_adapters/inventory/InventoryViewInterface.html" title="interface in com.mg105.interface_adapters.inventory">InventoryViewInterface</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab1">
+<div class="block">The interface defines all the functions that should be called to update the ui to add or
+ modify the information of the Inventory</div>
 </div>
 <div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/entities/Item.html" title="class in com.mg105.entities">Item</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab2">

@@ -3,9 +3,10 @@ com.mg105.controllers
 com.mg105.entities
 com.mg105.entities.items
 com.mg105.interface_adapters
+com.mg105.interface_adapters.inventory
 com.mg105.outputds
-com.mg105.presenter_interfaces
 com.mg105.use_cases
 com.mg105.use_cases.Inventory
 com.mg105.user_interface
+com.mg105.user_interface.inventory
 com.mg105.utils
