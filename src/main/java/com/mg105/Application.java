@@ -57,12 +57,9 @@ public class Application extends javafx.application.Application {
             new Move(-2, -2, "Sabotage", false));
 
         BattleCharacter[] party = {a, b, c, d};
-<<<<<<< HEAD:src/main/java/com/mg105/Main.java
         Inventory inventory = new Inventory();
-        GameState state = new GameState(inventory, party, new WalkingCharacter(new Point(0, 0)));
-=======
+
         GameState state = new GameState(inventory, party, new WalkingCharacter(new Point(1, 1)));
->>>>>>> main:src/main/java/com/mg105/Application.java
 
         // InventoryDisplay set up
         InventoryPresenter inventoryPresenter = new InventoryPresenter();
