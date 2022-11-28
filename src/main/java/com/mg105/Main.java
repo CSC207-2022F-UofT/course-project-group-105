@@ -86,6 +86,12 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    public void end(Stage finalStage)
+    {
+        Inventory inventory = new Inventory();
+
+    }
+
     private class TutorialTimer extends AnimationTimer {
         private long prevTime = 0;
 
