@@ -35,9 +35,10 @@ public class CharacterMover {
         // magnitude of the vector is 1 which is true iff the sum of the absolute value of the components is 1.
         assert Math.abs(direction.x) + Math.abs(direction.y) == 1;
 
+        Point currentPosition = state.getWalkingCharacter().getCharPosition();
         Point nextPosition = new Point(
-            state.currentPosition.x + direction.x,
-            state.currentPosition.y + direction.y
+            currentPosition.x + direction.x,
+            currentPosition.y + direction.y
         );
         boolean nextPositionValid = true;
 
@@ -83,7 +84,7 @@ public class CharacterMover {
         }
 
         if (nextPositionValid) {
-            state.currentPosition = nextPosition;
+            state.getWalkingCharacter().setCharPosition(nextPosition);
             updater.updateRoom();
         }
     }

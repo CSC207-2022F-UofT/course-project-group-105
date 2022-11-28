@@ -12,11 +12,11 @@ public class TutorialTest {
     @Test
     void testActionGetterSetter() {
         GiveTutorial newTutorial = new GiveTutorial(false, false, false);
-        newTutorial.ActionPerformedSetter(TutorialTexts.attacked);
+        newTutorial.ActionPerformedSetter(TutorialTexts.ATTACKED);
 
-        assertFalse(newTutorial.ActionPerformedGetter(TutorialTexts.moved));
-        assertTrue(newTutorial.ActionPerformedGetter(TutorialTexts.attacked));
-        assertFalse(newTutorial.ActionPerformedGetter(TutorialTexts.usedItem));
+        assertFalse(newTutorial.ActionPerformedGetter(TutorialTexts.MOVED));
+        assertTrue(newTutorial.ActionPerformedGetter(TutorialTexts.ATTACKED));
+        assertFalse(newTutorial.ActionPerformedGetter(TutorialTexts.USED_ITEM));
     }
 
     @Test
@@ -39,8 +39,8 @@ public class TutorialTest {
         PlayerGetsTutorial tutorialPlayer2
             = new PlayerGetsTutorial(TutorialTexts.PHASES, 0,
             new GiveTutorial(false, false, true));
-        tutorialPlayer2.setActionPerformed(TutorialTexts.moved);
-        tutorialPlayer2.setActionPerformed(TutorialTexts.attacked);
+        tutorialPlayer2.setActionPerformed(TutorialTexts.MOVED);
+        tutorialPlayer2.setActionPerformed(TutorialTexts.ATTACKED);
 
         assertFalse(tutorialPlayer1.isComplete());
         assertTrue(tutorialPlayer2.isComplete());

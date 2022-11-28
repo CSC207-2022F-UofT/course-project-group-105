@@ -23,7 +23,7 @@ public class PlayerGetsTutorial {
      * @return whether all actions are complete
      */
     public boolean isComplete() {
-        return tutorial.ActionPerformedGetter(TutorialTexts.moved) & tutorial.ActionPerformedGetter(TutorialTexts.attacked) & tutorial.ActionPerformedGetter(TutorialTexts.usedItem);
+        return tutorial.ActionPerformedGetter(TutorialTexts.MOVED) & tutorial.ActionPerformedGetter(TutorialTexts.ATTACKED) & tutorial.ActionPerformedGetter(TutorialTexts.USED_ITEM);
     }
 
     /**

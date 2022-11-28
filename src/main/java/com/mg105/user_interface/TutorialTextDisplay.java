@@ -44,7 +44,7 @@ public class TutorialTextDisplay {
      */
     public Label tutorialLabel() {
         Label bottomText = new Label();
-        bottomText.setFont(Font.font(TutorialTexts.textSize));
+        bottomText.setFont(Font.font(TutorialTexts.TEXT_SIZE));
         return bottomText;
     }
 

@@ -11,7 +11,6 @@ import com.mg105.use_cases.MapGenerator;
 import com.mg105.use_cases.RoomGetter;
 import com.mg105.user_interface.*;
 import com.mg105.utils.TutorialTexts;
-import javafx.application.Application;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
@@ -20,17 +19,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * The main class that sets up the clean architecture mountain group 105 game!
+ * Effectively, the main class that sets up the clean architecture mountain group 105 game!
  */
-public class Main extends Application {
-    /**
-     * The main method.  See Main.start().
-     *
-     * @param args the commandline arguments.  They are passed to JavaFX.
-     */
-    public static void main(String[] args) {
-        Main.launch(args);
-    }
+public class Application extends javafx.application.Application {
 
     /**
      * Note that while this isn't our main method explicitly, we (probably) need this to effectively be our main method
@@ -60,7 +51,7 @@ public class Main extends Application {
             new Move(-2, -2, "Sabotage", false));
 
         BattleCharacter[] party = {a, b, c, d};
-        GameState state = new GameState(inventory, party, new WalkingCharacter(new Point(0, 0)));
+        GameState state = new GameState(inventory, party, new WalkingCharacter(new Point(1, 1)));
 
         Map<Toggler.ToggleableComponent, Toggleable> drawableComponents = new HashMap<>();
         // We fill this map in later because of the ordering of parameters
@@ -82,10 +73,21 @@ public class Main extends Application {
         drawableComponents.put(Toggler.ToggleableComponent.MAIN_MENU, mainMenu);
         drawableComponents.put(Toggler.ToggleableComponent.MAP, mapDrawer);
 
+        /////Tutorial scene////
         TutorialTextController textChanger = new TutorialTextController(false);
+        TutorialTextDisplay textDisplay = new TutorialTextDisplay();
+        TutorialTextWindow tutorialDisplay = new TutorialTextWindow(textChanger, textDisplay);
+        drawableComponents.put(Toggler.ToggleableComponent.TUTORIAL, tutorialDisplay);
+//        sceneController.toggle((Toggler.ToggleableComponent.TUTORIAL));
+        SceneController sceneControllerTutorial = new SceneController(
+            primaryStage,
+            drawableComponents,
+            Toggler.ToggleableComponent.TUTORIAL
+        );
+        //////////////////////
 
         CharacterMover characterMover = new CharacterMover(state, mapDrawer);
-        InputInterpreter inputInterpreter = new InputInterpreter(characterMover, sceneController, textChanger);
+        InputInterpreter inputInterpreter = new InputInterpreter(characterMover, sceneController, textChanger, sceneControllerTutorial);
         InputListener inputListener = new InputListener(inputInterpreter);
         primaryStage.addEventFilter(KeyEvent.KEY_TYPED, inputListener);
 
@@ -93,13 +95,6 @@ public class Main extends Application {
         primaryStage.setTitle("Mountain Group 105");
         primaryStage.setResizable(false);
         primaryStage.show();
-
-        TutorialTextWindow tutorialWindow = new TutorialTextWindow(textChanger);
-        Stage tutorialStage = new Stage();
-        tutorialStage.setX(TutorialTexts.tutorialTextX);
-        tutorialStage.setY(TutorialTexts.tutorialTextY);
-        tutorialWindow.start(tutorialStage);
-        }
-
     }
 
+}

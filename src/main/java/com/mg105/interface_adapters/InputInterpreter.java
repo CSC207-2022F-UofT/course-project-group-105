@@ -2,6 +2,7 @@ package com.mg105.interface_adapters;
 
 import com.mg105.controllers.TutorialTextController;
 import com.mg105.use_cases.CharacterMover;
+import com.mg105.user_interface.SceneController;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
@@ -14,16 +15,19 @@ public class InputInterpreter {
     private final @NotNull Toggler toggler;
 
     private final @NotNull TutorialTextController textChanger;
+    private final @NotNull SceneController tutorialScene;
 
     /**
      * Create a new InputInterpreter that translates keyboard inputs to appropriate function invocations.
      *
      * @param mover the character mover.
      */
-    public InputInterpreter(@NotNull CharacterMover mover, @NotNull Toggler toggler, @NotNull TutorialTextController textChanger) {
+    public InputInterpreter(@NotNull CharacterMover mover, @NotNull Toggler toggler,
+                            @NotNull TutorialTextController textChanger, SceneController tutorialScene) {
         this.mover = mover;
         this.toggler = toggler;
         this.textChanger = textChanger;
+        this.tutorialScene = tutorialScene;
     }
 
     /**
@@ -34,15 +38,22 @@ public class InputInterpreter {
     public void interpret(String key) {
         switch (toggler.getCurrentComponent()) {
             case MAP -> {
-                textChanger.setChangeText();
-
                 switch (key) {
                     case "w" -> mover.generateMapMoveBy(new Point(0, -1));
                     case "a" -> mover.generateMapMoveBy(new Point(-1, 0));
                     case "s" -> mover.generateMapMoveBy(new Point(0, 1));
                     case "d" -> mover.generateMapMoveBy(new Point(1, 0));
 
+                    case "t" ->{tutorialScene.toggle(Toggler.ToggleableComponent.TUTORIAL);}
+
+
                     case "k" -> textChanger.setShowControls(true);
+                }
+            }
+            case TUTORIAL -> {
+                switch (key) {
+                    case "t" -> tutorialScene.toggle(Toggler.ToggleableComponent.MAP);
+
                 }
             }
         }

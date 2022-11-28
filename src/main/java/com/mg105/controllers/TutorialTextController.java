@@ -53,7 +53,7 @@ public class TutorialTextController {
     /**
      * Get an instance of the PlayerGetsTutorial use case
      *
-     * @ return the tutorial instance
+     * @return the tutorial instance
      */
     public PlayerGetsTutorial getTutorial() {
         return this.tutorial;

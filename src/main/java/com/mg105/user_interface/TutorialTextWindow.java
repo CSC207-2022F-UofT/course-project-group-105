@@ -1,9 +1,9 @@
 package com.mg105.user_interface;
 
 import com.mg105.controllers.TutorialTextController;
+import com.mg105.interface_adapters.Toggler;
 import com.mg105.utils.TutorialTexts;
 import javafx.animation.AnimationTimer;
-import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -13,50 +13,58 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.stage.Stage;
+import org.jetbrains.annotations.NotNull;
 
-public class TutorialTextWindow extends Application {
-    TutorialTextDisplay tutorialDisplay = new TutorialTextDisplay();
-    Label bottomText = new Label();
-    Label helpText = new Label();
-    TutorialTextController textController;
-
+public class TutorialTextWindow implements Toggleable{
+    TutorialTextDisplay tutorialDisplay;
     Pane tutorialPane = new Pane();
+    Label bottomText = new Label();
+    Label helpText;
+    TutorialTextController textController;
+    Scene tutorialScene = new Scene(tutorialPane, TutorialTexts.HELPER_PANE_X, TutorialTexts.HELPER_PANE_Y);
 
-    public TutorialTextWindow(TutorialTextController textController) {
+    Toggler toggler;
+
+    public TutorialTextWindow(TutorialTextController textController, @NotNull TutorialTextDisplay tutorialDisplay) {
         this.textController = textController;
-    }
+        this.tutorialDisplay = tutorialDisplay;
 
-
-    public static void main(String[] args) {
-        launch(args);
-    }
-
-    @Override
-    public void start(Stage tutorialStage) {
-        bottomText = tutorialDisplay.tutorialLabel();
-        bottomText.setFont(Font.font(TutorialTexts.textFont1, TutorialTexts.textSize));
+        bottomText.setFont(Font.font(TutorialTexts.TEXT_SIZE));
 
         helpText = tutorialDisplay.tutorialLabel();
-        helpText.setFont(Font.font(TutorialTexts.textFont2, TutorialTexts.textSize));
+
+        helpText.setFont(Font.font(TutorialTexts.TEXT_SIZE));
         helpText.setBackground(new Background(new BackgroundFill(Color.rgb(255, 215, 0, 1),
             new CornerRadii(30.0), new Insets(-40.0))));
 
         tutorialPane.getChildren().add(bottomText);
         tutorialPane.getChildren().add(helpText);
 
-        Scene tutorialScene = new Scene(tutorialPane, TutorialTexts.helperPaneX, TutorialTexts.helperPaneY);
-
         AnimationTimer timer = new TutorialTimer();
         timer.start();
+    }
 
-        tutorialStage.setScene(tutorialScene);
-        tutorialStage.show();
+    /**
+     * Get the scene of this toggleable object.  It is this scene that will be displayed.
+     *
+     * @return the scene to be displayed.
+     */
+    @Override
+    public @NotNull Scene getScene() {return tutorialScene;}
+
+    /**
+     * Set the visibility of this component.
+     *
+     * @param isVisible true if the Toggleable is now visible, false otherwise.  If false the Toggleable is expected
+     *                  to do nothing on ANY user inputs.
+     */
+    @Override
+    public void toggle(boolean isVisible) {
     }
 
     private class TutorialTimer extends AnimationTimer {
         private long prevTime = 0;
-        private double helpTimer = TutorialTexts.helpTime;
+        private double helpTimer = TutorialTexts.HELP_TIME;
 
         /**
          * This method needs to be overridden by extending classes. It is going to
@@ -71,12 +79,12 @@ public class TutorialTextWindow extends Application {
             long timeChange = now - prevTime;
 
             // 1e9 is 1 second
-            if (timeChange > TutorialTexts.TEXT_DURATION1 * 1e9 & textController.changeText()) {
+//            if (timeChange > TutorialTexts.TEXT_DURATION1 * 1e9 & textController.changeText()) {
+            if (timeChange > TutorialTexts.TEXT_DURATION1 * 1e9) {
                 prevTime = now;
                 tutorialDisplay.getController().nextPhase();
                 String tutorialText = tutorialDisplay.getController().bottomText();
                 bottomText.setText(tutorialDisplay.showBottomText(tutorialText));
-
             }
 
             if (textController.getShowControls()){
@@ -84,7 +92,7 @@ public class TutorialTextWindow extends Application {
                 helpTimer --;
                 if (helpTimer < 1){
                     textController.setShowControls(false);
-                    helpTimer = TutorialTexts.helpTime;
+                    helpTimer = TutorialTexts.HELP_TIME;
                 }
             }
             else {
