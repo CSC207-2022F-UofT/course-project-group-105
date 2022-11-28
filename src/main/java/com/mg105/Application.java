@@ -14,7 +14,6 @@ import com.mg105.use_cases.RoomGetter;
 import com.mg105.user_interface.*;
 import com.mg105.user_interface.inventory.InventoryDisplay;
 import javafx.animation.AnimationTimer;
-import javafx.application.Application;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
@@ -24,20 +23,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * The main class that sets up the clean architecture mountain group 105 game!
+ * Effectively, the main class that sets up the clean architecture mountain group 105 game!
  */
-public class Main extends Application {
+public class Application extends javafx.application.Application {
     private final TutorialTextDisplay tutorialDisplay = new TutorialTextDisplay();
     private Label bottomText;
-
-    /**
-     * The main method.  See Main.start().
-     *
-     * @param args the commandline arguments.  They are passed to JavaFX.
-     */
-    public static void main(String[] args) {
-        Main.launch(args);
-    }
 
     /**
      * Note that while this isn't our main method explicitly, we (probably) need this to effectively be our main method
@@ -67,8 +57,12 @@ public class Main extends Application {
             new Move(-2, -2, "Sabotage", false));
 
         BattleCharacter[] party = {a, b, c, d};
+<<<<<<< HEAD:src/main/java/com/mg105/Main.java
         Inventory inventory = new Inventory();
         GameState state = new GameState(inventory, party, new WalkingCharacter(new Point(0, 0)));
+=======
+        GameState state = new GameState(inventory, party, new WalkingCharacter(new Point(1, 1)));
+>>>>>>> main:src/main/java/com/mg105/Application.java
 
         // InventoryDisplay set up
         InventoryPresenter inventoryPresenter = new InventoryPresenter();
