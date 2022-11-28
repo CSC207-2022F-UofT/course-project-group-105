@@ -10,7 +10,6 @@ import com.mg105.use_cases.MapGenerator;
 import com.mg105.use_cases.RoomGetter;
 import com.mg105.user_interface.*;
 import javafx.animation.AnimationTimer;
-import javafx.application.Application;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
@@ -20,20 +19,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * The main class that sets up the clean architecture mountain group 105 game!
+ * Effectively, the main class that sets up the clean architecture mountain group 105 game!
  */
-public class Main extends Application {
+public class Application extends javafx.application.Application {
     private final TutorialTextDisplay tutorialDisplay = new TutorialTextDisplay();
     private Label bottomText;
-
-    /**
-     * The main method.  See Main.start().
-     *
-     * @param args the commandline arguments.  They are passed to JavaFX.
-     */
-    public static void main(String[] args) {
-        Main.launch(args);
-    }
 
     /**
      * Note that while this isn't our main method explicitly, we (probably) need this to effectively be our main method
