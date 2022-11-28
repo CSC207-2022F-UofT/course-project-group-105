@@ -70,7 +70,7 @@ public class TutorialTextWindow extends Application {
         public void handle(long now) {
             long timeChange = now - prevTime;
 
-            // 4e9 is 4 seconds
+            // 1e9 is 1 second
             if (timeChange > TutorialTexts.TEXT_DURATION1 * 1e9 & textController.changeText()) {
                 prevTime = now;
                 tutorialDisplay.getController().nextPhase();
@@ -80,7 +80,7 @@ public class TutorialTextWindow extends Application {
             }
 
             if (textController.getShowControls()){
-                helpText.setText(TutorialTexts.CONTROLS);
+                helpText.setText(tutorialDisplay.showControlsText());
                 helpTimer --;
                 if (helpTimer < 1){
                     textController.setShowControls(false);

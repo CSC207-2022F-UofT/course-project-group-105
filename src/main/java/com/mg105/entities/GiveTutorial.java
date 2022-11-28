@@ -5,9 +5,9 @@ import com.mg105.utils.TutorialTexts;
 
 public class GiveTutorial {
 
-    private boolean moved = false;
-    private boolean attacked = false;
-    private boolean usedItem = false;
+    private boolean moved;
+    private boolean attacked;
+    private boolean usedItem;
 
     public GiveTutorial(boolean moved, boolean attacked, boolean usedItem) {
         this.moved = moved;
