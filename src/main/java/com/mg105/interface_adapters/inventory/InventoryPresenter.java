@@ -1,7 +1,7 @@
 package com.mg105.interface_adapters.inventory;
 
 import com.mg105.outputds.ItemDetails;
-import com.mg105.user_interface.inventory.InventoryViewInterface;
+import com.mg105.use_cases.Inventory.InventoryPresenterInterface;
 import org.jetbrains.annotations.NotNull;
 
 /**

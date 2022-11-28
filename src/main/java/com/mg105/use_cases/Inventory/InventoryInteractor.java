@@ -2,7 +2,6 @@ package com.mg105.use_cases.Inventory;
 
 import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.GameState;
-import com.mg105.interface_adapters.inventory.InventoryPresenterInterface;
 import com.mg105.outputds.ItemDetails;
 import com.mg105.utils.ItemConstants;
 import com.mg105.utils.PartyConstants;

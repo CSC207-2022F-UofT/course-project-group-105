@@ -1,4 +1,4 @@
-package com.mg105.interface_adapters.inventory;
+package com.mg105.use_cases.Inventory;
 
 import com.mg105.outputds.ItemDetails;
 

@@ -1,4 +1,4 @@
-package com.mg105.user_interface.inventory;
+package com.mg105.interface_adapters.inventory;
 
 import com.mg105.user_interface.Alert;
 

@@ -1,7 +1,9 @@
 package com.mg105.user_interface.inventory;
 
 import com.mg105.interface_adapters.inventory.InventoryController;
+import com.mg105.interface_adapters.inventory.InventoryViewInterface;
 import com.mg105.user_interface.AlertBox;
+import com.mg105.user_interface.Toggleable;
 import com.mg105.utils.PartyConstants;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -10,7 +12,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.jetbrains.annotations.NotNull;
 
@@ -21,11 +22,13 @@ import java.util.HashMap;
  * perform actions that relate to the inventory and its items.
  */
 
-public class InventoryDisplay implements InventoryViewInterface {
+public class InventoryDisplay implements InventoryViewInterface, Toggleable {
+
+    private Boolean isVisible = false;
     private VBox itemsDisplay;
     private final HashMap<String, HBox> itemNameToInfo = new HashMap<>();
     private final Stage window = new Stage();
-    private InventoryController controller;
+    private final InventoryController controller;
     private String characterSelected = PartyConstants.ALL_PARTY_MEMBER_NAMES[0];
 
     public InventoryDisplay(InventoryController controller) {
@@ -39,9 +42,7 @@ public class InventoryDisplay implements InventoryViewInterface {
     private @NotNull ComboBox<String> buildCharacterDropdown() {
         ComboBox<String> partySelector = new ComboBox<>();
         partySelector.getItems().addAll(PartyConstants.ALL_PARTY_MEMBER_NAMES);
-        partySelector.setOnAction(e -> {
-            this.characterSelected = partySelector.getSelectionModel().getSelectedItem();
-        });
+        partySelector.setOnAction(e -> this.characterSelected = partySelector.getSelectionModel().getSelectedItem());
         partySelector.setValue(PartyConstants.ALL_PARTY_MEMBER_NAMES[0]);
         return partySelector;
     }
@@ -57,25 +58,25 @@ public class InventoryDisplay implements InventoryViewInterface {
     }
 
     /**
-     * displays the inventory to the user
+     * Returns the scene that displays the information for the Inventory
+     *
+     * @return the scene that displays the information for the Inventory.
      */
-    public void display() {
 
-        // Makes this modal and blocks user from performing events on other modals
-        this.window.initModality(Modality.APPLICATION_MODAL);
+    @Override
+    public @NotNull Scene getScene() {
+        return new Scene(buildLayout(), 200, 200, Color.LIGHTBLUE);
+    }
 
-        this.window.setTitle("Inventory");
-        // Should probably create theme constants somewhere
-        this.window.setWidth(400);
-        this.window.setHeight(400);
-
-        this.window.setResizable(false);
-
-        Scene scene = new Scene(buildLayout(), 200, 200, Color.LIGHTBLUE);
-        this.window.setScene(scene);
-
-        // Forces user to close this window before viewing other windows
-        this.window.showAndWait();
+    /**
+     * Changes the state of the InventoryDisplay based on if the inventory display is shown in the ui
+     *
+     * @param isVisible true if the Toggleable is now visible, false otherwise.  If false the Toggleable is expected
+     *                  to do nothing on ANY user inputs.
+     */
+    @Override
+    public void toggle(boolean isVisible) {
+        this.isVisible = isVisible;
     }
 
     /**
@@ -114,13 +115,15 @@ public class InventoryDisplay implements InventoryViewInterface {
      */
     @Override
     public void addItemView(String name, String description, boolean isUsable, String quantity) {
+        if (!this.isVisible) {
+            return;
+        }
         Label nameLabel = new Label(name);
         Label descriptionLabel = new Label(description);
         Label quantityLabel = new Label(quantity);
         Button removeItem = new Button("Remove Item");
-        removeItem.setOnAction(e -> {
-            controller.removeItem(name);
-        });
+        removeItem.setOnAction(e ->
+            controller.removeItem(name));
         HBox info = new HBox(10);
 
         if (isUsable) {
@@ -155,9 +158,8 @@ public class InventoryDisplay implements InventoryViewInterface {
 
     private Button getUseItemButton(String name) {
         Button useItem = new Button("Use Item");
-        useItem.setOnAction(e -> {
-            controller.useItem(name, getCharacterSelected());
-        });
+        useItem.setOnAction(e ->
+            controller.useItem(name, getCharacterSelected()));
         return useItem;
     }
 }
