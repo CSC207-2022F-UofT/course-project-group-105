@@ -12,6 +12,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * MapDrawer draws the map as a grid of tiles.
@@ -42,12 +43,12 @@ public class MapDrawer implements RoomUpdater, Toggleable {
         isVisible = false;
 
         tiles = new HashMap<>(6);
-        tiles.put(TileType.FLOOR, new Image(RoomUpdater.class.getResourceAsStream("/tiles/floor.png")));
-        tiles.put(TileType.WALL, new Image(RoomUpdater.class.getResourceAsStream("/tiles/wall.png")));
-        tiles.put(TileType.EXIT, new Image(RoomUpdater.class.getResourceAsStream("/tiles/exit.png")));
-        tiles.put(TileType.CHEST, new Image(RoomUpdater.class.getResourceAsStream("/tiles/chest.png")));
-        tiles.put(TileType.PLAYER, new Image(RoomUpdater.class.getResourceAsStream("/tiles/player.png")));
-        tiles.put(TileType.OPPONENT_SET, new Image(RoomUpdater.class.getResourceAsStream("/tiles/battle.png")));
+        tiles.put(TileType.FLOOR, new Image(Objects.requireNonNull(RoomUpdater.class.getResourceAsStream("/tiles/floor.png"))));
+        tiles.put(TileType.WALL, new Image(Objects.requireNonNull(RoomUpdater.class.getResourceAsStream("/tiles/wall.png"))));
+        tiles.put(TileType.EXIT, new Image(Objects.requireNonNull(RoomUpdater.class.getResourceAsStream("/tiles/exit.png"))));
+        tiles.put(TileType.CHEST, new Image(Objects.requireNonNull(RoomUpdater.class.getResourceAsStream("/tiles/chest.png"))));
+        tiles.put(TileType.PLAYER, new Image(Objects.requireNonNull(RoomUpdater.class.getResourceAsStream("/tiles/player.png"))));
+        tiles.put(TileType.OPPONENT_SET, new Image(Objects.requireNonNull(RoomUpdater.class.getResourceAsStream("/tiles/battle.png"))));
         // While in theory getResourceAsStream can fail, in practice this will never happen because the images are
         // bundled in the Jar.  If this isn't the case then the nullpointerexception is the least of your worries.
     }
