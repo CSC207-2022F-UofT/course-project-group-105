@@ -22,6 +22,7 @@ public class RoomLayout {
      * @param chests    the chests in this room.
      * @param opponents the opponents in this room.
      * @param doorways  the doorways in this room leading to other rooms.
+     * @param player    the player's position.
      */
     public RoomLayout(@NotNull List<Point> chests,
                       @NotNull List<Point> opponents,
