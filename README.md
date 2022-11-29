@@ -2,9 +2,15 @@
 
 TODO: Short description
 
-## Quick Start Guide
+## Quickstart Guide
 
-TODO
+This section contains instructions on how to download and run pre-compiled Jar distribution.
+
+First, this project requires [Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html), so make sure that is installed.
+
+Next, navigate to the [latest GitHub release](https://github.com/CSC207-2022F-UofT/course-project-group-105/releases/latest), then download and unzip the attached `course-project-group-105.zip` file.
+
+Finally, navigate to the `bin` folder and run either `course-project-group-105.bat` (on Windows) or `course-project-group-105`.
 
 ## Build (and Run) from Source
 
