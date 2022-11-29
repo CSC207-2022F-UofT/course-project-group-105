@@ -1,6 +1,7 @@
 package com.mg105.entities;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 import org.jetbrains.annotations.NotNull;
 
@@ -25,11 +26,9 @@ public class GameState {
 
     public GameState(Inventory inventory, BattleCharacter[] party, WalkingCharacter walkingCharacter) {
         this.inventory = inventory;
-        this.party = new ArrayList<BattleCharacter>();
+        this.party = new ArrayList<>();
 
-        for (BattleCharacter c : party) {
-            this.party.add(c);
-        }
+        this.party.addAll(Arrays.asList(party));
         this.walkingCharacter = walkingCharacter;
     }
 

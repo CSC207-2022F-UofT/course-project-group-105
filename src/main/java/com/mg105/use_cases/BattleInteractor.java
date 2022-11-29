@@ -4,7 +4,6 @@ import com.mg105.entities.Battle;
 import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.GameState;
 import com.mg105.entities.Move;
-import com.mg105.interface_adapters.BattlePresenter;
 import com.mg105.presenter_interfaces.BattlePresenterInterface;
 
 import java.util.ArrayList;
@@ -65,6 +64,9 @@ public class BattleInteractor {
             opponentNames[i] = opponents.get(i).getName();
         }
 
+        if (this.presenter == null) { //Used for unit tests. Never executed during regular running of the application.
+            return;
+        }
         presenter.setViewNames(partyNames, opponentNames);
     }
 
@@ -264,6 +266,9 @@ public class BattleInteractor {
 
         target.modifyDamage(m.getDamageChange());
 
+        if (this.presenter == null) { //Used for unit tests. Never executed during regular running of the application.
+            return;
+        }
         presenter.updateViewCharacter(target.getName());
     }
 

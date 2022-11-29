@@ -1,0 +1,126 @@
+package com.mg105.use_cases.Battle;
+
+import com.mg105.entities.*;
+import com.mg105.use_cases.BattleInteractor;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import java.awt.*;
+import java.util.ArrayList;
+
+class BattleInteractorTest {
+
+    @Test
+    void createValidEncounter() {
+        Inventory inventory = new Inventory();
+        WalkingCharacter character = new WalkingCharacter(new Point(0, 0));
+        BattleCharacter p1 = new BattleCharacter(14, "Leslie", 7, 8, false,
+            new Move(-5, 0, "first", false),
+            new Move(0, 1, "second",true));
+        BattleCharacter p2 = new BattleCharacter(9, "Mariam", 6, 11, false,
+            new Move(-5, 0, "first", false),
+            new Move(0, 1, "second",true));
+        BattleCharacter p3 = new BattleCharacter(10, "Michael", 10, 10, false,
+            new Move(-5, 0, "first", false),
+            new Move(0, 1, "second",true));
+        BattleCharacter p4 = new BattleCharacter(6, "Alex", 12, 14, false,
+            new Move(-5, 0, "first", false),
+            new Move(0, 1, "second",true));
+
+        BattleCharacter[] party = {p1, p2, p3, p4};
+
+        GameState state = new GameState(inventory, party, character);
+        BattleInteractor interactor = new BattleInteractor(state);
+        interactor.createEncounter();
+
+        Assertions.assertEquals(4, interactor.retrieveTargets(1, "Leslie").size());
+        Assertions.assertEquals(4, interactor.retrieveTargets(2, "Leslie").size());
+        Assertions.assertNotNull(interactor.roundStart());
+    }
+
+    @Test
+    void executeMoveSuccess() {
+        Inventory inventory = new Inventory();
+        WalkingCharacter character = new WalkingCharacter(new Point(0, 0));
+        BattleCharacter p1 = new BattleCharacter(14, "Leslie", 7, 8, false,
+            new Move(-5, 0, "first", false),
+            new Move(0, 1, "second",true));
+        BattleCharacter p2 = new BattleCharacter(9, "Mariam", 6, 11, false,
+            new Move(-5, 0, "first", false),
+            new Move(0, 1, "second",true));
+        BattleCharacter p3 = new BattleCharacter(10, "Michael", 10, 10, false,
+            new Move(-5, 0, "first", false),
+            new Move(0, 1, "second",true));
+        BattleCharacter p4 = new BattleCharacter(6, "Alex", 12, 14, false,
+            new Move(-5, 0, "first", false),
+            new Move(0, 1, "second",true));
+
+        BattleCharacter[] party = {p1, p2, p3, p4};
+
+        GameState state = new GameState(inventory, party, character);
+        BattleInteractor interactor = new BattleInteractor(state);
+        interactor.createEncounter();
+
+        ArrayList<String> targets = interactor.retrieveTargets(1, "Leslie");
+        String target = targets.get(0);
+        int originalHealth = interactor.getCharacterHealth(target);
+        interactor.executeTurn(1, "Leslie", target);
+
+        Assertions.assertTrue(interactor.isCharacterFainted(target) ||
+            interactor.getCharacterHealth(target) != originalHealth);
+    }
+
+    @Test
+    void findFaintedCharacter() {
+        Inventory inventory = new Inventory();
+        WalkingCharacter character = new WalkingCharacter(new Point(0, 0));
+        BattleCharacter p1 = new BattleCharacter(14, "Leslie", 7, 8, false,
+            new Move(-2000, 0, "first", false),
+            new Move(0, 1, "second",true));
+        BattleCharacter p2 = new BattleCharacter(9, "Mariam", 6, 11, false,
+            new Move(-5, 0, "first", false),
+            new Move(0, 1, "second",true));
+        BattleCharacter p3 = new BattleCharacter(10, "Michael", 10, 10, false,
+            new Move(-5, 0, "first", false),
+            new Move(0, 1, "second",true));
+        BattleCharacter p4 = new BattleCharacter(6, "Alex", 12, 14, false,
+            new Move(-5, 0, "first", false),
+            new Move(0, 1, "second",true));
+
+        BattleCharacter[] party = {p1, p2, p3, p4};
+
+        GameState state = new GameState(inventory, party, character);
+        BattleInteractor interactor = new BattleInteractor(state);
+        interactor.createEncounter();
+
+        interactor.executeTurn(1, "Leslie", "Opponent 0");
+        Assertions.assertTrue(interactor.isCharacterFainted("Opponent 0"));
+    }
+
+    @Test
+    void startRoundProperly() {
+        Inventory inventory = new Inventory();
+        WalkingCharacter character = new WalkingCharacter(new Point(0, 0));
+        BattleCharacter p1 = new BattleCharacter(14, "Leslie", 7, 2000, false,
+            new Move(-5, 0, "first", false),
+            new Move(0, 1, "second",true));
+        BattleCharacter p2 = new BattleCharacter(9, "Mariam", 6, 11, false,
+            new Move(-5, 0, "first", false),
+            new Move(0, 1, "second",true));
+        BattleCharacter p3 = new BattleCharacter(10, "Michael", 10, 10, false,
+            new Move(-5, 0, "first", false),
+            new Move(0, 1, "second",true));
+        BattleCharacter p4 = new BattleCharacter(6, "Alex", 12, 14, false,
+            new Move(-5, 0, "first", false),
+            new Move(0, 1, "second",true));
+
+        BattleCharacter[] party = {p1, p2, p3, p4};
+
+        GameState state = new GameState(inventory, party, character);
+        BattleInteractor interactor = new BattleInteractor(state);
+        interactor.createEncounter();
+
+        Assertions.assertEquals("Leslie", interactor.roundStart());
+    }
+}
+

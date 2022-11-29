@@ -16,10 +16,10 @@ import java.util.ArrayList;
 public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterface, Toggleable{
 
     private final BattlePresenter presenter;
-    private String[] playerNames = new String[4];
+    private final String[] playerNames = new String[4];
     private final int[] playerHealth = new int[4];
     private final int[] playerDmg = new int[4];
-    private String[] opponentNames = new String[4];
+    private final String[] opponentNames = new String[4];
     private final int[] opponentHealth = new int[4];
     private final int[] opponentDmg = new int[4];
 
@@ -185,8 +185,7 @@ public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterfac
      * @return the scene to be displayed.
      */
     @Override
-    @NotNull
-    public Scene getScene() {
+    public @NotNull Scene getScene() {
         return this.scene;
     }
 
@@ -199,7 +198,7 @@ public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterfac
     @Override
     public void toggle(boolean isVisible) {
         if (isVisible) {
-            presenter.createEncounter(); //Will call setNames and update character data.
+            presenter.startBattle(); //Will call setNames and update character data.
 
             setupCharacterLabel(p0, 0, false);
             setupCharacterLabel(p1, 1, false);

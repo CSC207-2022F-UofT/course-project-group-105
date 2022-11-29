@@ -32,18 +32,8 @@ public class BattlePresenter implements BattlePresenterInterface {
     /**
      * Creates a new encounter with random opponents and sets it as the current encounter in GameState
      */
-    public void createEncounter() {
+    public void startBattle() {
         interactor.createEncounter();
-    }
-
-    /**
-     * Set the characters in the view.
-     * @param partyNames the name strings of the party characters.
-     * @param opponentNames the name strings of the opponent characters.
-     */
-    @Override
-    public void setViewNames(String[] partyNames, String[] opponentNames) {
-        this.view.setNames(partyNames, opponentNames);
     }
 
     /**
@@ -130,10 +120,17 @@ public class BattlePresenter implements BattlePresenterInterface {
     }
 
     /**
-     * UNIMPLEMENTED
+     * Set the characters in the view.
+     * @param partyNames the name strings of the party characters.
+     * @param opponentNames the name strings of the opponent characters.
      */
-    public void endBattle() {
-        interactor.endBattle();
+    @Override
+    public void setViewNames(String[] partyNames, String[] opponentNames) {
+        if (this.view == null) { //Used for unit tests. Never executed during regular running of the application.
+            return;
+        }
+
+        this.view.setNames(partyNames, opponentNames);
     }
 
     /**
@@ -142,6 +139,18 @@ public class BattlePresenter implements BattlePresenterInterface {
      */
     @Override
     public void updateViewCharacter(String targetName) {
+        if (this.view == null) { //Used for unit tests. Never executed during regular running of the application.
+            return;
+        }
+
         this.view.updateCharacter(targetName);
     }
+
+    /**
+     * UNIMPLEMENTED
+     */
+    public void endBattle() {
+        interactor.endBattle();
+    }
+
 }
