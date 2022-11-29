@@ -43,9 +43,7 @@ public class BattlePresenter implements BattlePresenterInterface {
      */
     @Override
     public void setViewNames(String[] partyNames, String[] opponentNames) {
-        if (view != null) {
-            this.view.setNames(partyNames, opponentNames);
-        }
+        this.view.setNames(partyNames, opponentNames);
     }
 
     /**
@@ -144,8 +142,6 @@ public class BattlePresenter implements BattlePresenterInterface {
      */
     @Override
     public void updateViewCharacter(String targetName) {
-        if (view != null) {
-            this.view.updateCharacter(targetName);
-        }
+        this.view.updateCharacter(targetName);
     }
 }
