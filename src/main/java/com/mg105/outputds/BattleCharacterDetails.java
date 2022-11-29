@@ -12,17 +12,18 @@ public class BattleCharacterDetails {
     private final int MAX_HP;
     private final int DMG;
     private final int SPEED;
-    private final MoveDetails FIRST;
-    private final MoveDetails SECOND;
 
-    public BattleCharacterDetails(@NotNull String name, int maxHp, int dmg, int speed,
-                                  @NotNull MoveDetails first, @NotNull MoveDetails second) {
+    private final boolean IS_OPPONENT;
+    private final MoveDetails[] MOVE_DETAILS;
+
+    public BattleCharacterDetails(@NotNull String name, int maxHp, int dmg, int speed, boolean isOpponent,
+                                  @NotNull MoveDetails[] moveDetails) {
         this.NAME = name;
         this.MAX_HP = maxHp;
         this.DMG = dmg;
+        this.IS_OPPONENT = isOpponent;
         this.SPEED = speed;
-        this.FIRST = first;
-        this.SECOND = second;
+        this.MOVE_DETAILS = moveDetails;
 
     }
 
@@ -67,24 +68,22 @@ public class BattleCharacterDetails {
     }
 
     /**
-     * Return first move details
+     * Returns if this battle character is an opponent
+     *
+     * @return false iff this battle character is a party member
+     */
+    public boolean isOpponent() {
+        return this.IS_OPPONENT;
+    }
+
+    /**
+     * Return an array of objects that each represent a usable move
      *
      * @return first move details
      * @see MoveDetails
      */
 
-    public @NotNull MoveDetails getFirst() {
-        return this.FIRST;
-    }
-
-    /**
-     * Return second move details
-     *
-     * @return second move details
-     * @see MoveDetails
-     */
-
-    public @NotNull MoveDetails getSecond() {
-        return this.SECOND;
+    public @NotNull MoveDetails[] getMoveDetails() {
+        return this.MOVE_DETAILS;
     }
 }

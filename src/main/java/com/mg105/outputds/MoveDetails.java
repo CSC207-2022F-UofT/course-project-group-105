@@ -57,7 +57,7 @@ public class MoveDetails {
      * @return isFriendly stat of move
      */
 
-    public boolean getIsFriendly() {
+    public boolean isFriendly() {
         return this.IS_FRIENDLY;
     }
 }
