@@ -5,10 +5,14 @@ import com.mg105.interface_adapters.InputInterpreter;
 import com.mg105.interface_adapters.MapGeneratorInterpreter;
 import com.mg105.interface_adapters.RoomInterpreter;
 import com.mg105.interface_adapters.Toggler;
+import com.mg105.interface_adapters.inventory.InventoryController;
+import com.mg105.interface_adapters.inventory.InventoryPresenter;
 import com.mg105.use_cases.CharacterMover;
+import com.mg105.use_cases.Inventory.InventoryInteractor;
 import com.mg105.use_cases.MapGenerator;
 import com.mg105.use_cases.RoomGetter;
 import com.mg105.user_interface.*;
+import com.mg105.user_interface.inventory.InventoryDisplay;
 import javafx.animation.AnimationTimer;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
@@ -33,8 +37,8 @@ public class Application extends javafx.application.Application {
      */
     @Override
     public void start(Stage primaryStage) {
-        // Set up should probably be moved to private method(s) or separate class?
-        Inventory inventory = new Inventory();
+
+        // Set up the initial use cases
 
         BattleCharacter a = new BattleCharacter(30, "A", 4, 5, false,
             new Move(-3, 0, "Slow swing", false),
@@ -53,7 +57,15 @@ public class Application extends javafx.application.Application {
             new Move(-2, -2, "Sabotage", false));
 
         BattleCharacter[] party = {a, b, c, d};
+        Inventory inventory = new Inventory();
+
         GameState state = new GameState(inventory, party, new WalkingCharacter(new Point(1, 1)));
+
+        // InventoryDisplay set up
+        InventoryPresenter inventoryPresenter = new InventoryPresenter();
+        InventoryDisplay inventoryDisplay = new InventoryDisplay(new InventoryController(
+            new InventoryInteractor(state, inventoryPresenter)));
+        inventoryPresenter.setView(inventoryDisplay);
 
         Map<Toggler.ToggleableComponent, Toggleable> drawableComponents = new HashMap<>();
         // We fill this map in later because of the ordering of parameters
@@ -62,7 +74,6 @@ public class Application extends javafx.application.Application {
             drawableComponents,
             Toggler.ToggleableComponent.MAP
         );
-
         MapGenerator mapGenerator = new MapGenerator(state);
         MapGeneratorInterpreter mapGeneratorInterpreter = new MapGeneratorInterpreter(mapGenerator);
         MapGeneratorButton generateMapButton = new MapGeneratorButton(mapGeneratorInterpreter, sceneController);
@@ -71,7 +82,6 @@ public class Application extends javafx.application.Application {
         RoomGetter roomGetter = new RoomGetter(state);
         RoomInterpreter roomInterpreter = new RoomInterpreter(roomGetter);
         MapDrawer mapDrawer = new MapDrawer(roomInterpreter);
-
         drawableComponents.put(Toggler.ToggleableComponent.MAIN_MENU, mainMenu);
         drawableComponents.put(Toggler.ToggleableComponent.MAP, mapDrawer);
 

@@ -1,14 +1,15 @@
 package com.mg105.entities;
 
-import com.mg105.entities.*;
 import com.mg105.entities.items.HealthPotion;
 import com.mg105.outputds.ItemDetails;
-import com.mg105.presenter_interfaces.InventoryPresenterInterface;
 import com.mg105.use_cases.Inventory.InventoryInteractor;
+import com.mg105.use_cases.Inventory.InventoryPresenterInterface;
 import com.mg105.utils.PartyConstants;
 import org.junit.jupiter.api.Test;
+
 import java.awt.*;
 import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ChestTest {
@@ -20,24 +21,24 @@ class ChestTest {
     Inventory inventory = new Inventory();
     BattleCharacter[] party = new BattleCharacter[PartyConstants.ALL_PARTY_MEMBER_NAMES.length];
     GameState game = new GameState(inventory, party, character);
-   InventoryPresenterInterface res = new InventoryPresenterInterface() {
+    InventoryPresenterInterface res = new InventoryPresenterInterface() {
         @Override
-        public void addItemView(boolean isSuccessful, ItemDetails itemDetails) {
+        public void addItem(boolean isSuccessful, ItemDetails itemDetails) {
 
         }
 
         @Override
-        public void removeItemView(boolean isSuccessful, ItemDetails itemDetails) {
+        public void removeItem(boolean isSuccessful, ItemDetails itemDetails) {
 
         }
 
         @Override
-        public void useItemView(boolean isSuccessful, String characterName, ItemDetails itemDetails) {
+        public void useItem(boolean isSuccessful, String characterName, ItemDetails itemDetails) {
 
         }
 
         @Override
-        public void inventoryDetailsView(ItemDetails[] allItemsDetails) {
+        public void inventoryDetails(ItemDetails[] allItemsDetails) {
 
         }
     };
@@ -62,7 +63,7 @@ class ChestTest {
     }
 
     @Test
-    void noChest(){
+    void noChest() {
         TreasureChest testChest1 = new TreasureChest(new HealthPotion(), coordinates1);
         ArrayList<TreasureChest> chestList1 = new ArrayList<>();
         ArrayList<TreasureChest> chestList2 = new ArrayList<>();
@@ -80,7 +81,7 @@ class ChestTest {
     }
 
     @Test
-    void yesChest(){
+    void yesChest() {
         TreasureChest testChest2 = new TreasureChest(new HealthPotion(), coordinates2);
         ArrayList<TreasureChest> chestList1 = new ArrayList<>();
         ArrayList<TreasureChest> chestList2 = new ArrayList<>();
