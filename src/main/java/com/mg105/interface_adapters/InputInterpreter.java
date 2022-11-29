@@ -42,10 +42,15 @@ public class InputInterpreter {
                     case "s" -> mover.generateMapMoveBy(new Point(0, 1));
                     case "d" -> mover.generateMapMoveBy(new Point(1, 0));
 
-                    case "t" ->{tutorialScene.toggle(Toggler.ToggleableComponent.TUTORIAL);}
+                    case "k" -> {
+                        toggler.toggle(Toggler.ToggleableComponent.TUTORIAL);
+                        textChanger.setShowControls(true);
 
-
-                    case "k" -> textChanger.setShowControls(true);
+                    }
+                    case "t" -> {
+                        toggler.toggle(Toggler.ToggleableComponent.TUTORIAL);
+                        textChanger.setChangeText();
+                    }
                 }
             }
             case TUTORIAL -> {

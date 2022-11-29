@@ -54,7 +54,7 @@ public class TutorialTest {
         int phase_num = tutorialDisplay.getController().getTutorial().currentPhase();
         String phase = tutorialDisplay.getController().getTutorial().allPhases().get(phase_num);
         String tutorialText = tutorialDisplay.showBottomText(phase);
-        String expected = "Move your character with the arrow keys.";
+        String expected = "Move your character with the WASD keys.";
 
         assertEquals(tutorialText, expected);
     }

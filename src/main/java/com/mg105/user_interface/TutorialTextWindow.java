@@ -79,8 +79,7 @@ public class TutorialTextWindow implements Toggleable{
             long timeChange = now - prevTime;
 
             // 1e9 is 1 second
-//            if (timeChange > TutorialTexts.TEXT_DURATION1 * 1e9 & textController.changeText()) {
-            if (timeChange > TutorialTexts.TEXT_DURATION1 * 1e9) {
+            if (timeChange > TutorialTexts.TEXT_DURATION1 * 1e9 & textController.changeText()) {
                 prevTime = now;
                 tutorialDisplay.getController().nextPhase();
                 String tutorialText = tutorialDisplay.getController().bottomText();

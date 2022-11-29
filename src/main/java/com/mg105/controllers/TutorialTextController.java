@@ -31,7 +31,9 @@ public class TutorialTextController {
     /**
      * Return if text should start changing
      */
-    public void setChangeText() { this.changeText = true; }
+    public void setChangeText() {
+        this.changeText = !this.changeText;
+    }
 
     /**
      * Return if text should start changing
