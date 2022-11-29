@@ -15,7 +15,6 @@ public class InputInterpreter {
     private final @NotNull Toggler toggler;
 
     private final @NotNull TutorialTextController textChanger;
-    private final @NotNull SceneController tutorialScene;
 
     /**
      * Create a new InputInterpreter that translates keyboard inputs to appropriate function invocations.
@@ -23,11 +22,10 @@ public class InputInterpreter {
      * @param mover the character mover.
      */
     public InputInterpreter(@NotNull CharacterMover mover, @NotNull Toggler toggler,
-                            @NotNull TutorialTextController textChanger, SceneController tutorialScene) {
+                            @NotNull TutorialTextController textChanger) {
         this.mover = mover;
         this.toggler = toggler;
         this.textChanger = textChanger;
-        this.tutorialScene = tutorialScene;
     }
 
     /**
@@ -52,10 +50,14 @@ public class InputInterpreter {
             }
             case TUTORIAL -> {
                 switch (key) {
-                    case "t" -> tutorialScene.toggle(Toggler.ToggleableComponent.MAP);
-
+                    case "w", "a", "s", "d" -> {
+                        toggler.toggle(Toggler.ToggleableComponent.TUTORIAL);
+                        textChanger.setChangeText();
+                    }
+                    case "k" -> textChanger.setShowControls(true);
                 }
             }
         }
+
     }
 }

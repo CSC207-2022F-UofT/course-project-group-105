@@ -78,16 +78,10 @@ public class Application extends javafx.application.Application {
         TutorialTextDisplay textDisplay = new TutorialTextDisplay();
         TutorialTextWindow tutorialDisplay = new TutorialTextWindow(textChanger, textDisplay);
         drawableComponents.put(Toggler.ToggleableComponent.TUTORIAL, tutorialDisplay);
-//        sceneController.toggle((Toggler.ToggleableComponent.TUTORIAL));
-        SceneController sceneControllerTutorial = new SceneController(
-            primaryStage,
-            drawableComponents,
-            Toggler.ToggleableComponent.TUTORIAL
-        );
         //////////////////////
 
         CharacterMover characterMover = new CharacterMover(state, mapDrawer);
-        InputInterpreter inputInterpreter = new InputInterpreter(characterMover, sceneController, textChanger, sceneControllerTutorial);
+        InputInterpreter inputInterpreter = new InputInterpreter(characterMover, sceneController, textChanger);
         InputListener inputListener = new InputListener(inputInterpreter);
         primaryStage.addEventFilter(KeyEvent.KEY_TYPED, inputListener);
 
