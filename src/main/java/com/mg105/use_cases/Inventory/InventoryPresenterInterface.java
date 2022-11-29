@@ -1,11 +1,11 @@
-package com.mg105.presenter_interfaces;
+package com.mg105.use_cases.Inventory;
 
 import com.mg105.outputds.ItemDetails;
 
 /**
  * This interface should be implemented by the InventoryPresenter class
  * <p>
- * It represents the data that should be sent and displayed by the view
+ * It represents the data that should be formated and displayed by the view
  */
 
 public interface InventoryPresenterInterface {
@@ -17,7 +17,7 @@ public interface InventoryPresenterInterface {
      * @param itemDetails  the state of the item that was potentially used
      * @see ItemDetails
      */
-    void addItemView(boolean isSuccessful, ItemDetails itemDetails);
+    void addItem(boolean isSuccessful, ItemDetails itemDetails);
 
     /**
      * Sends a message to update the view about a removed item
@@ -26,7 +26,7 @@ public interface InventoryPresenterInterface {
      * @param itemDetails  the state of the item that was potentially used
      * @see ItemDetails
      */
-    void removeItemView(boolean isSuccessful, ItemDetails itemDetails);
+    void removeItem(boolean isSuccessful, ItemDetails itemDetails);
 
     /**
      * Sends a message to update the view about a used item
@@ -36,7 +36,7 @@ public interface InventoryPresenterInterface {
      * @param itemDetails   the state of the item that was potentially used
      * @see ItemDetails
      */
-    void useItemView(boolean isSuccessful, String characterName, ItemDetails itemDetails);
+    void useItem(boolean isSuccessful, String characterName, ItemDetails itemDetails);
 
     /**
      * Sends a message to the view about the state of every item type in the inventory
@@ -44,5 +44,5 @@ public interface InventoryPresenterInterface {
      * @param allItemsDetails a list of object that represent a state of single item type in the inventory
      * @see ItemDetails
      */
-    void inventoryDetailsView(ItemDetails[] allItemsDetails);
+    void inventoryDetails(ItemDetails[] allItemsDetails);
 }
