@@ -2,7 +2,6 @@ package com.mg105.user_interface;
 
 import com.mg105.interface_adapters.BattleMenuInterface;
 import com.mg105.interface_adapters.BattlePresenter;
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -10,12 +9,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class BattleMenu extends Application implements EventHandler<ActionEvent>, BattleMenuInterface {
+public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterface, Toggleable{
 
-    private static BattlePresenter presenter;
+    private final BattlePresenter presenter;
     private String[] playerNames = new String[4];
     private final int[] playerHealth = new int[4];
     private final int[] playerDmg = new int[4];
@@ -33,89 +33,29 @@ public class BattleMenu extends Application implements EventHandler<ActionEvent>
     private final Label o2 = new Label();
     private final Label o3 = new Label();
 
-    private Button nextRound;
-    private Button moveOne;
-    private Button moveTwo;
+    private final Button nextRound;
+    private final Button moveOne;
+    private final Button moveTwo;
 
-    private Button targetP0;
-    private Button targetP1;
-    private Button targetP2;
-    private Button targetP3;
-    private Button targetO0;
-    private Button targetO1;
-    private Button targetO2;
-    private Button targetO3;
-    private GridPane grid;
-    private Scene scene;
+    private final Button targetP0;
+    private final Button targetP1;
+    private final Button targetP2;
+    private final Button targetP3;
+    private final Button targetO0;
+    private final Button targetO1;
+    private final Button targetO2;
+    private final Button targetO3;
+    private final GridPane grid;
+    private final Scene scene;
 
     //Used in Button handle event
     private String moving;
     private int moveNum;
 
-    
-    public BattleMenu() {
+
+    public BattleMenu(BattlePresenter battlePres) {
+        this.presenter = battlePres;
         presenter.setView(this);
-        presenter.createEncounter();
-    }
-
-    /**
-     * Sets the BattlePresenter attribute for every BattleMenu.
-     *
-     * @param pres the BattlePresenter instance to set the attribute to.
-     */
-    public static void setPresenter(BattlePresenter pres) {
-        presenter = pres;
-    }
-
-    /**
-     * Sets the names of the player and opponent characters participating in the active battle.
-     *
-     * @param playerNames array of name Strings representing player characters.
-     * @param opponentNames array of name Strings representing opponents.
-     */
-    @Override
-    public void setNames(String[] playerNames, String[] opponentNames) {
-        this.playerNames = playerNames;
-        this.opponentNames = opponentNames;
-
-        for (int i = 0; i < playerNames.length; ++i) {
-            this.playerHealth[i] = presenter.givenCharacterHealth(this.playerNames[i]);
-            this.playerDmg[i] = presenter.givenCharacterDamage(this.playerNames[i]);
-
-            this.opponentHealth[i] = presenter.givenCharacterHealth(this.opponentNames[i]);
-            this.opponentDmg[i] = presenter.givenCharacterDamage(this.opponentNames[i]);
-        }
-    }
-
-    /**
-     * Updates the display corresponding to the given affected character.
-     *
-     * @param character the character who needs to be updated on the screen.
-     */
-    @Override
-    public void updateCharacter(String character){
-        if (playerNames[0].equals(character)) {
-            updateCharacterData(character, 0, p0, false);
-        } else if (playerNames[1].equals(character)) {
-            updateCharacterData(character, 1, p1, false);
-        } else if (playerNames[2].equals(character)) {
-            updateCharacterData(character, 2, p2, false);
-        } else if (playerNames[3].equals(character)) {
-            updateCharacterData(character, 3, p3, false);
-        } else if (opponentNames[0].equals(character)) {
-            updateCharacterData(character, 0, o0, true);
-        } else if (opponentNames[1].equals(character)) {
-            updateCharacterData(character, 1, o1, true);
-        } else if (opponentNames[2].equals(character)) {
-            updateCharacterData(character, 2, o2, true);
-        } else if (opponentNames[3].equals(character)) {
-            updateCharacterData(character, 3, o3, true);
-        }
-    }
-
-    @Override
-    public void start(Stage primaryStage) {
-        primaryStage.setTitle("Battle");
 
         grid = new GridPane();
         grid.setVgap(10);
@@ -125,16 +65,6 @@ public class BattleMenu extends Application implements EventHandler<ActionEvent>
         nextRound.setId("Next Round");
         nextRound.setOnAction(this);
         grid.add(nextRound, 10, 30);
-
-        setupCharacterLabel(p0, 0, false);
-        setupCharacterLabel(p1, 1, false);
-        setupCharacterLabel(p2, 2, false);
-        setupCharacterLabel(p3, 3, false);
-
-        setupCharacterLabel(o0, 0, true);
-        setupCharacterLabel(o1, 1, true);
-        setupCharacterLabel(o2, 2, true);
-        setupCharacterLabel(o3, 3, true);
 
         grid.add(p0, 1, 4);
         grid.add(p1, 1, 8);
@@ -195,8 +125,92 @@ public class BattleMenu extends Application implements EventHandler<ActionEvent>
         moveTwo.setVisible(false);
 
         scene = new Scene(grid, 800, 800);
-        primaryStage.setScene(scene);
-        primaryStage.show();
+    }
+
+    /**
+     * Sets the names of the player and opponent characters participating in the active battle.
+     *
+     * @param playerNames array of name Strings representing player characters.
+     * @param opponentNames array of name Strings representing opponents.
+     */
+    @Override
+    public void setNames(String[] playerNames, String[] opponentNames) {
+        for (int i = 0; i < 4; ++i) {
+            //Check if any player characters have fainted. Opponent set will always contain four characters initially.
+            if (playerNames.length <= i) {
+                this.playerNames[i] = "FAINTED";
+                this.playerHealth[i] = 0;
+                this.playerDmg[i] = 0;
+            } else {
+                this.playerNames[i] = playerNames[i];
+                this.playerHealth[i] = presenter.givenCharacterHealth(this.playerNames[i]);
+                this.playerDmg[i] = presenter.givenCharacterDamage(this.playerNames[i]);
+            }
+
+            this.opponentNames[i] = opponentNames[i];
+            this.opponentHealth[i] = presenter.givenCharacterHealth(this.opponentNames[i]);
+            this.opponentDmg[i] = presenter.givenCharacterDamage(this.opponentNames[i]);
+        }
+    }
+
+    /**
+     * Updates the display corresponding to the given affected character.
+     *
+     * @param character the character who needs to be updated on the screen.
+     */
+    @Override
+    public void updateCharacter(String character){
+        if (playerNames[0].equals(character)) {
+            updateCharacterData(character, 0, p0, false);
+        } else if (playerNames[1].equals(character)) {
+            updateCharacterData(character, 1, p1, false);
+        } else if (playerNames[2].equals(character)) {
+            updateCharacterData(character, 2, p2, false);
+        } else if (playerNames[3].equals(character)) {
+            updateCharacterData(character, 3, p3, false);
+        } else if (opponentNames[0].equals(character)) {
+            updateCharacterData(character, 0, o0, true);
+        } else if (opponentNames[1].equals(character)) {
+            updateCharacterData(character, 1, o1, true);
+        } else if (opponentNames[2].equals(character)) {
+            updateCharacterData(character, 2, o2, true);
+        } else if (opponentNames[3].equals(character)) {
+            updateCharacterData(character, 3, o3, true);
+        }
+    }
+
+    /**
+     * Get the scene of this toggleable object.  It is this scene that will be displayed.
+     *
+     * @return the scene to be displayed.
+     */
+    @Override
+    @NotNull
+    public Scene getScene() {
+        return this.scene;
+    }
+
+    /**
+     * Set the visibility of this component.
+     *
+     * @param isVisible true if the Toggleable is now visible, false otherwise.  If false the Toggleable is expected
+     *                  to do nothing on ANY user inputs.
+     */
+    @Override
+    public void toggle(boolean isVisible) {
+        if (isVisible) {
+            presenter.createEncounter(); //Will call setNames and update character data.
+
+            setupCharacterLabel(p0, 0, false);
+            setupCharacterLabel(p1, 1, false);
+            setupCharacterLabel(p2, 2, false);
+            setupCharacterLabel(p3, 3, false);
+
+            setupCharacterLabel(o0, 0, true);
+            setupCharacterLabel(o1, 1, true);
+            setupCharacterLabel(o2, 2, true);
+            setupCharacterLabel(o3, 3, true);
+        }
     }
 
     @Override
@@ -417,7 +431,7 @@ public class BattleMenu extends Application implements EventHandler<ActionEvent>
     }
 
     /**
-     * Helper function to initialize the character labels in
+     * Helper function to initialize the character labels.
      * @param lbl Label object corresponding to the character.
      * @param position Integer representing index of character's data in data arrays.
      * @param isOpponent Boolean of whether the character is an opponent.
@@ -427,8 +441,12 @@ public class BattleMenu extends Application implements EventHandler<ActionEvent>
             lbl.setText(opponentNames[position] + "\n Hp: " + opponentHealth[position] + ", Dmg: " +
                 opponentDmg[position]);
         } else {
-            lbl.setText(playerNames[position] + "\n Hp: " + playerHealth[position] + ", Dmg: " +
-                playerDmg[position]);
+            if (playerNames[position].equals("FAINTED")) {
+                lbl.setText("FAINTED");
+            } else {
+                lbl.setText(playerNames[position] + "\n Hp: " + playerHealth[position] + ", Dmg: " +
+                    playerDmg[position]);
+            }
         }
     }
 }

@@ -21,7 +21,7 @@ public class GameState {
     private Battle currEncounter = null;
 
     //Potentially useless. Keeps track of party characters who faint in battle.
-    private final ArrayList<BattleCharacter> fainted = new ArrayList<BattleCharacter>();
+    private final ArrayList<BattleCharacter> fainted = new ArrayList<>();
 
     public GameState(Inventory inventory, BattleCharacter[] party, WalkingCharacter walkingCharacter) {
         this.inventory = inventory;
