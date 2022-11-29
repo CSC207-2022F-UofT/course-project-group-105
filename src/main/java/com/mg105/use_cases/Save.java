@@ -3,6 +3,7 @@ package com.mg105.use_cases;
 import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.GameState;
 import com.mg105.utils.StatConstants;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * This classes only job is to save data about the state of the game in some sort of "database"
@@ -15,7 +16,7 @@ public class Save {
     private GameState state;
     private PartyDataInterface partyAccess;
 
-    public Save(GameState state, PartyDataInterface partyAccess) {
+    public Save(@NotNull GameState state, @NotNull PartyDataInterface partyAccess) {
         this.state = state;
         this.partyAccess = partyAccess;
     }
@@ -27,7 +28,11 @@ public class Save {
 
     // Essentially there would be one multiple other dataInterfaces and objects and this save class would
     // call them to save certain parts of the data
-    public void savePartyBattleData() {
+
+    /**
+     * Save the current stats of the party members to a "database"
+     */
+    public void savePartyBattleStats() {
         for (BattleCharacter player : this.state.getParty()) {
             String name = player.getName();
             partyAccess.changeCharacterStat(name, StatConstants.MAX_HP, player.getMaxHp());

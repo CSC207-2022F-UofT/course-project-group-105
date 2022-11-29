@@ -9,14 +9,14 @@ import org.jetbrains.annotations.NotNull;
 public class MoveDetails {
 
     private final String NAME;
-    private final int MOVE_CHANGE;
+    private final int HEALTH_CHANGE;
     private final int DAMAGE_CHANGE;
     private final Boolean IS_FRIENDLY;
 
-    public MoveDetails(@NotNull String name, int moveChange, int damageChange,
+    public MoveDetails(@NotNull String name, int healthChange, int damageChange,
                        @NotNull boolean isFriendly) {
         this.NAME = name;
-        this.MOVE_CHANGE = moveChange;
+        this.HEALTH_CHANGE = healthChange;
         this.DAMAGE_CHANGE = damageChange;
         this.IS_FRIENDLY = isFriendly;
 
@@ -37,8 +37,8 @@ public class MoveDetails {
      * @return move change stat of move
      */
 
-    public int getMoveChange() {
-        return this.MOVE_CHANGE;
+    public int getHealthChange() {
+        return this.HEALTH_CHANGE;
     }
 
     /**

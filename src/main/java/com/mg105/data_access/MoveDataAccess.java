@@ -47,11 +47,11 @@ public class MoveDataAccess {
             for (String[] moveDetails : partyStats) {
 
                 if (moveDetails[0].equals(name)) {
-                    int moveChange = Integer.parseInt(moveDetails[1]);
+                    int healthChange = Integer.parseInt(moveDetails[1]);
                     int damageChange = Integer.parseInt(moveDetails[2]);
                     boolean isFriendly = moveDetails[3].equals(IS_TRUE);
 
-                    return new MoveDetails(name, moveChange, damageChange, isFriendly);
+                    return new MoveDetails(name, healthChange, damageChange, isFriendly);
                 }
 
             }

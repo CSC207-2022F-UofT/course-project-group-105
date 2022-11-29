@@ -12,7 +12,7 @@ class MoveDataAccessTest {
         MoveDataAccess m = new MoveDataAccess();
         MoveDetails d = m.getMoveDetails("Slow swing");
         assertEquals("Slow swing", d.getName());
-        assertEquals(-3, d.getMoveChange());
+        assertEquals(-3, d.getHealthChange());
         assertEquals(0, d.getDamageChange());
         assertFalse(d.isFriendly());
     }
@@ -23,7 +23,7 @@ class MoveDataAccessTest {
         MoveDataAccess m = new MoveDataAccess();
         MoveDetails d = m.getMoveDetails("Reinforce");
         assertEquals("Reinforce", d.getName());
-        assertEquals(2, d.getMoveChange());
+        assertEquals(2, d.getHealthChange());
         assertEquals(2, d.getDamageChange());
         assertTrue(d.isFriendly());
     }
@@ -34,7 +34,7 @@ class MoveDataAccessTest {
         MoveDataAccess m = new MoveDataAccess();
         MoveDetails d = m.getMoveDetails("Sabotage");
         assertEquals("Sabotage", d.getName());
-        assertEquals(-2, d.getMoveChange());
+        assertEquals(-2, d.getHealthChange());
         assertEquals(-2, d.getDamageChange());
         assertFalse(d.isFriendly());
     }

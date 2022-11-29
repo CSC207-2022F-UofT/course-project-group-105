@@ -1,8 +1,10 @@
 package com.mg105.entities;
 
-import java.util.ArrayList;
-import java.util.NoSuchElementException;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.NoSuchElementException;
 
 /**
  * A class that represents the state of the game
@@ -26,11 +28,8 @@ public class GameState {
     public GameState(Inventory inventory, BattleCharacter[] party, WalkingCharacter walkingCharacter) {
         this.inventory = inventory;
         this.party = new ArrayList<BattleCharacter>();
-
-        for (BattleCharacter c : party) {
-            this.party.add(c);
-        }
         this.walkingCharacter = walkingCharacter;
+        setParty(party);
     }
 
     /**
@@ -161,5 +160,16 @@ public class GameState {
      */
     public void setCurrentRoom(@NotNull Room room) {
         this.currentRoom = room;
+    }
+
+    /**
+     * Sets these BattleCharacters as the party
+     * This function should really only ever be called once
+     *
+     * @param party the battles character to the set the party to
+     */
+    public void setParty(@NotNull BattleCharacter[] party) {
+        this.party.clear();
+        this.party.addAll(Arrays.asList(party));
     }
 }
