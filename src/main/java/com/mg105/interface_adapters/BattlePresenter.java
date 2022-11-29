@@ -1,13 +1,13 @@
 package com.mg105.interface_adapters;
 
-import com.mg105.presenter_interfaces.BattlePresenterInterface;
+import com.mg105.use_cases.BattlePresenterInterface;
 import com.mg105.use_cases.BattleInteractor;
 
 import java.util.ArrayList;
 
 /**
- * Class communicating between BattleMenu view and game entities.
- * Follows MVP pattern; contains a reference to the view and interacts with Battle and related classes.
+ * Class communicating between BattleMenuInterface view and BattleInteractor.
+ * Follows MVP pattern; contains a reference to the view and interacts with BattleInteractor.
  */
 public class BattlePresenter implements BattlePresenterInterface {
 

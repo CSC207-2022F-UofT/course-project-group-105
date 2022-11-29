@@ -1,5 +1,10 @@
 package com.mg105.interface_adapters;
 
+/**
+ * This interface should be implemented by BattleMenu.
+ * <p>
+ * The methods represent calls to update data attributes and the display.
+ */
 public interface BattleMenuInterface {
 
     /**

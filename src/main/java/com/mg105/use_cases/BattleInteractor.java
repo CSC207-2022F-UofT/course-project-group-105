@@ -4,11 +4,15 @@ import com.mg105.entities.Battle;
 import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.GameState;
 import com.mg105.entities.Move;
-import com.mg105.presenter_interfaces.BattlePresenterInterface;
 
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * This class interacts with the Battle entity.
+ * <p>
+ * It is responsible for modifying Battle related entities and for the processing needed during combat encounters.
+ */
 public class BattleInteractor {
 
     private final GameState state;

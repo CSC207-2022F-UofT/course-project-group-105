@@ -13,6 +13,9 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
+/**
+ * This class uses JavaFX and is displayed during an active battle.
+ */
 public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterface, Toggleable{
 
     private final BattlePresenter presenter;

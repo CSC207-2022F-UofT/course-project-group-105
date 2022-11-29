@@ -1,5 +1,10 @@
-package com.mg105.presenter_interfaces;
+package com.mg105.use_cases;
 
+/**
+ * This interface should be implemented by BattlePresenter.
+ * <p>
+ * The methods represent calls to update the view.
+ */
 public interface BattlePresenterInterface {
 
     /**
