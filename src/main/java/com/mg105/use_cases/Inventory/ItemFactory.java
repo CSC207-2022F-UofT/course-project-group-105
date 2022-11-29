@@ -5,6 +5,7 @@ import com.mg105.entities.items.HealthPotion;
 import com.mg105.entities.items.MegaPotion;
 import com.mg105.entities.items.UpgradeToken;
 import com.mg105.utils.ItemConstants;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.NoSuchElementException;
 
@@ -22,7 +23,7 @@ public class ItemFactory {
      * @throws RuntimeException if no item of the name itemName can be created
      */
 
-    public Item createItem(String itemName) throws NoSuchElementException {
+    public @NotNull Item createItem(@NotNull String itemName) throws NoSuchElementException {
         if (itemName.equals(ItemConstants.HEALTH_POTION_NAME)) {
             return new HealthPotion();
         } else if (itemName.equals(ItemConstants.UPGRADE_TOKEN_NAME)) {

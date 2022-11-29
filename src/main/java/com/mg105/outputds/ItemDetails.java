@@ -11,7 +11,7 @@ public class ItemDetails {
     private final String name;
     private final Boolean isUsable;
 
-    public ItemDetails(@NotNull String name, @NotNull String description, @NotNull int count, @NotNull boolean isUsable) {
+    public ItemDetails(@NotNull String name, @NotNull String description, int count, boolean isUsable) {
         this.name = name;
         this.description = description;
         this.count = count;
@@ -23,7 +23,6 @@ public class ItemDetails {
      *
      * @return the count of the item
      */
-    @NotNull
     public int getCount() {
         return this.count;
     }

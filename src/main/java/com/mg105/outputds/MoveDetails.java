@@ -14,7 +14,7 @@ public class MoveDetails {
     private final Boolean IS_FRIENDLY;
 
     public MoveDetails(@NotNull String name, int moveChange, int damageChange,
-                       @NotNull Boolean isFriendly) {
+                       @NotNull boolean isFriendly) {
         this.NAME = name;
         this.MOVE_CHANGE = moveChange;
         this.DAMAGE_CHANGE = damageChange;
@@ -57,7 +57,7 @@ public class MoveDetails {
      * @return isFriendly stat of move
      */
 
-    public @NotNull Boolean getIsFriendly() {
+    public boolean getIsFriendly() {
         return this.IS_FRIENDLY;
     }
 }
