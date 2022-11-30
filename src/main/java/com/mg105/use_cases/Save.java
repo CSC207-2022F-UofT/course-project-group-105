@@ -32,7 +32,7 @@ public class Save {
     /**
      * Save the current stats of the party members to a "database"
      */
-    public void savePartyBattleStats() {
+    public void save() {
         for (BattleCharacter player : this.state.getParty()) {
             String name = player.getName();
             partyAccess.changeCharacterStat(name, StatConstants.MAX_HP, player.getMaxHp());
