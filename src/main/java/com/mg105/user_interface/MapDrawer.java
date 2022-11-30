@@ -1,6 +1,5 @@
 package com.mg105.user_interface;
 
-import com.mg105.interface_adapters.MapRoomDrawer;
 import com.mg105.interface_adapters.RoomInterpreter;
 import com.mg105.interface_adapters.TileType;
 import com.mg105.use_cases.RoomUpdater;
@@ -11,6 +10,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import org.jetbrains.annotations.NotNull;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -18,7 +19,7 @@ import java.util.Objects;
 /**
  * MapDrawer draws the map as a grid of tiles.
  */
-public class MapDrawer implements MapRoomDrawer, Toggleable {
+public class MapDrawer implements PropertyChangeListener, Toggleable {
     private final @NotNull RoomInterpreter interpreter;
 
     private final @NotNull Scene scene;
@@ -82,13 +83,7 @@ public class MapDrawer implements MapRoomDrawer, Toggleable {
      * Redraw the current room.  This method only needs to be called if something has changed in the underlying
      * current room.
      */
-    @Override
     public void updateRoom() {
-        if (!isVisible) {
-            // As per the specification of Toggleable, we do nothing if we are not visible.
-            return;
-        }
-
         TileType[][] room = interpreter.getCurrentRoom();
 
         group.getChildren().clear();
@@ -106,5 +101,23 @@ public class MapDrawer implements MapRoomDrawer, Toggleable {
                 group.getChildren().add(tile);
             }
         }
+    }
+
+    /**
+     * Update the current room based on evt.
+     * <p>
+     * Note that none of the properties of evt are used.
+     *
+     * @param evt A PropertyChangeEvent object describing the event source
+     *          and the property that has changed.
+     */
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        if (!isVisible) {
+            // As per the specification of Toggleable, we do nothing if we are not visible.
+            return;
+        }
+
+        updateRoom();
     }
 }
