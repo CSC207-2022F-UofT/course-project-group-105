@@ -11,6 +11,7 @@ import com.mg105.use_cases.CharacterMover;
 import com.mg105.use_cases.Inventory.InventoryInteractor;
 import com.mg105.use_cases.MapGenerator;
 import com.mg105.use_cases.RoomGetter;
+import com.mg105.use_cases.RoomUpdater;
 import com.mg105.user_interface.*;
 import com.mg105.user_interface.inventory.InventoryDisplay;
 import javafx.animation.AnimationTimer;
@@ -85,7 +86,10 @@ public class Application extends javafx.application.Application {
         drawableComponents.put(Toggler.ToggleableComponent.MAIN_MENU, mainMenu);
         drawableComponents.put(Toggler.ToggleableComponent.MAP, mapDrawer);
 
-        CharacterMover characterMover = new CharacterMover(state, mapDrawer);
+        RoomUpdater roomUpdater = new RoomUpdater();
+        roomUpdater.addObserver(mapDrawer);
+
+        CharacterMover characterMover = new CharacterMover(state, roomUpdater);
         InputInterpreter inputInterpreter = new InputInterpreter(characterMover, sceneController);
         InputListener inputListener = new InputListener(inputInterpreter);
         primaryStage.addEventFilter(KeyEvent.KEY_TYPED, inputListener);
