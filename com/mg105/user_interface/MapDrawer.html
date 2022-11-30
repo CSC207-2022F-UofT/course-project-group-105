@@ -76,12 +76,12 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../use_cases/RoomUpdater.html" title="interface in com.mg105.use_cases">RoomUpdater</a></code>, <code><a href="Toggleable.html" title="interface in com.mg105.user_interface">Toggleable</a></code></dd>
+<dd><code><a href="Toggleable.html" title="interface in com.mg105.user_interface">Toggleable</a></code>, <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/beans/PropertyChangeListener.html" title="class or interface in java.beans" class="external-link">PropertyChangeListener</a></code>, <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/EventListener.html" title="class or interface in java.util" class="external-link">EventListener</a></code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">MapDrawer</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
-implements <a href="../use_cases/RoomUpdater.html" title="interface in com.mg105.use_cases">RoomUpdater</a>, <a href="Toggleable.html" title="interface in com.mg105.user_interface">Toggleable</a></span></div>
+implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/beans/PropertyChangeListener.html" title="class or interface in java.beans" class="external-link">PropertyChangeListener</a>, <a href="Toggleable.html" title="interface in com.mg105.user_interface">Toggleable</a></span></div>
 <div class="block">MapDrawer draws the map as a grid of tiles.</div>
 </section>
 <section class="summary">
@@ -118,13 +118,18 @@ implements <a href="../use_cases/RoomUpdater.html" title="interface in com.mg105
 <div class="block">Get the scene that will be used to draw to.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toggle(boolean)" class="member-name-link">toggle</a><wbr>(boolean&nbsp;isVisible)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#propertyChange(java.beans.PropertyChangeEvent)" class="member-name-link">propertyChange</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/beans/PropertyChangeEvent.html" title="class or interface in java.beans" class="external-link">PropertyChangeEvent</a>&nbsp;evt)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Toggle the visibility of map drawer.</div>
+<div class="block">Update the current room based on evt.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateRoom()" class="member-name-link">updateRoom</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toggle(boolean)" class="member-name-link">toggle</a><wbr>(boolean&nbsp;isVisible)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Toggle the visibility of map drawer.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateRoom()" class="member-name-link">updateRoom</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Redraw the current room.</div>
 </div>
 </div>
@@ -197,9 +202,21 @@ implements <a href="../use_cases/RoomUpdater.html" title="interface in com.mg105
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">updateRoom</span>()</div>
 <div class="block">Redraw the current room.  This method only needs to be called if something has changed in the underlying
  current room.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="propertyChange(java.beans.PropertyChangeEvent)">
+<h3>propertyChange</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">propertyChange</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/beans/PropertyChangeEvent.html" title="class or interface in java.beans" class="external-link">PropertyChangeEvent</a>&nbsp;evt)</span></div>
+<div class="block">Update the current room based on evt.
+ <p>
+ Note that none of the properties of evt are used.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="../use_cases/RoomUpdater.html#updateRoom()">updateRoom</a></code>&nbsp;in interface&nbsp;<code><a href="../use_cases/RoomUpdater.html" title="interface in com.mg105.use_cases">RoomUpdater</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/beans/PropertyChangeListener.html#propertyChange(java.beans.PropertyChangeEvent)" title="class or interface in java.beans" class="external-link">propertyChange</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/beans/PropertyChangeListener.html" title="class or interface in java.beans" class="external-link">PropertyChangeListener</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>evt</code> - A PropertyChangeEvent object describing the event source
+          and the property that has changed.</dd>
 </dl>
 </section>
 </li>

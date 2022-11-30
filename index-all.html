@@ -85,6 +85,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Adds the details of the item to the display</div>
 </dd>
+<dt><a href="com/mg105/use_cases/RoomUpdater.html#addObserver(java.beans.PropertyChangeListener)" class="member-name-link">addObserver(PropertyChangeListener)</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/RoomUpdater.html" title="class in com.mg105.use_cases">RoomUpdater</a></dt>
+<dd>
+<div class="block">Add a new observer to the RoomUpdater.</div>
+</dd>
 <dt><a href="com/mg105/user_interface/Alert.html#alert(java.lang.String)" class="member-name-link">alert(String)</a> - Method in interface com.mg105.user_interface.<a href="com/mg105/user_interface/Alert.html" title="interface in com.mg105.user_interface">Alert</a></dt>
 <dd>
 <div class="block">Display an alert to the user</div>
@@ -255,7 +259,9 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/mg105/user_interface/AlertBox.html#display(java.lang.String)" class="member-name-link">display(String)</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/AlertBox.html" title="class in com.mg105.user_interface">AlertBox</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/entities/Doorway.html" class="type-name-link" title="class in com.mg105.entities">Doorway</a> - Class in <a href="com/mg105/entities/package-summary.html">com.mg105.entities</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">A Doorway represents a single-direction connection from one room to another.</div>
+</dd>
 <dt><a href="com/mg105/entities/Doorway.html#%3Cinit%3E(java.awt.Point,com.mg105.entities.Room)" class="member-name-link">Doorway(Point, Room)</a> - Constructor for class com.mg105.entities.<a href="com/mg105/entities/Doorway.html" title="class in com.mg105.entities">Doorway</a></dt>
 <dd>
 <div class="block">Create a doorway with its position in the room and the next room.</div>
@@ -286,7 +292,9 @@ loadScripts(document, 'script');</script>
 <div class="block">A class that represents the state of the game</div>
 </dd>
 <dt><a href="com/mg105/entities/GameState.html#%3Cinit%3E(com.mg105.entities.Inventory,com.mg105.entities.BattleCharacter%5B%5D,com.mg105.entities.WalkingCharacter)" class="member-name-link">GameState(Inventory, BattleCharacter[], WalkingCharacter)</a> - Constructor for class com.mg105.entities.<a href="com/mg105/entities/GameState.html" title="class in com.mg105.entities">GameState</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Create a new game state.</div>
+</dd>
 <dt><a href="com/mg105/interface_adapters/MapGeneratorInterpreter.html#generateMap()" class="member-name-link">generateMap()</a> - Method in class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/MapGeneratorInterpreter.html" title="class in com.mg105.interface_adapters">MapGeneratorInterpreter</a></dt>
 <dd>
 <div class="block">Generate (or re-generate) the map.</div>
@@ -326,6 +334,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Get the treasure chests in this room.</div>
 </dd>
+<dt><a href="com/mg105/use_cases/RoomLayout.html#getChests()" class="member-name-link">getChests()</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/RoomLayout.html" title="class in com.mg105.use_cases">RoomLayout</a></dt>
+<dd>
+<div class="block">Get the treasure chests in this room.</div>
+</dd>
 <dt><a href="com/mg105/user_interface/TutorialTextDisplay.html#getController()" class="member-name-link">getController()</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/TutorialTextDisplay.html" title="class in com.mg105.user_interface">TutorialTextDisplay</a></dt>
 <dd>
 <div class="block">Get a tutorial controller which is used to switch text</div>
@@ -354,7 +366,7 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Get the current room as represented in an easier to draw grid.</div>
 </dd>
-<dt><a href="com/mg105/use_cases/RoomGetter.html#getCurrentRoom()" class="member-name-link">getCurrentRoom()</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/RoomGetter.html" title="class in com.mg105.use_cases">RoomGetter</a></dt>
+<dt><a href="com/mg105/use_cases/RoomGetter.html#getCurrentRoomLayout()" class="member-name-link">getCurrentRoomLayout()</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/RoomGetter.html" title="class in com.mg105.use_cases">RoomGetter</a></dt>
 <dd>
 <div class="block">Get the current room.</div>
 </dd>
@@ -371,6 +383,10 @@ loadScripts(document, 'script');</script>
 <div class="block">Returns the current damage stat of the character.</div>
 </dd>
 <dt><a href="com/mg105/entities/Room.html#getDoorways()" class="member-name-link">getDoorways()</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/Room.html" title="class in com.mg105.entities">Room</a></dt>
+<dd>
+<div class="block">Get the doorways in this room.</div>
+</dd>
+<dt><a href="com/mg105/use_cases/RoomLayout.html#getDoorways()" class="member-name-link">getDoorways()</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/RoomLayout.html" title="class in com.mg105.use_cases">RoomLayout</a></dt>
 <dd>
 <div class="block">Get the doorways in this room.</div>
 </dd>
@@ -455,6 +471,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Get the opponents in this room.</div>
 </dd>
+<dt><a href="com/mg105/use_cases/RoomLayout.html#getOpponents()" class="member-name-link">getOpponents()</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/RoomLayout.html" title="class in com.mg105.use_cases">RoomLayout</a></dt>
+<dd>
+<div class="block">Get the opponents in this room.</div>
+</dd>
 <dt><a href="com/mg105/entities/GameState.html#getParty()" class="member-name-link">getParty()</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/GameState.html" title="class in com.mg105.entities">GameState</a></dt>
 <dd>
 <div class="block">Returns an ArrayList of the player's characters.</div>
@@ -462,6 +482,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/mg105/entities/GameState.html#getPartyMember(java.lang.String)" class="member-name-link">getPartyMember(String)</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/GameState.html" title="class in com.mg105.entities">GameState</a></dt>
 <dd>
 <div class="block">Returns the character in party based on the given name</div>
+</dd>
+<dt><a href="com/mg105/use_cases/RoomLayout.html#getPlayer()" class="member-name-link">getPlayer()</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/RoomLayout.html" title="class in com.mg105.use_cases">RoomLayout</a></dt>
+<dd>
+<div class="block">Get the player position in this room.</div>
 </dd>
 <dt><a href="com/mg105/entities/Battle.html#getPlayerCharacters()" class="member-name-link">getPlayerCharacters()</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/Battle.html" title="class in com.mg105.entities">Battle</a></dt>
 <dd>
@@ -504,10 +528,6 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/mg105/entities/GameState.html#getWalkingCharacter()" class="member-name-link">getWalkingCharacter()</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/GameState.html" title="class in com.mg105.entities">GameState</a></dt>
 <dd>
 <div class="block">Get the current WalkingCharacter the user is controlling.</div>
-</dd>
-<dt><a href="com/mg105/use_cases/RoomGetter.html#getWalkingCharacter()" class="member-name-link">getWalkingCharacter()</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/RoomGetter.html" title="class in com.mg105.use_cases">RoomGetter</a></dt>
-<dd>
-<div class="block">Get the position current walking character.</div>
 </dd>
 <dt><a href="com/mg105/interface_adapters/BattlePresenter.html#givenCharacterDamage(java.lang.String)" class="member-name-link">givenCharacterDamage(String)</a> - Method in class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/BattlePresenter.html" title="class in com.mg105.interface_adapters">BattlePresenter</a></dt>
 <dd>
@@ -824,7 +844,9 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/mg105/interface_adapters/TileType.html#OPPONENT_SET" class="member-name-link">OPPONENT_SET</a> - Enum constant in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/TileType.html" title="enum class in com.mg105.interface_adapters">TileType</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/entities/OpponentSet.html" class="type-name-link" title="class in com.mg105.entities">OpponentSet</a> - Class in <a href="com/mg105/entities/package-summary.html">com.mg105.entities</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">OpponentSet stores a potential battle on a map.</div>
+</dd>
 <dt><a href="com/mg105/entities/OpponentSet.html#%3Cinit%3E(java.awt.Point,java.util.List)" class="member-name-link">OpponentSet(Point, List&lt;BattleCharacter&gt;)</a> - Constructor for class com.mg105.entities.<a href="com/mg105/entities/OpponentSet.html" title="class in com.mg105.entities">OpponentSet</a></dt>
 <dd>
 <div class="block">Create a new set of opponents to be displayed in a room.</div>
@@ -846,6 +868,10 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/use_cases/PlayerGetsTutorial.html#%3Cinit%3E(java.util.List,int,com.mg105.entities.GiveTutorial)" class="member-name-link">PlayerGetsTutorial(List&lt;String&gt;, int, GiveTutorial)</a> - Constructor for class com.mg105.use_cases.<a href="com/mg105/use_cases/PlayerGetsTutorial.html" title="class in com.mg105.use_cases">PlayerGetsTutorial</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/mg105/user_interface/MapDrawer.html#propertyChange(java.beans.PropertyChangeEvent)" class="member-name-link">propertyChange(PropertyChangeEvent)</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/MapDrawer.html" title="class in com.mg105.user_interface">MapDrawer</a></dt>
+<dd>
+<div class="block">Update the current room based on evt.</div>
+</dd>
 </dl>
 <h2 class="title" id="I:R">R</h2>
 <dl class="index">
@@ -882,12 +908,18 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Removes an item from the inventory ui.</div>
 </dd>
+<dt><a href="com/mg105/use_cases/RoomUpdater.html#removeObserver(java.beans.PropertyChangeListener)" class="member-name-link">removeObserver(PropertyChangeListener)</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/RoomUpdater.html" title="class in com.mg105.use_cases">RoomUpdater</a></dt>
+<dd>
+<div class="block">Remove an observer from the RoomUpdater.</div>
+</dd>
 <dt><a href="com/mg105/interface_adapters/BattlePresenter.html#retrieveTargets(int,java.lang.String)" class="member-name-link">retrieveTargets(int, String)</a> - Method in class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/BattlePresenter.html" title="class in com.mg105.interface_adapters">BattlePresenter</a></dt>
 <dd>
 <div class="block">Returns the name of every BattleCharacter which can be targeted by the given move.</div>
 </dd>
 <dt><a href="com/mg105/entities/Room.html" class="type-name-link" title="class in com.mg105.entities">Room</a> - Class in <a href="com/mg105/entities/package-summary.html">com.mg105.entities</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Room represents a single room in the map.</div>
+</dd>
 <dt><a href="com/mg105/entities/Room.html#%3Cinit%3E(java.util.List,java.util.List,java.util.List)" class="member-name-link">Room(List&lt;TreasureChest&gt;, List&lt;OpponentSet&gt;, List&lt;Doorway&gt;)</a> - Constructor for class com.mg105.entities.<a href="com/mg105/entities/Room.html" title="class in com.mg105.entities">Room</a></dt>
 <dd>
 <div class="block">Create a room given some number of chests, opponents, and doorways.</div>
@@ -910,9 +942,21 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Create a new RoomInterpreter that will get its information from getter.</div>
 </dd>
-<dt><a href="com/mg105/use_cases/RoomUpdater.html" class="type-name-link" title="interface in com.mg105.use_cases">RoomUpdater</a> - Interface in <a href="com/mg105/use_cases/package-summary.html">com.mg105.use_cases</a></dt>
+<dt><a href="com/mg105/use_cases/RoomLayout.html" class="type-name-link" title="class in com.mg105.use_cases">RoomLayout</a> - Class in <a href="com/mg105/use_cases/package-summary.html">com.mg105.use_cases</a></dt>
 <dd>
-<div class="block">RoomUpdater interface defines an object that needs to be told when the room updates.</div>
+<div class="block">The layout of a room.</div>
+</dd>
+<dt><a href="com/mg105/use_cases/RoomLayout.html#%3Cinit%3E(java.util.List,java.util.List,java.util.List,java.awt.Point)" class="member-name-link">RoomLayout(List&lt;Point&gt;, List&lt;Point&gt;, List&lt;Point&gt;, Point)</a> - Constructor for class com.mg105.use_cases.<a href="com/mg105/use_cases/RoomLayout.html" title="class in com.mg105.use_cases">RoomLayout</a></dt>
+<dd>
+<div class="block">Create a room given some number of chests, opponents, and doorways.</div>
+</dd>
+<dt><a href="com/mg105/use_cases/RoomUpdater.html" class="type-name-link" title="class in com.mg105.use_cases">RoomUpdater</a> - Class in <a href="com/mg105/use_cases/package-summary.html">com.mg105.use_cases</a></dt>
+<dd>
+<div class="block">RoomUpdater updates any components that need updating when the state of the current room changes.</div>
+</dd>
+<dt><a href="com/mg105/use_cases/RoomUpdater.html#%3Cinit%3E()" class="member-name-link">RoomUpdater()</a> - Constructor for class com.mg105.use_cases.<a href="com/mg105/use_cases/RoomUpdater.html" title="class in com.mg105.use_cases">RoomUpdater</a></dt>
+<dd>
+<div class="block">Create a new RoomUpdater.</div>
 </dd>
 <dt><a href="com/mg105/interface_adapters/BattlePresenter.html#roundStart()" class="member-name-link">roundStart()</a> - Method in class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/BattlePresenter.html" title="class in com.mg105.interface_adapters">BattlePresenter</a></dt>
 <dd>
@@ -1074,9 +1118,9 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Very messy method to modify the display of a character's status on the UI.</div>
 </dd>
-<dt><a href="com/mg105/use_cases/RoomUpdater.html#updateRoom()" class="member-name-link">updateRoom()</a> - Method in interface com.mg105.use_cases.<a href="com/mg105/use_cases/RoomUpdater.html" title="interface in com.mg105.use_cases">RoomUpdater</a></dt>
+<dt><a href="com/mg105/use_cases/RoomUpdater.html#updateRoom()" class="member-name-link">updateRoom()</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/RoomUpdater.html" title="class in com.mg105.use_cases">RoomUpdater</a></dt>
 <dd>
-<div class="block">Update the current visual representation of the room.</div>
+<div class="block">Trigger an update on all the components that need updating on a room state change.</div>
 </dd>
 <dt><a href="com/mg105/user_interface/MapDrawer.html#updateRoom()" class="member-name-link">updateRoom()</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/MapDrawer.html" title="class in com.mg105.user_interface">MapDrawer</a></dt>
 <dd>

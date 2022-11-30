@@ -98,7 +98,9 @@ loadScripts(document, 'script');</script>
 <div class="block">Consumable is an interface that should only be implemented by items that can be use on a character</div>
 </div>
 <div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/entities/Doorway.html" title="class in com.mg105.entities">Doorway</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="block">A Doorway represents a single-direction connection from one room to another.</div>
+</div>
 <div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/entities/GameState.html" title="class in com.mg105.entities">GameState</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">A class that represents the state of the game</div>
@@ -195,13 +197,17 @@ loadScripts(document, 'script');</script>
 <div class="block">Move is a class which contains the combat properties and name of a specific move used by a specific character.</div>
 </div>
 <div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/entities/OpponentSet.html" title="class in com.mg105.entities">OpponentSet</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="block">OpponentSet stores a potential battle on a map.</div>
+</div>
 <div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/utils/PartyConstants.html" title="class in com.mg105.utils">PartyConstants</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
 <div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/use_cases/PlayerGetsTutorial.html" title="class in com.mg105.use_cases">PlayerGetsTutorial</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
 <div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/entities/Room.html" title="class in com.mg105.entities">Room</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="block">Room represents a single room in the map.</div>
+</div>
 <div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/use_cases/RoomGetter.html" title="class in com.mg105.use_cases">RoomGetter</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">RoomGetter is responsible for getting the state current room.</div>
@@ -210,46 +216,50 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">RoomInterpreter interprets the current room in a format that is easier to draw from.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="com/mg105/use_cases/RoomUpdater.html" title="interface in com.mg105.use_cases">RoomUpdater</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab1">
-<div class="block">RoomUpdater interface defines an object that needs to be told when the room updates.</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/use_cases/RoomLayout.html" title="class in com.mg105.use_cases">RoomLayout</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="block">The layout of a room.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/user_interface/SceneController.html" title="class in com.mg105.user_interface">SceneController</a></div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/use_cases/RoomUpdater.html" title="class in com.mg105.use_cases">RoomUpdater</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="block">RoomUpdater updates any components that need updating when the state of the current room changes.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/user_interface/SceneController.html" title="class in com.mg105.user_interface">SceneController</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">SceneController acts as the central coordination mechanism for the user interface.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/entities/TextGenerator.html" title="class in com.mg105.entities">TextGenerator</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab3"><a href="com/mg105/interface_adapters/TileType.html" title="enum class in com.mg105.interface_adapters">TileType</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab3">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/entities/TextGenerator.html" title="class in com.mg105.entities">TextGenerator</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab3"><a href="com/mg105/interface_adapters/TileType.html" title="enum class in com.mg105.interface_adapters">TileType</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab3">
 <div class="block">Types of tiles that can appear within a room.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="com/mg105/user_interface/Toggleable.html" title="interface in com.mg105.user_interface">Toggleable</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab1">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="com/mg105/user_interface/Toggleable.html" title="interface in com.mg105.user_interface">Toggleable</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
 <div class="block">A user interface component that can be toggled on or off depending on its visibility.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="com/mg105/interface_adapters/Toggler.html" title="interface in com.mg105.interface_adapters">Toggler</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="com/mg105/interface_adapters/Toggler.html" title="interface in com.mg105.interface_adapters">Toggler</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab1">
 <div class="block">An interface for an object that can toggle the visibility of various user interface components.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab3"><a href="com/mg105/interface_adapters/Toggler.ToggleableComponent.html" title="enum class in com.mg105.interface_adapters">Toggler.ToggleableComponent</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab3">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab3"><a href="com/mg105/interface_adapters/Toggler.ToggleableComponent.html" title="enum class in com.mg105.interface_adapters">Toggler.ToggleableComponent</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab3">
 <div class="block">All the possible components that could theoretically be toggled.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/entities/TreasureChest.html" title="class in com.mg105.entities">TreasureChest</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/controllers/TutorialTextController.html" title="class in com.mg105.controllers">TutorialTextController</a></div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/entities/TreasureChest.html" title="class in com.mg105.entities">TreasureChest</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/user_interface/TutorialTextDisplay.html" title="class in com.mg105.user_interface">TutorialTextDisplay</a></div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/controllers/TutorialTextController.html" title="class in com.mg105.controllers">TutorialTextController</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/utils/TutorialTexts.html" title="class in com.mg105.utils">TutorialTexts</a></div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/user_interface/TutorialTextDisplay.html" title="class in com.mg105.user_interface">TutorialTextDisplay</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/entities/items/UpgradeToken.html" title="class in com.mg105.entities.items">UpgradeToken</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/utils/TutorialTexts.html" title="class in com.mg105.utils">TutorialTexts</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/entities/items/UpgradeToken.html" title="class in com.mg105.entities.items">UpgradeToken</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">An item that is used upgrade a characters stat</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/entities/WalkingCharacter.html" title="class in com.mg105.entities">WalkingCharacter</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="com/mg105/entities/WalkingCharacter.html" title="class in com.mg105.entities">WalkingCharacter</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
 </div>
 </div>
 </div>
