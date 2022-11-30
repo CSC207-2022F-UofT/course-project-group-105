@@ -1,11 +1,20 @@
-package com.mg105.data_access;
+package com.mg105.data_control;
 
+import com.mg105.data_control.access.MoveDataAccess;
+import com.mg105.data_control.creator.MoveDataCreator;
 import com.mg105.outputds.MoveDetails;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class MoveDataAccessTest {
+
+    @BeforeAll
+    static void setData(){
+        MoveDataCreator c = new MoveDataCreator();
+        c.createDataStorage();
+    }
 
     @Test
     void getMoveDetailsFirst() {

@@ -1,5 +1,0 @@
-name,maxHp,dmg,speed,isOpponent,moveName,moveName
-A,30,4,5,FALSE,Slow swing,Nullify
-B,20,6,8,FALSE,Strong swing,Weak heal
-C,25,3,6,FALSE,Strong heal,Reinforce
-D,15,9,10,FALSE,Surprise attack,Sabotage

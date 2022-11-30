@@ -2,7 +2,7 @@ package com.mg105.controllers;
 
 import com.mg105.entities.GiveTutorial;
 import com.mg105.use_cases.PlayerGetsTutorial;
-import com.mg105.use_cases.utils.TutorialTexts;
+import com.mg105.utils.TutorialTexts;
 
 public class TutorialTextController {
 

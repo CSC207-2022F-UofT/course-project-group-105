@@ -4,7 +4,7 @@ import com.mg105.entities.items.HealthPotion;
 import com.mg105.outputds.ItemDetails;
 import com.mg105.use_cases.inventory.InventoryInteractor;
 import com.mg105.use_cases.inventory.InventoryPresenterInterface;
-import com.mg105.use_cases.utils.PartyConstants;
+import com.mg105.utils.PartyConstants;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;

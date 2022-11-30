@@ -1,4 +1,4 @@
-package com.mg105.use_cases.set_up;
+package com.mg105.use_cases.set_up.state_setter;
 
 import com.mg105.entities.GameState;
 

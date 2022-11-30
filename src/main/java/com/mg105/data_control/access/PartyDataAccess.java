@@ -1,10 +1,10 @@
-package com.mg105.data_access;
+package com.mg105.data_control.access;
 
 import com.mg105.outputds.BattleCharacterDetails;
 import com.mg105.outputds.MoveDetails;
 import com.mg105.use_cases.PartyDataInterface;
-import com.mg105.use_cases.utils.PartyConstants;
-import com.mg105.use_cases.utils.StatConstants;
+import com.mg105.utils.PartyConstants;
+import com.mg105.utils.StatConstants;
 import com.opencsv.*;
 import com.opencsv.exceptions.CsvException;
 import org.jetbrains.annotations.NotNull;
@@ -14,14 +14,18 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-import static com.mg105.use_cases.utils.DataAccessConstants.BASE_PATH;
+import static com.mg105.utils.DataAccessConstants.PARTY_DATA_PATH;
 
 public class PartyDataAccess implements PartyDataInterface {
 
-    private final static String PARTY_DATA_FILE = BASE_PATH + "party_data.csv";
-
     private final static int NUMBER_OF_MOVES_PER_CHARACTER = 2;
     private final MoveDataAccess moveDataAccess;
+
+    public static void main(String[] args){
+        PartyDataAccess p = new PartyDataAccess(new MoveDataAccess());
+
+        System.out.println(p.getPartyBattleDetails()[0].getName());
+    }
 
 
     public PartyDataAccess(MoveDataAccess moveDataAccess) {
@@ -44,7 +48,7 @@ public class PartyDataAccess implements PartyDataInterface {
     public void changeCharacterStat(@NotNull String name, @NotNull String stat, int value) {
         try {
             CSVParser parser = new CSVParserBuilder().withSeparator(',').build();
-            CSVReader reader = new CSVReaderBuilder(new FileReader(PARTY_DATA_FILE)).withCSVParser(parser).build();
+            CSVReader reader = new CSVReaderBuilder(new FileReader(PARTY_DATA_PATH)).withCSVParser(parser).build();
             List<String[]> partyStats = reader.readAll();
 
             // Setting which value to change in the file by reading
@@ -73,7 +77,7 @@ public class PartyDataAccess implements PartyDataInterface {
             reader.close();
 
             // Changing that value in the file
-            CSVWriter writer = new CSVWriter(new FileWriter(PARTY_DATA_FILE), ',',
+            CSVWriter writer = new CSVWriter(new FileWriter(PARTY_DATA_PATH), ',',
                 CSVWriter.NO_QUOTE_CHARACTER,
                 CSVWriter.DEFAULT_ESCAPE_CHARACTER,
                 CSVWriter.DEFAULT_LINE_END);
@@ -106,7 +110,7 @@ public class PartyDataAccess implements PartyDataInterface {
 
         try {
             CSVParser parser = new CSVParserBuilder().withSeparator(',').build();
-            CSVReader reader = new CSVReaderBuilder(new FileReader(PARTY_DATA_FILE)).withCSVParser(parser).build();
+            CSVReader reader = new CSVReaderBuilder(new FileReader(PARTY_DATA_PATH)).withCSVParser(parser).build();
             List<String[]> partyStats = reader.readAll();
 
             // Starts at one since first line is just the variable names (same reason for + 1)

@@ -3,8 +3,8 @@ package com.mg105.use_cases.inventory;
 import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.GameState;
 import com.mg105.outputds.ItemDetails;
-import com.mg105.use_cases.utils.ItemConstants;
-import com.mg105.use_cases.utils.PartyConstants;
+import com.mg105.utils.ItemConstants;
+import com.mg105.utils.PartyConstants;
 import org.jetbrains.annotations.NotNull;
 
 /**

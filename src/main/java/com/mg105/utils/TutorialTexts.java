@@ -1,4 +1,4 @@
-package com.mg105.use_cases.utils;
+package com.mg105.utils;
 
 import java.util.Arrays;
 import java.util.List;

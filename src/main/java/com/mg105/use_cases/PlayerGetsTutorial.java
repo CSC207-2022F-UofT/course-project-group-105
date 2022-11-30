@@ -1,7 +1,7 @@
 package com.mg105.use_cases;
 
 import com.mg105.entities.GiveTutorial;
-import com.mg105.use_cases.utils.TutorialTexts;
+import com.mg105.utils.TutorialTexts;
 
 import java.util.List;
 

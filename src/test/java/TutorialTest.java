@@ -1,7 +1,7 @@
 import com.mg105.entities.GiveTutorial;
 import com.mg105.use_cases.PlayerGetsTutorial;
 import com.mg105.user_interface.TutorialTextDisplay;
-import com.mg105.use_cases.utils.TutorialTexts;
+import com.mg105.utils.TutorialTexts;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

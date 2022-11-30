@@ -1,4 +1,4 @@
-package com.mg105.data_access;
+package com.mg105.data_control.access;
 
 import com.mg105.outputds.MoveDetails;
 import com.opencsv.CSVParser;
@@ -13,8 +13,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import static com.mg105.use_cases.utils.DataAccessConstants.BASE_PATH;
-import static com.mg105.use_cases.utils.DataAccessConstants.IS_TRUE;
+import static com.mg105.utils.DataAccessConstants.*;
 
 /**
  * This is a class mean to interact and get information about moves from a "database"
@@ -24,8 +23,6 @@ import static com.mg105.use_cases.utils.DataAccessConstants.IS_TRUE;
  */
 
 public class MoveDataAccess {
-
-    private final static String MOVE_DATA_FILE = BASE_PATH + "move_data.csv";
 
 
     /**
@@ -41,7 +38,7 @@ public class MoveDataAccess {
 
         try {
             CSVParser parser = new CSVParserBuilder().withSeparator(',').build();
-            CSVReader reader = new CSVReaderBuilder(new FileReader(MOVE_DATA_FILE)).withCSVParser(parser).build();
+            CSVReader reader = new CSVReaderBuilder(new FileReader(MOVE_DATA_PATH)).withCSVParser(parser).build();
             List<String[]> partyStats = reader.readAll();
 
             for (String[] moveDetails : partyStats) {

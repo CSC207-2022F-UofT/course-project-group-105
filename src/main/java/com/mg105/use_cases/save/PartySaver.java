@@ -3,7 +3,7 @@ package com.mg105.use_cases.save;
 import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.GameState;
 import com.mg105.use_cases.PartyDataInterface;
-import com.mg105.use_cases.utils.StatConstants;
+import com.mg105.utils.StatConstants;
 import org.jetbrains.annotations.NotNull;
 
 /**

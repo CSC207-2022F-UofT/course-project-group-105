@@ -4,7 +4,7 @@ import com.mg105.entities.*;
 import com.mg105.entities.items.HealthPotion;
 import com.mg105.entities.items.UpgradeToken;
 import com.mg105.outputds.ItemDetails;
-import com.mg105.use_cases.utils.ItemConstants;
+import com.mg105.utils.ItemConstants;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;

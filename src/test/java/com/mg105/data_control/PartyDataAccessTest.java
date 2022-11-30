@@ -1,7 +1,13 @@
-package com.mg105.data_access;
+package com.mg105.data_control;
 
+import com.mg105.data_control.access.MoveDataAccess;
+import com.mg105.data_control.access.PartyDataAccess;
+import com.mg105.data_control.creator.MoveDataCreator;
+import com.mg105.data_control.creator.PartyDataCreator;
 import com.mg105.outputds.BattleCharacterDetails;
-import com.mg105.use_cases.utils.StatConstants;
+import com.mg105.utils.StatConstants;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -13,6 +19,11 @@ class PartyDataAccessTest {
 
     @BeforeAll
     public static void getDetails() {
+        PartyDataCreator pd = new PartyDataCreator();
+        pd.createDataStorage();
+        MoveDataCreator m = new MoveDataCreator();
+        m.createDataStorage();
+
         p = new PartyDataAccess(new MoveDataAccess());
         details = p.getPartyBattleDetails();
 

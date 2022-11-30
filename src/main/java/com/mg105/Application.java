@@ -1,5 +1,9 @@
 package com.mg105;
 
+import com.mg105.data_control.access.MoveDataAccess;
+import com.mg105.data_control.access.PartyDataAccess;
+import com.mg105.data_control.creator.MoveDataCreator;
+import com.mg105.data_control.creator.PartyDataCreator;
 import com.mg105.entities.*;
 import com.mg105.interface_adapters.InputInterpreter;
 import com.mg105.interface_adapters.MapGeneratorInterpreter;
@@ -11,6 +15,10 @@ import com.mg105.use_cases.CharacterMover;
 import com.mg105.use_cases.MapGenerator;
 import com.mg105.use_cases.RoomGetter;
 import com.mg105.use_cases.inventory.InventoryInteractor;
+import com.mg105.use_cases.set_up.data_system_creator.CreateDataStorage;
+import com.mg105.use_cases.set_up.data_system_creator.DataStorageSystemCreator;
+import com.mg105.use_cases.set_up.state_setter.GameStateSetter;
+import com.mg105.use_cases.set_up.state_setter.PartyCreator;
 import com.mg105.user_interface.*;
 import com.mg105.user_interface.inventory.InventoryDisplay;
 import javafx.animation.AnimationTimer;
@@ -60,6 +68,16 @@ public class Application extends javafx.application.Application {
         Inventory inventory = new Inventory();
 
         GameState state = new GameState(inventory, party, new WalkingCharacter(new Point(1, 1)));
+
+        // Setting up database
+        CreateDataStorage[] databaseCreators = {new MoveDataCreator(), new PartyDataCreator()};
+        DataStorageSystemCreator databaseCreator = new DataStorageSystemCreator(databaseCreators);
+        databaseCreator.create();
+
+        // Setting the values from the database in game state
+        PartyCreator[] partyCreator = {new PartyCreator(new PartyDataAccess(new MoveDataAccess()))};
+        GameStateSetter setter = new GameStateSetter(partyCreator);
+        setter.setState(state);
 
         // InventoryDisplay set up
         InventoryPresenter inventoryPresenter = new InventoryPresenter();

@@ -2,7 +2,7 @@ package com.mg105.interface_adapters;
 
 import com.mg105.entities.*;
 import com.mg105.use_cases.RoomGetter;
-import com.mg105.use_cases.utils.MapConstants;
+import com.mg105.utils.MapConstants;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;

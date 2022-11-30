@@ -1,7 +1,7 @@
 package com.mg105.user_interface;
 
 import com.mg105.controllers.TutorialTextController;
-import com.mg105.use_cases.utils.TutorialTexts;
+import com.mg105.utils.TutorialTexts;
 import javafx.scene.control.Label;
 import javafx.scene.text.Font;
 

@@ -1,4 +1,4 @@
-package com.mg105.use_cases.set_up;
+package com.mg105.use_cases.set_up.state_setter;
 
 import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.GameState;
@@ -6,7 +6,7 @@ import com.mg105.entities.Move;
 import com.mg105.outputds.BattleCharacterDetails;
 import com.mg105.outputds.MoveDetails;
 import com.mg105.use_cases.PartyDataInterface;
-import com.mg105.use_cases.utils.PartyConstants;
+import com.mg105.utils.PartyConstants;
 import org.jetbrains.annotations.NotNull;
 
 /**
