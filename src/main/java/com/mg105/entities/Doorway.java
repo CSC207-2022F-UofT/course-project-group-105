@@ -2,6 +2,9 @@ package com.mg105.entities;
 
 import java.awt.*;
 
+/**
+ * A Doorway represents a single-direction connection from one room to another.
+ */
 public class Doorway {
     private final Point position;
     private final Room nextRoom;

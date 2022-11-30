@@ -5,6 +5,9 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
+/**
+ * Room represents a single room in the map.
+ */
 public class Room {
     private final @NotNull List<TreasureChest> chests;
     private final @NotNull List<OpponentSet> opponents;
@@ -28,7 +31,7 @@ public class Room {
      *
      * @return the treasure chests in this room.
      */
-    public List<TreasureChest> getChests() {
+    public @NotNull List<TreasureChest> getChests() {
         return chests;
     }
 
@@ -37,7 +40,7 @@ public class Room {
      *
      * @return the opponents in this room.
      */
-    public List<OpponentSet> getOpponents() {
+    public @NotNull List<OpponentSet> getOpponents() {
         return opponents;
     }
 
@@ -46,7 +49,7 @@ public class Room {
      *
      * @return the doorways in this room.
      */
-    public List<Doorway> getDoorways() {
+    public @NotNull List<Doorway> getDoorways() {
         return doorways;
     }
 
