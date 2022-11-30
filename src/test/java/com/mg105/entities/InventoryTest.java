@@ -9,15 +9,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class InventoryTest {
 
-//    @BeforeEach
-//    void setUp() {
-//
-//    }
-//
-//    @AfterEach
-//    void tearDown() {
-//    }
-
     // Inventory limit is 10 for all tests
 
     @Test
@@ -108,9 +99,9 @@ class InventoryTest {
     void addItemEmptyInventory() {
 
         Inventory inventory = new Inventory();
-        assertTrue(inventory.numberOfItems() == 0);
+        assertEquals(0, inventory.numberOfItems());
         inventory.addItem(new UpgradeToken());
-        assertTrue(inventory.numberOfItems() == 1);
+        assertEquals(1, inventory.numberOfItems());
     }
 
     @Test

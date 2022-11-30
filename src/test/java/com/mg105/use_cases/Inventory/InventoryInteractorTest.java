@@ -1,4 +1,5 @@
 package com.mg105.use_cases.Inventory;
+
 import com.mg105.entities.*;
 import com.mg105.entities.items.HealthPotion;
 import com.mg105.entities.items.UpgradeToken;
@@ -18,22 +19,22 @@ class InventoryInteractorTest {
 
     InventoryPresenterInterface res = new InventoryPresenterInterface() {
         @Override
-        public void addItemView(boolean isSuccessful, ItemDetails itemDetails) {
+        public void addItem(boolean isSuccessful, ItemDetails itemDetails) {
 
         }
 
         @Override
-        public void removeItemView(boolean isSuccessful, ItemDetails itemDetails) {
+        public void removeItem(boolean isSuccessful, ItemDetails itemDetails) {
 
         }
 
         @Override
-        public void useItemView(boolean isSuccessful, String characterName, ItemDetails itemDetails) {
+        public void useItem(boolean isSuccessful, String characterName, ItemDetails itemDetails) {
 
         }
 
         @Override
-        public void inventoryDetailsView(ItemDetails[] allItemsDetails) {
+        public void inventoryDetails(ItemDetails[] allItemsDetails) {
 
         }
     };

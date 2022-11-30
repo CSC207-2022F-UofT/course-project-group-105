@@ -24,14 +24,4 @@ public abstract class Item {
     public String getName() {
         return this.NAME;
     }
-
-    /**
-     * Returns the description of this item
-     *
-     * @return the description of this item
-     */
-
-    public String getDescription() {
-        return this.DESCRIPTION;
-    }
 }
