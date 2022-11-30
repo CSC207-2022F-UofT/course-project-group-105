@@ -9,6 +9,18 @@ import java.awt.*;
 import java.util.ArrayList;
 
 class BattlePresenterTest {
+
+    BattleMenuInterface view = new BattleMenuInterface() {
+        @Override
+        public void setNames(String[] playerNames, String[] opponentNames) {
+
+        }
+
+        @Override
+        public void updateCharacter(String character) {
+
+        }
+    };
     @Test
     void startValidBattle() {
         Inventory inventory = new Inventory();
@@ -31,6 +43,7 @@ class BattlePresenterTest {
         GameState state = new GameState(inventory, party, character);
         BattleInteractor interactor = new BattleInteractor(state);
         BattlePresenter presenter = new BattlePresenter(interactor);
+        presenter.setView(view);
         presenter.startBattle();
 
         Assertions.assertEquals(4, presenter.retrieveTargets(1, "Leslie").size());
@@ -60,6 +73,7 @@ class BattlePresenterTest {
         GameState state = new GameState(inventory, party, character);
         BattleInteractor interactor = new BattleInteractor(state);
         BattlePresenter presenter = new BattlePresenter(interactor);
+        presenter.setView(view);
         presenter.startBattle();
 
         ArrayList<String> targets = presenter.retrieveTargets(1, "Leslie");
@@ -93,6 +107,7 @@ class BattlePresenterTest {
         GameState state = new GameState(inventory, party, character);
         BattleInteractor interactor = new BattleInteractor(state);
         BattlePresenter presenter = new BattlePresenter(interactor);
+        presenter.setView(view);
         presenter.startBattle();
 
         presenter.executeTurn(1, "Leslie", "Opponent 0");
@@ -121,6 +136,7 @@ class BattlePresenterTest {
         GameState state = new GameState(inventory, party, character);
         BattleInteractor interactor = new BattleInteractor(state);
         BattlePresenter presenter = new BattlePresenter(interactor);
+        presenter.setView(view);
         presenter.startBattle();
 
         Assertions.assertEquals("Leslie", presenter.roundStart());

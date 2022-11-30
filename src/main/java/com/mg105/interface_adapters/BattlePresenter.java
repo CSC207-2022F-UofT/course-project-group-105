@@ -126,10 +126,6 @@ public class BattlePresenter implements BattlePresenterInterface {
      */
     @Override
     public void setViewNames(String[] partyNames, String[] opponentNames) {
-        if (this.view == null) { //Used for unit tests. Never executed during regular running of the application.
-            return;
-        }
-
         this.view.setNames(partyNames, opponentNames);
     }
 
@@ -139,10 +135,6 @@ public class BattlePresenter implements BattlePresenterInterface {
      */
     @Override
     public void updateViewCharacter(String targetName) {
-        if (this.view == null) { //Used for unit tests. Never executed during regular running of the application.
-            return;
-        }
-
         this.view.updateCharacter(targetName);
     }
 

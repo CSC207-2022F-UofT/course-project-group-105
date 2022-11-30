@@ -1,7 +1,9 @@
 package com.mg105.use_cases.Battle;
 
 import com.mg105.entities.*;
+import com.mg105.interface_adapters.BattleMenuInterface;
 import com.mg105.use_cases.BattleInteractor;
+import com.mg105.use_cases.BattlePresenterInterface;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -9,6 +11,18 @@ import java.awt.*;
 import java.util.ArrayList;
 
 class BattleInteractorTest {
+
+    BattlePresenterInterface presenter = new BattlePresenterInterface() {
+        @Override
+        public void setViewNames(String[] partyNames, String[] opponentNames) {
+
+        }
+
+        @Override
+        public void updateViewCharacter(String targetName) {
+
+        }
+    };
 
     @Test
     void createValidEncounter() {
@@ -31,6 +45,7 @@ class BattleInteractorTest {
 
         GameState state = new GameState(inventory, party, character);
         BattleInteractor interactor = new BattleInteractor(state);
+        interactor.setPresenter(presenter);
         interactor.createEncounter();
 
         Assertions.assertEquals(4, interactor.retrieveTargets(1, "Leslie").size());
@@ -59,6 +74,7 @@ class BattleInteractorTest {
 
         GameState state = new GameState(inventory, party, character);
         BattleInteractor interactor = new BattleInteractor(state);
+        interactor.setPresenter(presenter);
         interactor.createEncounter();
 
         ArrayList<String> targets = interactor.retrieveTargets(1, "Leslie");
@@ -91,6 +107,7 @@ class BattleInteractorTest {
 
         GameState state = new GameState(inventory, party, character);
         BattleInteractor interactor = new BattleInteractor(state);
+        interactor.setPresenter(presenter);
         interactor.createEncounter();
 
         interactor.executeTurn(1, "Leslie", "Opponent 0");
@@ -118,6 +135,7 @@ class BattleInteractorTest {
 
         GameState state = new GameState(inventory, party, character);
         BattleInteractor interactor = new BattleInteractor(state);
+        interactor.setPresenter(presenter);
         interactor.createEncounter();
 
         Assertions.assertEquals("Leslie", interactor.roundStart());

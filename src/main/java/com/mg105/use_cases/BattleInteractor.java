@@ -36,6 +36,7 @@ public class BattleInteractor {
 
     /**
      * Creates a new encounter with random opponents and sets it as the current encounter in GameState
+     * Could use the Builder design pattern here.
      */
     public void createEncounter() {
         Random rand = new Random();
@@ -68,9 +69,6 @@ public class BattleInteractor {
             opponentNames[i] = opponents.get(i).getName();
         }
 
-        if (this.presenter == null) { //Used for unit tests. Never executed during regular running of the application.
-            return;
-        }
         presenter.setViewNames(partyNames, opponentNames);
     }
 
@@ -270,9 +268,6 @@ public class BattleInteractor {
 
         target.modifyDamage(m.getDamageChange());
 
-        if (this.presenter == null) { //Used for unit tests. Never executed during regular running of the application.
-            return;
-        }
         presenter.updateViewCharacter(target.getName());
     }
 
