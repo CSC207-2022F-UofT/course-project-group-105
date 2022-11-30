@@ -6,7 +6,7 @@ package com.mg105.use_cases;
 public interface RoomUpdater {
     /**
      * Update the current visual representation of the room.
-     *
+     * <p>
      * It only needs to be called on changes to the underlying room.
      */
     void updateRoom();

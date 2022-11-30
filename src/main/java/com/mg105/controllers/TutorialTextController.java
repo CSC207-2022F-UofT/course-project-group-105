@@ -2,7 +2,7 @@ package com.mg105.controllers;
 
 import com.mg105.entities.GiveTutorial;
 import com.mg105.use_cases.PlayerGetsTutorial;
-import com.mg105.utils.TutorialTexts;
+import com.mg105.use_cases.utils.TutorialTexts;
 
 public class TutorialTextController {
 
@@ -23,7 +23,9 @@ public class TutorialTextController {
     /**
      * Go to the next tutorial phase
      */
-    public void nextPhase() { this.tutorial.nextPhase(); }
+    public void nextPhase() {
+        this.tutorial.nextPhase();
+    }
 
     /**
      * Get an instance of the PlayerGetsTutorial use case

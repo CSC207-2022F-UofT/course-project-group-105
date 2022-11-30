@@ -23,5 +23,6 @@ public interface PartyDataInterface {
      * @return an array of objects that each represent a single party memebers battle attributes
      * @see BattleCharacterDetails
      */
-    @NotNull BattleCharacterDetails[] getPartyBattleDetails();
+    @NotNull
+    BattleCharacterDetails[] getPartyBattleDetails();
 }

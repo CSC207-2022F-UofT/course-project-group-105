@@ -1,4 +1,4 @@
-package com.mg105.utils;
+package com.mg105.use_cases.utils;
 
 public class DataAccessConstants {
     public final static String BASE_PATH = "src/main/java/com/mg105/database/";

@@ -1,7 +1,7 @@
 package com.mg105.data_access;
 
 import com.mg105.outputds.BattleCharacterDetails;
-import com.mg105.utils.StatConstants;
+import com.mg105.use_cases.utils.StatConstants;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

@@ -3,7 +3,7 @@ package com.mg105.user_interface;
 import com.mg105.interface_adapters.RoomInterpreter;
 import com.mg105.interface_adapters.TileType;
 import com.mg105.use_cases.RoomUpdater;
-import com.mg105.utils.MapConstants;
+import com.mg105.use_cases.utils.MapConstants;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -36,8 +36,8 @@ public class MapDrawer implements RoomUpdater, Toggleable {
         group = new Group();
         scene = new Scene(
             group,
-            MapConstants.ROOM_SIZE*MapConstants.TILE_SIZE,
-            MapConstants.ROOM_SIZE*MapConstants.TILE_SIZE
+            MapConstants.ROOM_SIZE * MapConstants.TILE_SIZE,
+            MapConstants.ROOM_SIZE * MapConstants.TILE_SIZE
         );
         isVisible = false;
 

@@ -1,8 +1,7 @@
-package com.mg105.utils;
+package com.mg105.use_cases.utils;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.Phaser;
 
 public class TutorialTexts {
     public static final String moved = "moved";

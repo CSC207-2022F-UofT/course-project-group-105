@@ -4,7 +4,7 @@ import com.mg105.interface_adapters.inventory.InventoryController;
 import com.mg105.interface_adapters.inventory.InventoryViewInterface;
 import com.mg105.user_interface.AlertBox;
 import com.mg105.user_interface.Toggleable;
-import com.mg105.utils.PartyConstants;
+import com.mg105.use_cases.utils.PartyConstants;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;

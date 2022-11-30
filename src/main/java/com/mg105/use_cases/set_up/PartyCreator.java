@@ -1,11 +1,12 @@
-package com.mg105.use_cases;
+package com.mg105.use_cases.set_up;
 
 import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.GameState;
 import com.mg105.entities.Move;
 import com.mg105.outputds.BattleCharacterDetails;
 import com.mg105.outputds.MoveDetails;
-import com.mg105.utils.PartyConstants;
+import com.mg105.use_cases.PartyDataInterface;
+import com.mg105.use_cases.utils.PartyConstants;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -13,12 +14,11 @@ import org.jetbrains.annotations.NotNull;
  * for the game
  */
 
-public class PartyCreator {
-    private final GameState STATE;
+public class PartyCreator implements StateSetter {
     private final PartyDataInterface PARTY_ACCESS;
 
-    public PartyCreator(@NotNull GameState state, @NotNull PartyDataInterface partyAccess) {
-        this.STATE = state;
+    public PartyCreator(@NotNull PartyDataInterface partyAccess) {
+
         this.PARTY_ACCESS = partyAccess;
     }
 
@@ -26,7 +26,8 @@ public class PartyCreator {
      * Sets the correct party with the correct members and attributes in the state based on the values in a "database"
      */
 
-    public void constructParty() {
+    @Override
+    public void setState(GameState state) {
         BattleCharacterDetails[] partyDetails = PARTY_ACCESS.getPartyBattleDetails();
 
         BattleCharacter[] party = new BattleCharacter[PartyConstants.ALL_PARTY_MEMBER_NAMES.length];
@@ -35,7 +36,7 @@ public class PartyCreator {
             party[i] = createPartyMember(partyDetails[i]);
         }
 
-        STATE.setParty(party);
+        state.setParty(party);
 
     }
 

@@ -13,8 +13,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import static com.mg105.utils.DataAccessConstants.BASE_PATH;
-import static com.mg105.utils.DataAccessConstants.IS_TRUE;
+import static com.mg105.use_cases.utils.DataAccessConstants.BASE_PATH;
+import static com.mg105.use_cases.utils.DataAccessConstants.IS_TRUE;
 
 /**
  * This is a class mean to interact and get information about moves from a "database"
@@ -50,6 +50,7 @@ public class MoveDataAccess {
                     int healthChange = Integer.parseInt(moveDetails[1]);
                     int damageChange = Integer.parseInt(moveDetails[2]);
                     boolean isFriendly = moveDetails[3].equals(IS_TRUE);
+                    reader.close();
 
                     return new MoveDetails(name, healthChange, damageChange, isFriendly);
                 }

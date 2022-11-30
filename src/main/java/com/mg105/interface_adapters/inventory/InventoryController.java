@@ -10,7 +10,7 @@ public class InventoryController {
 
     InventoryInteractor interactor;
 
-    public InventoryController(com.mg105.use_cases.inventory.InventoryInteractor interactor) {
+    public InventoryController(InventoryInteractor interactor) {
         this.interactor = interactor;
     }
 

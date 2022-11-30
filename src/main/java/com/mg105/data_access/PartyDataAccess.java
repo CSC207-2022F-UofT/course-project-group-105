@@ -3,8 +3,8 @@ package com.mg105.data_access;
 import com.mg105.outputds.BattleCharacterDetails;
 import com.mg105.outputds.MoveDetails;
 import com.mg105.use_cases.PartyDataInterface;
-import com.mg105.utils.PartyConstants;
-import com.mg105.utils.StatConstants;
+import com.mg105.use_cases.utils.PartyConstants;
+import com.mg105.use_cases.utils.StatConstants;
 import com.opencsv.*;
 import com.opencsv.exceptions.CsvException;
 import org.jetbrains.annotations.NotNull;
@@ -14,11 +14,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-import static com.mg105.utils.DataAccessConstants.BASE_PATH;
+import static com.mg105.use_cases.utils.DataAccessConstants.BASE_PATH;
 
 public class PartyDataAccess implements PartyDataInterface {
 
     private final static String PARTY_DATA_FILE = BASE_PATH + "party_data.csv";
+
     private final static int NUMBER_OF_MOVES_PER_CHARACTER = 2;
     private final MoveDataAccess moveDataAccess;
 
@@ -49,7 +50,6 @@ public class PartyDataAccess implements PartyDataInterface {
             // Setting which value to change in the file by reading
 
             for (String[] memberStats : partyStats) {
-                System.out.println(memberStats[0]);
                 if (memberStats[0].equals(name)) {
                     int i = getColumnNumber(stat);
                     System.out.println(i);
@@ -65,6 +65,7 @@ public class PartyDataAccess implements PartyDataInterface {
                         return;
                     }
                     memberStats[i] = String.valueOf(value);
+                    break;
 
                 }
             }
