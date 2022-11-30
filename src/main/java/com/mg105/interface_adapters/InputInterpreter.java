@@ -20,6 +20,8 @@ public class InputInterpreter {
      * Create a new InputInterpreter that translates keyboard inputs to appropriate function invocations.
      *
      * @param mover the character mover.
+     * @param toggler the scene toggler
+     * @param textChanger the text controller for tutorial
      */
     public InputInterpreter(@NotNull CharacterMover mover, @NotNull Toggler toggler,
                             @NotNull TutorialTextController textChanger) {

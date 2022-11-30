@@ -53,6 +53,11 @@ public class PlayerGetsTutorial {
         }
     }
 
+    /**
+     * Set the action to true if it has been performed
+     *
+     * @param action to set to performed
+     */
     public void setActionPerformed(String action) {
         this.tutorial.ActionPerformedSetter(action);
     }
@@ -61,6 +66,8 @@ public class PlayerGetsTutorial {
      * Check if specific action has been performed
      *
      * @param action get if it has been performed yet
+     *
+     * @return if the action has been performed
      */
     public boolean getActionPerformed(String action) {
         return this.tutorial.ActionPerformedGetter(action);

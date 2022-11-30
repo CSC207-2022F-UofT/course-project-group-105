@@ -29,19 +29,23 @@ public class TutorialTextController {
     public void nextPhase() { this.tutorial.nextPhase(); }
 
     /**
-     * Return if text should start changing
+     * Make text start changing
      */
     public void setChangeText() {
         this.changeText = !this.changeText;
     }
 
     /**
-     * Return if text should start changing
+     * Check if tutorial phases should advance
+     *
+     * @return if text should start changing
      */
     public boolean changeText() { return this.changeText; }
 
     /**
-     * Tell player the controls again if they forgot
+     * Tell player the controls again
+     *
+     * @param show the text on the screen when true
      */
     public void setShowControls(boolean show) {
         this.showControls = show;
@@ -49,6 +53,8 @@ public class TutorialTextController {
 
     /**
      * Check if player should be shown controls again
+     *
+     * @return whether player should be shown the control texts
      */
     public boolean getShowControls() { return this.showControls; }
 
