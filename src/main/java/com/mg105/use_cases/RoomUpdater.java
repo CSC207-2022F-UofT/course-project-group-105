@@ -1,13 +1,47 @@
 package com.mg105.use_cases;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+
 /**
- * RoomUpdater interface defines an object that needs to be told when the room updates.
+ * RoomUpdater updates any components that need updating when the state of the current room changes.
+ * <p>
+ * One example of a component that might need updating is the GUI.
  */
-public interface RoomUpdater {
+public class RoomUpdater {
+    private final @NotNull PropertyChangeSupport observable;
+
     /**
-     * Update the current visual representation of the room.
-     * <p>
-     * It only needs to be called on changes to the underlying room.
+     * Create a new RoomUpdater.
      */
-    void updateRoom();
+    public RoomUpdater() {
+        observable = new PropertyChangeSupport(this);
+    }
+
+    /**
+     * Trigger an update on all the components that need updating on a room state change.
+     */
+    public void updateRoom() {
+        observable.firePropertyChange("", null, null);
+    }
+
+    /**
+     * Add a new observer to the RoomUpdater.
+     *
+     * @param observer an observer that requires notification of room changes.
+     */
+    public void addObserver(@NotNull PropertyChangeListener observer) {
+        observable.addPropertyChangeListener(observer);
+    }
+
+    /**
+     * Remove an observer from the RoomUpdater.
+     *
+     * @param observer an observer that no longer requires notification of room changes.
+     */
+    public void removeObserver(@NotNull PropertyChangeListener observer) {
+        observable.removePropertyChangeListener(observer);
+    }
 }

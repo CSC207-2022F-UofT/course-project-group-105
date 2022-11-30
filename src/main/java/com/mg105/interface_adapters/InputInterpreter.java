@@ -15,7 +15,8 @@ public class InputInterpreter {
     /**
      * Create a new InputInterpreter that translates keyboard inputs to appropriate function invocations.
      *
-     * @param mover the character mover.
+     * @param mover   the character mover.
+     * @param toggler the toggler used to change the displayed interface.
      */
     public InputInterpreter(@NotNull CharacterMover mover, @NotNull Toggler toggler) {
         this.mover = mover;

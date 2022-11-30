@@ -10,13 +10,16 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import org.jetbrains.annotations.NotNull;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * MapDrawer draws the map as a grid of tiles.
  */
-public class MapDrawer implements RoomUpdater, Toggleable {
+public class MapDrawer implements PropertyChangeListener, Toggleable {
     private final @NotNull RoomInterpreter interpreter;
 
     private final @NotNull Scene scene;
@@ -42,12 +45,12 @@ public class MapDrawer implements RoomUpdater, Toggleable {
         isVisible = false;
 
         tiles = new HashMap<>(6);
-        tiles.put(TileType.FLOOR, new Image(RoomUpdater.class.getResourceAsStream("/tiles/floor.png")));
-        tiles.put(TileType.WALL, new Image(RoomUpdater.class.getResourceAsStream("/tiles/wall.png")));
-        tiles.put(TileType.EXIT, new Image(RoomUpdater.class.getResourceAsStream("/tiles/exit.png")));
-        tiles.put(TileType.CHEST, new Image(RoomUpdater.class.getResourceAsStream("/tiles/chest.png")));
-        tiles.put(TileType.PLAYER, new Image(RoomUpdater.class.getResourceAsStream("/tiles/player.png")));
-        tiles.put(TileType.OPPONENT_SET, new Image(RoomUpdater.class.getResourceAsStream("/tiles/battle.png")));
+        tiles.put(TileType.FLOOR, new Image(Objects.requireNonNull(RoomUpdater.class.getResourceAsStream("/tiles/floor.png"))));
+        tiles.put(TileType.WALL, new Image(Objects.requireNonNull(RoomUpdater.class.getResourceAsStream("/tiles/wall.png"))));
+        tiles.put(TileType.EXIT, new Image(Objects.requireNonNull(RoomUpdater.class.getResourceAsStream("/tiles/exit.png"))));
+        tiles.put(TileType.CHEST, new Image(Objects.requireNonNull(RoomUpdater.class.getResourceAsStream("/tiles/chest.png"))));
+        tiles.put(TileType.PLAYER, new Image(Objects.requireNonNull(RoomUpdater.class.getResourceAsStream("/tiles/player.png"))));
+        tiles.put(TileType.OPPONENT_SET, new Image(Objects.requireNonNull(RoomUpdater.class.getResourceAsStream("/tiles/battle.png"))));
         // While in theory getResourceAsStream can fail, in practice this will never happen because the images are
         // bundled in the Jar.  If this isn't the case then the nullpointerexception is the least of your worries.
     }
@@ -80,13 +83,7 @@ public class MapDrawer implements RoomUpdater, Toggleable {
      * Redraw the current room.  This method only needs to be called if something has changed in the underlying
      * current room.
      */
-    @Override
     public void updateRoom() {
-        if (!isVisible) {
-            // As per the specification of Toggleable, we do nothing if we are not visible.
-            return;
-        }
-
         TileType[][] room = interpreter.getCurrentRoom();
 
         group.getChildren().clear();
@@ -104,5 +101,23 @@ public class MapDrawer implements RoomUpdater, Toggleable {
                 group.getChildren().add(tile);
             }
         }
+    }
+
+    /**
+     * Update the current room based on evt.
+     * <p>
+     * Note that none of the properties of evt are used.
+     *
+     * @param evt A PropertyChangeEvent object describing the event source
+     *          and the property that has changed.
+     */
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        if (!isVisible) {
+            // As per the specification of Toggleable, we do nothing if we are not visible.
+            return;
+        }
+
+        updateRoom();
     }
 }
