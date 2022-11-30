@@ -16,13 +16,11 @@ import java.util.Random;
 public class BattleInteractor {
 
     private final GameState state;
-    private Battle encounter;
 
     private BattlePresenterInterface presenter;
 
     public BattleInteractor(GameState state) {
         this.state = state;
-        this.encounter = state.getCurrEncounter();
     }
 
     /**
@@ -56,7 +54,6 @@ public class BattleInteractor {
         ArrayList<BattleCharacter> party = this.state.getParty();
         Battle b = new Battle(opponents, party);
         this.state.setCurrEncounter(b);
-        this.encounter = b;
 
         String[] partyNames = new String[party.size()];
         String[] opponentNames = new String[opponents.size()];
@@ -80,13 +77,13 @@ public class BattleInteractor {
      * @return whether the given name corresponds to a fainted character.
      */
     public boolean isCharacterFainted(String name) {
-        for (BattleCharacter c : encounter.getPlayerCharacters()) {
+        for (BattleCharacter c : state.getCurrEncounter().getPlayerCharacters()) {
             if (c.getName().equals(name)) {
                 return false;
             }
         }
 
-        for (BattleCharacter c : encounter.getOpponents()) {
+        for (BattleCharacter c : state.getCurrEncounter().getOpponents()) {
             if (c.getName().equals(name)) {
                 return false;
             }
@@ -101,7 +98,7 @@ public class BattleInteractor {
      * @return the desired BattleCharacter's current health.
      */
     public int getCharacterHealth(String name) {
-        return this.encounter.getCharacter(name).getHp();
+        return state.getCurrEncounter().getCharacter(name).getHp();
     }
 
     /**
@@ -110,7 +107,7 @@ public class BattleInteractor {
      * @return the desired BattleCharacter's current damage.
      */
     public int getCharacterDamage(String name) {
-        return this.encounter.getCharacter(name).getDmg();
+        return state.getCurrEncounter().getCharacter(name).getDmg();
     }
 
     /**
@@ -120,7 +117,7 @@ public class BattleInteractor {
      * @return the desired BattleCharacter's move stats.
      */
     public int[] getCharacterMoveStats(String name) {
-        BattleCharacter caster = this.encounter.getCharacter(name);
+        BattleCharacter caster = state.getCurrEncounter().getCharacter(name);
         return new int[] {caster.getMoveOne().getHealthChange(), caster.getMoveOne().getDamageChange(),
             caster.getMoveTwo().getHealthChange(), caster.getMoveTwo().getDamageChange()};
     }
@@ -132,7 +129,7 @@ public class BattleInteractor {
      * @return the desired BattleCharacter's move names.
      */
     public String[] getCharacterMoveNames(String name) {
-        BattleCharacter caster = this.encounter.getCharacter(name);
+        BattleCharacter caster = state.getCurrEncounter().getCharacter(name);
         return new String[] {caster.getMoveOne().getName(), caster.getMoveTwo().getName()};
     }
 
@@ -144,7 +141,7 @@ public class BattleInteractor {
      * @return a String of the name of the moving character
      */
     public String roundStart() {
-        int status = this.encounter.getBattleStatus();
+        int status = state.getCurrEncounter().getBattleStatus();
         if (status == -1) { //Player lost last round
             //Something with ReplayGenerator
             return null;
@@ -152,7 +149,7 @@ public class BattleInteractor {
             this.endBattle();
             return null;
         } else { //Battle is ongoing
-            BattleCharacter moving = this.encounter.getMovingCharacter();
+            BattleCharacter moving = state.getCurrEncounter().getMovingCharacter();
 
             if (moving.isOpponent()) { //Opponent character is moving
                 Random rand = new Random();
@@ -166,14 +163,14 @@ public class BattleInteractor {
                 }
 
                 if (!chosenMove.isFriendly()) {
-                    ArrayList<BattleCharacter> players = this.encounter.getPlayerCharacters();
+                    ArrayList<BattleCharacter> players = state.getCurrEncounter().getPlayerCharacters();
 
                     //Choose a random player character to attack
                     int target = rand.nextInt(players.size());
 
                     this._useMove(chosenMove, moving, players.get(target));
                 } else {
-                    ArrayList<BattleCharacter> opponents = this.encounter.getOpponents();
+                    ArrayList<BattleCharacter> opponents = state.getCurrEncounter().getOpponents();
 
                     //Choose a random opponent to use the friendly move on
                     int target = rand.nextInt(opponents.size());
@@ -198,7 +195,7 @@ public class BattleInteractor {
      */
     public ArrayList<String> retrieveTargets(int moveNum, String casterName) {
         //Retrieve the moving BattleCharacter
-        BattleCharacter caster = this.encounter.getCharacter(casterName);
+        BattleCharacter caster = state.getCurrEncounter().getCharacter(casterName);
 
         //Retrieve the Move being used
         Move m;
@@ -214,9 +211,9 @@ public class BattleInteractor {
 
         //Retrieve possible target BattleCharacters
         if (m.isFriendly()) { //caster is a player character, so targets are player characters
-            targetCharacters = this.encounter.getPlayerCharacters();
+            targetCharacters = state.getCurrEncounter().getPlayerCharacters();
         } else { //caster is a player character, so targets are opponent characters
-            targetCharacters = this.encounter.getOpponents();
+            targetCharacters = state.getCurrEncounter().getOpponents();
         }
 
         //Add character names to ArrayList
@@ -234,8 +231,8 @@ public class BattleInteractor {
      * @param targetName String representing the name of the target BattleCharacter.
      */
     public void executeTurn(int moveNum, String casterName, String targetName) {
-        BattleCharacter caster = this.encounter.getCharacter(casterName);
-        BattleCharacter target = this.encounter.getCharacter(targetName);
+        BattleCharacter caster = state.getCurrEncounter().getCharacter(casterName);
+        BattleCharacter target = state.getCurrEncounter().getCharacter(targetName);
         if (moveNum == 1) {
             this._useMove(caster.getMoveOne(), caster, target);
         } else { //moveNum == 2
@@ -259,7 +256,7 @@ public class BattleInteractor {
         }
 
         if (target.getHp() == 0) {
-            this.encounter.removeChar(target);
+            state.getCurrEncounter().removeChar(target);
             if (!target.isOpponent()) {
                 this.state.getParty().remove(target);
                 this.state.getFainted().add(target);

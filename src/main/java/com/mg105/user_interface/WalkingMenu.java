@@ -14,6 +14,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * This class uses JavaFX and is displayed when the user wants to change the walking character sprite.
+ */
 public class WalkingMenu implements EventHandler<ActionEvent>, Toggleable {
     private final WalkVisController controller;
     private final RadioButton radA;

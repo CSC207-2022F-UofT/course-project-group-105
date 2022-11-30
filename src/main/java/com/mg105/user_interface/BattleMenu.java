@@ -4,6 +4,7 @@ import com.mg105.interface_adapters.BattleMenuInterface;
 import com.mg105.interface_adapters.BattlePresenter;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -63,6 +64,7 @@ public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterfac
         grid = new GridPane();
         grid.setVgap(10);
         grid.setHgap(10);
+        grid.setAlignment(Pos.CENTER);
 
         nextRound = new Button("Next Round");
         nextRound.setId("Next Round");
@@ -127,7 +129,7 @@ public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterfac
         moveTwo.setOnAction(this);
         moveTwo.setVisible(false);
 
-        scene = new Scene(grid, 800, 800);
+        scene = new Scene(grid, 600, 600);
     }
 
     /**
