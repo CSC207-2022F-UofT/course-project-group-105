@@ -1,5 +1,6 @@
 package com.mg105.user_interface;
 
+import com.mg105.interface_adapters.MapRoomDrawer;
 import com.mg105.interface_adapters.RoomInterpreter;
 import com.mg105.interface_adapters.TileType;
 import com.mg105.use_cases.RoomUpdater;
@@ -17,7 +18,7 @@ import java.util.Objects;
 /**
  * MapDrawer draws the map as a grid of tiles.
  */
-public class MapDrawer implements RoomUpdater, Toggleable {
+public class MapDrawer implements MapRoomDrawer, Toggleable {
     private final @NotNull RoomInterpreter interpreter;
 
     private final @NotNull Scene scene;
