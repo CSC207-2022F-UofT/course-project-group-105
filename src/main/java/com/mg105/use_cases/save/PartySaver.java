@@ -2,7 +2,6 @@ package com.mg105.use_cases.save;
 
 import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.GameState;
-import com.mg105.use_cases.PartyDataInterface;
 import com.mg105.utils.StatConstants;
 import org.jetbrains.annotations.NotNull;
 
@@ -14,12 +13,12 @@ import org.jetbrains.annotations.NotNull;
 
 public class PartySaver implements Save {
 
-    private final GameState STATE;
-    private final PartyDataInterface PARTY_ACCESS;
+    private final GameState state;
+    private final PartyDataInterface partyAccess;
 
     public PartySaver(@NotNull GameState state, @NotNull PartyDataInterface partyAccess) {
-        this.STATE = state;
-        this.PARTY_ACCESS = partyAccess;
+        this.state = state;
+        this.partyAccess = partyAccess;
     }
 
     /**
@@ -28,11 +27,11 @@ public class PartySaver implements Save {
 
     @Override
     public void save() {
-        for (BattleCharacter player : this.STATE.getParty()) {
+        for (BattleCharacter player : this.state.getParty()) {
             String name = player.getName();
-            this.PARTY_ACCESS.changeCharacterStat(name, StatConstants.MAX_HP, player.getMaxHp());
-            this.PARTY_ACCESS.changeCharacterStat(name, StatConstants.DAMAGE, player.getDmg());
-            this.PARTY_ACCESS.changeCharacterStat(name, StatConstants.SPEED, player.getSpeed());
+            this.partyAccess.changeCharacterStat(name, StatConstants.MAX_HP, player.getMaxHp());
+            this.partyAccess.changeCharacterStat(name, StatConstants.DAMAGE, player.getDmg());
+            this.partyAccess.changeCharacterStat(name, StatConstants.SPEED, player.getSpeed());
         }
     }
 }

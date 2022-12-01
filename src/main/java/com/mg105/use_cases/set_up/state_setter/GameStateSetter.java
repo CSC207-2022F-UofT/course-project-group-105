@@ -19,15 +19,15 @@ public class GameStateSetter implements StateSetter {
 
     // For example if we had inventory data in the database, that data would need to leaded and set when the game
     // starts so thus it would need its own StateSetter
-    private final StateSetter[] SETTERS;
+    private final StateSetter[] setters;
 
     public GameStateSetter(StateSetter[] setters) {
-        this.SETTERS = setters;
+        this.setters = setters;
     }
 
     @Override
     public void setState(GameState state) {
-        for (StateSetter setter : this.SETTERS) {
+        for (StateSetter setter : this.setters) {
 
             setter.setState(state);
         }

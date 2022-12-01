@@ -2,7 +2,7 @@ package com.mg105.data_control.access;
 
 import com.mg105.outputds.BattleCharacterDetails;
 import com.mg105.outputds.MoveDetails;
-import com.mg105.use_cases.PartyDataInterface;
+import com.mg105.use_cases.save.PartyDataInterface;
 import com.mg105.utils.PartyConstants;
 import com.mg105.utils.StatConstants;
 import com.opencsv.*;

@@ -8,22 +8,22 @@ import org.jetbrains.annotations.NotNull;
 
 public class BattleCharacterDetails {
 
-    private final String NAME;
-    private final int MAX_HP;
-    private final int DMG;
-    private final int SPEED;
+    private final String name;
+    private final int maxHp;
+    private final int dmg;
+    private final int speed;
 
-    private final boolean IS_OPPONENT;
-    private final MoveDetails[] MOVE_DETAILS;
+    private final boolean isOpponent;
+    private final MoveDetails[] moveDetails;
 
     public BattleCharacterDetails(@NotNull String name, int maxHp, int dmg, int speed, boolean isOpponent,
                                   @NotNull MoveDetails[] moveDetails) {
-        this.NAME = name;
-        this.MAX_HP = maxHp;
-        this.DMG = dmg;
-        this.IS_OPPONENT = isOpponent;
-        this.SPEED = speed;
-        this.MOVE_DETAILS = moveDetails;
+        this.name = name;
+        this.maxHp = maxHp;
+        this.dmg = dmg;
+        this.isOpponent = isOpponent;
+        this.speed = speed;
+        this.moveDetails = moveDetails;
 
     }
 
@@ -34,7 +34,7 @@ public class BattleCharacterDetails {
      */
 
     public @NotNull String getName() {
-        return this.NAME;
+        return this.name;
     }
 
     /**
@@ -44,7 +44,7 @@ public class BattleCharacterDetails {
      */
 
     public int getDmg() {
-        return this.DMG;
+        return this.dmg;
     }
 
     /**
@@ -54,7 +54,7 @@ public class BattleCharacterDetails {
      */
 
     public int getMaxHp() {
-        return this.MAX_HP;
+        return this.maxHp;
     }
 
     /**
@@ -64,7 +64,7 @@ public class BattleCharacterDetails {
      */
 
     public int getSpeed() {
-        return this.SPEED;
+        return this.speed;
     }
 
     /**
@@ -73,7 +73,7 @@ public class BattleCharacterDetails {
      * @return false iff this battle character is a party member
      */
     public boolean isOpponent() {
-        return this.IS_OPPONENT;
+        return this.isOpponent;
     }
 
     /**
@@ -84,6 +84,6 @@ public class BattleCharacterDetails {
      */
 
     public @NotNull MoveDetails[] getMoveDetails() {
-        return this.MOVE_DETAILS;
+        return this.moveDetails;
     }
 }

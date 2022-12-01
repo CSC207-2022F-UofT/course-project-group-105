@@ -5,7 +5,7 @@ import com.mg105.entities.GameState;
 import com.mg105.entities.Move;
 import com.mg105.outputds.BattleCharacterDetails;
 import com.mg105.outputds.MoveDetails;
-import com.mg105.use_cases.PartyDataInterface;
+import com.mg105.use_cases.save.PartyDataInterface;
 import com.mg105.utils.PartyConstants;
 import org.jetbrains.annotations.NotNull;
 
@@ -15,11 +15,11 @@ import org.jetbrains.annotations.NotNull;
  */
 
 public class PartyCreator implements StateSetter {
-    private final PartyDataInterface PARTY_ACCESS;
+    private final PartyDataInterface party_access;
 
     public PartyCreator(@NotNull PartyDataInterface partyAccess) {
 
-        this.PARTY_ACCESS = partyAccess;
+        this.party_access = partyAccess;
     }
 
     /**
@@ -28,7 +28,7 @@ public class PartyCreator implements StateSetter {
 
     @Override
     public void setState(GameState state) {
-        BattleCharacterDetails[] partyDetails = PARTY_ACCESS.getPartyBattleDetails();
+        BattleCharacterDetails[] partyDetails = party_access.getPartyBattleDetails();
 
         BattleCharacter[] party = new BattleCharacter[PartyConstants.ALL_PARTY_MEMBER_NAMES.length];
 

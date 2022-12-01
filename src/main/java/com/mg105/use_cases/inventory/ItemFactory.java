@@ -24,12 +24,13 @@ public class ItemFactory {
      */
 
     public @NotNull Item createItem(@NotNull String itemName) throws NoSuchElementException {
-        if (itemName.equals(ItemConstants.HEALTH_POTION_NAME)) {
-            return new HealthPotion();
-        } else if (itemName.equals(ItemConstants.UPGRADE_TOKEN_NAME)) {
-            return new UpgradeToken();
-        } else if (itemName.equals(ItemConstants.MEGA_POTION_NAME)) {
-            return new MegaPotion();
+        switch (itemName) {
+            case ItemConstants.HEALTH_POTION_NAME:
+                return new HealthPotion();
+            case ItemConstants.UPGRADE_TOKEN_NAME:
+                return new UpgradeToken();
+            case ItemConstants.MEGA_POTION_NAME:
+                return new MegaPotion();
         }
         throw new NoSuchElementException("No item of this type exists");
     }

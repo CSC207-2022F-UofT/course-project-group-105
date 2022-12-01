@@ -9,14 +9,14 @@ package com.mg105.use_cases.set_up.data_system_creator;
 
 public class DataStorageSystemCreator {
 
-    private final CreateDataStorage[] BUILDERS;
+    private final CreateDataStorage[] builders;
 
     public DataStorageSystemCreator(CreateDataStorage[] builders){
-        this.BUILDERS = builders;
+        this.builders = builders;
     }
 
     public void create(){
-        for(CreateDataStorage builder: this.BUILDERS){
+        for(CreateDataStorage builder: this.builders){
             builder.createDataStorage();
         }
     }

@@ -8,17 +8,17 @@ import org.jetbrains.annotations.NotNull;
 
 public class MoveDetails {
 
-    private final String NAME;
-    private final int HEALTH_CHANGE;
-    private final int DAMAGE_CHANGE;
-    private final Boolean IS_FRIENDLY;
+    private final String name;
+    private final int healthChange;
+    private final int damageChange;
+    private final Boolean isFriendly;
 
     public MoveDetails(@NotNull String name, int healthChange, int damageChange,
                        @NotNull boolean isFriendly) {
-        this.NAME = name;
-        this.HEALTH_CHANGE = healthChange;
-        this.DAMAGE_CHANGE = damageChange;
-        this.IS_FRIENDLY = isFriendly;
+        this.name = name;
+        this.healthChange = healthChange;
+        this.damageChange = damageChange;
+        this.isFriendly = isFriendly;
 
     }
 
@@ -28,7 +28,7 @@ public class MoveDetails {
      * @return name of move
      */
     public @NotNull String getName() {
-        return this.NAME;
+        return this.name;
     }
 
     /**
@@ -38,7 +38,7 @@ public class MoveDetails {
      */
 
     public int getHealthChange() {
-        return this.HEALTH_CHANGE;
+        return this.healthChange;
     }
 
     /**
@@ -48,7 +48,7 @@ public class MoveDetails {
      */
 
     public int getDamageChange() {
-        return this.DAMAGE_CHANGE;
+        return this.damageChange;
     }
 
     /**
@@ -58,6 +58,6 @@ public class MoveDetails {
      */
 
     public boolean isFriendly() {
-        return this.IS_FRIENDLY;
+        return this.isFriendly;
     }
 }

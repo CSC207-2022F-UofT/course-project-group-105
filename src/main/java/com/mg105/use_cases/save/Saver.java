@@ -11,10 +11,10 @@ import org.jetbrains.annotations.NotNull;
 
 public class Saver implements Save {
 
-    private final Save[] SAVER;
+    private final Save[] saver;
 
     public Saver(@NotNull Save[] savers) {
-        this.SAVER = savers;
+        this.saver = savers;
     }
 
     // In the future (if we had more time) we would save more data and the facade pattern would be more useful for
@@ -30,7 +30,7 @@ public class Saver implements Save {
 
     @Override
     public void save() {
-        for (Save saver : this.SAVER) {
+        for (Save saver : this.saver) {
             saver.save();
         }
     }
