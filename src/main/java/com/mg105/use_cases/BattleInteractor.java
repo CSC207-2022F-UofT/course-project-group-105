@@ -37,6 +37,7 @@ public class BattleInteractor {
      * Could use the Builder design pattern here.
      */
     public void createEncounter() {
+        /* OLD RANDOMLY GENERATED OPPONENTS CODE
         Random rand = new Random();
 
         ArrayList<BattleCharacter> opponents = new ArrayList<>();
@@ -51,6 +52,8 @@ public class BattleInteractor {
                 charDmg, charSpeed, true, m1, m2);
             opponents.add(character);
         }
+         */
+        ArrayList<BattleCharacter> opponents = new ArrayList<>(state.getCurrOpponent().getOpponents());
         ArrayList<BattleCharacter> party = this.state.getParty();
         Battle b = new Battle(opponents, party);
         this.state.setCurrEncounter(b);

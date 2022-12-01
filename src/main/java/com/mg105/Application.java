@@ -2,17 +2,11 @@ package com.mg105;
 
 import com.mg105.controllers.TutorialTextController;
 import com.mg105.entities.*;
-import com.mg105.interface_adapters.InputInterpreter;
-import com.mg105.interface_adapters.MapGeneratorInterpreter;
-import com.mg105.interface_adapters.RoomInterpreter;
-import com.mg105.interface_adapters.Toggler;
+import com.mg105.interface_adapters.*;
 import com.mg105.interface_adapters.inventory.InventoryController;
 import com.mg105.interface_adapters.inventory.InventoryPresenter;
-import com.mg105.use_cases.CharacterMover;
+import com.mg105.use_cases.*;
 import com.mg105.use_cases.Inventory.InventoryInteractor;
-import com.mg105.use_cases.MapGenerator;
-import com.mg105.use_cases.RoomGetter;
-import com.mg105.use_cases.RoomUpdater;
 import com.mg105.user_interface.*;
 import com.mg105.utils.TutorialTexts;
 import com.mg105.user_interface.inventory.InventoryDisplay;
@@ -94,11 +88,30 @@ public class Application extends javafx.application.Application {
         drawableComponents.put(Toggler.ToggleableComponent.TUTORIAL, tutorialDisplay);
         //////////////////////
 
+        //WalkingMenu scene//
+        WalkVisInteractor walkVisInteractor = new WalkVisInteractor(state);
+        WalkVisController walkVisController = new WalkVisController(walkVisInteractor);
+        WalkingMenu walkingMenu = new WalkingMenu(walkVisController);
+        drawableComponents.put(Toggler.ToggleableComponent.WALK_MENU, walkingMenu);
+        /////////////////////
+
+        //BattleMenu scene//
+        //OpponentSet setup
+        OpponentSetInteractor opponentInteractor = new OpponentSetInteractor(state);
+
+        //Battle setup
+        BattleInteractor battleInteractor = new BattleInteractor(state);
+        BattlePresenter battlePresenter = new BattlePresenter(battleInteractor);
+        BattleMenu battleMenu = new BattleMenu(battlePresenter);
+        drawableComponents.put(Toggler.ToggleableComponent.BATTLE, battleMenu);
+        /////////////////////
+
         RoomUpdater roomUpdater = new RoomUpdater();
         roomUpdater.addObserver(mapDrawer);
-        
+
         CharacterMover characterMover = new CharacterMover(state, roomUpdater);
-        InputInterpreter inputInterpreter = new InputInterpreter(characterMover, sceneController, textChanger);
+        InputInterpreter inputInterpreter = new InputInterpreter(characterMover, sceneController, textChanger,
+            opponentInteractor);
 
         InputListener inputListener = new InputListener(inputInterpreter);
         primaryStage.addEventFilter(KeyEvent.KEY_TYPED, inputListener);

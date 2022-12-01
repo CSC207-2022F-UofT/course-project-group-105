@@ -15,10 +15,11 @@ public class GameState {
     private Room firstRoom;
     private Room lastRoom;
     private Room currentRoom;
+
+    private OpponentSet currOpponent;
     private final ArrayList<BattleCharacter> party;
     private final WalkingCharacter walkingCharacter;
     private final Inventory inventory;
-
     private Battle currEncounter = null;
 
     //Potentially useless. Keeps track of party characters who faint in battle.
@@ -134,6 +135,22 @@ public class GameState {
      */
     public ArrayList<BattleCharacter> getFainted() {
         return this.fainted;
+    }
+
+    /**
+     * Returns the currently selected OpponentSet.
+     * @return the currently selected OpponentSet.
+     */
+    public OpponentSet getCurrOpponent() {
+        return currOpponent;
+    }
+
+    /**
+     * Sets the current OpponentSet to be faced.
+     * @param currOpponent the currently selected OpponentSet.
+     */
+    public void setCurrOpponent(OpponentSet currOpponent) {
+        this.currOpponent = currOpponent;
     }
 
     /**

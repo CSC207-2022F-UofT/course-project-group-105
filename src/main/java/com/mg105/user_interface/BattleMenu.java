@@ -9,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -129,7 +128,7 @@ public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterfac
         moveTwo.setOnAction(this);
         moveTwo.setVisible(false);
 
-        scene = new Scene(grid, 600, 600);
+        scene = new Scene(grid, 800, 800);
     }
 
     /**
@@ -226,8 +225,7 @@ public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterfac
             moving = presenter.roundStart();
 
             if (moving == null) { //Battle ended
-                ((Stage) ((Button) source).getScene().getWindow()).close();
-                return;
+                presenter.endBattle();
             }
 
             //moving != null
