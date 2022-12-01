@@ -1,6 +1,7 @@
 package com.mg105.entities;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 import org.jetbrains.annotations.NotNull;
 
@@ -21,7 +22,7 @@ public class GameState {
     private Battle currEncounter = null;
 
     //Potentially useless. Keeps track of party characters who faint in battle.
-    private final ArrayList<BattleCharacter> fainted = new ArrayList<BattleCharacter>();
+    private final ArrayList<BattleCharacter> fainted = new ArrayList<>();
 
     /**
      * Create a new game state.
@@ -32,11 +33,9 @@ public class GameState {
      */
     public GameState(Inventory inventory, BattleCharacter[] party, WalkingCharacter walkingCharacter) {
         this.inventory = inventory;
-        this.party = new ArrayList<BattleCharacter>();
+        this.party = new ArrayList<>();
 
-        for (BattleCharacter c : party) {
-            this.party.add(c);
-        }
+        this.party.addAll(Arrays.asList(party));
         this.walkingCharacter = walkingCharacter;
     }
 

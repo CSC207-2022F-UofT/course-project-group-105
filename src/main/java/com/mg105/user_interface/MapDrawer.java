@@ -49,7 +49,7 @@ public class MapDrawer implements PropertyChangeListener, Toggleable {
         tiles.put(TileType.WALL, new Image(Objects.requireNonNull(RoomUpdater.class.getResourceAsStream("/tiles/wall.png"))));
         tiles.put(TileType.EXIT, new Image(Objects.requireNonNull(RoomUpdater.class.getResourceAsStream("/tiles/exit.png"))));
         tiles.put(TileType.CHEST, new Image(Objects.requireNonNull(RoomUpdater.class.getResourceAsStream("/tiles/chest.png"))));
-        tiles.put(TileType.PLAYER, new Image(Objects.requireNonNull(RoomUpdater.class.getResourceAsStream("/tiles/player.png"))));
+        tiles.put(TileType.PLAYER, new Image(Objects.requireNonNull(RoomUpdater.class.getResourceAsStream("/sprites/A.png"))));
         tiles.put(TileType.OPPONENT_SET, new Image(Objects.requireNonNull(RoomUpdater.class.getResourceAsStream("/tiles/battle.png"))));
         // While in theory getResourceAsStream can fail, in practice this will never happen because the images are
         // bundled in the Jar.  If this isn't the case then the nullpointerexception is the least of your worries.
@@ -74,7 +74,10 @@ public class MapDrawer implements PropertyChangeListener, Toggleable {
     public void toggle(boolean isVisible) {
         this.isVisible = isVisible;
 
-        if (isVisible) {
+        if (isVisible) { //Maybe four Image objects should be saved on a file somewhere else instead?
+            this.tiles.put(TileType.PLAYER,
+                new Image(Objects.requireNonNull(RoomUpdater.class.getResourceAsStream(
+                    this.interpreter.updateCharacterSprite()))));
             updateRoom();
         }
     }
