@@ -3,6 +3,9 @@ package com.mg105.entities;
 import java.awt.*;
 import java.util.List;
 
+/**
+ * OpponentSet stores a potential battle on a map.
+ */
 public class OpponentSet {
     private final Point position;
     private final List<BattleCharacter> opponents;
