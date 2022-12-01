@@ -1,6 +1,6 @@
 # Mountain Group 105
 
-TODO: Short description
+TODO: Short description/more lore
 
 ## Quickstart Guide
 
@@ -49,3 +49,20 @@ in the Windows CMD, or
 ```
 
 on any Unix-like operating system.
+
+## Highlights (and extra hints for the TA)
+
+- Functionality
+  - TODO
+- Code Organization
+  - TODO
+- Testing
+  - TODO
+- Documentation
+  - TODO
+- GitHub Features Used
+  - TODO
+
+## Copyright
+
+TODO
