@@ -74,12 +74,16 @@ loadScripts(document, 'script');</script>
 <div class="inheritance">com.mg105.interface_adapters.BattlePresenter</div>
 </div>
 <section class="class-description" id="class-description">
+<dl class="notes">
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="../use_cases/BattlePresenterInterface.html" title="interface in com.mg105.use_cases">BattlePresenterInterface</a></code></dd>
+</dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">BattlePresenter</span>
-<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
-<div class="block">Class communicating between BattleMenu view and game entities.
-
- Follows MVP pattern; contains a reference to the view and interacts with Battle and related classes.</div>
+<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
+implements <a href="../use_cases/BattlePresenterInterface.html" title="interface in com.mg105.use_cases">BattlePresenterInterface</a></span></div>
+<div class="block">Class communicating between BattleMenuInterface view and BattleInteractor.
+ Follows MVP pattern; contains a reference to the view and interacts with BattleInteractor.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -91,7 +95,7 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.mg105.entities.GameState)" class="member-name-link">BattlePresenter</a><wbr>(<a href="../entities/GameState.html" title="class in com.mg105.entities">GameState</a>&nbsp;state)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.mg105.use_cases.BattleInteractor)" class="member-name-link">BattlePresenter</a><wbr>(<a href="../use_cases/BattleInteractor.html" title="class in com.mg105.use_cases">BattleInteractor</a>&nbsp;interactor)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -108,39 +112,31 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createEncounter()" class="member-name-link">createEncounter</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#endBattle()" class="member-name-link">endBattle</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Creates a new encounter with random opponents and sets it as the current encounter in GameState</div>
+<div class="block">UNIMPLEMENTED</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#endBattle()" class="member-name-link">endBattle</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#executeTurn(int,java.lang.String,java.lang.String)" class="member-name-link">executeTurn</a><wbr>(int&nbsp;moveNum,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#executeTurn(int,java.lang.String,java.lang.String)" class="member-name-link">executeTurn</a><wbr>(int&nbsp;moveNum,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;casterName,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;targetName)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Use one of (given) the given caster's moves on the given target.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#givenCharacterDamage(java.lang.String)" class="member-name-link">givenCharacterDamage</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#givenCharacterDamage(java.lang.String)" class="member-name-link">givenCharacterDamage</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the current damage stat of the BattleCharacter with the given name.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#givenCharacterFainted(java.lang.String)" class="member-name-link">givenCharacterFainted</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#givenCharacterFainted(java.lang.String)" class="member-name-link">givenCharacterFainted</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns whether the given name is associated with a fainted character.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#givenCharacterHealth(java.lang.String)" class="member-name-link">givenCharacterHealth</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the current health of the BattleCharacter with the given name.</div>
-</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#givenCharacterMaxHealth(java.lang.String)" class="member-name-link">givenCharacterMaxHealth</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#givenCharacterHealth(java.lang.String)" class="member-name-link">givenCharacterHealth</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the maximum health of the BattleCharacter with the given name.</div>
+<div class="block">Returns the current health of the BattleCharacter with the given name.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#givenCharacterMoveNames(java.lang.String)" class="member-name-link">givenCharacterMoveNames</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
@@ -152,26 +148,37 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the stats of the BattleCharacter with the given name's moves.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#givenCharacterSpeed(java.lang.String)" class="member-name-link">givenCharacterSpeed</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the speed of the BattleCharacter with the given name.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#retrieveTargets(int,java.lang.String)" class="member-name-link">retrieveTargets</a><wbr>(int&nbsp;moveNum,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#retrieveTargets(int,java.lang.String)" class="member-name-link">retrieveTargets</a><wbr>(int&nbsp;moveNum,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;casterName)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the name of every BattleCharacter which can be targeted by the given move.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#roundStart()" class="member-name-link">roundStart</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#roundStart()" class="member-name-link">roundStart</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Starts a round of the encounter.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setView(com.mg105.user_interface.BattleMenu)" class="member-name-link">setView</a><wbr>(<a href="../user_interface/BattleMenu.html" title="class in com.mg105.user_interface">BattleMenu</a>&nbsp;view)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setView(com.mg105.interface_adapters.BattleMenuInterface)" class="member-name-link">setView</a><wbr>(<a href="BattleMenuInterface.html" title="interface in com.mg105.interface_adapters">BattleMenuInterface</a>&nbsp;view)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the view attribute.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setViewNames(java.lang.String%5B%5D,java.lang.String%5B%5D)" class="member-name-link">setViewNames</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;partyNames,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;opponentNames)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Set the characters in the view.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#startBattle()" class="member-name-link">startBattle</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Creates a new encounter with random opponents and sets it as the current encounter in GameState</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateViewCharacter(java.lang.String)" class="member-name-link">updateViewCharacter</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;targetName)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Call on the BattleMenuInterface to update the displayed information for the given character.</div>
 </div>
 </div>
 </div>
@@ -191,9 +198,9 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(com.mg105.entities.GameState)">
+<section class="detail" id="&lt;init&gt;(com.mg105.use_cases.BattleInteractor)">
 <h3>BattlePresenter</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">BattlePresenter</span><wbr><span class="parameters">(<a href="../entities/GameState.html" title="class in com.mg105.entities">GameState</a>&nbsp;state)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">BattlePresenter</span><wbr><span class="parameters">(<a href="../use_cases/BattleInteractor.html" title="class in com.mg105.use_cases">BattleInteractor</a>&nbsp;interactor)</span></div>
 </section>
 </li>
 </ul>
@@ -205,20 +212,20 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="setView(com.mg105.user_interface.BattleMenu)">
+<section class="detail" id="setView(com.mg105.interface_adapters.BattleMenuInterface)">
 <h3>setView</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setView</span><wbr><span class="parameters">(<a href="../user_interface/BattleMenu.html" title="class in com.mg105.user_interface">BattleMenu</a>&nbsp;view)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setView</span><wbr><span class="parameters">(<a href="BattleMenuInterface.html" title="interface in com.mg105.interface_adapters">BattleMenuInterface</a>&nbsp;view)</span></div>
 <div class="block">Sets the view attribute.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>view</code> - the BattleMenu instance to set the view attribute to.</dd>
+<dd><code>view</code> - the BattleMenuInterface instance to set the view attribute to.</dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="createEncounter()">
-<h3>createEncounter</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">createEncounter</span>()</div>
+<section class="detail" id="startBattle()">
+<h3>startBattle</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">startBattle</span>()</div>
 <div class="block">Creates a new encounter with random opponents and sets it as the current encounter in GameState</div>
 </section>
 </li>
@@ -248,17 +255,6 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="givenCharacterMaxHealth(java.lang.String)">
-<h3>givenCharacterMaxHealth</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">givenCharacterMaxHealth</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
-<div class="block">Returns the maximum health of the BattleCharacter with the given name.</div>
-<dl class="notes">
-<dt>Returns:</dt>
-<dd>the desired BattleCharacter's max health.</dd>
-</dl>
-</section>
-</li>
-<li>
 <section class="detail" id="givenCharacterDamage(java.lang.String)">
 <h3>givenCharacterDamage</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">givenCharacterDamage</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
@@ -266,17 +262,6 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>the desired BattleCharacter's current damage.</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="givenCharacterSpeed(java.lang.String)">
-<h3>givenCharacterSpeed</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">givenCharacterSpeed</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
-<div class="block">Returns the speed of the BattleCharacter with the given name.</div>
-<dl class="notes">
-<dt>Returns:</dt>
-<dd>the desired BattleCharacter's speed.</dd>
 </dl>
 </section>
 </li>
@@ -350,9 +335,38 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="setViewNames(java.lang.String[],java.lang.String[])">
+<h3>setViewNames</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setViewNames</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;partyNames,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;opponentNames)</span></div>
+<div class="block">Set the characters in the view.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../use_cases/BattlePresenterInterface.html#setViewNames(java.lang.String%5B%5D,java.lang.String%5B%5D)">setViewNames</a></code>&nbsp;in interface&nbsp;<code><a href="../use_cases/BattlePresenterInterface.html" title="interface in com.mg105.use_cases">BattlePresenterInterface</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>partyNames</code> - the name strings of the party characters.</dd>
+<dd><code>opponentNames</code> - the name strings of the opponent characters.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="updateViewCharacter(java.lang.String)">
+<h3>updateViewCharacter</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">updateViewCharacter</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;targetName)</span></div>
+<div class="block">Call on the BattleMenuInterface to update the displayed information for the given character.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../use_cases/BattlePresenterInterface.html#updateViewCharacter(java.lang.String)">updateViewCharacter</a></code>&nbsp;in interface&nbsp;<code><a href="../use_cases/BattlePresenterInterface.html" title="interface in com.mg105.use_cases">BattlePresenterInterface</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>targetName</code> - the name String of the character whose information displayed on the view needs to be updated.</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="endBattle()">
 <h3>endBattle</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">endBattle</span>()</div>
+<div class="block">UNIMPLEMENTED</div>
 </section>
 </li>
 </ul>
