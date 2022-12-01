@@ -1,6 +1,8 @@
 package com.mg105.interface_adapters;
 
+import com.mg105.controllers.TutorialTextController;
 import com.mg105.use_cases.CharacterMover;
+import com.mg105.user_interface.SceneController;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
@@ -12,15 +14,21 @@ public class InputInterpreter {
     private final @NotNull CharacterMover mover;
     private final @NotNull Toggler toggler;
 
+    private final @NotNull TutorialTextController textChanger;
+
     /**
      * Create a new InputInterpreter that translates keyboard inputs to appropriate function invocations.
      *
-     * @param mover   the character mover.
+     * @param mover the character mover.
      * @param toggler the toggler used to change the displayed interface.
+     * @param textChanger the text controller for tutorial
+
      */
-    public InputInterpreter(@NotNull CharacterMover mover, @NotNull Toggler toggler) {
+    public InputInterpreter(@NotNull CharacterMover mover, @NotNull Toggler toggler,
+                            @NotNull TutorialTextController textChanger) {
         this.mover = mover;
         this.toggler = toggler;
+        this.textChanger = textChanger;
     }
 
     /**
@@ -36,8 +44,28 @@ public class InputInterpreter {
                     case "a" -> mover.generateMapMoveBy(new Point(-1, 0));
                     case "s" -> mover.generateMapMoveBy(new Point(0, 1));
                     case "d" -> mover.generateMapMoveBy(new Point(1, 0));
+
+                    case "k" -> {
+                        toggler.toggle(Toggler.ToggleableComponent.TUTORIAL);
+                        textChanger.setShowControls(true);
+
+                    }
+                    case "t" -> {
+                        toggler.toggle(Toggler.ToggleableComponent.TUTORIAL);
+                        textChanger.setChangeText();
+                    }
+                }
+            }
+            case TUTORIAL -> {
+                switch (key) {
+                    case "w", "a", "s", "d" -> {
+                        toggler.toggle(Toggler.ToggleableComponent.TUTORIAL);
+                        textChanger.setChangeText();
+                    }
+                    case "k" -> textChanger.setShowControls(true);
                 }
             }
         }
+
     }
 }

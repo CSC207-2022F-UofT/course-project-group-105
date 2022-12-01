@@ -13,6 +13,7 @@ public class MapGeneratorButton implements EventHandler<ActionEvent> {
     private final @NotNull MapGeneratorInterpreter interpreter;
     private final @NotNull Toggler toggler;
 
+
     /**
      * Create a new MapGeneratorButton.
      *
