@@ -89,17 +89,19 @@ public class ChestInteractor {
     public void getChestItem() {
 
         TreasureChest chest = verifyChest();
-        if (!chest.isOpened()) {
-            Item reward = chest.open();
-            interactor.addItem(reward.getName());
-            Alert chestSuccess = new Alert(Alert.AlertType.INFORMATION);
-            chestSuccess.setContentText("The chest contained a " + reward.getName() + "! It has been added to your inventory.");
-            chestSuccess.show();
-        }
-        else {
-            Alert chestFailure = new Alert(Alert.AlertType.INFORMATION);
-            chestFailure.setContentText("The chest is empty!");
-            chestFailure.show();
+        if (chest != null) {
+            if (!chest.isOpened()) {
+                Item reward = chest.open();
+                interactor.addItem(reward.getName());
+                Alert chestSuccess = new Alert(Alert.AlertType.INFORMATION);
+                chestSuccess.setContentText("The chest contained a " + reward.getName() + "! It has been added to your inventory.");
+                chestSuccess.show();
+            }
+            else {
+                Alert chestFailure = new Alert(Alert.AlertType.INFORMATION);
+                chestFailure.setContentText("The chest is empty!");
+                chestFailure.show();
             }
         }
     }
+}
