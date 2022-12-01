@@ -1,11 +1,10 @@
+package com.mg105.use_cases.Tutorial;
+
 import com.mg105.entities.GiveTutorial;
 import com.mg105.use_cases.PlayerGetsTutorial;
 import com.mg105.user_interface.TutorialTextDisplay;
 import com.mg105.utils.TutorialTexts;
 import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,10 +12,11 @@ public class TutorialTest {
     @Test
     void testActionGetterSetter() {
         GiveTutorial newTutorial = new GiveTutorial(false, false, false);
-        newTutorial.ActionPerformedSetter(TutorialTexts.attacked);
-        assertFalse(newTutorial.ActionPerformedGetter(TutorialTexts.moved));
-        assertTrue(newTutorial.ActionPerformedGetter(TutorialTexts.attacked));
-        assertFalse(newTutorial.ActionPerformedGetter(TutorialTexts.usedItem));
+        newTutorial.ActionPerformedSetter(TutorialTexts.ATTACKED);
+
+        assertFalse(newTutorial.ActionPerformedGetter(TutorialTexts.MOVED));
+        assertTrue(newTutorial.ActionPerformedGetter(TutorialTexts.ATTACKED));
+        assertFalse(newTutorial.ActionPerformedGetter(TutorialTexts.USED_ITEM));
     }
 
     @Test
@@ -24,7 +24,6 @@ public class TutorialTest {
         PlayerGetsTutorial tutorialPlayer
             = new PlayerGetsTutorial(TutorialTexts.PHASES, 0,
             new GiveTutorial(false, false, false));
-        List<String> expectedPhases = Arrays.asList("", "story", "tell move", "tell attack", "tell use item", "exit room");
 
         assertEquals(tutorialPlayer.currentPhase(), 0);
         tutorialPlayer.nextPhase();
@@ -40,8 +39,8 @@ public class TutorialTest {
         PlayerGetsTutorial tutorialPlayer2
             = new PlayerGetsTutorial(TutorialTexts.PHASES, 0,
             new GiveTutorial(false, false, true));
-        tutorialPlayer2.setActionPerformed(TutorialTexts.moved);
-        tutorialPlayer2.setActionPerformed(TutorialTexts.attacked);
+        tutorialPlayer2.setActionPerformed(TutorialTexts.MOVED);
+        tutorialPlayer2.setActionPerformed(TutorialTexts.ATTACKED);
 
         assertFalse(tutorialPlayer1.isComplete());
         assertTrue(tutorialPlayer2.isComplete());
@@ -55,7 +54,8 @@ public class TutorialTest {
         int phase_num = tutorialDisplay.getController().getTutorial().currentPhase();
         String phase = tutorialDisplay.getController().getTutorial().allPhases().get(phase_num);
         String tutorialText = tutorialDisplay.showBottomText(phase);
-        String expected = "Move your character with the arrow keys.";
+        String expected = "Move your character with the WASD keys.";
+
         assertEquals(tutorialText, expected);
     }
 }

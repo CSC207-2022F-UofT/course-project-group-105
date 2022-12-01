@@ -1,10 +1,9 @@
 package com.mg105.entities;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.NoSuchElementException;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * A class that represents the state of the game
@@ -23,7 +22,7 @@ public class GameState {
     private Battle currEncounter = null;
 
     //Potentially useless. Keeps track of party characters who faint in battle.
-    private final ArrayList<BattleCharacter> fainted = new ArrayList<BattleCharacter>();
+    private final ArrayList<BattleCharacter> fainted = new ArrayList<>();
 
     /**
      * Create a new game state.
@@ -34,9 +33,22 @@ public class GameState {
      */
     public GameState(Inventory inventory, BattleCharacter[] party, WalkingCharacter walkingCharacter) {
         this.inventory = inventory;
-        this.party = new ArrayList<BattleCharacter>();
+        this.party = new ArrayList<>();
+        this.party.addAll(Arrays.asList(party));
         this.walkingCharacter = walkingCharacter;
-        setParty(party);
+    }
+
+    /**
+     * Create a new game state.
+     *
+     * @param inventory        the player's inventory.
+     * @param walkingCharacter the player's character data.
+     */
+
+    public GameState(Inventory inventory, WalkingCharacter walkingCharacter) {
+        this.inventory = inventory;
+        this.party = new ArrayList<>();
+        this.walkingCharacter = walkingCharacter;
     }
 
     /**

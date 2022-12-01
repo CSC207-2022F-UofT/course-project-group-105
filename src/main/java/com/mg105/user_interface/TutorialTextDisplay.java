@@ -7,7 +7,7 @@ import javafx.scene.text.Font;
 
 
 public class TutorialTextDisplay {
-    private final TutorialTextController tutorialControl = new TutorialTextController();
+    private final TutorialTextController tutorialControl = new TutorialTextController(false);
 
     public TutorialTextDisplay() {
     }
@@ -27,13 +27,23 @@ public class TutorialTextDisplay {
     }
 
     /**
+     * String for reminding user of controls
+     *
+     * @return the actual text displayed to the user
+     */
+    public String showControlsText() {
+        return TutorialTexts.CONTROLS;
+
+    }
+
+    /**
      * Return a label that will show at the bottom of the screen.
      *
      * @return the label
      */
     public Label tutorialLabel() {
         Label bottomText = new Label();
-        bottomText.setFont(Font.font(TutorialTexts.textSize));
+        bottomText.setFont(Font.font(TutorialTexts.TEXT_SIZE));
         return bottomText;
     }
 

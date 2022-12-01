@@ -6,10 +6,10 @@ import com.mg105.utils.TutorialTexts;
 import java.util.List;
 
 public class PlayerGetsTutorial {
-    private List<String> tutorialPhases;  // Go through multiple phases of tutorial in order
+    private final List<String> tutorialPhases;  // Go through multiple phases of tutorial in order
     private int currentPhase;
 
-    private GiveTutorial tutorial;
+    private final GiveTutorial tutorial;
 
     public PlayerGetsTutorial(List<String> tutorialPhases, int currentPhase, GiveTutorial tutorial) {
         this.tutorialPhases = tutorialPhases;
@@ -23,7 +23,7 @@ public class PlayerGetsTutorial {
      * @return whether all actions are complete
      */
     public boolean isComplete() {
-        return tutorial.ActionPerformedGetter(TutorialTexts.moved) & tutorial.ActionPerformedGetter(TutorialTexts.attacked) & tutorial.ActionPerformedGetter(TutorialTexts.usedItem);
+        return tutorial.ActionPerformedGetter(TutorialTexts.MOVED) & tutorial.ActionPerformedGetter(TutorialTexts.ATTACKED) & tutorial.ActionPerformedGetter(TutorialTexts.USED_ITEM);
     }
 
     /**
@@ -53,6 +53,11 @@ public class PlayerGetsTutorial {
         }
     }
 
+    /**
+     * Set the action to true if it has been performed
+     *
+     * @param action to set to performed
+     */
     public void setActionPerformed(String action) {
         this.tutorial.ActionPerformedSetter(action);
     }
@@ -61,6 +66,8 @@ public class PlayerGetsTutorial {
      * Check if specific action has been performed
      *
      * @param action get if it has been performed yet
+     *
+     * @return if the action has been performed
      */
     public boolean getActionPerformed(String action) {
         return this.tutorial.ActionPerformedGetter(action);

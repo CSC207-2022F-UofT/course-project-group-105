@@ -6,11 +6,12 @@ import com.mg105.data_control.creator.MoveDataCreator;
 import com.mg105.data_control.creator.PartyDataCreator;
 import com.mg105.outputds.BattleCharacterDetails;
 import com.mg105.utils.StatConstants;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import static com.mg105.utils.MoveConstants.*;
+import static com.mg105.utils.PartyConstants.ALL_PARTY_MEMBER_NAMES;
 
 class PartyDataAccessTest {
 
@@ -32,37 +33,37 @@ class PartyDataAccessTest {
     @Test
     void changeMaxHP() {
 
-        p.changeCharacterStat("B", StatConstants.MAX_HP, 3);
+        p.changeCharacterStat(ALL_PARTY_MEMBER_NAMES[1], StatConstants.MAX_HP, 3);
         Assertions.assertEquals(3, p.getPartyBattleDetails()[1].getMaxHp());
-        p.changeCharacterStat("B", StatConstants.MAX_HP, 20);
+        p.changeCharacterStat(ALL_PARTY_MEMBER_NAMES[1], StatConstants.MAX_HP, 20);
         Assertions.assertEquals(20, p.getPartyBattleDetails()[1].getMaxHp());
     }
 
     @Test
     void changeSpeed() {
 
-        p.changeCharacterStat("D", StatConstants.SPEED, 3);
+        p.changeCharacterStat(ALL_PARTY_MEMBER_NAMES[3], StatConstants.SPEED, 3);
         Assertions.assertEquals(3, p.getPartyBattleDetails()[3].getSpeed());
-        p.changeCharacterStat("D", StatConstants.SPEED, 10);
+        p.changeCharacterStat(ALL_PARTY_MEMBER_NAMES[3], StatConstants.SPEED, 10);
         Assertions.assertEquals(10, p.getPartyBattleDetails()[3].getSpeed());
     }
 
     @Test
     void changDMG() {
 
-        p.changeCharacterStat("A", StatConstants.DAMAGE, 3);
+        p.changeCharacterStat(ALL_PARTY_MEMBER_NAMES[0], StatConstants.DAMAGE, 3);
         Assertions.assertEquals(3, p.getPartyBattleDetails()[0].getDmg());
-        p.changeCharacterStat("A", StatConstants.DAMAGE, 4);
+        p.changeCharacterStat(ALL_PARTY_MEMBER_NAMES[0], StatConstants.DAMAGE, 4);
         Assertions.assertEquals(4, p.getPartyBattleDetails()[0].getDmg());
     }
 
     @Test
     void partyNames() {
 
-        Assertions.assertEquals("A", details[0].getName());
-        Assertions.assertEquals("B", details[1].getName());
-        Assertions.assertEquals("C", details[2].getName());
-        Assertions.assertEquals("D", details[3].getName());
+        Assertions.assertEquals(ALL_PARTY_MEMBER_NAMES[0], details[0].getName());
+        Assertions.assertEquals(ALL_PARTY_MEMBER_NAMES[1], details[1].getName());
+        Assertions.assertEquals(ALL_PARTY_MEMBER_NAMES[2], details[2].getName());
+        Assertions.assertEquals(ALL_PARTY_MEMBER_NAMES[3], details[3].getName());
 
     }
 
@@ -102,20 +103,18 @@ class PartyDataAccessTest {
     @Test
     void correctMoves() {
 
-        Assertions.assertEquals("Slow swing", details[0].getMoveDetails()[0].getName());
-        Assertions.assertEquals("Nullify", details[0].getMoveDetails()[1].getName());
+        Assertions.assertEquals(SLOW_SWING, details[0].getMoveDetails()[0].getName());
+        Assertions.assertEquals(NULLIFY, details[0].getMoveDetails()[1].getName());
 
-        Assertions.assertEquals("Strong swing", details[1].getMoveDetails()[0].getName());
-        Assertions.assertEquals("Weak heal", details[1].getMoveDetails()[1].getName());
+        Assertions.assertEquals(STRONG_SWING, details[1].getMoveDetails()[0].getName());
+        Assertions.assertEquals(WEAK_HEAL, details[1].getMoveDetails()[1].getName());
 
-        Assertions.assertEquals("Strong heal", details[2].getMoveDetails()[0].getName());
-        Assertions.assertEquals("Reinforce", details[2].getMoveDetails()[1].getName());
+        Assertions.assertEquals(STRONG_HEAL, details[2].getMoveDetails()[0].getName());
+        Assertions.assertEquals(REINFORCE, details[2].getMoveDetails()[1].getName());
 
-        Assertions.assertEquals("Surprise attack", details[3].getMoveDetails()[0].getName());
-        Assertions.assertEquals("Sabotage", details[3].getMoveDetails()[1].getName());
+        Assertions.assertEquals(SURPRISE_ATTACK, details[3].getMoveDetails()[0].getName());
+        Assertions.assertEquals(SABOTAGE, details[3].getMoveDetails()[1].getName());
 
         // I am sure the rest of move stuff is correct because of the MoveDataAccess tests
-
-
     }
 }

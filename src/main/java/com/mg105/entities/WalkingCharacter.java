@@ -3,10 +3,12 @@ package com.mg105.entities;
 import java.awt.*;
 
 public class WalkingCharacter {
-    public Point charPosition;
+    private Point charPosition;
+    private String spriteName;
 
     public WalkingCharacter(Point position) {
         this.charPosition = position;
+        this.spriteName = "A";
     }
 
     /**
@@ -21,6 +23,22 @@ public class WalkingCharacter {
      */
     public Point getCharPosition() {
         return this.charPosition;
+    }
+
+    /**
+     * Returns the name of the character whose sprite is currently being used.
+     * @return a sprite name String.
+     */
+    public String getSpriteName() {
+        return spriteName;
+    }
+
+    /**
+     * Sets the name of the character whose sprite is currently being used.
+     * @param spriteName name of the character to change the sprite to.
+     */
+    public void setSpriteName(String spriteName) {
+        this.spriteName = spriteName;
     }
 }
 

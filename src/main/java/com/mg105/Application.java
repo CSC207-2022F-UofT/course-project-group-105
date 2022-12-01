@@ -1,5 +1,6 @@
 package com.mg105;
 
+import com.mg105.controllers.TutorialTextController;
 import com.mg105.data_control.access.MoveDataAccess;
 import com.mg105.data_control.access.PartyDataAccess;
 import com.mg105.data_control.creator.MoveDataCreator;
@@ -14,19 +15,16 @@ import com.mg105.interface_adapters.inventory.InventoryPresenter;
 import com.mg105.use_cases.CharacterMover;
 import com.mg105.use_cases.MapGenerator;
 import com.mg105.use_cases.RoomGetter;
+import com.mg105.use_cases.RoomUpdater;
 import com.mg105.use_cases.inventory.InventoryInteractor;
 import com.mg105.use_cases.set_up.data_system_creator.CreateDataStorage;
 import com.mg105.use_cases.set_up.data_system_creator.DataStorageSystemCreator;
 import com.mg105.use_cases.set_up.state_setter.GameStateSetter;
 import com.mg105.use_cases.set_up.state_setter.PartyCreator;
-import com.mg105.use_cases.RoomUpdater;
 import com.mg105.user_interface.*;
 import com.mg105.user_interface.inventory.InventoryDisplay;
-import javafx.animation.AnimationTimer;
-import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,8 +33,6 @@ import java.util.Map;
  * Effectively, the main class that sets up the clean architecture mountain group 105 game!
  */
 public class Application extends javafx.application.Application {
-    private final TutorialTextDisplay tutorialDisplay = new TutorialTextDisplay();
-    private Label bottomText;
 
     /**
      * Note that while this isn't our main method explicitly, we (probably) need this to effectively be our main method
@@ -48,27 +44,9 @@ public class Application extends javafx.application.Application {
     public void start(Stage primaryStage) {
 
         // Set up the initial use cases
-
-        BattleCharacter a = new BattleCharacter(30, "A", 4, 5, false,
-            new Move(-3, 0, "Slow swing", false),
-            new Move(0, -1, "Nullify", false));
-
-        BattleCharacter b = new BattleCharacter(20, "B", 6, 8, false,
-            new Move(-4, 0, "Strong swing", false),
-            new Move(3, 0, "Weak heal", true));
-
-        BattleCharacter c = new BattleCharacter(25, "C", 3, 6, false,
-            new Move(6, 0, "Strong heal", true),
-            new Move(2, 2, "Reinforce", true));
-
-        BattleCharacter d = new BattleCharacter(15, "D", 9, 10, false,
-            new Move(-5, 0, "Surprise attack", false),
-            new Move(-2, -2, "Sabotage", false));
-
-        BattleCharacter[] party = {a, b, c, d};
         Inventory inventory = new Inventory();
 
-        GameState state = new GameState(inventory, party, new WalkingCharacter(new Point(1, 1)));
+        GameState state = new GameState(inventory, new WalkingCharacter(new Point(1, 1)));
 
         // Setting up database
         CreateDataStorage[] databaseCreators = {new MoveDataCreator(), new PartyDataCreator()};
@@ -104,11 +82,19 @@ public class Application extends javafx.application.Application {
         drawableComponents.put(Toggler.ToggleableComponent.MAIN_MENU, mainMenu);
         drawableComponents.put(Toggler.ToggleableComponent.MAP, mapDrawer);
 
+        /////Tutorial scene////
+        TutorialTextController textChanger = new TutorialTextController(false);
+        TutorialTextDisplay textDisplay = new TutorialTextDisplay();
+        TutorialTextWindow tutorialDisplay = new TutorialTextWindow(textChanger, textDisplay);
+        drawableComponents.put(Toggler.ToggleableComponent.TUTORIAL, tutorialDisplay);
+        //////////////////////
+
         RoomUpdater roomUpdater = new RoomUpdater();
         roomUpdater.addObserver(mapDrawer);
 
         CharacterMover characterMover = new CharacterMover(state, roomUpdater);
-        InputInterpreter inputInterpreter = new InputInterpreter(characterMover, sceneController);
+        InputInterpreter inputInterpreter = new InputInterpreter(characterMover, sceneController, textChanger);
+
         InputListener inputListener = new InputListener(inputInterpreter);
         primaryStage.addEventFilter(KeyEvent.KEY_TYPED, inputListener);
 
@@ -118,31 +104,4 @@ public class Application extends javafx.application.Application {
         primaryStage.show();
     }
 
-    private class TutorialTimer extends AnimationTimer {
-        private long prevTime = 0;
-
-        /**
-         * This method needs to be overridden by extending classes. It is going to
-         * be called in every frame while the {@code AnimationTimer} is active.
-         *
-         * @param now The timestamp of the current frame given in nanoseconds. This
-         *            value will be the same for all {@code AnimationTimers} called
-         *            during one frame.
-         */
-        @Override
-        public void handle(long now) {
-            long timeChange = now - prevTime;
-
-            // 5e9 is 5 seconds
-            if (timeChange > 4e9) {
-                prevTime = now;
-                tutorialDisplay.getController().nextPhase();
-                int phase_num = tutorialDisplay.getController().getTutorial().currentPhase();
-                String tutorialText = tutorialDisplay.getController().getTutorial().allPhases().get(phase_num);
-                bottomText.setText(tutorialDisplay.showBottomText(tutorialText));
-
-            }
-
-        }
-    }
 }

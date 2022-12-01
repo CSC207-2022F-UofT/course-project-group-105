@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 
 import java.awt.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static com.mg105.utils.PartyConstants.ALL_PARTY_MEMBER_NAMES;
+import static org.junit.jupiter.api.Assertions.*;
 
 class InventoryControllerTest {
 
@@ -41,13 +41,13 @@ class InventoryControllerTest {
         }
     };
 
-    BattleCharacter b1 = new BattleCharacter(1, "A", 2, 3, false,
+    BattleCharacter b1 = new BattleCharacter(1, ALL_PARTY_MEMBER_NAMES[0], 2, 3, false,
         new Move(0, 0, "m1", false),
         new Move(0, 0, "m2", false));
-    BattleCharacter b2 = new BattleCharacter(1, "B", 2, 3, false,
+    BattleCharacter b2 = new BattleCharacter(1, ALL_PARTY_MEMBER_NAMES[1], 2, 3, false,
         new Move(0, 0, "m1", false),
         new Move(0, 0, "m2", false));
-    BattleCharacter b3 = new BattleCharacter(1, "C", 2, 3, false,
+    BattleCharacter b3 = new BattleCharacter(1, ALL_PARTY_MEMBER_NAMES[2], 2, 3, false,
         new Move(0, 0, "m1", false),
         new Move(0, 0, "m2", false));
 
@@ -148,9 +148,8 @@ class InventoryControllerTest {
         InventoryInteractor inventoryInteractor = new InventoryInteractor(state, res);
         InventoryController inventoryController = new InventoryController(inventoryInteractor);
 
-
         assertEquals(1, inventory.numberOfItems(ItemConstants.UPGRADE_TOKEN_NAME));
-        inventoryController.useItem(ItemConstants.UPGRADE_TOKEN_NAME, "A");
+        inventoryController.useItem(ItemConstants.UPGRADE_TOKEN_NAME, ALL_PARTY_MEMBER_NAMES[0]);
         assertEquals(2, party[0].getMaxHp());
         assertEquals(3, party[0].getDmg());
         assertEquals(4, party[0].getSpeed());
@@ -189,7 +188,8 @@ class InventoryControllerTest {
         InventoryController inventoryController = new InventoryController(inventoryInteractor);
 
         assertEquals(6, inventory.numberOfItems(ItemConstants.HEALTH_POTION_NAME));
-        inventoryController.useItem(ItemConstants.HEALTH_POTION_NAME, "B");
+        assertNotNull(state.getPartyMember(ALL_PARTY_MEMBER_NAMES[1]));
+        inventoryController.useItem(ItemConstants.HEALTH_POTION_NAME, ALL_PARTY_MEMBER_NAMES[1]);
         assertEquals(5, inventory.numberOfItems(ItemConstants.HEALTH_POTION_NAME));
         assertEquals(1, party[1].getHp());
     }
