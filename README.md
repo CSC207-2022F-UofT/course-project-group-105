@@ -48,20 +48,26 @@ in the Windows CMD, or
 ./gradlew run
 ```
 
-on any Unix-like operating system.
+on any Unix-like operating system (or the built-in IntelliJ IDEA terminal).
 
 ## Highlights (and extra hints for the TA)
 
 - Functionality
-  - TODO
+  - All twelve (12) of our original user stories are complete.
+  - In addition we've added the following extra functionality:
+    - TODO: describe the persistence feature
 - Code Organization
-  - TODO
+  - Code is organized by layers, `com.mg105.user_interface`, `com.mg105.interface_adapters`, `com.mg105.use_cases`, `com.mg105.entities`.
+  - The `com.mg105.user_interface` package is the only package that knows anything about the graphics library, JavaFX.
+  - The `com.mg105.utils` package mostly keeps track of constants.
 - Testing
   - TODO
 - Documentation
-  - TODO
-- GitHub Features Used
-  - TODO
+  - Current up-to-date Javadoc can be found [here](https://docs.mg105.com/).
+- Extra GitHub Features Used
+  - GitHub actions to make sure sensitive files (`.idea/*`) are not accidentally modified in a PR ([link](https://github.com/CSC207-2022F-UofT/course-project-group-105/actions/workflows/sanity.yml)).
+  - GitHub releases for every merge into `main`, built by GitHub actions ([link](https://github.com/CSC207-2022F-UofT/course-project-group-105/releases)).
+  - GitHub pages that host up-to-date Javadoc of `main`, built automatically by GitHub actions ([link](https://docs.mg105.com/)).
 
 ## Copyright
 
