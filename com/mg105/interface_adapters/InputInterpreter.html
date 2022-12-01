@@ -89,8 +89,9 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.mg105.use_cases.CharacterMover,com.mg105.interface_adapters.Toggler)" class="member-name-link">InputInterpreter</a><wbr>(@NotNull <a href="../use_cases/CharacterMover.html" title="class in com.mg105.use_cases">CharacterMover</a>&nbsp;mover,
- @NotNull <a href="Toggler.html" title="interface in com.mg105.interface_adapters">Toggler</a>&nbsp;toggler)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.mg105.use_cases.CharacterMover,com.mg105.interface_adapters.Toggler,com.mg105.controllers.TutorialTextController)" class="member-name-link">InputInterpreter</a><wbr>(@NotNull <a href="../use_cases/CharacterMover.html" title="class in com.mg105.use_cases">CharacterMover</a>&nbsp;mover,
+ @NotNull <a href="Toggler.html" title="interface in com.mg105.interface_adapters">Toggler</a>&nbsp;toggler,
+ @NotNull <a href="../controllers/TutorialTextController.html" title="class in com.mg105.controllers">TutorialTextController</a>&nbsp;textChanger)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Create a new InputInterpreter that translates keyboard inputs to appropriate function invocations.</div>
 </div>
@@ -131,17 +132,20 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(com.mg105.use_cases.CharacterMover,com.mg105.interface_adapters.Toggler)">
+<section class="detail" id="&lt;init&gt;(com.mg105.use_cases.CharacterMover,com.mg105.interface_adapters.Toggler,com.mg105.controllers.TutorialTextController)">
 <h3>InputInterpreter</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">InputInterpreter</span><wbr><span class="parameters">(@NotNull
  @NotNull <a href="../use_cases/CharacterMover.html" title="class in com.mg105.use_cases">CharacterMover</a>&nbsp;mover,
  @NotNull
- @NotNull <a href="Toggler.html" title="interface in com.mg105.interface_adapters">Toggler</a>&nbsp;toggler)</span></div>
+ @NotNull <a href="Toggler.html" title="interface in com.mg105.interface_adapters">Toggler</a>&nbsp;toggler,
+ @NotNull
+ @NotNull <a href="../controllers/TutorialTextController.html" title="class in com.mg105.controllers">TutorialTextController</a>&nbsp;textChanger)</span></div>
 <div class="block">Create a new InputInterpreter that translates keyboard inputs to appropriate function invocations.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>mover</code> - the character mover.</dd>
 <dd><code>toggler</code> - the toggler used to change the displayed interface.</dd>
+<dd><code>textChanger</code> - the text controller for tutorial</dd>
 </dl>
 </section>
 </li>

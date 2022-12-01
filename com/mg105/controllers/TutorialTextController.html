@@ -88,7 +88,7 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">TutorialTextController</a>()</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(boolean)" class="member-name-link">TutorialTextController</a><wbr>(boolean&nbsp;changeText)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -109,6 +109,16 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the current text that should be displayed</div>
 </div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#changeText()" class="member-name-link">changeText</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Check if tutorial phases should advance</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getShowControls()" class="member-name-link">getShowControls</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Check if player should be shown controls again</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../use_cases/PlayerGetsTutorial.html" title="class in com.mg105.use_cases">PlayerGetsTutorial</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTutorial()" class="member-name-link">getTutorial</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
@@ -118,6 +128,16 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#nextPhase()" class="member-name-link">nextPhase</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Go to the next tutorial phase</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setChangeText()" class="member-name-link">setChangeText</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Make text start changing</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setShowControls(boolean)" class="member-name-link">setShowControls</a><wbr>(boolean&nbsp;show)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Tell player the controls again</div>
 </div>
 </div>
 </div>
@@ -137,9 +157,9 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;()">
+<section class="detail" id="&lt;init&gt;(boolean)">
 <h3>TutorialTextController</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">TutorialTextController</span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">TutorialTextController</span><wbr><span class="parameters">(boolean&nbsp;changeText)</span></div>
 </section>
 </li>
 </ul>
@@ -166,6 +186,46 @@ loadScripts(document, 'script');</script>
 <h3>nextPhase</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">nextPhase</span>()</div>
 <div class="block">Go to the next tutorial phase</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setChangeText()">
+<h3>setChangeText</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setChangeText</span>()</div>
+<div class="block">Make text start changing</div>
+</section>
+</li>
+<li>
+<section class="detail" id="changeText()">
+<h3>changeText</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">changeText</span>()</div>
+<div class="block">Check if tutorial phases should advance</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>if text should start changing</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setShowControls(boolean)">
+<h3>setShowControls</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setShowControls</span><wbr><span class="parameters">(boolean&nbsp;show)</span></div>
+<div class="block">Tell player the controls again</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>show</code> - the text on the screen when true</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getShowControls()">
+<h3>getShowControls</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">getShowControls</span>()</div>
+<div class="block">Check if player should be shown controls again</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>whether player should be shown the control texts</dd>
+</dl>
 </section>
 </li>
 <li>
