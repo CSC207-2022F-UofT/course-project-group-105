@@ -9,6 +9,7 @@ import com.mg105.entities.Item;
 import com.mg105.entities.Room;
 import com.mg105.entities.TreasureChest;
 import com.mg105.use_cases.Inventory.InventoryInteractor;
+import javafx.scene.control.Alert;
 
 public class ChestInteractor {
 
@@ -90,19 +91,18 @@ public class ChestInteractor {
         TreasureChest chest = verifyChest();
 
         if (chest != null) {
-            Item reward = chest.open();
-            interactor.addItem(reward.getName());
-            // if (success) {
-                // TextGenerator.generateText("chest", reward);
-                // get TextGenerator to write something about how a chest was opened and this item was added to inventory
-            // }
-            // else {
-                // TextGenerator.generateText("inventory full");
-                // get TextGenerator to write something about how the chest can't be opened because the inventory is full
-            // }
+            if (!chest.isOpened()) {
+                Item reward = chest.open();
+                interactor.addItem(reward.getName());
+                Alert chestSuccess = new Alert(Alert.AlertType.INFORMATION);
+                chestSuccess.setContentText("The chest contained a " + reward.getName() + "! It has been added to your inventory.");
+                chestSuccess.show();
+            }
+            else {
+                Alert chestFailure = new Alert(Alert.AlertType.INFORMATION);
+                chestFailure.setContentText("The chest is empty!");
+                chestFailure.show();
+            }
         }
-
     }
-
-
 }
