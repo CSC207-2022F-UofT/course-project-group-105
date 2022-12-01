@@ -1,7 +1,7 @@
 package com.mg105.interface_adapters;
 
-import com.mg105.entities.*;
 import com.mg105.use_cases.RoomGetter;
+import com.mg105.use_cases.RoomLayout;
 import com.mg105.utils.MapConstants;
 import org.jetbrains.annotations.NotNull;
 
@@ -45,23 +45,21 @@ public class RoomInterpreter {
             canvas[i][MapConstants.ROOM_SIZE - 1] = TileType.WALL;
         }
 
-        Room room = getter.getCurrentRoom();
+        RoomLayout room = getter.getCurrentRoomLayout();
 
-        for (Doorway doorway : room.getDoorways()) {
-            canvas[doorway.getPosition().y][doorway.getPosition().x] = TileType.EXIT;
+        for (Point doorway : room.getDoorways()) {
+            canvas[doorway.y][doorway.x] = TileType.EXIT;
         }
 
-        for (TreasureChest chest : room.getChests()) {
-            canvas[chest.getPosition().y][chest.getPosition().x] = TileType.CHEST;
+        for (Point chest : room.getChests()) {
+            canvas[chest.y][chest.x] = TileType.CHEST;
         }
 
-        for (OpponentSet opponents : room.getOpponents()) {
-            canvas[opponents.getPosition().y][opponents.getPosition().x] = TileType.OPPONENT_SET;
+        for (Point opponents : room.getOpponents()) {
+            canvas[opponents.y][opponents.x] = TileType.OPPONENT_SET;
         }
 
-        WalkingCharacter player = getter.getWalkingCharacter();
-        Point playerPosition = player.getCharPosition();
-        canvas[playerPosition.y][playerPosition.x] = TileType.PLAYER;
+        canvas[room.getPlayer().y][room.getPlayer().x] = TileType.PLAYER;
 
         return canvas;
     }
