@@ -1,11 +1,9 @@
 package com.mg105.entities;
 
 import com.mg105.entities.items.HealthPotion;
-import com.mg105.outputds.ItemDetails;
-import com.mg105.presenter_interfaces.InventoryPresenterInterface;
+import com.mg105.interface_adapters.inventory.InventoryPresenter;
 import com.mg105.use_cases.ChestInteractor;
 import com.mg105.use_cases.Inventory.InventoryInteractor;
-import com.mg105.use_cases.Inventory.InventoryPresenterInterface;
 import com.mg105.utils.PartyConstants;
 import org.junit.jupiter.api.Test;
 
@@ -23,28 +21,8 @@ class ChestTest {
     Inventory inventory = new Inventory();
     BattleCharacter[] party = new BattleCharacter[PartyConstants.ALL_PARTY_MEMBER_NAMES.length];
     GameState game = new GameState(inventory, party, character);
-    InventoryPresenterInterface res = new InventoryPresenterInterface() {
-        @Override
-        public void addItem(boolean isSuccessful, ItemDetails itemDetails) {
-
-        }
-
-        @Override
-        public void removeItem(boolean isSuccessful, ItemDetails itemDetails) {
-
-        }
-
-        @Override
-        public void useItem(boolean isSuccessful, String characterName, ItemDetails itemDetails) {
-
-        }
-
-        @Override
-        public void inventoryDetails(ItemDetails[] allItemsDetails) {
-
-        }
-    };
-    InventoryInteractor interactor = new InventoryInteractor(game, res);
+    InventoryPresenter pres = new InventoryPresenter();
+    InventoryInteractor interactor = new InventoryInteractor(game, pres);
     ChestInteractor chestInteractor = new ChestInteractor(game, interactor);
 
     @Test
@@ -101,26 +79,4 @@ class ChestTest {
         assertTrue(testChest2.isOpened());
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
