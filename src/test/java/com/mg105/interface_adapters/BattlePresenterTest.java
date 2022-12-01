@@ -43,22 +43,22 @@ class BattlePresenterTest {
 
         List<BattleCharacter> opponents = new ArrayList<>();
         opponents.add(new BattleCharacter(
-            10, "Professor Chad", 10, 10, true,
+            10, "Opponent 0", 10, 10, true,
             new Move(-10, 0, "Move1", false),
             new Move(1, 1, "Move2", true))
         );
         opponents.add(new BattleCharacter(
-            10, "RobotOneEvil", 10, 10, true,
+            10, "Opponent 1", 10, 10, true,
             new Move(-10, 0, "Move1", false),
             new Move(1, 1, "Move2", true))
         );
         opponents.add(new BattleCharacter(
-            10, "Evil Person", 10, 10, true,
+            10, "Opponent 2", 10, 10, true,
             new Move(-10, 0, "Move1", false),
             new Move(1, 1, "Move2", true))
         );
         opponents.add(new BattleCharacter(
-            10, "Megan", 10, 10, true,
+            10, "Opponent 3", 10, 10, true,
             new Move(-10, 0, "Move1", false),
             new Move(1, 1, "Move2", true))
         );
@@ -96,22 +96,22 @@ class BattlePresenterTest {
 
         List<BattleCharacter> opponents = new ArrayList<>();
         opponents.add(new BattleCharacter(
-            10, "Professor Chad", 10, 10, true,
+            10, "Opponent 0", 10, 10, true,
             new Move(-10, 0, "Move1", false),
             new Move(1, 1, "Move2", true))
         );
         opponents.add(new BattleCharacter(
-            10, "RobotOneEvil", 10, 10, true,
+            10, "Opponent 1", 10, 10, true,
             new Move(-10, 0, "Move1", false),
             new Move(1, 1, "Move2", true))
         );
         opponents.add(new BattleCharacter(
-            10, "Evil Person", 10, 10, true,
+            10, "Opponent 2", 10, 10, true,
             new Move(-10, 0, "Move1", false),
             new Move(1, 1, "Move2", true))
         );
         opponents.add(new BattleCharacter(
-            10, "Megan", 10, 10, true,
+            10, "Opponent 3", 10, 10, true,
             new Move(-10, 0, "Move1", false),
             new Move(1, 1, "Move2", true))
         );
@@ -153,22 +153,22 @@ class BattlePresenterTest {
 
         List<BattleCharacter> opponents = new ArrayList<>();
         opponents.add(new BattleCharacter(
-            10, "Professor Chad", 10, 10, true,
+            10, "Opponent 0", 10, 10, true,
             new Move(-10, 0, "Move1", false),
             new Move(1, 1, "Move2", true))
         );
         opponents.add(new BattleCharacter(
-            10, "RobotOneEvil", 10, 10, true,
+            10, "Opponent 1", 10, 10, true,
             new Move(-10, 0, "Move1", false),
             new Move(1, 1, "Move2", true))
         );
         opponents.add(new BattleCharacter(
-            10, "Evil Person", 10, 10, true,
+            10, "Opponent 2", 10, 10, true,
             new Move(-10, 0, "Move1", false),
             new Move(1, 1, "Move2", true))
         );
         opponents.add(new BattleCharacter(
-            10, "Megan", 10, 10, true,
+            10, "Opponent 3", 10, 10, true,
             new Move(-10, 0, "Move1", false),
             new Move(1, 1, "Move2", true))
         );
@@ -205,22 +205,22 @@ class BattlePresenterTest {
 
         List<BattleCharacter> opponents = new ArrayList<>();
         opponents.add(new BattleCharacter(
-            10, "Professor Chad", 10, 10, true,
+            10, "Opponent 0", 10, 10, true,
             new Move(-10, 0, "Move1", false),
             new Move(1, 1, "Move2", true))
         );
         opponents.add(new BattleCharacter(
-            10, "RobotOneEvil", 10, 10, true,
+            10, "Opponent 1", 10, 10, true,
             new Move(-10, 0, "Move1", false),
             new Move(1, 1, "Move2", true))
         );
         opponents.add(new BattleCharacter(
-            10, "Evil Person", 10, 10, true,
+            10, "Opponent 2", 10, 10, true,
             new Move(-10, 0, "Move1", false),
             new Move(1, 1, "Move2", true))
         );
         opponents.add(new BattleCharacter(
-            10, "Megan", 10, 10, true,
+            10, "Opponent 3", 10, 10, true,
             new Move(-10, 0, "Move1", false),
             new Move(1, 1, "Move2", true))
         );
