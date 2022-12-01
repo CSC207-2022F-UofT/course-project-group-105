@@ -1,11 +1,9 @@
 package com.mg105.entities;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 import org.jetbrains.annotations.NotNull;
-
-import java.awt.*;
-import java.util.NoSuchElementException;
 
 /**
  * A class that represents the state of the game
@@ -24,15 +22,20 @@ public class GameState {
     private Battle currEncounter = null;
 
     //Potentially useless. Keeps track of party characters who faint in battle.
-    private final ArrayList<BattleCharacter> fainted = new ArrayList<BattleCharacter>();
+    private final ArrayList<BattleCharacter> fainted = new ArrayList<>();
 
+    /**
+     * Create a new game state.
+     *
+     * @param inventory        the player's inventory.
+     * @param party            the player's party.
+     * @param walkingCharacter the player's character data.
+     */
     public GameState(Inventory inventory, BattleCharacter[] party, WalkingCharacter walkingCharacter) {
         this.inventory = inventory;
-        this.party = new ArrayList<BattleCharacter>();
+        this.party = new ArrayList<>();
 
-        for (BattleCharacter c : party) {
-            this.party.add(c);
-        }
+        this.party.addAll(Arrays.asList(party));
         this.walkingCharacter = walkingCharacter;
     }
 
@@ -69,14 +72,14 @@ public class GameState {
      *
      * @return the walkingCharacter.
      */
-    public WalkingCharacter getWalkingCharacter() {
+    public @NotNull WalkingCharacter getWalkingCharacter() {
         return walkingCharacter;
     }
 
     /**
      * Swap out the map of the game state to a new one defined by an interconnected graph between firstRoom and
      * lastRoom.  It should be noted that the interconnectedness is not checked here.
-     *
+     * <p>
      * Additionally, the current room is also set as the first room.
      *
      * @param firstRoom the first room of the map (where the tutorial is played).

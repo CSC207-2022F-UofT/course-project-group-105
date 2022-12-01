@@ -1,11 +1,11 @@
 package com.mg105.use_cases.Inventory;
+
 import com.mg105.entities.*;
 import com.mg105.entities.items.HealthPotion;
 import com.mg105.entities.items.UpgradeToken;
 import com.mg105.outputds.ItemDetails;
-import com.mg105.presenter_interfaces.InventoryPresenterInterface;
-import com.mg105.use_cases.Inventory.InventoryInteractor;
 import com.mg105.utils.ItemConstants;
+import com.mg105.utils.PartyConstants;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
@@ -19,34 +19,34 @@ class InventoryInteractorTest {
 
     InventoryPresenterInterface res = new InventoryPresenterInterface() {
         @Override
-        public void addItemView(boolean isSuccessful, ItemDetails itemDetails) {
+        public void addItem(boolean isSuccessful, ItemDetails itemDetails) {
 
         }
 
         @Override
-        public void removeItemView(boolean isSuccessful, ItemDetails itemDetails) {
+        public void removeItem(boolean isSuccessful, ItemDetails itemDetails) {
 
         }
 
         @Override
-        public void useItemView(boolean isSuccessful, String characterName, ItemDetails itemDetails) {
+        public void useItem(boolean isSuccessful, String characterName, ItemDetails itemDetails) {
 
         }
 
         @Override
-        public void inventoryDetailsView(ItemDetails[] allItemsDetails) {
+        public void inventoryDetails(ItemDetails[] allItemsDetails) {
 
         }
     };
 
-    BattleCharacter b1 = new BattleCharacter(1, "A", 2, 3, false,
-        new Move(0, 0, "m1", false),
+    BattleCharacter b1 = new BattleCharacter(1, PartyConstants.ALL_PARTY_MEMBER_NAMES[0], 2, 3,
+        false, new Move(0, 0, "m1", false),
         new Move(0, 0, "m2", false));
-    BattleCharacter b2 = new BattleCharacter(1, "B", 2, 3, false,
-        new Move(0, 0, "m1", false),
+    BattleCharacter b2 = new BattleCharacter(1, PartyConstants.ALL_PARTY_MEMBER_NAMES[1], 2, 3,
+        false, new Move(0, 0, "m1", false),
         new Move(0, 0, "m2", false));
-    BattleCharacter b3 = new BattleCharacter(1, "C", 2, 3, false,
-        new Move(0, 0, "m1", false),
+    BattleCharacter b3 = new BattleCharacter(1, PartyConstants.ALL_PARTY_MEMBER_NAMES[2], 2, 3,
+        false, new Move(0, 0, "m1", false),
         new Move(0, 0, "m2", false));
 
     BattleCharacter[] party = {b1, b2, b3};
@@ -220,7 +220,7 @@ class InventoryInteractorTest {
 
 
         assertEquals(1, inventory.numberOfItems(ItemConstants.UPGRADE_TOKEN_NAME));
-        inventoryInteractor.useItem(ItemConstants.UPGRADE_TOKEN_NAME, "A");
+        inventoryInteractor.useItem(ItemConstants.UPGRADE_TOKEN_NAME, PartyConstants.ALL_PARTY_MEMBER_NAMES[0]);
         assertEquals(2, party[0].getMaxHp());
         assertEquals(3, party[0].getDmg());
         assertEquals(4, party[0].getSpeed());
@@ -258,7 +258,7 @@ class InventoryInteractorTest {
         InventoryInteractor inventoryInteractor = new InventoryInteractor(state, res);
 
         assertEquals(6, inventory.numberOfItems(ItemConstants.HEALTH_POTION_NAME));
-        inventoryInteractor.useItem(ItemConstants.HEALTH_POTION_NAME, "B");
+        inventoryInteractor.useItem(ItemConstants.HEALTH_POTION_NAME, PartyConstants.ALL_PARTY_MEMBER_NAMES[1]);
         assertEquals(5, inventory.numberOfItems(ItemConstants.HEALTH_POTION_NAME));
         assertEquals(1, party[1].getHp());
     }

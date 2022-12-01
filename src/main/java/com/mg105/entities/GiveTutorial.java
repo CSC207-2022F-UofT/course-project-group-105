@@ -5,9 +5,9 @@ import com.mg105.utils.TutorialTexts;
 
 public class GiveTutorial {
 
-    private boolean moved = false;
-    private boolean attacked = false;
-    private boolean usedItem = false;
+    private boolean moved;
+    private boolean attacked;
+    private boolean usedItem;
 
     public GiveTutorial(boolean moved, boolean attacked, boolean usedItem) {
         this.moved = moved;
@@ -23,11 +23,11 @@ public class GiveTutorial {
      * @param action the action that has been performed
      */
     public void ActionPerformedSetter(String action) {
-        if (action.equalsIgnoreCase(TutorialTexts.moved)) {
+        if (action.equalsIgnoreCase(TutorialTexts.MOVED)) {
             this.moved = true;
-        } else if (action.equalsIgnoreCase(TutorialTexts.attacked)) {
+        } else if (action.equalsIgnoreCase(TutorialTexts.ATTACKED)) {
             this.attacked = true;
-        } else if (action.equalsIgnoreCase(TutorialTexts.usedItem)) {
+        } else if (action.equalsIgnoreCase(TutorialTexts.USED_ITEM)) {
             this.usedItem = true;
         }
 
@@ -42,11 +42,11 @@ public class GiveTutorial {
      * @return whether the player has performed each action
      */
     public boolean ActionPerformedGetter(String action) {
-        if (action.equalsIgnoreCase(TutorialTexts.moved)) {
+        if (action.equalsIgnoreCase(TutorialTexts.MOVED)) {
             return this.moved;
-        } else if (action.equalsIgnoreCase(TutorialTexts.attacked)) {
+        } else if (action.equalsIgnoreCase(TutorialTexts.ATTACKED)) {
             return this.attacked;
-        } else if (action.equalsIgnoreCase(TutorialTexts.usedItem)) {
+        } else if (action.equalsIgnoreCase(TutorialTexts.USED_ITEM)) {
             return this.usedItem;
         } else {
             return false;

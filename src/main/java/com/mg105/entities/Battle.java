@@ -13,7 +13,7 @@ public class Battle {
     private int battleStatus;
     private final ArrayList<BattleCharacter> opponents;
     private final ArrayList<BattleCharacter> playerCharacters;
-    private final ArrayList<BattleCharacter> moveQueue = new ArrayList<BattleCharacter>();
+    private final ArrayList<BattleCharacter> moveQueue = new ArrayList<>();
 
     //not sure if numTokens should be randomly generated on creation, or after battleStatus has changed (this
     // implementation will assume the latter).
@@ -110,7 +110,7 @@ public class Battle {
     /**
      * Returns the character in the encounter based on the given name
      *
-     * @param name
+     * @param name the name String of the BattleCharacter to be returned
      * @return the BattleCharacter in the encounter with the given name
      * @throws NoSuchElementException if no character in the party has the given name
      */

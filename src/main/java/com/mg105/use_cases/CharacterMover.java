@@ -35,9 +35,10 @@ public class CharacterMover {
         // magnitude of the vector is 1 which is true iff the sum of the absolute value of the components is 1.
         assert Math.abs(direction.x) + Math.abs(direction.y) == 1;
 
+        Point currentPosition = state.getWalkingCharacter().getCharPosition();
         Point nextPosition = new Point(
-            state.getWalkingCharacter().getCharPosition().x + direction.x,
-            state.getWalkingCharacter().getCharPosition().y + direction.y
+            currentPosition.x + direction.x,
+            currentPosition.y + direction.y
         );
         boolean nextPositionValid = true;
 
