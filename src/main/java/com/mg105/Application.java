@@ -63,8 +63,9 @@ public class Application extends javafx.application.Application {
 
         // InventoryDisplay set up
         InventoryPresenter inventoryPresenter = new InventoryPresenter();
+        InventoryInteractor inventoryInteractor = new InventoryInteractor(state, inventoryPresenter);
         InventoryDisplay inventoryDisplay = new InventoryDisplay(new InventoryController(
-            new InventoryInteractor(state, inventoryPresenter)));
+            inventoryInteractor));
         inventoryPresenter.setView(inventoryDisplay);
 
         Map<Toggler.ToggleableComponent, Toggleable> drawableComponents = new HashMap<>();
@@ -96,8 +97,6 @@ public class Application extends javafx.application.Application {
         roomUpdater.addObserver(mapDrawer);
 
         CharacterMover characterMover = new CharacterMover(state, roomUpdater);
-        InventoryPresenter pres = new InventoryPresenter();
-        InventoryInteractor inventoryInteractor = new InventoryInteractor(state, pres);
         ChestInteractor chestInteractor = new ChestInteractor(state, inventoryInteractor);
         InputInterpreter inputInterpreter = new InputInterpreter(characterMover, sceneController,
             chestInteractor, textChanger);
