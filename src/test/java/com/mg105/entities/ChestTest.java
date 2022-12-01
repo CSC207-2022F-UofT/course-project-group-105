@@ -1,9 +1,9 @@
 package com.mg105.entities;
 
-import com.mg105.entities.*;
 import com.mg105.entities.items.HealthPotion;
 import com.mg105.outputds.ItemDetails;
 import com.mg105.presenter_interfaces.InventoryPresenterInterface;
+import com.mg105.use_cases.ChestInteractor;
 import com.mg105.use_cases.Inventory.InventoryInteractor;
 import com.mg105.utils.PartyConstants;
 import org.junit.jupiter.api.Test;

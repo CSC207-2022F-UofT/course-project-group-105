@@ -36,8 +36,8 @@ public class CharacterMover {
         assert Math.abs(direction.x) + Math.abs(direction.y) == 1;
 
         Point nextPosition = new Point(
-            state.currentPosition.x + direction.x,
-            state.currentPosition.y + direction.y
+            state.getWalkingCharacter().getCharPosition().x + direction.x,
+            state.getWalkingCharacter().getCharPosition().y + direction.y
         );
         boolean nextPositionValid = true;
 
@@ -83,7 +83,7 @@ public class CharacterMover {
         }
 
         if (nextPositionValid) {
-            state.currentPosition = nextPosition;
+            state.getWalkingCharacter().setCharPosition(nextPosition);
             updater.updateRoom();
         }
     }

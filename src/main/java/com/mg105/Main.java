@@ -5,7 +5,11 @@ import com.mg105.interface_adapters.InputInterpreter;
 import com.mg105.interface_adapters.MapGeneratorInterpreter;
 import com.mg105.interface_adapters.RoomInterpreter;
 import com.mg105.interface_adapters.Toggler;
+import com.mg105.outputds.ItemDetails;
+import com.mg105.presenter_interfaces.InventoryPresenterInterface;
 import com.mg105.use_cases.CharacterMover;
+import com.mg105.use_cases.ChestInteractor;
+import com.mg105.use_cases.Inventory.InventoryInteractor;
 import com.mg105.use_cases.MapGenerator;
 import com.mg105.use_cases.RoomGetter;
 import com.mg105.user_interface.*;
@@ -63,7 +67,7 @@ public class Main extends Application {
             new Move(-2, -2, "Sabotage", false));
 
         BattleCharacter[] party = {a, b, c, d};
-        GameState state = new GameState(inventory, party, new WalkingCharacter(new Point(0, 0)));
+        GameState state = new GameState(inventory, party, new WalkingCharacter(new Point(1, 1)));
 
         Map<Toggler.ToggleableComponent, Toggleable> drawableComponents = new HashMap<>();
         // We fill this map in later because of the ordering of parameters
@@ -86,7 +90,30 @@ public class Main extends Application {
         drawableComponents.put(Toggler.ToggleableComponent.MAP, mapDrawer);
 
         CharacterMover characterMover = new CharacterMover(state, mapDrawer);
-        InputInterpreter inputInterpreter = new InputInterpreter(characterMover, sceneController);
+        InventoryPresenterInterface res = new InventoryPresenterInterface() {
+            @Override
+            public void addItemView(boolean isSuccessful, ItemDetails itemDetails) {
+
+            }
+
+            @Override
+            public void removeItemView(boolean isSuccessful, ItemDetails itemDetails) {
+
+            }
+
+            @Override
+            public void useItemView(boolean isSuccessful, String characterName, ItemDetails itemDetails) {
+
+            }
+
+            @Override
+            public void inventoryDetailsView(ItemDetails[] allItemsDetails) {
+
+            }
+        };
+        InventoryInteractor inventoryInteractor = new InventoryInteractor(state, res);
+        ChestInteractor chestInteractor = new ChestInteractor(state, inventoryInteractor);
+        InputInterpreter inputInterpreter = new InputInterpreter(characterMover, sceneController, chestInteractor);
         InputListener inputListener = new InputListener(inputInterpreter);
         primaryStage.addEventFilter(KeyEvent.KEY_TYPED, inputListener);
 

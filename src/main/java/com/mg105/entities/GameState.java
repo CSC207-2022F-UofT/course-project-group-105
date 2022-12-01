@@ -21,7 +21,6 @@ public class GameState {
     private final WalkingCharacter walkingCharacter;
     private final Inventory inventory;
 
-    public Point currentPosition = new Point(1,1); // TODO Temporary, remove when WalkingCharacter geets merged
     private Battle currEncounter = null;
 
     //Potentially useless. Keeps track of party characters who faint in battle.

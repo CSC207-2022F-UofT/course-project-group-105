@@ -38,6 +38,6 @@ public class RoomGetter {
      * @return the position of the player in the room.
      */
     public Point getPositionInRoom() {
-        return state.currentPosition;
+        return state.getWalkingCharacter().getCharPosition();
     }
 }
