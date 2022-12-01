@@ -50,4 +50,12 @@ public class RoomGetter {
 
         return new RoomLayout(chests, opponents, doorways, state.getWalkingCharacter().getCharPosition());
     }
+
+    /**
+     * Retrieves the WalkingCharacter sprite name String, returns a file name/location corresponding to the name.
+     * @return a String representing the file name/location for the selected character sprite.
+     */
+    public String getWalkingSprite() {
+        return "/sprites/" + state.getWalkingCharacter().getSpriteName() + ".png";
+    }
 }
