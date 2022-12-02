@@ -47,7 +47,7 @@ public class TutorialTest {
     }
 
     @Test
-    void testTutorialBottomText(){
+    void testTutorialBottomText() {
         TutorialTextDisplay tutorialDisplay = new TutorialTextDisplay();
         tutorialDisplay.getController().nextPhase();
         tutorialDisplay.getController().nextPhase();

@@ -39,8 +39,8 @@ public class MapDrawer implements PropertyChangeListener, Toggleable {
         group = new Group();
         scene = new Scene(
             group,
-            MapConstants.ROOM_SIZE*MapConstants.TILE_SIZE,
-            MapConstants.ROOM_SIZE*MapConstants.TILE_SIZE
+            MapConstants.ROOM_SIZE * MapConstants.TILE_SIZE,
+            MapConstants.ROOM_SIZE * MapConstants.TILE_SIZE
         );
         isVisible = false;
 

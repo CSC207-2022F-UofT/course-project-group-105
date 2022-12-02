@@ -35,8 +35,20 @@ public class GameState {
     public GameState(Inventory inventory, BattleCharacter[] party, WalkingCharacter walkingCharacter) {
         this.inventory = inventory;
         this.party = new ArrayList<>();
-
         this.party.addAll(Arrays.asList(party));
+        this.walkingCharacter = walkingCharacter;
+    }
+
+    /**
+     * Create a new game state.
+     *
+     * @param inventory        the player's inventory.
+     * @param walkingCharacter the player's character data.
+     */
+
+    public GameState(Inventory inventory, WalkingCharacter walkingCharacter) {
+        this.inventory = inventory;
+        this.party = new ArrayList<>();
         this.walkingCharacter = walkingCharacter;
     }
 
@@ -184,5 +196,16 @@ public class GameState {
      */
     public void setCurrentRoom(@NotNull Room room) {
         this.currentRoom = room;
+    }
+
+    /**
+     * Sets these BattleCharacters as the party
+     * This function should really only ever be called once
+     *
+     * @param party the battles character to the set the party to
+     */
+    public void setParty(@NotNull BattleCharacter[] party) {
+        this.party.clear();
+        this.party.addAll(Arrays.asList(party));
     }
 }

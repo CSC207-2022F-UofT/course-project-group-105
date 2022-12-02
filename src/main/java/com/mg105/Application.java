@@ -1,21 +1,24 @@
 package com.mg105;
 
 import com.mg105.controllers.TutorialTextController;
+import com.mg105.data_control.access.MoveDataAccess;
+import com.mg105.data_control.access.PartyDataAccess;
+import com.mg105.data_control.creator.MoveDataCreator;
+import com.mg105.data_control.creator.PartyDataCreator;
 import com.mg105.entities.*;
 import com.mg105.interface_adapters.*;
 import com.mg105.interface_adapters.inventory.InventoryController;
 import com.mg105.interface_adapters.inventory.InventoryPresenter;
 import com.mg105.use_cases.*;
-import com.mg105.use_cases.Inventory.InventoryInteractor;
+import com.mg105.use_cases.inventory.InventoryInteractor;
+import com.mg105.use_cases.set_up.data_system_creator.CreateDataStorage;
+import com.mg105.use_cases.set_up.data_system_creator.DataStorageSystemCreator;
+import com.mg105.use_cases.set_up.state_setter.GameStateSetter;
+import com.mg105.use_cases.set_up.state_setter.PartyCreator;
 import com.mg105.user_interface.*;
-import com.mg105.utils.TutorialTexts;
 import com.mg105.user_interface.inventory.InventoryDisplay;
-import com.mg105.utils.PartyConstants;
-import javafx.animation.AnimationTimer;
-import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,27 +38,19 @@ public class Application extends javafx.application.Application {
     public void start(Stage primaryStage) {
 
         // Set up the initial use cases
-
-        BattleCharacter a = new BattleCharacter(30, PartyConstants.ALL_PARTY_MEMBER_NAMES[0], 4, 5,
-            false, new Move(-3, 0, "Slow swing", false),
-            new Move(0, -1, "Nullify", false));
-
-        BattleCharacter b = new BattleCharacter(20, PartyConstants.ALL_PARTY_MEMBER_NAMES[1], 6, 8,
-            false, new Move(-4, 0, "Strong swing", false),
-            new Move(3, 0, "Weak heal", true));
-
-        BattleCharacter c = new BattleCharacter(25, PartyConstants.ALL_PARTY_MEMBER_NAMES[2], 3, 6,
-            false, new Move(6, 0, "Strong heal", true),
-            new Move(2, 2, "Reinforce", true));
-
-        BattleCharacter d = new BattleCharacter(15, PartyConstants.ALL_PARTY_MEMBER_NAMES[3], 9, 10,
-            false, new Move(-5, 0, "Surprise attack", false),
-            new Move(-2, -2, "Sabotage", false));
-
-        BattleCharacter[] party = {a, b, c, d};
         Inventory inventory = new Inventory();
 
-        GameState state = new GameState(inventory, party, new WalkingCharacter(new Point(1, 1)));
+        GameState state = new GameState(inventory, new WalkingCharacter(new Point(1, 1)));
+
+        // Setting up database
+        CreateDataStorage[] databaseCreators = {new MoveDataCreator(), new PartyDataCreator()};
+        DataStorageSystemCreator databaseCreator = new DataStorageSystemCreator(databaseCreators);
+        databaseCreator.create();
+
+        // Setting the values from the database in game state
+        PartyCreator[] partyCreator = {new PartyCreator(new PartyDataAccess(new MoveDataAccess()))};
+        GameStateSetter setter = new GameStateSetter(partyCreator);
+        setter.setState(state);
 
         // InventoryDisplay set up
         InventoryPresenter inventoryPresenter = new InventoryPresenter();
