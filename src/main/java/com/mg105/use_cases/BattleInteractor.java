@@ -33,8 +33,7 @@ public class BattleInteractor {
     }
 
     /**
-     * Creates a new encounter with random opponents and sets it as the current encounter in GameState
-     * Could use the Builder design pattern here.
+     * Creates a new encounter with random opponents and sets it as the current encounter in GameState.
      */
     public void createEncounter() {
         /* OLD RANDOMLY GENERATED OPPONENTS CODE

@@ -3,7 +3,6 @@ package com.mg105.interface_adapters;
 import com.mg105.controllers.TutorialTextController;
 import com.mg105.use_cases.CharacterMover;
 import com.mg105.use_cases.OpponentSetInteractor;
-import com.mg105.user_interface.SceneController;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
