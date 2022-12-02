@@ -1,15 +1,15 @@
-package com.mg105.use_cases.Inventory;
+package com.mg105.use_cases.inventory;
 
 import com.mg105.entities.*;
 import com.mg105.entities.items.HealthPotion;
 import com.mg105.entities.items.UpgradeToken;
 import com.mg105.outputds.ItemDetails;
 import com.mg105.utils.ItemConstants;
-import com.mg105.utils.PartyConstants;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
 
+import static com.mg105.utils.PartyConstants.ALL_PARTY_MEMBER_NAMES;
 import static org.junit.jupiter.api.Assertions.*;
 
 class InventoryInteractorTest {
@@ -38,24 +38,18 @@ class InventoryInteractorTest {
 
         }
     };
-
-    BattleCharacter b1 = new BattleCharacter(1, PartyConstants.ALL_PARTY_MEMBER_NAMES[0], 2, 3,
-        false, new Move(0, 0, "m1", false),
+    BattleCharacter b1 = new BattleCharacter(1, ALL_PARTY_MEMBER_NAMES[0], 2, 3, false,
+        new Move(0, 0, "m1", false),
         new Move(0, 0, "m2", false));
-    BattleCharacter b2 = new BattleCharacter(1, PartyConstants.ALL_PARTY_MEMBER_NAMES[1], 2, 3,
-        false, new Move(0, 0, "m1", false),
+    BattleCharacter b2 = new BattleCharacter(1, ALL_PARTY_MEMBER_NAMES[1], 2, 3, false,
+        new Move(0, 0, "m1", false),
         new Move(0, 0, "m2", false));
-    BattleCharacter b3 = new BattleCharacter(1, PartyConstants.ALL_PARTY_MEMBER_NAMES[2], 2, 3,
-        false, new Move(0, 0, "m1", false),
+    BattleCharacter b3 = new BattleCharacter(1, ALL_PARTY_MEMBER_NAMES[2], 2, 3, false,
+        new Move(0, 0, "m1", false),
         new Move(0, 0, "m2", false));
 
     BattleCharacter[] party = {b1, b2, b3};
     WalkingCharacter walkingCharacter = new WalkingCharacter((new Point(0, 0)));
-
-    @Test
-    void addItem() {
-
-    }
 
     @Test
     void addItemEmptyInventoryExists() {
@@ -120,13 +114,6 @@ class InventoryInteractorTest {
         assertEquals(6, inventory.numberOfItems(ItemConstants.HEALTH_POTION_NAME));
         inventoryInteractor.addItem(ItemConstants.HEALTH_POTION_NAME);
         assertEquals(6, inventory.numberOfItems(ItemConstants.HEALTH_POTION_NAME));
-    }
-
-
-    //
-
-    @Test
-    void removeItem() {
     }
 
     @Test
@@ -220,7 +207,8 @@ class InventoryInteractorTest {
 
 
         assertEquals(1, inventory.numberOfItems(ItemConstants.UPGRADE_TOKEN_NAME));
-        inventoryInteractor.useItem(ItemConstants.UPGRADE_TOKEN_NAME, PartyConstants.ALL_PARTY_MEMBER_NAMES[0]);
+        inventoryInteractor.useItem(ItemConstants.UPGRADE_TOKEN_NAME, ALL_PARTY_MEMBER_NAMES[0]);
+
         assertEquals(2, party[0].getMaxHp());
         assertEquals(3, party[0].getDmg());
         assertEquals(4, party[0].getSpeed());
@@ -258,13 +246,15 @@ class InventoryInteractorTest {
         InventoryInteractor inventoryInteractor = new InventoryInteractor(state, res);
 
         assertEquals(6, inventory.numberOfItems(ItemConstants.HEALTH_POTION_NAME));
-        inventoryInteractor.useItem(ItemConstants.HEALTH_POTION_NAME, PartyConstants.ALL_PARTY_MEMBER_NAMES[1]);
+        inventoryInteractor.useItem(ItemConstants.HEALTH_POTION_NAME, ALL_PARTY_MEMBER_NAMES[1]);
+
         assertEquals(5, inventory.numberOfItems(ItemConstants.HEALTH_POTION_NAME));
         assertEquals(1, party[1].getHp());
     }
 
 
-    // Can't really test this since it is just a get request and send that data to the presenter
+    // Can't really test this since it is just a get request and send that data to the presenter (method
+    // returns nothing)
 
     @Test
     void getInventoryDetails() {

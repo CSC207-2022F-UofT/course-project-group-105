@@ -4,6 +4,7 @@ import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.Consumable;
 import com.mg105.entities.Item;
 import com.mg105.utils.ItemConstants;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * An item that is used upgrade a characters stat
@@ -22,7 +23,7 @@ public class UpgradeToken extends Item implements Consumable {
      * @param character the BattleCharacter to use the item on
      */
     @Override
-    public void consume(BattleCharacter character) {
+    public void consume(@NotNull BattleCharacter character) {
         character.modifyDamage(1);
         character.modifyMaxHp(1);
         character.modifySpeed(1);
