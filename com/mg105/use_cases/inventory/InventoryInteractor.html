@@ -5,7 +5,7 @@
 <title>InventoryInteractor (course-project-group-105 API)</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="description" content="declaration: package: com.mg105.use_cases.Inventory, class: InventoryInteractor">
+<meta name="description" content="declaration: package: com.mg105.use_cases.inventory, class: InventoryInteractor">
 <meta name="generator" content="javadoc/ClassWriterImpl">
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.min.css" title="Style">
@@ -67,11 +67,11 @@ loadScripts(document, 'script');</script>
 <main role="main">
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">com.mg105.use_cases.Inventory</a></div>
+<div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">com.mg105.use_cases.inventory</a></div>
 <h1 title="Class InventoryInteractor" class="title">Class InventoryInteractor</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
-<div class="inheritance">com.mg105.use_cases.Inventory.InventoryInteractor</div>
+<div class="inheritance">com.mg105.use_cases.inventory.InventoryInteractor</div>
 </div>
 <section class="class-description" id="class-description">
 <hr>
@@ -92,8 +92,8 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.mg105.entities.GameState,com.mg105.use_cases.Inventory.InventoryPresenterInterface)" class="member-name-link">InventoryInteractor</a><wbr>(<a href="../../entities/GameState.html" title="class in com.mg105.entities">GameState</a>&nbsp;gamestate,
- <a href="InventoryPresenterInterface.html" title="interface in com.mg105.use_cases.Inventory">InventoryPresenterInterface</a>&nbsp;response)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.mg105.entities.GameState,com.mg105.use_cases.inventory.InventoryPresenterInterface)" class="member-name-link">InventoryInteractor</a><wbr>(@NotNull <a href="../../entities/GameState.html" title="class in com.mg105.entities">GameState</a>&nbsp;gamestate,
+ @NotNull <a href="InventoryPresenterInterface.html" title="interface in com.mg105.use_cases.inventory">InventoryPresenterInterface</a>&nbsp;response)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -110,7 +110,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addItem(java.lang.String)" class="member-name-link">addItem</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;itemName)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addItem(java.lang.String)" class="member-name-link">addItem</a><wbr>(@NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;itemName)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Attempts to add an item to the inventory based on the itemName and sends action data to the
  appropriate class</div>
@@ -121,14 +121,14 @@ loadScripts(document, 'script');</script>
 <div class="block">Collects data the represents the state of the inventory (i.e.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeItem(java.lang.String)" class="member-name-link">removeItem</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;itemName)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeItem(java.lang.String)" class="member-name-link">removeItem</a><wbr>(@NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;itemName)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Attempts to remove an item of itemName to the inventory and sends action data to the
  appropriate class</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#useItem(java.lang.String,java.lang.String)" class="member-name-link">useItem</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;itemName,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;characterName)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#useItem(java.lang.String,java.lang.String)" class="member-name-link">useItem</a><wbr>(@NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;itemName,
+ @NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;characterName)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Attempts to use an item of itemName and sends action data to the
  appropriate class</div>
@@ -151,10 +151,12 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(com.mg105.entities.GameState,com.mg105.use_cases.Inventory.InventoryPresenterInterface)">
+<section class="detail" id="&lt;init&gt;(com.mg105.entities.GameState,com.mg105.use_cases.inventory.InventoryPresenterInterface)">
 <h3>InventoryInteractor</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">InventoryInteractor</span><wbr><span class="parameters">(<a href="../../entities/GameState.html" title="class in com.mg105.entities">GameState</a>&nbsp;gamestate,
- <a href="InventoryPresenterInterface.html" title="interface in com.mg105.use_cases.Inventory">InventoryPresenterInterface</a>&nbsp;response)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">InventoryInteractor</span><wbr><span class="parameters">(@NotNull
+ @NotNull <a href="../../entities/GameState.html" title="class in com.mg105.entities">GameState</a>&nbsp;gamestate,
+ @NotNull
+ @NotNull <a href="InventoryPresenterInterface.html" title="interface in com.mg105.use_cases.inventory">InventoryPresenterInterface</a>&nbsp;response)</span></div>
 </section>
 </li>
 </ul>
@@ -168,7 +170,8 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="addItem(java.lang.String)">
 <h3>addItem</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addItem</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;itemName)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addItem</span><wbr><span class="parameters">(@NotNull
+ @NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;itemName)</span></div>
 <div class="block">Attempts to add an item to the inventory based on the itemName and sends action data to the
  appropriate class</div>
 <dl class="notes">
@@ -177,7 +180,7 @@ loadScripts(document, 'script');</script>
 <dt>See Also:</dt>
 <dd>
 <ul class="see-list">
-<li><a href="InventoryPresenterInterface.html" title="interface in com.mg105.use_cases.Inventory"><code>InventoryPresenterInterface</code></a></li>
+<li><a href="InventoryPresenterInterface.html" title="interface in com.mg105.use_cases.inventory"><code>InventoryPresenterInterface</code></a></li>
 </ul>
 </dd>
 </dl>
@@ -186,7 +189,8 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="removeItem(java.lang.String)">
 <h3>removeItem</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeItem</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;itemName)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeItem</span><wbr><span class="parameters">(@NotNull
+ @NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;itemName)</span></div>
 <div class="block">Attempts to remove an item of itemName to the inventory and sends action data to the
  appropriate class</div>
 <dl class="notes">
@@ -195,7 +199,7 @@ loadScripts(document, 'script');</script>
 <dt>See Also:</dt>
 <dd>
 <ul class="see-list">
-<li><a href="InventoryPresenterInterface.html" title="interface in com.mg105.use_cases.Inventory"><code>InventoryPresenterInterface</code></a></li>
+<li><a href="InventoryPresenterInterface.html" title="interface in com.mg105.use_cases.inventory"><code>InventoryPresenterInterface</code></a></li>
 </ul>
 </dd>
 </dl>
@@ -204,8 +208,10 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="useItem(java.lang.String,java.lang.String)">
 <h3>useItem</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">useItem</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;itemName,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;characterName)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">useItem</span><wbr><span class="parameters">(@NotNull
+ @NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;itemName,
+ @NotNull
+ @NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;characterName)</span></div>
 <div class="block">Attempts to use an item of itemName and sends action data to the
  appropriate class</div>
 <dl class="notes">
@@ -215,7 +221,7 @@ loadScripts(document, 'script');</script>
 <dt>See Also:</dt>
 <dd>
 <ul class="see-list">
-<li><a href="InventoryPresenterInterface.html" title="interface in com.mg105.use_cases.Inventory"><code>InventoryPresenterInterface</code></a></li>
+<li><a href="InventoryPresenterInterface.html" title="interface in com.mg105.use_cases.inventory"><code>InventoryPresenterInterface</code></a></li>
 </ul>
 </dd>
 </dl>
@@ -231,7 +237,7 @@ loadScripts(document, 'script');</script>
 <dt>See Also:</dt>
 <dd>
 <ul class="see-list">
-<li><a href="InventoryPresenterInterface.html" title="interface in com.mg105.use_cases.Inventory"><code>InventoryPresenterInterface</code></a></li>
+<li><a href="InventoryPresenterInterface.html" title="interface in com.mg105.use_cases.inventory"><code>InventoryPresenterInterface</code></a></li>
 </ul>
 </dd>
 </dl>

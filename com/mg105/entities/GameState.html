@@ -97,6 +97,11 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color">
 <div class="block">Create a new game state.</div>
 </div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(com.mg105.entities.Inventory,com.mg105.entities.WalkingCharacter)" class="member-name-link">GameState</a><wbr>(<a href="Inventory.html" title="class in com.mg105.entities">Inventory</a>&nbsp;inventory,
+ <a href="WalkingCharacter.html" title="class in com.mg105.entities">WalkingCharacter</a>&nbsp;walkingCharacter)</code></div>
+<div class="col-last odd-row-color">
+<div class="block">Create a new game state.</div>
+</div>
 </div>
 </section>
 </li>
@@ -174,6 +179,12 @@ loadScripts(document, 'script');</script>
 <div class="block">Swap out the map of the game state to a new one defined by an interconnected graph between firstRoom and
  lastRoom.</div>
 </div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setParty(com.mg105.entities.BattleCharacter%5B%5D)" class="member-name-link">setParty</a><wbr>(@NotNull <a href="BattleCharacter.html" title="class in com.mg105.entities">BattleCharacter</a>[]&nbsp;party)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets these BattleCharacters as the party
+ This function should really only ever be called once</div>
+</div>
 </div>
 </div>
 </div>
@@ -202,6 +213,19 @@ loadScripts(document, 'script');</script>
 <dt>Parameters:</dt>
 <dd><code>inventory</code> - the player's inventory.</dd>
 <dd><code>party</code> - the player's party.</dd>
+<dd><code>walkingCharacter</code> - the player's character data.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="&lt;init&gt;(com.mg105.entities.Inventory,com.mg105.entities.WalkingCharacter)">
+<h3>GameState</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">GameState</span><wbr><span class="parameters">(<a href="Inventory.html" title="class in com.mg105.entities">Inventory</a>&nbsp;inventory,
+ <a href="WalkingCharacter.html" title="class in com.mg105.entities">WalkingCharacter</a>&nbsp;walkingCharacter)</span></div>
+<div class="block">Create a new game state.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>inventory</code> - the player's inventory.</dd>
 <dd><code>walkingCharacter</code> - the player's character data.</dd>
 </dl>
 </section>
@@ -365,6 +389,19 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>room</code> - the room to be set.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setParty(com.mg105.entities.BattleCharacter[])">
+<h3>setParty</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setParty</span><wbr><span class="parameters">(@NotNull
+ @NotNull <a href="BattleCharacter.html" title="class in com.mg105.entities">BattleCharacter</a>[]&nbsp;party)</span></div>
+<div class="block">Sets these BattleCharacters as the party
+ This function should really only ever be called once</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>party</code> - the battles character to the set the party to</dd>
 </dl>
 </section>
 </li>
