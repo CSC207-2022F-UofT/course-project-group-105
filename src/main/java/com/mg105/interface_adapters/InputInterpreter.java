@@ -1,5 +1,6 @@
 package com.mg105.interface_adapters;
 
+import com.mg105.use_cases.ChestInteractor;
 import com.mg105.controllers.TutorialTextController;
 import com.mg105.use_cases.CharacterMover;
 import com.mg105.use_cases.OpponentSetInteractor;
@@ -13,7 +14,7 @@ import java.awt.*;
 public class InputInterpreter {
     private final @NotNull CharacterMover mover;
     private final @NotNull Toggler toggler;
-
+    private final @NotNull ChestInteractor chestInteractor;
     private final @NotNull TutorialTextController textChanger;
 
     private final @NotNull OpponentSetInteractor opponentInteractor;
@@ -23,16 +24,18 @@ public class InputInterpreter {
      *
      * @param mover the character mover.
      * @param toggler the toggler used to change the displayed interface.
+     * @param chestInteractor the ChestInteractor used to interact with chests.
      * @param textChanger the text controller for tutorial
 
      */
     public InputInterpreter(@NotNull CharacterMover mover, @NotNull Toggler toggler,
-                            @NotNull TutorialTextController textChanger,
+                            @NotNull TutorialTextController textChanger, @NotNull ChestInteractor chestInteractor,
                             @NotNull OpponentSetInteractor opponentInteractor) {
         this.mover = mover;
         this.toggler = toggler;
         this.textChanger = textChanger;
         this.opponentInteractor = opponentInteractor;
+        this.chestInteractor = chestInteractor;
     }
 
     /**
@@ -58,6 +61,7 @@ public class InputInterpreter {
                         toggler.toggle(Toggler.ToggleableComponent.TUTORIAL);
                         textChanger.setChangeText();
                     }
+                    case "e" -> chestInteractor.getChestItem();
 
                     case " " ->
                         //There is a warning if curly brackets are used on this block.

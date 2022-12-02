@@ -1,6 +1,7 @@
 package com.mg105.use_cases;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.mg105.entities.GameState;
@@ -68,21 +69,11 @@ public class ChestInteractor {
     public void getChestItem() {
 
         TreasureChest chest = verifyChest();
-
         if (chest != null) {
-            Item reward = chest.open();
-            interactor.addItem(reward.getName());
-            // if (success) {
-                // TextGenerator.generateText("chest", reward);
-                // get TextGenerator to write something about how a chest was opened and this item was added to inventory
-            // }
-            // else {
-                // TextGenerator.generateText("inventory full");
-                // get TextGenerator to write something about how the chest can't be opened because the inventory is full
-            // }
+            if (!chest.isOpened()) {
+                Item reward = chest.open();
+                interactor.addItem(reward.getName());
+            }
         }
-
     }
-
-
 }
