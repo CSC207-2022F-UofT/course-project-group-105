@@ -1,14 +1,13 @@
 package com.mg105.use_cases;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.mg105.entities.GameState;
 import com.mg105.entities.Item;
 import com.mg105.entities.Room;
 import com.mg105.entities.TreasureChest;
-import com.mg105.use_cases.Inventory.InventoryInteractor;
+import com.mg105.use_cases.inventory.InventoryInteractor;
 
 public class ChestInteractor {
 
