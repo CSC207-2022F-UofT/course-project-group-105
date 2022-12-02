@@ -1,10 +1,11 @@
-package com.mg105.use_cases.Inventory;
+package com.mg105.use_cases.inventory;
 
 import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.GameState;
 import com.mg105.outputds.ItemDetails;
 import com.mg105.utils.ItemConstants;
 import com.mg105.utils.PartyConstants;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * This class is the only class that should directly interact with the inventory
@@ -21,7 +22,7 @@ public class InventoryInteractor {
 
     private final InventoryPresenterInterface response;
 
-    public InventoryInteractor(GameState gamestate, InventoryPresenterInterface response) {
+    public InventoryInteractor(@NotNull GameState gamestate, @NotNull InventoryPresenterInterface response) {
         this.state = gamestate;
         this.response = response;
     }
@@ -34,7 +35,7 @@ public class InventoryInteractor {
      * @see InventoryPresenterInterface
      */
 
-    public void addItem(String itemName) {
+    public void addItem(@NotNull String itemName) {
         if (!itemKindExists(itemName)) {
             response.addItem(false, getItemDetails(itemName));
             return;
@@ -53,7 +54,7 @@ public class InventoryInteractor {
      * @see InventoryPresenterInterface
      */
 
-    public void removeItem(String itemName) {
+    public void removeItem(@NotNull String itemName) {
 
         boolean isRemoved = state.getInventory().removeItem(itemName);
 
@@ -70,7 +71,7 @@ public class InventoryInteractor {
      * @see InventoryPresenterInterface
      */
 
-    public void useItem(String itemName, String characterName) {
+    public void useItem(@NotNull String itemName, @NotNull String characterName) {
 
         if (!(inParty(characterName))) {
             response.useItem(false, characterName, getItemDetails(itemName));
@@ -103,11 +104,11 @@ public class InventoryInteractor {
 
     }
 
-    private ItemDetails getItemDetails(String itemName) {
+    private @NotNull ItemDetails getItemDetails(@NotNull String itemName) {
         return new ItemDetails(itemName, getItemDescription(itemName), getItemCount(itemName), isItemUsable(itemName));
     }
 
-    private Boolean itemKindExists(String itemName) {
+    private Boolean itemKindExists(@NotNull String itemName) {
         for (String usableItemName : ItemConstants.ALL_ITEM_NAMES) {
             if (usableItemName.equals(itemName)) {
                 return true;
@@ -117,11 +118,11 @@ public class InventoryInteractor {
         return false;
     }
 
-    private int getItemCount(String itemName) {
+    private int getItemCount(@NotNull String itemName) {
         return state.getInventory().numberOfItems(itemName);
     }
 
-    private boolean inParty(String characterName) {
+    private boolean inParty(@NotNull String characterName) {
         for (String name : PartyConstants.ALL_PARTY_MEMBER_NAMES) {
             if (characterName.equals(name)) {
                 return true;
@@ -130,7 +131,7 @@ public class InventoryInteractor {
         return false;
     }
 
-    private boolean isItemUsable(String itemName) {
+    private boolean isItemUsable(@NotNull String itemName) {
         for (String usableItemName : ItemConstants.ALL_USABLE_ITEM_NAMES) {
             if (usableItemName.equals(itemName)) {
                 return true;
@@ -140,7 +141,7 @@ public class InventoryInteractor {
         return false;
     }
 
-    private String getItemDescription(String itemName) {
+    private @NotNull String getItemDescription(@NotNull String itemName) {
         for (int i = 0; i < ItemConstants.ALL_ITEM_NAMES.length; i++) {
             if (ItemConstants.ALL_ITEM_NAMES[i].equals(itemName)) {
                 return ItemConstants.ALL_ITEM_DESCRIPTIONS[i];
@@ -148,7 +149,7 @@ public class InventoryInteractor {
         }
 
         // should only be called iff the itemName does not exist
-        return "";
+        return "N/A";
     }
 
     public void removeInventory()

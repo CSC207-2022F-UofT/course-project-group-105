@@ -1,5 +1,7 @@
 package com.mg105.entities;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
 /**
@@ -34,7 +36,7 @@ public class Inventory {
      * @return the number of items in inventory with that name
      * @see Item
      */
-    public int numberOfItems(String itemName) {
+    public int numberOfItems(@NotNull String itemName) {
         int count = 0;
         for (Item item : this.items) {
             if (item.getName().equals(itemName)) {
@@ -60,7 +62,7 @@ public class Inventory {
      * @return whether of not the item was added to the inventory
      */
 
-    public boolean addItem(Item item) {
+    public boolean addItem(@NotNull Item item) {
         if (isFull()) {
             return false;
         }
@@ -76,7 +78,7 @@ public class Inventory {
      * @return true iff an item with itemName was removed from the inventory
      * @see Item
      */
-    public boolean removeItem(String itemName) {
+    public boolean removeItem(@NotNull String itemName) {
         for (int i = 0; i < numberOfItems(); i++) {
             if (this.items.get(i).getName().equals(itemName)) {
                 this.items.remove(i);
@@ -102,7 +104,7 @@ public class Inventory {
      * @see Consumable
      */
 
-    public boolean useItem(BattleCharacter character, String itemName) {
+    public boolean useItem(@NotNull BattleCharacter character, @NotNull String itemName) {
         for (int i = 0; i < numberOfItems(); i++) {
             Item item = this.items.get(i);
 
@@ -131,7 +133,7 @@ public class Inventory {
      * @param itemName the name of item that needs to be searched for
      * @return if there is an item in the inventory with a name that is itemName
      */
-    public boolean has(String itemName) {
+    public boolean has(@NotNull String itemName) {
         for (Item item : this.items) {
             if (item.getName().equals(itemName)) {
                 return true;

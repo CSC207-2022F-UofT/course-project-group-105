@@ -1,9 +1,14 @@
-package com.mg105.entities;
+package com.mg105.use_cases;
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-import com.mg105.use_cases.Inventory.InventoryInteractor;
+
+import com.mg105.entities.GameState;
+import com.mg105.entities.Item;
+import com.mg105.entities.Room;
+import com.mg105.entities.TreasureChest;
+import com.mg105.use_cases.inventory.InventoryInteractor;
 
 public class ChestInteractor {
 
@@ -19,25 +24,6 @@ public class ChestInteractor {
     public ChestInteractor(GameState gameState, InventoryInteractor interactor) {
         this.gameState = gameState;
         this.interactor = interactor;
-    }
-
-    /**
-     * Creates a list of four adjacent coordinates on the map next to the WalkingCharacter.
-     * @return the list of adjacent coordinates.
-     */
-    public static List<Point> getAdjacents(Point coordinates) {
-        int charX = coordinates.x;
-        int charY = coordinates.y;
-        ArrayList<Point> adjacents = new ArrayList<>();
-        Point adjacentOne = new Point((charX - 1), charY);
-        Point adjacentTwo = new Point((charX + 1), charY);
-        Point adjacentThree = new Point(charX, (charY - 1));
-        Point adjacentFour = new Point(charX, (charY + 1));
-        adjacents.add(adjacentOne);
-        adjacents.add(adjacentTwo);
-        adjacents.add(adjacentThree);
-        adjacents.add(adjacentFour);
-        return adjacents;
     }
 
     /**
@@ -65,7 +51,7 @@ public class ChestInteractor {
         Point charPosition = gameState.getWalkingCharacter().getCharPosition();
         Room room = gameState.getCurrentRoom();
         java.util.List<TreasureChest> chests = room.getChests();
-        List<Point> adjacents = getAdjacents(charPosition);
+        List<Point> adjacents = AdjacentGetter.getAdjacents(charPosition);
 
         for (Point adjacentSpot : adjacents) {
             if (compareLists(adjacentSpot, chests) != null) {
@@ -83,21 +69,11 @@ public class ChestInteractor {
     public void getChestItem() {
 
         TreasureChest chest = verifyChest();
-
         if (chest != null) {
-            Item reward = chest.open();
-            interactor.addItem(reward.getName());
-            // if (success) {
-                // TextGenerator.generateText("chest", reward);
-                // get TextGenerator to write something about how a chest was opened and this item was added to inventory
-            // }
-            // else {
-                // TextGenerator.generateText("inventory full");
-                // get TextGenerator to write something about how the chest can't be opened because the inventory is full
-            // }
+            if (!chest.isOpened()) {
+                Item reward = chest.open();
+                interactor.addItem(reward.getName());
+            }
         }
-
     }
-
-
 }
