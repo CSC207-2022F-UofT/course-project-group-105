@@ -15,7 +15,7 @@ public class ReplayGenerator {
      * @return a new BattleCharacter that inherit all the previous player's attributes
      */
     public BattleCharacter attributeInheritance(BattleCharacter battleCharacter) {
-        BattleCharacter reincarnation_character = new BattleCharacter(battleCharacter.getHp(), battleCharacter.getName(), battleCharacter.getDmg(), battleCharacter.getSpeed(), battleCharacter.getMoveOne(), battleCharacter.getMoveTwo());
+        BattleCharacter reincarnation_character = new BattleCharacter(battleCharacter.getHp(), battleCharacter.getName(), battleCharacter.getDmg(), battleCharacter.getSpeed(), true,battleCharacter.getMoveOne(), battleCharacter.getMoveTwo());
 
         return reincarnation_character;
     }

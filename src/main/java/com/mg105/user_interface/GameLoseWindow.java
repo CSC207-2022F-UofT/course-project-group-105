@@ -11,7 +11,7 @@ import java.awt.event.MouseEvent;
 public class GameLoseWindow extends JFrame {
     int state = 0;
 
-    Scene deadScene = new Scene(new VBox());
+//    Scene deadScene = new Scene(new VBox());
     Image background = Toolkit.getDefaultToolkit().getImage("imgs/background2.jpg");
     public void launch() {
         setVisible(true);
