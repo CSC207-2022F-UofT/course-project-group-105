@@ -2,6 +2,7 @@ package com.mg105.entities;
 
 import com.mg105.entities.items.HealthPotion;
 import com.mg105.outputds.ItemDetails;
+import com.mg105.use_cases.ChestInteractor;
 import com.mg105.use_cases.inventory.InventoryInteractor;
 import com.mg105.use_cases.inventory.InventoryPresenterInterface;
 import com.mg105.utils.PartyConstants;

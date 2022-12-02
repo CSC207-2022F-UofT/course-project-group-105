@@ -6,16 +6,10 @@ import com.mg105.data_control.access.PartyDataAccess;
 import com.mg105.data_control.creator.MoveDataCreator;
 import com.mg105.data_control.creator.PartyDataCreator;
 import com.mg105.entities.*;
-import com.mg105.interface_adapters.InputInterpreter;
-import com.mg105.interface_adapters.MapGeneratorInterpreter;
-import com.mg105.interface_adapters.RoomInterpreter;
-import com.mg105.interface_adapters.Toggler;
+import com.mg105.interface_adapters.*;
 import com.mg105.interface_adapters.inventory.InventoryController;
 import com.mg105.interface_adapters.inventory.InventoryPresenter;
-import com.mg105.use_cases.CharacterMover;
-import com.mg105.use_cases.MapGenerator;
-import com.mg105.use_cases.RoomGetter;
-import com.mg105.use_cases.RoomUpdater;
+import com.mg105.use_cases.*;
 import com.mg105.use_cases.inventory.InventoryInteractor;
 import com.mg105.use_cases.set_up.data_system_creator.CreateDataStorage;
 import com.mg105.use_cases.set_up.data_system_creator.DataStorageSystemCreator;
@@ -89,11 +83,30 @@ public class Application extends javafx.application.Application {
         drawableComponents.put(Toggler.ToggleableComponent.TUTORIAL, tutorialDisplay);
         //////////////////////
 
+        //WalkingMenu scene//
+        WalkVisInteractor walkVisInteractor = new WalkVisInteractor(state);
+        WalkVisController walkVisController = new WalkVisController(walkVisInteractor);
+        WalkingMenu walkingMenu = new WalkingMenu(walkVisController);
+        drawableComponents.put(Toggler.ToggleableComponent.WALK_MENU, walkingMenu);
+        /////////////////////
+
+        //BattleMenu scene//
+        //OpponentSet setup
+        OpponentSetInteractor opponentInteractor = new OpponentSetInteractor(state);
+
+        //Battle setup
+        BattleInteractor battleInteractor = new BattleInteractor(state);
+        BattlePresenter battlePresenter = new BattlePresenter(battleInteractor);
+        BattleMenu battleMenu = new BattleMenu(battlePresenter);
+        drawableComponents.put(Toggler.ToggleableComponent.BATTLE, battleMenu);
+        /////////////////////
+
         RoomUpdater roomUpdater = new RoomUpdater();
         roomUpdater.addObserver(mapDrawer);
 
         CharacterMover characterMover = new CharacterMover(state, roomUpdater);
-        InputInterpreter inputInterpreter = new InputInterpreter(characterMover, sceneController, textChanger);
+        InputInterpreter inputInterpreter = new InputInterpreter(characterMover, sceneController, textChanger,
+            opponentInteractor);
 
         InputListener inputListener = new InputListener(inputInterpreter);
         primaryStage.addEventFilter(KeyEvent.KEY_TYPED, inputListener);
