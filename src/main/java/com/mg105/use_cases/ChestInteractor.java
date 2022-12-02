@@ -9,7 +9,6 @@ import com.mg105.entities.Item;
 import com.mg105.entities.Room;
 import com.mg105.entities.TreasureChest;
 import com.mg105.use_cases.Inventory.InventoryInteractor;
-import javafx.scene.control.Alert;
 
 public class ChestInteractor {
 
@@ -93,14 +92,6 @@ public class ChestInteractor {
             if (!chest.isOpened()) {
                 Item reward = chest.open();
                 interactor.addItem(reward.getName());
-                Alert chestSuccess = new Alert(Alert.AlertType.INFORMATION);
-                chestSuccess.setContentText("The chest contained a " + reward.getName() + "! It has been added to your inventory.");
-                chestSuccess.show();
-            }
-            else {
-                Alert chestFailure = new Alert(Alert.AlertType.INFORMATION);
-                chestFailure.setContentText("The chest is empty!");
-                chestFailure.show();
             }
         }
     }
