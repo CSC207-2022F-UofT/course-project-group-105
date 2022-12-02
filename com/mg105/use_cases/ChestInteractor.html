@@ -5,7 +5,7 @@
 <title>ChestInteractor (course-project-group-105 API)</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="description" content="declaration: package: com.mg105.entities, class: ChestInteractor">
+<meta name="description" content="declaration: package: com.mg105.use_cases, class: ChestInteractor">
 <meta name="generator" content="javadoc/ClassWriterImpl">
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.min.css" title="Style">
@@ -67,11 +67,11 @@ loadScripts(document, 'script');</script>
 <main role="main">
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">com.mg105.entities</a></div>
+<div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">com.mg105.use_cases</a></div>
 <h1 title="Class ChestInteractor" class="title">Class ChestInteractor</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
-<div class="inheritance">com.mg105.entities.ChestInteractor</div>
+<div class="inheritance">com.mg105.use_cases.ChestInteractor</div>
 </div>
 <section class="class-description" id="class-description">
 <hr>
@@ -88,8 +88,8 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.mg105.entities.GameState,com.mg105.use_cases.inventory.InventoryInteractor)" class="member-name-link">ChestInteractor</a><wbr>(<a href="GameState.html" title="class in com.mg105.entities">GameState</a>&nbsp;gameState,
- <a href="../use_cases/inventory/InventoryInteractor.html" title="class in com.mg105.use_cases.inventory">InventoryInteractor</a>&nbsp;interactor)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.mg105.entities.GameState,com.mg105.use_cases.inventory.InventoryInteractor)" class="member-name-link">ChestInteractor</a><wbr>(<a href="../entities/GameState.html" title="class in com.mg105.entities">GameState</a>&nbsp;gameState,
+ <a href="inventory/InventoryInteractor.html" title="class in com.mg105.use_cases.inventory">InventoryInteractor</a>&nbsp;interactor)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Creates a ChestInteractor to interact with chests in a GameState.</div>
 </div>
@@ -107,26 +107,21 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="TreasureChest.html" title="class in com.mg105.entities">TreasureChest</a></code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../entities/TreasureChest.html" title="class in com.mg105.entities">TreasureChest</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#compareLists(java.awt.Point,java.util.List)" class="member-name-link">compareLists</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/awt/Point.html" title="class or interface in java.awt" class="external-link">Point</a>&nbsp;coordinates,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="TreasureChest.html" title="class in com.mg105.entities">TreasureChest</a>&gt;&nbsp;chests)</code></div>
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../entities/TreasureChest.html" title="class in com.mg105.entities">TreasureChest</a>&gt;&nbsp;chests)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Checks if a given spot on the map contains a TreasureChest.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/awt/Point.html" title="class or interface in java.awt" class="external-link">Point</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getAdjacents(java.awt.Point)" class="member-name-link">getAdjacents</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/awt/Point.html" title="class or interface in java.awt" class="external-link">Point</a>&nbsp;coordinates)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Creates a list of four adjacent coordinates on the map next to the WalkingCharacter.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getChestItem()" class="member-name-link">getChestItem</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getChestItem()" class="member-name-link">getChestItem</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Adds the item in an adjacent chest (if one exists) to the inventory,
  then shows the user text describing what happened.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="TreasureChest.html" title="class in com.mg105.entities">TreasureChest</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#verifyChest()" class="member-name-link">verifyChest</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../entities/TreasureChest.html" title="class in com.mg105.entities">TreasureChest</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#verifyChest()" class="member-name-link">verifyChest</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Checks if a chest is adjacent to the player character.</div>
 </div>
 </div>
@@ -149,8 +144,8 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(com.mg105.entities.GameState,com.mg105.use_cases.inventory.InventoryInteractor)">
 <h3>ChestInteractor</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ChestInteractor</span><wbr><span class="parameters">(<a href="GameState.html" title="class in com.mg105.entities">GameState</a>&nbsp;gameState,
- <a href="../use_cases/inventory/InventoryInteractor.html" title="class in com.mg105.use_cases.inventory">InventoryInteractor</a>&nbsp;interactor)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ChestInteractor</span><wbr><span class="parameters">(<a href="../entities/GameState.html" title="class in com.mg105.entities">GameState</a>&nbsp;gameState,
+ <a href="inventory/InventoryInteractor.html" title="class in com.mg105.use_cases.inventory">InventoryInteractor</a>&nbsp;interactor)</span></div>
 <div class="block">Creates a ChestInteractor to interact with chests in a GameState.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -168,21 +163,10 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="getAdjacents(java.awt.Point)">
-<h3>getAdjacents</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/awt/Point.html" title="class or interface in java.awt" class="external-link">Point</a>&gt;</span>&nbsp;<span class="element-name">getAdjacents</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/awt/Point.html" title="class or interface in java.awt" class="external-link">Point</a>&nbsp;coordinates)</span></div>
-<div class="block">Creates a list of four adjacent coordinates on the map next to the WalkingCharacter.</div>
-<dl class="notes">
-<dt>Returns:</dt>
-<dd>the list of adjacent coordinates.</dd>
-</dl>
-</section>
-</li>
-<li>
 <section class="detail" id="compareLists(java.awt.Point,java.util.List)">
 <h3>compareLists</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="TreasureChest.html" title="class in com.mg105.entities">TreasureChest</a></span>&nbsp;<span class="element-name">compareLists</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/awt/Point.html" title="class or interface in java.awt" class="external-link">Point</a>&nbsp;coordinates,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="TreasureChest.html" title="class in com.mg105.entities">TreasureChest</a>&gt;&nbsp;chests)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../entities/TreasureChest.html" title="class in com.mg105.entities">TreasureChest</a></span>&nbsp;<span class="element-name">compareLists</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/awt/Point.html" title="class or interface in java.awt" class="external-link">Point</a>&nbsp;coordinates,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../entities/TreasureChest.html" title="class in com.mg105.entities">TreasureChest</a>&gt;&nbsp;chests)</span></div>
 <div class="block">Checks if a given spot on the map contains a TreasureChest.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -193,7 +177,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="verifyChest()">
 <h3>verifyChest</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="TreasureChest.html" title="class in com.mg105.entities">TreasureChest</a></span>&nbsp;<span class="element-name">verifyChest</span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../entities/TreasureChest.html" title="class in com.mg105.entities">TreasureChest</a></span>&nbsp;<span class="element-name">verifyChest</span>()</div>
 <div class="block">Checks if a chest is adjacent to the player character.</div>
 <dl class="notes">
 <dt>Returns:</dt>

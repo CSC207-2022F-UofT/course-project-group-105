@@ -223,9 +223,9 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="com/mg105/interface_adapters/TileType.html#CHEST" class="member-name-link">CHEST</a> - Enum constant in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/TileType.html" title="enum class in com.mg105.interface_adapters">TileType</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="com/mg105/entities/ChestInteractor.html" class="type-name-link" title="class in com.mg105.entities">ChestInteractor</a> - Class in <a href="com/mg105/entities/package-summary.html">com.mg105.entities</a></dt>
+<dt><a href="com/mg105/use_cases/ChestInteractor.html" class="type-name-link" title="class in com.mg105.use_cases">ChestInteractor</a> - Class in <a href="com/mg105/use_cases/package-summary.html">com.mg105.use_cases</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="com/mg105/entities/ChestInteractor.html#%3Cinit%3E(com.mg105.entities.GameState,com.mg105.use_cases.inventory.InventoryInteractor)" class="member-name-link">ChestInteractor(GameState, InventoryInteractor)</a> - Constructor for class com.mg105.entities.<a href="com/mg105/entities/ChestInteractor.html" title="class in com.mg105.entities">ChestInteractor</a></dt>
+<dt><a href="com/mg105/use_cases/ChestInteractor.html#%3Cinit%3E(com.mg105.entities.GameState,com.mg105.use_cases.inventory.InventoryInteractor)" class="member-name-link">ChestInteractor(GameState, InventoryInteractor)</a> - Constructor for class com.mg105.use_cases.<a href="com/mg105/use_cases/ChestInteractor.html" title="class in com.mg105.use_cases">ChestInteractor</a></dt>
 <dd>
 <div class="block">Creates a ChestInteractor to interact with chests in a GameState.</div>
 </dd>
@@ -263,7 +263,11 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/utils/package-summary.html">com.mg105.utils</a> - package com.mg105.utils</dt>
 <dd>&nbsp;</dd>
-<dt><a href="com/mg105/entities/ChestInteractor.html#compareLists(java.awt.Point,java.util.List)" class="member-name-link">compareLists(Point, List&lt;TreasureChest&gt;)</a> - Static method in class com.mg105.entities.<a href="com/mg105/entities/ChestInteractor.html" title="class in com.mg105.entities">ChestInteractor</a></dt>
+<dt><a href="com/mg105/use_cases/OpponentSetInteractor.html#compareLists(java.awt.Point,java.util.List)" class="member-name-link">compareLists(Point, List&lt;OpponentSet&gt;)</a> - Static method in class com.mg105.use_cases.<a href="com/mg105/use_cases/OpponentSetInteractor.html" title="class in com.mg105.use_cases">OpponentSetInteractor</a></dt>
+<dd>
+<div class="block">Checks if a given spot on the map contains an OpponentSet.</div>
+</dd>
+<dt><a href="com/mg105/use_cases/ChestInteractor.html#compareLists(java.awt.Point,java.util.List)" class="member-name-link">compareLists(Point, List&lt;TreasureChest&gt;)</a> - Static method in class com.mg105.use_cases.<a href="com/mg105/use_cases/ChestInteractor.html" title="class in com.mg105.use_cases">ChestInteractor</a></dt>
 <dd>
 <div class="block">Checks if a given spot on the map contains a TreasureChest.</div>
 </dd>
@@ -309,8 +313,7 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="com/mg105/use_cases/BattleInteractor.html#createEncounter()" class="member-name-link">createEncounter()</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/BattleInteractor.html" title="class in com.mg105.use_cases">BattleInteractor</a></dt>
 <dd>
-<div class="block">Creates a new encounter with random opponents and sets it as the current encounter in GameState
- Could use the Builder design pattern here.</div>
+<div class="block">Creates a new encounter with random opponents and sets it as the current encounter in GameState.</div>
 </dd>
 <dt><a href="com/mg105/use_cases/inventory/ItemFactory.html#createItem(java.lang.String)" class="member-name-link">createItem(String)</a> - Method in class com.mg105.use_cases.inventory.<a href="com/mg105/use_cases/inventory/ItemFactory.html" title="class in com.mg105.use_cases.inventory">ItemFactory</a></dt>
 <dd>
@@ -421,10 +424,6 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Check if specific action has been performed</div>
 </dd>
-<dt><a href="com/mg105/entities/ChestInteractor.html#getAdjacents(java.awt.Point)" class="member-name-link">getAdjacents(Point)</a> - Static method in class com.mg105.entities.<a href="com/mg105/entities/ChestInteractor.html" title="class in com.mg105.entities">ChestInteractor</a></dt>
-<dd>
-<div class="block">Creates a list of four adjacent coordinates on the map next to the WalkingCharacter.</div>
-</dd>
 <dt><a href="com/mg105/entities/Battle.html#getBattleStatus()" class="member-name-link">getBattleStatus()</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/Battle.html" title="class in com.mg105.entities">Battle</a></dt>
 <dd>
 <div class="block">Returns whether the encounter has been won, lost or neither.</div>
@@ -451,7 +450,7 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="com/mg105/entities/WalkingCharacter.html#getCharPosition()" class="member-name-link">getCharPosition()</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/WalkingCharacter.html" title="class in com.mg105.entities">WalkingCharacter</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="com/mg105/entities/ChestInteractor.html#getChestItem()" class="member-name-link">getChestItem()</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/ChestInteractor.html" title="class in com.mg105.entities">ChestInteractor</a></dt>
+<dt><a href="com/mg105/use_cases/ChestInteractor.html#getChestItem()" class="member-name-link">getChestItem()</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/ChestInteractor.html" title="class in com.mg105.use_cases">ChestInteractor</a></dt>
 <dd>
 <div class="block">Adds the item in an adjacent chest (if one exists) to the inventory,
  then shows the user text describing what happened.</div>
@@ -495,6 +494,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/mg105/use_cases/RoomGetter.html#getCurrentRoomLayout()" class="member-name-link">getCurrentRoomLayout()</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/RoomGetter.html" title="class in com.mg105.use_cases">RoomGetter</a></dt>
 <dd>
 <div class="block">Get the current room.</div>
+</dd>
+<dt><a href="com/mg105/entities/GameState.html#getCurrOpponent()" class="member-name-link">getCurrOpponent()</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/GameState.html" title="class in com.mg105.entities">GameState</a></dt>
+<dd>
+<div class="block">Returns the currently selected OpponentSet.</div>
 </dd>
 <dt><a href="com/mg105/entities/Move.html#getDamageChange()" class="member-name-link">getDamageChange()</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/Move.html" title="class in com.mg105.entities">Move</a></dt>
 <dd>
@@ -791,7 +794,7 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">InputInterpreter takes in keyboard inputs and distributes them to their appropriate use cases.</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/InputInterpreter.html#%3Cinit%3E(com.mg105.use_cases.CharacterMover,com.mg105.interface_adapters.Toggler,com.mg105.controllers.TutorialTextController)" class="member-name-link">InputInterpreter(CharacterMover, Toggler, TutorialTextController)</a> - Constructor for class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/InputInterpreter.html" title="class in com.mg105.interface_adapters">InputInterpreter</a></dt>
+<dt><a href="com/mg105/interface_adapters/InputInterpreter.html#%3Cinit%3E(com.mg105.use_cases.CharacterMover,com.mg105.interface_adapters.Toggler,com.mg105.controllers.TutorialTextController,com.mg105.use_cases.OpponentSetInteractor)" class="member-name-link">InputInterpreter(CharacterMover, Toggler, TutorialTextController, OpponentSetInteractor)</a> - Constructor for class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/InputInterpreter.html" title="class in com.mg105.interface_adapters">InputInterpreter</a></dt>
 <dd>
 <div class="block">Create a new InputInterpreter that translates keyboard inputs to appropriate function invocations.</div>
 </dd>
@@ -1093,6 +1096,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Create a new set of opponents to be displayed in a room.</div>
 </dd>
+<dt><a href="com/mg105/use_cases/OpponentSetInteractor.html" class="type-name-link" title="class in com.mg105.use_cases">OpponentSetInteractor</a> - Class in <a href="com/mg105/use_cases/package-summary.html">com.mg105.use_cases</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/mg105/use_cases/OpponentSetInteractor.html#%3Cinit%3E(com.mg105.entities.GameState)" class="member-name-link">OpponentSetInteractor(GameState)</a> - Constructor for class com.mg105.use_cases.<a href="com/mg105/use_cases/OpponentSetInteractor.html" title="class in com.mg105.use_cases">OpponentSetInteractor</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <h2 class="title" id="I:P">P</h2>
 <dl class="index">
@@ -1301,6 +1308,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Set the current room.</div>
 </dd>
+<dt><a href="com/mg105/entities/GameState.html#setCurrOpponent(com.mg105.entities.OpponentSet)" class="member-name-link">setCurrOpponent(OpponentSet)</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/GameState.html" title="class in com.mg105.entities">GameState</a></dt>
+<dd>
+<div class="block">Sets the current OpponentSet to be faced.</div>
+</dd>
 <dt><a href="com/mg105/entities/GameState.html#setMap(com.mg105.entities.Room,com.mg105.entities.Room)" class="member-name-link">setMap(Room, Room)</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/GameState.html" title="class in com.mg105.entities">GameState</a></dt>
 <dd>
 <div class="block">Swap out the map of the game state to a new one defined by an interconnected graph between firstRoom and
@@ -1317,6 +1328,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/mg105/entities/Battle.html#setNumTokens(int)" class="member-name-link">setNumTokens(int)</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/Battle.html" title="class in com.mg105.entities">Battle</a></dt>
 <dd>
 <div class="block">Modifies the number of tokens rewarded to the player upon victory</div>
+</dd>
+<dt><a href="com/mg105/use_cases/OpponentSetInteractor.html#setOpponentSet()" class="member-name-link">setOpponentSet()</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/OpponentSetInteractor.html" title="class in com.mg105.use_cases">OpponentSetInteractor</a></dt>
+<dd>
+<div class="block">Sets the OpponentSet in the GameState to the one adjacent to the player.</div>
 </dd>
 <dt><a href="com/mg105/entities/GameState.html#setParty(com.mg105.entities.BattleCharacter%5B%5D)" class="member-name-link">setParty(BattleCharacter[])</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/GameState.html" title="class in com.mg105.entities">GameState</a></dt>
 <dd>
@@ -1587,13 +1602,19 @@ the order they are declared.</div>
 <div class="block">Returns an array containing the constants of this enum class, in
 the order they are declared.</div>
 </dd>
-<dt><a href="com/mg105/entities/ChestInteractor.html#verifyChest()" class="member-name-link">verifyChest()</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/ChestInteractor.html" title="class in com.mg105.entities">ChestInteractor</a></dt>
+<dt><a href="com/mg105/use_cases/ChestInteractor.html#verifyChest()" class="member-name-link">verifyChest()</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/ChestInteractor.html" title="class in com.mg105.use_cases">ChestInteractor</a></dt>
 <dd>
 <div class="block">Checks if a chest is adjacent to the player character.</div>
+</dd>
+<dt><a href="com/mg105/use_cases/OpponentSetInteractor.html#verifyOpponent()" class="member-name-link">verifyOpponent()</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/OpponentSetInteractor.html" title="class in com.mg105.use_cases">OpponentSetInteractor</a></dt>
+<dd>
+<div class="block">Checks if an OpponentSet is adjacent to the player character.</div>
 </dd>
 </dl>
 <h2 class="title" id="I:W">W</h2>
 <dl class="index">
+<dt><a href="com/mg105/interface_adapters/Toggler.ToggleableComponent.html#WALK_MENU" class="member-name-link">WALK_MENU</a> - Enum constant in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/Toggler.ToggleableComponent.html" title="enum class in com.mg105.interface_adapters">Toggler.ToggleableComponent</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="com/mg105/entities/WalkingCharacter.html" class="type-name-link" title="class in com.mg105.entities">WalkingCharacter</a> - Class in <a href="com/mg105/entities/package-summary.html">com.mg105.entities</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/entities/WalkingCharacter.html#%3Cinit%3E(java.awt.Point)" class="member-name-link">WalkingCharacter(Point)</a> - Constructor for class com.mg105.entities.<a href="com/mg105/entities/WalkingCharacter.html" title="class in com.mg105.entities">WalkingCharacter</a></dt>
