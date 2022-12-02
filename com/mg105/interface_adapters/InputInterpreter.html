@@ -89,9 +89,10 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.mg105.use_cases.CharacterMover,com.mg105.interface_adapters.Toggler,com.mg105.controllers.TutorialTextController,com.mg105.use_cases.OpponentSetInteractor)" class="member-name-link">InputInterpreter</a><wbr>(@NotNull <a href="../use_cases/CharacterMover.html" title="class in com.mg105.use_cases">CharacterMover</a>&nbsp;mover,
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.mg105.use_cases.CharacterMover,com.mg105.interface_adapters.Toggler,com.mg105.controllers.TutorialTextController,com.mg105.use_cases.ChestInteractor,com.mg105.use_cases.OpponentSetInteractor)" class="member-name-link">InputInterpreter</a><wbr>(@NotNull <a href="../use_cases/CharacterMover.html" title="class in com.mg105.use_cases">CharacterMover</a>&nbsp;mover,
  @NotNull <a href="Toggler.html" title="interface in com.mg105.interface_adapters">Toggler</a>&nbsp;toggler,
  @NotNull <a href="../controllers/TutorialTextController.html" title="class in com.mg105.controllers">TutorialTextController</a>&nbsp;textChanger,
+ @NotNull <a href="../use_cases/ChestInteractor.html" title="class in com.mg105.use_cases">ChestInteractor</a>&nbsp;chestInteractor,
  @NotNull <a href="../use_cases/OpponentSetInteractor.html" title="class in com.mg105.use_cases">OpponentSetInteractor</a>&nbsp;opponentInteractor)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Create a new InputInterpreter that translates keyboard inputs to appropriate function invocations.</div>
@@ -133,7 +134,7 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(com.mg105.use_cases.CharacterMover,com.mg105.interface_adapters.Toggler,com.mg105.controllers.TutorialTextController,com.mg105.use_cases.OpponentSetInteractor)">
+<section class="detail" id="&lt;init&gt;(com.mg105.use_cases.CharacterMover,com.mg105.interface_adapters.Toggler,com.mg105.controllers.TutorialTextController,com.mg105.use_cases.ChestInteractor,com.mg105.use_cases.OpponentSetInteractor)">
 <h3>InputInterpreter</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">InputInterpreter</span><wbr><span class="parameters">(@NotNull
  @NotNull <a href="../use_cases/CharacterMover.html" title="class in com.mg105.use_cases">CharacterMover</a>&nbsp;mover,
@@ -142,12 +143,15 @@ loadScripts(document, 'script');</script>
  @NotNull
  @NotNull <a href="../controllers/TutorialTextController.html" title="class in com.mg105.controllers">TutorialTextController</a>&nbsp;textChanger,
  @NotNull
+ @NotNull <a href="../use_cases/ChestInteractor.html" title="class in com.mg105.use_cases">ChestInteractor</a>&nbsp;chestInteractor,
+ @NotNull
  @NotNull <a href="../use_cases/OpponentSetInteractor.html" title="class in com.mg105.use_cases">OpponentSetInteractor</a>&nbsp;opponentInteractor)</span></div>
 <div class="block">Create a new InputInterpreter that translates keyboard inputs to appropriate function invocations.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>mover</code> - the character mover.</dd>
 <dd><code>toggler</code> - the toggler used to change the displayed interface.</dd>
+<dd><code>chestInteractor</code> - the ChestInteractor used to interact with chests.</dd>
 <dd><code>textChanger</code> - the text controller for tutorial</dd>
 </dl>
 </section>
