@@ -26,7 +26,9 @@ public class TutorialTextController {
     /**
      * Go to the next tutorial phase
      */
-    public void nextPhase() { this.tutorial.nextPhase(); }
+    public void nextPhase() {
+        this.tutorial.nextPhase();
+    }
 
     /**
      * Make text start changing

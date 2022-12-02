@@ -12,6 +12,8 @@ dependencies {
     implementation 'junit:junit:4.13.1'
     compileOnly 'org.jetbrains:annotations:23.0.0'
     testImplementation('org.junit.jupiter:junit-jupiter:5.6.0')
+
+    implementation 'com.opencsv:opencsv:5.7.1'
 }
 
 java {
@@ -28,7 +30,7 @@ test {
 
 javafx {
     version = '17'
-    modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.base', 'javafx.graphics', 'javafx.media' ]
+    modules = ['javafx.controls', 'javafx.fxml', 'javafx.base', 'javafx.graphics', 'javafx.media']
 }
 
 application {

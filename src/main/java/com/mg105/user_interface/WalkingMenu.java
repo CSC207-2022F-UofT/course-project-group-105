@@ -7,11 +7,11 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -53,7 +53,10 @@ public class WalkingMenu implements EventHandler<ActionEvent>, Toggleable {
 
         select = new Button("Confirm");
         select.setOnAction(this);
-        buttons.getChildren().addAll(radA, radB, radC, radD, select);
+
+        Label exitLbl = new Label("Press space bar to exit.");
+
+        buttons.getChildren().addAll(radA, radB, radC, radD, select, exitLbl);
         buttons.setAlignment(Pos.CENTER);
         layout.getChildren().addAll(buttons);
 
@@ -74,8 +77,6 @@ public class WalkingMenu implements EventHandler<ActionEvent>, Toggleable {
                 controller.changePlayerSprite("D");
             }
         }
-
-        ((Stage) ((Button) source).getScene().getWindow()).close();
     }
 
     /**

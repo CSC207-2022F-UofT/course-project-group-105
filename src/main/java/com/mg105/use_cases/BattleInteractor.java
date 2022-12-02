@@ -33,10 +33,10 @@ public class BattleInteractor {
     }
 
     /**
-     * Creates a new encounter with random opponents and sets it as the current encounter in GameState
-     * Could use the Builder design pattern here.
+     * Creates a new encounter with random opponents and sets it as the current encounter in GameState.
      */
     public void createEncounter() {
+        /* OLD RANDOMLY GENERATED OPPONENTS CODE
         Random rand = new Random();
 
         ArrayList<BattleCharacter> opponents = new ArrayList<>();
@@ -51,6 +51,8 @@ public class BattleInteractor {
                 charDmg, charSpeed, true, m1, m2);
             opponents.add(character);
         }
+         */
+        ArrayList<BattleCharacter> opponents = new ArrayList<>(state.getCurrOpponent().getOpponents());
         ArrayList<BattleCharacter> party = this.state.getParty();
         Battle b = new Battle(opponents, party);
         this.state.setCurrEncounter(b);

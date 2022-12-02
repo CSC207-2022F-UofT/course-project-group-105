@@ -3,7 +3,7 @@ package com.mg105.interface_adapters;
 import com.mg105.use_cases.ChestInteractor;
 import com.mg105.controllers.TutorialTextController;
 import com.mg105.use_cases.CharacterMover;
-import com.mg105.user_interface.SceneController;
+import com.mg105.use_cases.OpponentSetInteractor;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
@@ -17,6 +17,8 @@ public class InputInterpreter {
     private final @NotNull ChestInteractor chestInteractor;
     private final @NotNull TutorialTextController textChanger;
 
+    private final @NotNull OpponentSetInteractor opponentInteractor;
+
     /**
      * Create a new InputInterpreter that translates keyboard inputs to appropriate function invocations.
      *
@@ -26,11 +28,13 @@ public class InputInterpreter {
      * @param textChanger the text controller for tutorial
 
      */
-    public InputInterpreter(@NotNull CharacterMover mover, @NotNull Toggler toggler, @NotNull ChestInteractor chestInteractor,
-                            @NotNull TutorialTextController textChanger) {
+    public InputInterpreter(@NotNull CharacterMover mover, @NotNull Toggler toggler,
+                            @NotNull TutorialTextController textChanger, @NotNull ChestInteractor chestInteractor,
+                            @NotNull OpponentSetInteractor opponentInteractor) {
         this.mover = mover;
         this.toggler = toggler;
         this.textChanger = textChanger;
+        this.opponentInteractor = opponentInteractor;
         this.chestInteractor = chestInteractor;
     }
 
@@ -58,6 +62,17 @@ public class InputInterpreter {
                         textChanger.setChangeText();
                     }
                     case "e" -> chestInteractor.getChestItem();
+
+                    case " " ->
+                        //There is a warning if curly brackets are used on this block.
+                        // I don't know what is correct to do in this situation.
+                        toggler.toggle(Toggler.ToggleableComponent.WALK_MENU);
+
+                    case "f" -> {
+                        if (opponentInteractor.setOpponentSet()) {
+                            toggler.toggle(Toggler.ToggleableComponent.BATTLE);
+                        }
+                    }
                 }
             }
             case TUTORIAL -> {
@@ -67,6 +82,12 @@ public class InputInterpreter {
                         textChanger.setChangeText();
                     }
                     case "k" -> textChanger.setShowControls(true);
+                }
+            }
+
+            case WALK_MENU -> {
+                if (key.equals(" ")) {
+                        toggler.toggle(Toggler.ToggleableComponent.WALK_MENU);
                 }
             }
         }

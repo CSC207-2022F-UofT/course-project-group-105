@@ -16,7 +16,6 @@ public class TutorialTextDisplay {
      * Check if specific action has been performed
      *
      * @param displayedText the String representing the current phase
-     *
      * @return the actual text displayed to the user
      */
     public String showBottomText(String displayedText) {
