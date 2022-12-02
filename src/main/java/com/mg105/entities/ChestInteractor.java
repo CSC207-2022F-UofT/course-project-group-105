@@ -1,9 +1,10 @@
 package com.mg105.entities;
 
+import com.mg105.use_cases.inventory.InventoryInteractor;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-import com.mg105.use_cases.Inventory.InventoryInteractor;
 
 public class ChestInteractor {
 
@@ -13,7 +14,7 @@ public class ChestInteractor {
     /**
      * Creates a ChestInteractor to interact with chests in a GameState.
      *
-     * @param gameState the game state.
+     * @param gameState  the game state.
      * @param interactor the inventory interactor.
      */
     public ChestInteractor(GameState gameState, InventoryInteractor interactor) {
@@ -23,6 +24,7 @@ public class ChestInteractor {
 
     /**
      * Creates a list of four adjacent coordinates on the map next to the WalkingCharacter.
+     *
      * @return the list of adjacent coordinates.
      */
     public static List<Point> getAdjacents(Point coordinates) {
@@ -88,12 +90,12 @@ public class ChestInteractor {
             Item reward = chest.open();
             interactor.addItem(reward.getName());
             // if (success) {
-                // TextGenerator.generateText("chest", reward);
-                // get TextGenerator to write something about how a chest was opened and this item was added to inventory
+            // TextGenerator.generateText("chest", reward);
+            // get TextGenerator to write something about how a chest was opened and this item was added to inventory
             // }
             // else {
-                // TextGenerator.generateText("inventory full");
-                // get TextGenerator to write something about how the chest can't be opened because the inventory is full
+            // TextGenerator.generateText("inventory full");
+            // get TextGenerator to write something about how the chest can't be opened because the inventory is full
             // }
         }
 

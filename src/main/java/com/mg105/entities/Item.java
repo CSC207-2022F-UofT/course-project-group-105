@@ -1,5 +1,7 @@
 package com.mg105.entities;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * An item represents something that can be used in some manner to change something about the game environment
  * <p>
@@ -10,7 +12,7 @@ public abstract class Item {
     final private String NAME;
     final private String DESCRIPTION;
 
-    public Item(String name, String description) {
+    public Item(@NotNull String name, @NotNull String description) {
 
         this.NAME = name;
         this.DESCRIPTION = description;
@@ -21,7 +23,7 @@ public abstract class Item {
      *
      * @return the name of this item
      */
-    public String getName() {
+    public @NotNull String getName() {
         return this.NAME;
     }
 }
