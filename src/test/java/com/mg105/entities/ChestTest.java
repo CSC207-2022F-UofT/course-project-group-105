@@ -14,14 +14,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ChestTest {
 
-    private static Point coordinates1 = new Point(0, 1);
-    private static Point coordinates2 = new Point(3, 3);
-    private static Point coordinates3 = new Point(2, 3);
-    private static WalkingCharacter character = new WalkingCharacter(coordinates3);
-    private static Inventory inventory = new Inventory();
-    private static BattleCharacter[] party = new BattleCharacter[PartyConstants.ALL_PARTY_MEMBER_NAMES.length];
-    private static GameState game = new GameState(inventory, party, character);
-    private static InventoryPresenterInterface pres = new InventoryPresenterInterface() {
+    private static final Point coordinates1 = new Point(0, 1);
+    private static final Point coordinates2 = new Point(3, 3);
+    private static final Point coordinates3 = new Point(2, 3);
+    private static final WalkingCharacter character = new WalkingCharacter(coordinates3);
+    private static final Inventory inventory = new Inventory();
+    private static final BattleCharacter[] party = new BattleCharacter[PartyConstants.ALL_PARTY_MEMBER_NAMES.length];
+    private static final GameState game = new GameState(inventory, party, character);
+    private static final InventoryPresenterInterface pres = new InventoryPresenterInterface() {
         @Override
         public void addItem(boolean isSuccessful, ItemDetails itemDetails) {
 
@@ -42,13 +42,13 @@ class ChestTest {
 
         }
     };
-    private static InventoryInteractor inventoryInteractor = new InventoryInteractor(game, pres);
-    private static ChestInteractor chestInteractor = new ChestInteractor(game, inventoryInteractor);
-    private static ArrayList<TreasureChest> chestList1 = new ArrayList<>();
-    private static ArrayList<TreasureChest> chestList2 = new ArrayList<>();
-    private static ArrayList<OpponentSet> opponents = new ArrayList<>();
-    private static ArrayList<Doorway> doors = new ArrayList<>();
-    private static Inventory in = game.getInventory();
+    private static final InventoryInteractor inventoryInteractor = new InventoryInteractor(game, pres);
+    private static final ChestInteractor chestInteractor = new ChestInteractor(game, inventoryInteractor);
+    private static final ArrayList<TreasureChest> chestList1 = new ArrayList<>();
+    private static final ArrayList<TreasureChest> chestList2 = new ArrayList<>();
+    private static final ArrayList<OpponentSet> opponents = new ArrayList<>();
+    private static final ArrayList<Doorway> doors = new ArrayList<>();
+    private static final Inventory in = game.getInventory();
 
     @BeforeEach
     void setUp() {
@@ -65,7 +65,7 @@ class ChestTest {
         assertFalse(chest1.isOpened());
         chest1.open();
         assertTrue(chest1.isOpened());
-        in.removeItem("HealthPotion");
+        in.removeItem("Health Potion");
     }
 
     @Test
@@ -74,7 +74,7 @@ class ChestTest {
         chest1.open();
         assertTrue(chest1.isOpened());
         assertThrows(AssertionError.class, chest1::open);
-        in.removeItem("HealthPotion");
+        in.removeItem("Health Potion");
     }
 
     @Test
@@ -102,7 +102,7 @@ class ChestTest {
         assertEquals(1, in.numberOfItems());
         assertTrue(in.has("Health Potion"));
         assertTrue(testChest2.isOpened());
-        in.removeItem("HealthPotion");
+        in.removeItem("Health Potion");
     }
 }
 
