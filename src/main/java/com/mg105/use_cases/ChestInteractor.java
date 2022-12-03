@@ -46,7 +46,6 @@ public class ChestInteractor {
      */
 
     public TreasureChest verifyChest() {
-
         Point charPosition = gameState.getWalkingCharacter().getCharPosition();
         Room room = gameState.getCurrentRoom();
         java.util.List<TreasureChest> chests = room.getChests();
@@ -65,7 +64,6 @@ public class ChestInteractor {
      */
 
     public void getChestItem() {
-
         TreasureChest chest = verifyChest();
         if (chest != null) {
             if (!chest.isOpened()) {
