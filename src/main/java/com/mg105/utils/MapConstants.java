@@ -23,8 +23,8 @@ public class MapConstants {
     public static final int MAPGEN_ANCHOR_SPARSITY = 63;
     /** An integer between -1 and 100 inclusive that somewhat reflects how many battles will be generated.
         Note: -1 represents always generate battles and 100 represents never generate battles. */
-    public static final int MAPGEN_BATTLE_SPARSITY = 75;
+    public static final int MAPGEN_BATTLE_SPARSITY = 51;
     /** An integer between -1 and 100 inclusive that somewhat reflects how may chests will be generated.
      Note: -1 represents always generate battles and 100 represents never generate battles. */
-    public static final int MAPGEN_CHEST_SPARSITY = 75;
+    public static final int MAPGEN_CHEST_SPARSITY = 67;
 }
