@@ -177,8 +177,8 @@ public class MapGenerator {
             closest = getClosestPointTo(map, startPos, endPos);
         }
 
-        System.out.println("Final:");
-        printMap(map, firstRoom, lastRoom);
+        //System.out.println("Final:");
+        //printMap(map, firstRoom, lastRoom);
 
         // Finally we actually connect the connectible rooms
         for (int y = 0; y < mapHeight; y++) {
@@ -224,36 +224,63 @@ public class MapGenerator {
     private void populateRoomWithChests(@NotNull Room room) {
         assert room.getChests().size() == 0;
 
-        Point chestLocation = new Point(
-            MapConstants.ROOM_SIZE/2 - 1 + random.nextInt(2),
-            MapConstants.ROOM_SIZE/2 - 1 + random.nextInt(2)
-        );
+        Point[] possibleLocations = {
+            new Point(
+                MapConstants.ROOM_SIZE/2 - 1 + random.nextInt(2),
+                MapConstants.ROOM_SIZE/2 - 1 + random.nextInt(2)
+            ),
+            new Point(1, 1),
+            new Point(1, MapConstants.ROOM_SIZE-2),
+            new Point(MapConstants.ROOM_SIZE-2, 1),
+            new Point(MapConstants.ROOM_SIZE-2, MapConstants.ROOM_SIZE-2)
+        };
 
-        // By generating two booleans, there is a 50% chance of upgrade token, 25% chance of each potion.
-        Item reward;
-        if (random.nextBoolean()) {
-            reward = new UpgradeToken();
-        } else if (random.nextBoolean()) {
-            reward = new HealthPotion();
-        } else {
-            reward = new MegaPotion();
+        for (Point chestLocation : possibleLocations) {
+            if (random.nextInt(100) > MapConstants.MAPGEN_CHEST_SPARSITY) {
+                // By generating two booleans, there is a 50% chance of upgrade token, 25% chance of each potion.
+                Item reward;
+                if (random.nextBoolean()) {
+                    reward = new UpgradeToken();
+                } else if (random.nextBoolean()) {
+                    reward = new HealthPotion();
+                } else {
+                    reward = new MegaPotion();
+                }
+
+                TreasureChest chest = new TreasureChest(reward, chestLocation);
+
+                room.getChests().add(chest);
+            }
         }
-
-        TreasureChest chest = new TreasureChest(reward, chestLocation);
-
-        room.getChests().add(chest);
     }
 
     /**
      * Populate some doorways of room with battles.
+     * <p>
+     * Precondition: room does not already contain battles.
      *
      * @param room the room to populate with battles.
      */
     private void populateRoomWithBattles(@NotNull Room room) {
+        assert room.getOpponents().size() == 0;
+
         for (Doorway door : room.getDoorways()) {
             // Each door has a 50% chance of having a battle added to it.
-            if (random.nextBoolean()) {
-                // TODO Battle battle = new Battle();
+            if (random.nextInt(100) > MapConstants.MAPGEN_BATTLE_SPARSITY) {
+                Point battlePosition = new Point(door.getPosition());
+                if (battlePosition.x == 0) {
+                    battlePosition.x += 1;
+                } else if (battlePosition.x == MapConstants.ROOM_SIZE-1) {
+                    battlePosition.x -= 1;
+                } else if (battlePosition.y == 0) {
+                    battlePosition.y += 1;
+                } else {
+                    battlePosition.y -= 1;
+                }
+
+                List<BattleCharacter> opponents = new ArrayList<>();
+
+                room.getOpponents().add(new OpponentSet(battlePosition, opponents));
             }
         }
     }
@@ -282,11 +309,8 @@ public class MapGenerator {
 
             // We leave the first and last room as hardcoded.
             if (current != firstRoom && current != lastRoom) {
-                if (random.nextBoolean()) {
-                    populateRoomWithChests(current);
-                } else {
-                    populateRoomWithBattles(current);
-                }
+                populateRoomWithChests(current);
+                populateRoomWithBattles(current);
             }
         }
     }
