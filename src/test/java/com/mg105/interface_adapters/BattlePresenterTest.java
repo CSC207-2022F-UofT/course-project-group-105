@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.List;
 
 class BattlePresenterTest {
 
@@ -40,7 +41,30 @@ class BattlePresenterTest {
 
         BattleCharacter[] party = {p1, p2, p3, p4};
 
+        List<BattleCharacter> opponents = new ArrayList<>();
+        opponents.add(new BattleCharacter(
+            10, "Opponent 0", 10, 10, true,
+            new Move(-10, 0, "Move1", false),
+            new Move(1, 1, "Move2", true))
+        );
+        opponents.add(new BattleCharacter(
+            10, "Opponent 1", 10, 10, true,
+            new Move(-10, 0, "Move1", false),
+            new Move(1, 1, "Move2", true))
+        );
+        opponents.add(new BattleCharacter(
+            10, "Opponent 2", 10, 10, true,
+            new Move(-10, 0, "Move1", false),
+            new Move(1, 1, "Move2", true))
+        );
+        opponents.add(new BattleCharacter(
+            10, "Opponent 3", 10, 10, true,
+            new Move(-10, 0, "Move1", false),
+            new Move(1, 1, "Move2", true))
+        );
+
         GameState state = new GameState(inventory, party, character);
+        state.setCurrOpponent(new OpponentSet(new Point(4, 6), opponents));
         BattleInteractor interactor = new BattleInteractor(state);
         BattlePresenter presenter = new BattlePresenter(interactor);
         presenter.setView(view);
@@ -70,7 +94,30 @@ class BattlePresenterTest {
 
         BattleCharacter[] party = {p1, p2, p3, p4};
 
+        List<BattleCharacter> opponents = new ArrayList<>();
+        opponents.add(new BattleCharacter(
+            10, "Opponent 0", 10, 10, true,
+            new Move(-10, 0, "Move1", false),
+            new Move(1, 1, "Move2", true))
+        );
+        opponents.add(new BattleCharacter(
+            10, "Opponent 1", 10, 10, true,
+            new Move(-10, 0, "Move1", false),
+            new Move(1, 1, "Move2", true))
+        );
+        opponents.add(new BattleCharacter(
+            10, "Opponent 2", 10, 10, true,
+            new Move(-10, 0, "Move1", false),
+            new Move(1, 1, "Move2", true))
+        );
+        opponents.add(new BattleCharacter(
+            10, "Opponent 3", 10, 10, true,
+            new Move(-10, 0, "Move1", false),
+            new Move(1, 1, "Move2", true))
+        );
+
         GameState state = new GameState(inventory, party, character);
+        state.setCurrOpponent(new OpponentSet(new Point(4, 6), opponents));
         BattleInteractor interactor = new BattleInteractor(state);
         BattlePresenter presenter = new BattlePresenter(interactor);
         presenter.setView(view);
@@ -104,7 +151,30 @@ class BattlePresenterTest {
 
         BattleCharacter[] party = {p1, p2, p3, p4};
 
+        List<BattleCharacter> opponents = new ArrayList<>();
+        opponents.add(new BattleCharacter(
+            10, "Opponent 0", 10, 10, true,
+            new Move(-10, 0, "Move1", false),
+            new Move(1, 1, "Move2", true))
+        );
+        opponents.add(new BattleCharacter(
+            10, "Opponent 1", 10, 10, true,
+            new Move(-10, 0, "Move1", false),
+            new Move(1, 1, "Move2", true))
+        );
+        opponents.add(new BattleCharacter(
+            10, "Opponent 2", 10, 10, true,
+            new Move(-10, 0, "Move1", false),
+            new Move(1, 1, "Move2", true))
+        );
+        opponents.add(new BattleCharacter(
+            10, "Opponent 3", 10, 10, true,
+            new Move(-10, 0, "Move1", false),
+            new Move(1, 1, "Move2", true))
+        );
+
         GameState state = new GameState(inventory, party, character);
+        state.setCurrOpponent(new OpponentSet(new Point(4, 6), opponents));
         BattleInteractor interactor = new BattleInteractor(state);
         BattlePresenter presenter = new BattlePresenter(interactor);
         presenter.setView(view);
@@ -133,7 +203,30 @@ class BattlePresenterTest {
 
         BattleCharacter[] party = {p1, p2, p3, p4};
 
+        List<BattleCharacter> opponents = new ArrayList<>();
+        opponents.add(new BattleCharacter(
+            10, "Opponent 0", 10, 10, true,
+            new Move(-10, 0, "Move1", false),
+            new Move(1, 1, "Move2", true))
+        );
+        opponents.add(new BattleCharacter(
+            10, "Opponent 1", 10, 10, true,
+            new Move(-10, 0, "Move1", false),
+            new Move(1, 1, "Move2", true))
+        );
+        opponents.add(new BattleCharacter(
+            10, "Opponent 2", 10, 10, true,
+            new Move(-10, 0, "Move1", false),
+            new Move(1, 1, "Move2", true))
+        );
+        opponents.add(new BattleCharacter(
+            10, "Opponent 3", 10, 10, true,
+            new Move(-10, 0, "Move1", false),
+            new Move(1, 1, "Move2", true))
+        );
+
         GameState state = new GameState(inventory, party, character);
+        state.setCurrOpponent(new OpponentSet(new Point(4, 6), opponents));
         BattleInteractor interactor = new BattleInteractor(state);
         BattlePresenter presenter = new BattlePresenter(interactor);
         presenter.setView(view);

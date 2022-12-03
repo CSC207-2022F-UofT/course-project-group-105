@@ -46,8 +46,8 @@ public class CharacterMover {
         Room room = state.getCurrentRoom();
 
         // walls are not impassible
-        if (nextPosition.x <= 0 || nextPosition.x >= MapConstants.ROOM_SIZE-1 ||
-            nextPosition.y <= 0 || nextPosition.y >= MapConstants.ROOM_SIZE-1) {
+        if (nextPosition.x <= 0 || nextPosition.x >= MapConstants.ROOM_SIZE - 1 ||
+            nextPosition.y <= 0 || nextPosition.y >= MapConstants.ROOM_SIZE - 1) {
             nextPositionValid = false;
             nextPositionMaybeLastRoom = true;
         }
