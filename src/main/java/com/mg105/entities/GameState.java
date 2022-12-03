@@ -132,6 +132,15 @@ public class GameState {
     }
 
     /**
+     * Removes the current active battle from the game state.
+     */
+
+    public void removeCurrEncounter(){
+        this.currEncounter = null;
+    }
+
+
+    /**
      * Returns an ArrayList of the player's characters.
      *
      * @return An ArrayList of the player's characters.

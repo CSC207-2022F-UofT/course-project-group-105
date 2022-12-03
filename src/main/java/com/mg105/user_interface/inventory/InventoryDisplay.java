@@ -31,6 +31,11 @@ public class InventoryDisplay implements InventoryViewInterface, Toggleable {
     private final InventoryController controller;
     private String characterSelected = PartyConstants.ALL_PARTY_MEMBER_NAMES[0];
 
+    /**
+     * Creates a new instance of inventory display
+     * @param controller an object that interprets user inputs to make changes about the inventory
+     */
+
     public InventoryDisplay(InventoryController controller) {
         this.controller = controller;
     }

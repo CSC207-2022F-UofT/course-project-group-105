@@ -1,6 +1,6 @@
 package com.mg105.use_cases.inventory;
 
-import com.mg105.outputds.ItemDetails;
+import com.mg105.use_cases.outputds.ItemDetails;
 
 /**
  * This interface should be implemented by the InventoryPresenter class

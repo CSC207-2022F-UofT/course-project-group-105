@@ -1,4 +1,4 @@
-package com.mg105.outputds;
+package com.mg105.use_cases.outputds;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -7,8 +7,8 @@ import org.jetbrains.annotations.NotNull;
  */
 public class ItemDetails {
     private final int count;
-    private final String description;
-    private final String name;
+    @NotNull private final String description;
+    @NotNull private final String name;
     private final Boolean isUsable;
 
     public ItemDetails(@NotNull String name, @NotNull String description, int count, boolean isUsable) {

@@ -1,4 +1,4 @@
-package com.mg105.outputds;
+package com.mg105.use_cases.outputds;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -8,13 +8,13 @@ import org.jetbrains.annotations.NotNull;
 
 public class BattleCharacterDetails {
 
-    private final String name;
+    @NotNull private final String name;
     private final int maxHp;
     private final int dmg;
     private final int speed;
 
     private final boolean isOpponent;
-    private final MoveDetails[] moveDetails;
+    @NotNull private final MoveDetails[] moveDetails;
 
     public BattleCharacterDetails(@NotNull String name, int maxHp, int dmg, int speed, boolean isOpponent,
                                   @NotNull MoveDetails[] moveDetails) {

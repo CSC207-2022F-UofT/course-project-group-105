@@ -4,7 +4,7 @@ import com.mg105.data_control.access.MoveDataAccess;
 import com.mg105.data_control.access.PartyDataAccess;
 import com.mg105.data_control.creator.MoveDataCreator;
 import com.mg105.data_control.creator.PartyDataCreator;
-import com.mg105.outputds.BattleCharacterDetails;
+import com.mg105.use_cases.outputds.BattleCharacterDetails;
 import com.mg105.utils.StatConstants;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -14,6 +14,10 @@ import static com.mg105.utils.MoveConstants.*;
 import static com.mg105.utils.PartyConstants.ALL_PARTY_MEMBER_NAMES;
 
 class PartyDataAccessTest {
+
+    // This test only works for the "inital" state of the user party and moves
+    // This is not because the class is depedent on the initial state but because of the
+    // hard coded expected values
 
     private static PartyDataAccess p;
     private static BattleCharacterDetails[] details;
@@ -42,8 +46,8 @@ class PartyDataAccessTest {
     @Test
     void changeSpeed() {
 
-        p.changeCharacterStat(ALL_PARTY_MEMBER_NAMES[3], StatConstants.SPEED, 3);
-        Assertions.assertEquals(3, p.getPartyBattleDetails()[3].getSpeed());
+        p.changeCharacterStat(ALL_PARTY_MEMBER_NAMES[3], StatConstants.SPEED, 20);
+        Assertions.assertEquals(20, p.getPartyBattleDetails()[3].getSpeed());
         p.changeCharacterStat(ALL_PARTY_MEMBER_NAMES[3], StatConstants.SPEED, 10);
         Assertions.assertEquals(10, p.getPartyBattleDetails()[3].getSpeed());
     }
