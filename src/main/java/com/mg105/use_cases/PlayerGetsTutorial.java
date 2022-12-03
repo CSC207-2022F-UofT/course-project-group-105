@@ -5,12 +5,19 @@ import com.mg105.utils.TutorialTexts;
 
 import java.util.List;
 
+/** Class for determining what phase of the tutorial the player is on, and changing the phase */
 public class PlayerGetsTutorial {
     private final List<String> tutorialPhases;  // Go through multiple phases of tutorial in order
     private int currentPhase;
 
     private final GiveTutorial tutorial;
 
+    /** Constructor for PlayerGetsTutorial use case
+     *
+     * @param tutorialPhases a list of all possible phases in the tutorial
+     * @param currentPhase the integer representing what phase the player is on in the tutorial
+     * @param tutorial an instance of the GiveTutorial entity
+     * */
     public PlayerGetsTutorial(List<String> tutorialPhases, int currentPhase, GiveTutorial tutorial) {
         this.tutorialPhases = tutorialPhases;
         this.currentPhase = currentPhase;

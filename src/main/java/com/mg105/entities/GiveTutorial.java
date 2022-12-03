@@ -3,12 +3,19 @@ package com.mg105.entities;
 
 import com.mg105.utils.TutorialTexts;
 
+/** Data for what actions player has completed, contains methods for mutating the data  */
 public class GiveTutorial {
 
     private boolean moved;
     private boolean attacked;
     private boolean usedItem;
 
+    /** Constructor for GiveTutorial entity
+     *
+     * @param moved whether player has moved
+     * @param attacked whether player has attacked
+     * @param usedItem whether player has opened a chest
+     * */
     public GiveTutorial(boolean moved, boolean attacked, boolean usedItem) {
         this.moved = moved;
         this.attacked = attacked;
