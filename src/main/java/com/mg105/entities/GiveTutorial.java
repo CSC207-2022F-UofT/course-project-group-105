@@ -3,12 +3,19 @@ package com.mg105.entities;
 
 import com.mg105.utils.TutorialTexts;
 
+/** Data for what actions player has completed, contains methods for mutating the data  */
 public class GiveTutorial {
 
     private boolean moved;
     private boolean attacked;
     private boolean usedItem;
 
+    /** Constructor for GiveTutorial entity
+     *
+     * @param moved whether player has moved
+     * @param attacked whether player has attacked
+     * @param usedItem whether player has opened a chest
+     * */
     public GiveTutorial(boolean moved, boolean attacked, boolean usedItem) {
         this.moved = moved;
         this.attacked = attacked;
@@ -22,7 +29,7 @@ public class GiveTutorial {
      *
      * @param action the action that has been performed
      */
-    public void ActionPerformedSetter(String action) {
+    public void actionPerformedSetter(String action) {
         if (action.equalsIgnoreCase(TutorialTexts.MOVED)) {
             this.moved = true;
         } else if (action.equalsIgnoreCase(TutorialTexts.ATTACKED)) {
@@ -41,7 +48,7 @@ public class GiveTutorial {
      * @param action the action that is checked
      * @return whether the player has performed each action
      */
-    public boolean ActionPerformedGetter(String action) {
+    public boolean actionPerformedGetter(String action) {
         if (action.equalsIgnoreCase(TutorialTexts.MOVED)) {
             return this.moved;
         } else if (action.equalsIgnoreCase(TutorialTexts.ATTACKED)) {
