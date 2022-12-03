@@ -52,11 +52,11 @@ loadScripts(document, 'script');</script>
 <a href="#I:A">A</a>&nbsp;<a href="#I:B">B</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:N">N</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:U">U</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:W">W</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a><span class="vertical-separator">|</span><a href="constant-values.html">Constant&nbsp;Field&nbsp;Values</a>
 <h2 class="title" id="I:A">A</h2>
 <dl class="index">
-<dt><a href="com/mg105/entities/GiveTutorial.html#ActionPerformedGetter(java.lang.String)" class="member-name-link">ActionPerformedGetter(String)</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/GiveTutorial.html" title="class in com.mg105.entities">GiveTutorial</a></dt>
+<dt><a href="com/mg105/entities/GiveTutorial.html#actionPerformedGetter(java.lang.String)" class="member-name-link">actionPerformedGetter(String)</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/GiveTutorial.html" title="class in com.mg105.entities">GiveTutorial</a></dt>
 <dd>
 <div class="block">Get if player has moved, attacked, and usedItem.</div>
 </dd>
-<dt><a href="com/mg105/entities/GiveTutorial.html#ActionPerformedSetter(java.lang.String)" class="member-name-link">ActionPerformedSetter(String)</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/GiveTutorial.html" title="class in com.mg105.entities">GiveTutorial</a></dt>
+<dt><a href="com/mg105/entities/GiveTutorial.html#actionPerformedSetter(java.lang.String)" class="member-name-link">actionPerformedSetter(String)</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/GiveTutorial.html" title="class in com.mg105.entities">GiveTutorial</a></dt>
 <dd>
 <div class="block">Set moved, attacked, usedItem to true if they have been performed by player</div>
 </dd>
@@ -128,7 +128,9 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/mg105/Application.html#%3Cinit%3E()" class="member-name-link">Application()</a> - Constructor for class com.mg105.<a href="com/mg105/Application.html" title="class in com.mg105">Application</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/utils/TutorialTexts.html#ATTACKED" class="member-name-link">ATTACKED</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/TutorialTexts.html" title="class in com.mg105.utils">TutorialTexts</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Constant string for attack phase</div>
+</dd>
 </dl>
 <h2 class="title" id="I:B">B</h2>
 <dl class="index">
@@ -182,7 +184,7 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">This interface should be implemented by BattlePresenter.</div>
 </dd>
-<dt><a href="com/mg105/controllers/TutorialTextController.html#bottomText()" class="member-name-link">bottomText()</a> - Method in class com.mg105.controllers.<a href="com/mg105/controllers/TutorialTextController.html" title="class in com.mg105.controllers">TutorialTextController</a></dt>
+<dt><a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html#bottomText()" class="member-name-link">bottomText()</a> - Method in class com.mg105.interface_adapters.tutorial.<a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html" title="class in com.mg105.interface_adapters.tutorial">TutorialTextController</a></dt>
 <dd>
 <div class="block">Gets the current text that should be displayed</div>
 </dd>
@@ -209,7 +211,7 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Calls on WalkVisInteractor to update the walking character sprite.</div>
 </dd>
-<dt><a href="com/mg105/controllers/TutorialTextController.html#changeText()" class="member-name-link">changeText()</a> - Method in class com.mg105.controllers.<a href="com/mg105/controllers/TutorialTextController.html" title="class in com.mg105.controllers">TutorialTextController</a></dt>
+<dt><a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html#changeText()" class="member-name-link">changeText()</a> - Method in class com.mg105.interface_adapters.tutorial.<a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html" title="class in com.mg105.interface_adapters.tutorial">TutorialTextController</a></dt>
 <dd>
 <div class="block">Check if tutorial phases should advance</div>
 </dd>
@@ -231,8 +233,6 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="com/mg105/package-summary.html">com.mg105</a> - package com.mg105</dt>
 <dd>&nbsp;</dd>
-<dt><a href="com/mg105/controllers/package-summary.html">com.mg105.controllers</a> - package com.mg105.controllers</dt>
-<dd>&nbsp;</dd>
 <dt><a href="com/mg105/data_control/access/package-summary.html">com.mg105.data_control.access</a> - package com.mg105.data_control.access</dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/data_control/creator/package-summary.html">com.mg105.data_control.creator</a> - package com.mg105.data_control.creator</dt>
@@ -244,6 +244,8 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/mg105/interface_adapters/package-summary.html">com.mg105.interface_adapters</a> - package com.mg105.interface_adapters</dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/interface_adapters/inventory/package-summary.html">com.mg105.interface_adapters.inventory</a> - package com.mg105.interface_adapters.inventory</dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/mg105/interface_adapters/tutorial/package-summary.html">com.mg105.interface_adapters.tutorial</a> - package com.mg105.interface_adapters.tutorial</dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/outputds/package-summary.html">com.mg105.outputds</a> - package com.mg105.outputds</dt>
 <dd>&nbsp;</dd>
@@ -296,7 +298,9 @@ loadScripts(document, 'script');</script>
 <div class="block">Upgrades the stats of the given character</div>
 </dd>
 <dt><a href="com/mg105/utils/TutorialTexts.html#CONTROLS" class="member-name-link">CONTROLS</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/TutorialTexts.html" title="class in com.mg105.utils">TutorialTexts</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Constant string for telling player the game controls</div>
+</dd>
 <dt><a href="com/mg105/use_cases/set_up/data_system_creator/DataStorageSystemCreator.html#create()" class="member-name-link">create()</a> - Method in class com.mg105.use_cases.set_up.data_system_creator.<a href="com/mg105/use_cases/set_up/data_system_creator/DataStorageSystemCreator.html" title="class in com.mg105.use_cases.set_up.data_system_creator">DataStorageSystemCreator</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/data_control/creator/DataStorageCreator.html#createDataStorage()" class="member-name-link">createDataStorage()</a> - Method in class com.mg105.data_control.creator.<a href="com/mg105/data_control/creator/DataStorageCreator.html" title="class in com.mg105.data_control.creator">DataStorageCreator</a></dt>
@@ -349,6 +353,18 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="com/mg105/use_cases/set_up/data_system_creator/DataStorageSystemCreator.html#%3Cinit%3E(com.mg105.use_cases.set_up.data_system_creator.CreateDataStorage%5B%5D)" class="member-name-link">DataStorageSystemCreator(CreateDataStorage[])</a> - Constructor for class com.mg105.use_cases.set_up.data_system_creator.<a href="com/mg105/use_cases/set_up/data_system_creator/DataStorageSystemCreator.html" title="class in com.mg105.use_cases.set_up.data_system_creator">DataStorageSystemCreator</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/mg105/utils/TutorialTexts.html#DID_NOT_BATTLE" class="member-name-link">DID_NOT_BATTLE</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/TutorialTexts.html" title="class in com.mg105.utils">TutorialTexts</a></dt>
+<dd>
+<div class="block">Constant string for reminding player to initiate a battle</div>
+</dd>
+<dt><a href="com/mg105/utils/TutorialTexts.html#DID_NOT_MOVE" class="member-name-link">DID_NOT_MOVE</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/TutorialTexts.html" title="class in com.mg105.utils">TutorialTexts</a></dt>
+<dd>
+<div class="block">Constant string reminding player how to move</div>
+</dd>
+<dt><a href="com/mg105/utils/TutorialTexts.html#DID_NOT_OPEN_CHEST" class="member-name-link">DID_NOT_OPEN_CHEST</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/TutorialTexts.html" title="class in com.mg105.utils">TutorialTexts</a></dt>
+<dd>
+<div class="block">Constant string for reminding player to open chest</div>
+</dd>
 <dt><a href="com/mg105/user_interface/AlertBox.html#display(java.lang.String)" class="member-name-link">display(String)</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/AlertBox.html" title="class in com.mg105.user_interface">AlertBox</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/entities/Doorway.html" class="type-name-link" title="class in com.mg105.entities">Doorway</a> - Class in <a href="com/mg105/entities/package-summary.html">com.mg105.entities</a></dt>
@@ -381,7 +397,9 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/mg105/interface_adapters/TileType.html#EXIT" class="member-name-link">EXIT</a> - Enum constant in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/TileType.html" title="enum class in com.mg105.interface_adapters">TileType</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/utils/TutorialTexts.html#EXIT_ROOM" class="member-name-link">EXIT_ROOM</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/TutorialTexts.html" title="class in com.mg105.utils">TutorialTexts</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Constant string for good luck text</div>
+</dd>
 </dl>
 <h2 class="title" id="I:F">F</h2>
 <dl class="index">
@@ -698,7 +716,7 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Get the scene of this toggleable object.</div>
 </dd>
-<dt><a href="com/mg105/controllers/TutorialTextController.html#getShowControls()" class="member-name-link">getShowControls()</a> - Method in class com.mg105.controllers.<a href="com/mg105/controllers/TutorialTextController.html" title="class in com.mg105.controllers">TutorialTextController</a></dt>
+<dt><a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html#getShowControls()" class="member-name-link">getShowControls()</a> - Method in class com.mg105.interface_adapters.tutorial.<a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html" title="class in com.mg105.interface_adapters.tutorial">TutorialTextController</a></dt>
 <dd>
 <div class="block">Check if player should be shown controls again</div>
 </dd>
@@ -714,7 +732,7 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Returns the name of the character whose sprite is currently being used.</div>
 </dd>
-<dt><a href="com/mg105/controllers/TutorialTextController.html#getTutorial()" class="member-name-link">getTutorial()</a> - Method in class com.mg105.controllers.<a href="com/mg105/controllers/TutorialTextController.html" title="class in com.mg105.controllers">TutorialTextController</a></dt>
+<dt><a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html#getTutorial()" class="member-name-link">getTutorial()</a> - Method in class com.mg105.interface_adapters.tutorial.<a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html" title="class in com.mg105.interface_adapters.tutorial">TutorialTextController</a></dt>
 <dd>
 <div class="block">Get an instance of the PlayerGetsTutorial use case</div>
 </dd>
@@ -747,9 +765,13 @@ loadScripts(document, 'script');</script>
 <div class="block">Returns the stats of the BattleCharacter with the given name's moves.</div>
 </dd>
 <dt><a href="com/mg105/entities/GiveTutorial.html" class="type-name-link" title="class in com.mg105.entities">GiveTutorial</a> - Class in <a href="com/mg105/entities/package-summary.html">com.mg105.entities</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Data for what actions player has completed, contains methods for mutating the data</div>
+</dd>
 <dt><a href="com/mg105/entities/GiveTutorial.html#%3Cinit%3E(boolean,boolean,boolean)" class="member-name-link">GiveTutorial(boolean, boolean, boolean)</a> - Constructor for class com.mg105.entities.<a href="com/mg105/entities/GiveTutorial.html" title="class in com.mg105.entities">GiveTutorial</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Constructor for GiveTutorial entity</div>
+</dd>
 </dl>
 <h2 class="title" id="I:H">H</h2>
 <dl class="index">
@@ -780,13 +802,21 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/mg105/entities/items/HealthPotion.html#%3Cinit%3E()" class="member-name-link">HealthPotion()</a> - Constructor for class com.mg105.entities.items.<a href="com/mg105/entities/items/HealthPotion.html" title="class in com.mg105.entities.items">HealthPotion</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/utils/TutorialTexts.html#HELP_TIME" class="member-name-link">HELP_TIME</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/TutorialTexts.html" title="class in com.mg105.utils">TutorialTexts</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Constant int for text duration of helper text (not in seconds)</div>
+</dd>
 <dt><a href="com/mg105/utils/TutorialTexts.html#HELPER_PANE_X" class="member-name-link">HELPER_PANE_X</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/TutorialTexts.html" title="class in com.mg105.utils">TutorialTexts</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Constant int for x size of helper pane</div>
+</dd>
 <dt><a href="com/mg105/utils/TutorialTexts.html#HELPER_PANE_Y" class="member-name-link">HELPER_PANE_Y</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/TutorialTexts.html" title="class in com.mg105.utils">TutorialTexts</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Constant int for y size of helper pane</div>
+</dd>
 <dt><a href="com/mg105/utils/TutorialTexts.html#HOTKEYS" class="member-name-link">HOTKEYS</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/TutorialTexts.html" title="class in com.mg105.utils">TutorialTexts</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Constant string for telling the player the hotkeys</div>
+</dd>
 </dl>
 <h2 class="title" id="I:I">I</h2>
 <dl class="index">
@@ -794,7 +824,7 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">InputInterpreter takes in keyboard inputs and distributes them to their appropriate use cases.</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/InputInterpreter.html#%3Cinit%3E(com.mg105.use_cases.CharacterMover,com.mg105.interface_adapters.Toggler,com.mg105.controllers.TutorialTextController,com.mg105.use_cases.ChestInteractor,com.mg105.use_cases.OpponentSetInteractor)" class="member-name-link">InputInterpreter(CharacterMover, Toggler, TutorialTextController, ChestInteractor, OpponentSetInteractor)</a> - Constructor for class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/InputInterpreter.html" title="class in com.mg105.interface_adapters">InputInterpreter</a></dt>
+<dt><a href="com/mg105/interface_adapters/InputInterpreter.html#%3Cinit%3E(com.mg105.use_cases.CharacterMover,com.mg105.interface_adapters.Toggler,com.mg105.interface_adapters.tutorial.TutorialTextController,com.mg105.use_cases.ChestInteractor,com.mg105.use_cases.OpponentSetInteractor)" class="member-name-link">InputInterpreter(CharacterMover, Toggler, TutorialTextController, ChestInteractor, OpponentSetInteractor)</a> - Constructor for class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/InputInterpreter.html" title="class in com.mg105.interface_adapters">InputInterpreter</a></dt>
 <dd>
 <div class="block">Create a new InputInterpreter that translates keyboard inputs to appropriate function invocations.</div>
 </dd>
@@ -1039,7 +1069,9 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/mg105/utils/MoveConstants.html#%3Cinit%3E()" class="member-name-link">MoveConstants()</a> - Constructor for class com.mg105.utils.<a href="com/mg105/utils/MoveConstants.html" title="class in com.mg105.utils">MoveConstants</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/utils/TutorialTexts.html#MOVED" class="member-name-link">MOVED</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/TutorialTexts.html" title="class in com.mg105.utils">TutorialTexts</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Constant string for move phase</div>
+</dd>
 <dt><a href="com/mg105/data_control/access/MoveDataAccess.html" class="type-name-link" title="class in com.mg105.data_control.access">MoveDataAccess</a> - Class in <a href="com/mg105/data_control/access/package-summary.html">com.mg105.data_control.access</a></dt>
 <dd>
 <div class="block">This is a class mean to interact and get information about moves from a "database"</div>
@@ -1061,7 +1093,7 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:N">N</h2>
 <dl class="index">
-<dt><a href="com/mg105/controllers/TutorialTextController.html#nextPhase()" class="member-name-link">nextPhase()</a> - Method in class com.mg105.controllers.<a href="com/mg105/controllers/TutorialTextController.html" title="class in com.mg105.controllers">TutorialTextController</a></dt>
+<dt><a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html#nextPhase()" class="member-name-link">nextPhase()</a> - Method in class com.mg105.interface_adapters.tutorial.<a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html" title="class in com.mg105.interface_adapters.tutorial">TutorialTextController</a></dt>
 <dd>
 <div class="block">Go to the next tutorial phase</div>
 </dd>
@@ -1138,15 +1170,23 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/mg105/use_cases/save/PartySaver.html#%3Cinit%3E(com.mg105.entities.GameState,com.mg105.use_cases.save.PartyDataInterface)" class="member-name-link">PartySaver(GameState, PartyDataInterface)</a> - Constructor for class com.mg105.use_cases.save.<a href="com/mg105/use_cases/save/PartySaver.html" title="class in com.mg105.use_cases.save">PartySaver</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/utils/TutorialTexts.html#PHASES" class="member-name-link">PHASES</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/TutorialTexts.html" title="class in com.mg105.utils">TutorialTexts</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Constant array listing all the phases</div>
+</dd>
 <dt><a href="com/mg105/utils/TutorialTexts.html#PHASES_TEXT" class="member-name-link">PHASES_TEXT</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/TutorialTexts.html" title="class in com.mg105.utils">TutorialTexts</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Constant array containing the actual text shown to the player</div>
+</dd>
 <dt><a href="com/mg105/interface_adapters/TileType.html#PLAYER" class="member-name-link">PLAYER</a> - Enum constant in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/TileType.html" title="enum class in com.mg105.interface_adapters">TileType</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/use_cases/PlayerGetsTutorial.html" class="type-name-link" title="class in com.mg105.use_cases">PlayerGetsTutorial</a> - Class in <a href="com/mg105/use_cases/package-summary.html">com.mg105.use_cases</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Class for determining what phase of the tutorial the player is on, and changing the phase</div>
+</dd>
 <dt><a href="com/mg105/use_cases/PlayerGetsTutorial.html#%3Cinit%3E(java.util.List,int,com.mg105.entities.GiveTutorial)" class="member-name-link">PlayerGetsTutorial(List&lt;String&gt;, int, GiveTutorial)</a> - Constructor for class com.mg105.use_cases.<a href="com/mg105/use_cases/PlayerGetsTutorial.html" title="class in com.mg105.use_cases">PlayerGetsTutorial</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Constructor for PlayerGetsTutorial use case</div>
+</dd>
 <dt><a href="com/mg105/user_interface/MapDrawer.html#propertyChange(java.beans.PropertyChangeEvent)" class="member-name-link">propertyChange(PropertyChangeEvent)</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/MapDrawer.html" title="class in com.mg105.user_interface">MapDrawer</a></dt>
 <dd>
 <div class="block">Update the current room based on evt.</div>
@@ -1292,7 +1332,7 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Set the action to true if it has been performed</div>
 </dd>
-<dt><a href="com/mg105/controllers/TutorialTextController.html#setChangeText()" class="member-name-link">setChangeText()</a> - Method in class com.mg105.controllers.<a href="com/mg105/controllers/TutorialTextController.html" title="class in com.mg105.controllers">TutorialTextController</a></dt>
+<dt><a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html#setChangeText()" class="member-name-link">setChangeText()</a> - Method in class com.mg105.interface_adapters.tutorial.<a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html" title="class in com.mg105.interface_adapters.tutorial">TutorialTextController</a></dt>
 <dd>
 <div class="block">Make text start changing</div>
 </dd>
@@ -1342,7 +1382,7 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Sets the presenter attribute.</div>
 </dd>
-<dt><a href="com/mg105/controllers/TutorialTextController.html#setShowControls(boolean)" class="member-name-link">setShowControls(boolean)</a> - Method in class com.mg105.controllers.<a href="com/mg105/controllers/TutorialTextController.html" title="class in com.mg105.controllers">TutorialTextController</a></dt>
+<dt><a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html#setShowControls(boolean)" class="member-name-link">setShowControls(boolean)</a> - Method in class com.mg105.interface_adapters.tutorial.<a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html" title="class in com.mg105.interface_adapters.tutorial">TutorialTextController</a></dt>
 <dd>
 <div class="block">Tell player the controls again</div>
 </dd>
@@ -1411,7 +1451,9 @@ loadScripts(document, 'script');</script>
 <div class="block">This interface is for classes that help set information in GameState when a game has first started</div>
 </dd>
 <dt><a href="com/mg105/utils/TutorialTexts.html#STORY" class="member-name-link">STORY</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/TutorialTexts.html" title="class in com.mg105.utils">TutorialTexts</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Constant string for story text</div>
+</dd>
 <dt><a href="com/mg105/utils/MoveConstants.html#STRONG_HEAL" class="member-name-link">STRONG_HEAL</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/MoveConstants.html" title="class in com.mg105.utils">MoveConstants</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/utils/MoveConstants.html#STRONG_SWING" class="member-name-link">STRONG_SWING</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/MoveConstants.html" title="class in com.mg105.utils">MoveConstants</a></dt>
@@ -1422,15 +1464,25 @@ loadScripts(document, 'script');</script>
 <h2 class="title" id="I:T">T</h2>
 <dl class="index">
 <dt><a href="com/mg105/utils/TutorialTexts.html#TELL_ATTACK" class="member-name-link">TELL_ATTACK</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/TutorialTexts.html" title="class in com.mg105.utils">TutorialTexts</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Constant string for attack text</div>
+</dd>
 <dt><a href="com/mg105/utils/TutorialTexts.html#TELL_MOVE" class="member-name-link">TELL_MOVE</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/TutorialTexts.html" title="class in com.mg105.utils">TutorialTexts</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Constant string for move text</div>
+</dd>
 <dt><a href="com/mg105/utils/TutorialTexts.html#TELL_USE_ITEM" class="member-name-link">TELL_USE_ITEM</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/TutorialTexts.html" title="class in com.mg105.utils">TutorialTexts</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Constant string for open chest text</div>
+</dd>
 <dt><a href="com/mg105/utils/TutorialTexts.html#TEXT_DURATION1" class="member-name-link">TEXT_DURATION1</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/TutorialTexts.html" title="class in com.mg105.utils">TutorialTexts</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Constant int for text duration per phase</div>
+</dd>
 <dt><a href="com/mg105/utils/TutorialTexts.html#TEXT_SIZE" class="member-name-link">TEXT_SIZE</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/TutorialTexts.html" title="class in com.mg105.utils">TutorialTexts</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Constant int for size of the text</div>
+</dd>
 <dt><a href="com/mg105/entities/TextGenerator.html" class="type-name-link" title="class in com.mg105.entities">TextGenerator</a> - Class in <a href="com/mg105/entities/package-summary.html">com.mg105.entities</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/entities/TextGenerator.html#%3Cinit%3E()" class="member-name-link">TextGenerator()</a> - Constructor for class com.mg105.entities.<a href="com/mg105/entities/TextGenerator.html" title="class in com.mg105.entities">TextGenerator</a></dt>
@@ -1499,9 +1551,9 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Return a label that will show at the bottom of the screen.</div>
 </dd>
-<dt><a href="com/mg105/controllers/TutorialTextController.html" class="type-name-link" title="class in com.mg105.controllers">TutorialTextController</a> - Class in <a href="com/mg105/controllers/package-summary.html">com.mg105.controllers</a></dt>
+<dt><a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html" class="type-name-link" title="class in com.mg105.interface_adapters.tutorial">TutorialTextController</a> - Class in <a href="com/mg105/interface_adapters/tutorial/package-summary.html">com.mg105.interface_adapters.tutorial</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="com/mg105/controllers/TutorialTextController.html#%3Cinit%3E(boolean)" class="member-name-link">TutorialTextController(boolean)</a> - Constructor for class com.mg105.controllers.<a href="com/mg105/controllers/TutorialTextController.html" title="class in com.mg105.controllers">TutorialTextController</a></dt>
+<dt><a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html#%3Cinit%3E(boolean)" class="member-name-link">TutorialTextController(boolean)</a> - Constructor for class com.mg105.interface_adapters.tutorial.<a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html" title="class in com.mg105.interface_adapters.tutorial">TutorialTextController</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/user_interface/TutorialTextDisplay.html" class="type-name-link" title="class in com.mg105.user_interface">TutorialTextDisplay</a> - Class in <a href="com/mg105/user_interface/package-summary.html">com.mg105.user_interface</a></dt>
 <dd>&nbsp;</dd>
@@ -1513,7 +1565,7 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/user_interface/TutorialTextWindow.html" class="type-name-link" title="class in com.mg105.user_interface">TutorialTextWindow</a> - Class in <a href="com/mg105/user_interface/package-summary.html">com.mg105.user_interface</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="com/mg105/user_interface/TutorialTextWindow.html#%3Cinit%3E(com.mg105.controllers.TutorialTextController,com.mg105.user_interface.TutorialTextDisplay)" class="member-name-link">TutorialTextWindow(TutorialTextController, TutorialTextDisplay)</a> - Constructor for class com.mg105.user_interface.<a href="com/mg105/user_interface/TutorialTextWindow.html" title="class in com.mg105.user_interface">TutorialTextWindow</a></dt>
+<dt><a href="com/mg105/user_interface/TutorialTextWindow.html#%3Cinit%3E(com.mg105.interface_adapters.tutorial.TutorialTextController,com.mg105.user_interface.TutorialTextDisplay)" class="member-name-link">TutorialTextWindow(TutorialTextController, TutorialTextDisplay)</a> - Constructor for class com.mg105.user_interface.<a href="com/mg105/user_interface/TutorialTextWindow.html" title="class in com.mg105.user_interface">TutorialTextWindow</a></dt>
 <dd>&nbsp;</dd>
 </dl>
 <h2 class="title" id="I:U">U</h2>
@@ -1557,7 +1609,9 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/mg105/entities/items/UpgradeToken.html#%3Cinit%3E()" class="member-name-link">UpgradeToken()</a> - Constructor for class com.mg105.entities.items.<a href="com/mg105/entities/items/UpgradeToken.html" title="class in com.mg105.entities.items">UpgradeToken</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/utils/TutorialTexts.html#USED_ITEM" class="member-name-link">USED_ITEM</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/TutorialTexts.html" title="class in com.mg105.utils">TutorialTexts</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Constant string for using item phase</div>
+</dd>
 <dt><a href="com/mg105/interface_adapters/inventory/InventoryPresenter.html#useItem(boolean,java.lang.String,com.mg105.outputds.ItemDetails)" class="member-name-link">useItem(boolean, String, ItemDetails)</a> - Method in class com.mg105.interface_adapters.inventory.<a href="com/mg105/interface_adapters/inventory/InventoryPresenter.html" title="class in com.mg105.interface_adapters.inventory">InventoryPresenter</a></dt>
 <dd>
 <div class="block">Sends an alert the view about the status of the attempted use of an item
