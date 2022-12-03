@@ -41,6 +41,7 @@ public class CharacterMover {
             currentPosition.y + direction.y
         );
         boolean nextPositionValid = true;
+        boolean nextPositionMaybeLastRoom = false;
 
         Room room = state.getCurrentRoom();
 
@@ -48,6 +49,7 @@ public class CharacterMover {
         if (nextPosition.x <= 0 || nextPosition.x >= MapConstants.ROOM_SIZE-1 ||
             nextPosition.y <= 0 || nextPosition.y >= MapConstants.ROOM_SIZE-1) {
             nextPositionValid = false;
+            nextPositionMaybeLastRoom = true;
         }
 
         // treasure chests are impassible
@@ -68,16 +70,11 @@ public class CharacterMover {
 
         // doorways are can be passed and are embedded in a wall
         for (Doorway doorway : room.getDoorways()) {
-            if (doorway.getPosition().equals(nextPosition)) {
-                // TODO this is not supposed to be in this use case, but for time a hacky version is included here
+            if (doorway.getPosition().equals(nextPosition) ||
+                (nextPositionMaybeLastRoom && doorway.getPosition().equals(currentPosition))) {
                 Room nextRoom = doorway.getNextRoom();
                 state.setCurrentRoom(nextRoom);
-                for (Doorway nextDoorway : nextRoom.getDoorways()) {
-                    if (nextDoorway.getNextRoom() == room) {
-                        nextPosition = new Point(nextDoorway.getPosition());
-                        break;
-                    }
-                }
+                nextPosition = getNextRoomPosition(room, nextRoom);
                 nextPositionValid = true;
                 break;
             }
@@ -87,5 +84,24 @@ public class CharacterMover {
             state.getWalkingCharacter().setCharPosition(nextPosition);
             updater.updateRoom();
         }
+    }
+
+    /**
+     * Get the position in nextRoom that you would be in given that you are coming from currentRoom.
+     *
+     * @param currentRoom the current room you are in
+     * @param nextRoom    the room you will be in.
+     *
+     * @return the position you would be in nextRoom if just exiting from currentRoom.
+     */
+    private @NotNull Point getNextRoomPosition(@NotNull Room currentRoom, @NotNull Room nextRoom) {
+        for (Doorway candidate : nextRoom.getDoorways()) {
+            if (candidate.getNextRoom() == currentRoom) {
+                return new Point(candidate.getPosition());
+            }
+        }
+
+        assert false : "No relevant back channel.";
+        return null; // Just to satisfy IDEA warnings
     }
 }
