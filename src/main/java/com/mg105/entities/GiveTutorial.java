@@ -22,7 +22,7 @@ public class GiveTutorial {
      *
      * @param action the action that has been performed
      */
-    public void ActionPerformedSetter(String action) {
+    public void actionPerformedSetter(String action) {
         if (action.equalsIgnoreCase(TutorialTexts.MOVED)) {
             this.moved = true;
         } else if (action.equalsIgnoreCase(TutorialTexts.ATTACKED)) {
@@ -41,7 +41,7 @@ public class GiveTutorial {
      * @param action the action that is checked
      * @return whether the player has performed each action
      */
-    public boolean ActionPerformedGetter(String action) {
+    public boolean actionPerformedGetter(String action) {
         if (action.equalsIgnoreCase(TutorialTexts.MOVED)) {
             return this.moved;
         } else if (action.equalsIgnoreCase(TutorialTexts.ATTACKED)) {

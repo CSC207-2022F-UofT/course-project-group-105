@@ -23,7 +23,7 @@ public class PlayerGetsTutorial {
      * @return whether all actions are complete
      */
     public boolean isComplete() {
-        return tutorial.ActionPerformedGetter(TutorialTexts.MOVED) & tutorial.ActionPerformedGetter(TutorialTexts.ATTACKED) & tutorial.ActionPerformedGetter(TutorialTexts.USED_ITEM);
+        return tutorial.actionPerformedGetter(TutorialTexts.MOVED) & tutorial.actionPerformedGetter(TutorialTexts.ATTACKED) & tutorial.actionPerformedGetter(TutorialTexts.USED_ITEM);
     }
 
     /**
@@ -59,7 +59,7 @@ public class PlayerGetsTutorial {
      * @param action to set to performed
      */
     public void setActionPerformed(String action) {
-        this.tutorial.ActionPerformedSetter(action);
+        this.tutorial.actionPerformedSetter(action);
     }
 
     /**
@@ -70,7 +70,7 @@ public class PlayerGetsTutorial {
      * @return if the action has been performed
      */
     public boolean getActionPerformed(String action) {
-        return this.tutorial.ActionPerformedGetter(action);
+        return this.tutorial.actionPerformedGetter(action);
     }
 }
 
