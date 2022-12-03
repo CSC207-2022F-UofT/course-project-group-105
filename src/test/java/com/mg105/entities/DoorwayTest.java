@@ -11,18 +11,14 @@ class DoorwayTest {
     @Test
     void getPosition() {
         Point position = new Point(1, 1);
-        Room nextRoom = new Room(new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
-        Doorway door = new Doorway(position, nextRoom);
-
+        Doorway door = new Doorway(position, new Room(new ArrayList<>(), new ArrayList<>(), new ArrayList<>()));
         assertEquals(position, door.getPosition());
     }
 
     @Test
     void getNextRoom() {
-        Point position = new Point(1, 1);
         Room nextRoom = new Room(new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
-        Doorway door = new Doorway(position, nextRoom);
-
+        Doorway door = new Doorway(new Point(), nextRoom);
         assertEquals(nextRoom, door.getNextRoom());
     }
 }
