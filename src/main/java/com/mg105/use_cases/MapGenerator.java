@@ -5,6 +5,8 @@ import com.mg105.entities.items.HealthPotion;
 import com.mg105.entities.items.MegaPotion;
 import com.mg105.entities.items.UpgradeToken;
 import com.mg105.utils.MapConstants;
+import com.mg105.utils.MoveConstants;
+import com.mg105.utils.OpponentConstants;
 import com.mg105.utils.PointComparator;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.TestOnly;
@@ -46,9 +48,15 @@ public class MapGenerator {
         Room firstRoom = generateEmptyRoom();
         Room lastRoom  = generateEmptyRoom();
 
+        // Randomly generate the in between rooms
         generateBetweenRooms(firstRoom, lastRoom);
-
         populateBetweenRooms(firstRoom, lastRoom);
+
+        // Hardcode the first and last rooms
+        firstRoom.getChests().add(new TreasureChest(generateItem(), new Point(3, 3)));
+        for (Doorway door : firstRoom.getDoorways()) {
+            firstRoom.getOpponents().add(generateOpponentSetFor(door));
+        }
 
         state.setMap(firstRoom, lastRoom);
     }
@@ -237,21 +245,76 @@ public class MapGenerator {
 
         for (Point chestLocation : possibleLocations) {
             if (random.nextInt(100) > MapConstants.MAPGEN_CHEST_SPARSITY) {
-                // By generating two booleans, there is a 50% chance of upgrade token, 25% chance of each potion.
-                Item reward;
-                if (random.nextBoolean()) {
-                    reward = new UpgradeToken();
-                } else if (random.nextBoolean()) {
-                    reward = new HealthPotion();
-                } else {
-                    reward = new MegaPotion();
-                }
-
-                TreasureChest chest = new TreasureChest(reward, chestLocation);
-
-                room.getChests().add(chest);
+                room.getChests().add(new TreasureChest(generateItem(), chestLocation));
             }
         }
+    }
+
+    /**
+     * Randomly generates and Item.
+     *
+     * @return some random Item.
+     */
+    private @NotNull Item generateItem() {
+        Item reward;
+
+        // By generating two booleans, there is a 50% chance of upgrade token, 25% chance of each potion.
+        if (random.nextBoolean()) {
+            reward = new UpgradeToken();
+        } else if (random.nextBoolean()) {
+            reward = new HealthPotion();
+        } else {
+            reward = new MegaPotion();
+        }
+
+        return reward;
+    }
+
+    /**
+     * Generate a new random Move.
+     *
+     * @return a random move.
+     */
+    private @NotNull Move generateMove() {
+        String name = MoveConstants.ALL_NAMES[random.nextInt(MoveConstants.ALL_NAMES.length)];
+        if (name.contains("heal")) {
+            return new Move(random.nextInt(10), random.nextInt(10), name, true);
+        } else {
+            return new Move(-random.nextInt(10), -random.nextInt(10), name, false);
+        }
+    }
+
+    /**
+     * Randomly generates a list of length 4 of BattleCharacters.
+     *
+     * @return a list of length 4 containing BattleCharacters.
+     */
+    private @NotNull OpponentSet generateOpponentSetFor(@NotNull Doorway door) {
+        Point battlePosition = new Point(door.getPosition());
+        if (battlePosition.x == 0) {
+            battlePosition.x += 1;
+        } else if (battlePosition.x == MapConstants.ROOM_SIZE-1) {
+            battlePosition.x -= 1;
+        } else if (battlePosition.y == 0) {
+            battlePosition.y += 1;
+        } else {
+            battlePosition.y -= 1;
+        }
+
+        List<BattleCharacter> opponents = new ArrayList<>(4);
+        for (int i = 0; i < 4; i++) {
+            opponents.add(new BattleCharacter(
+                random.nextInt(5, 41),
+                OpponentConstants.NAMES[random.nextInt(OpponentConstants.NAMES.length)],
+                random.nextInt(1, 11),
+                random.nextInt(3, 16),
+                true,
+                generateMove(),
+                generateMove()
+            ));
+        }
+
+        return new OpponentSet(battlePosition, opponents);
     }
 
     /**
@@ -265,22 +328,8 @@ public class MapGenerator {
         assert room.getOpponents().size() == 0;
 
         for (Doorway door : room.getDoorways()) {
-            // Each door has a 50% chance of having a battle added to it.
             if (random.nextInt(100) > MapConstants.MAPGEN_BATTLE_SPARSITY) {
-                Point battlePosition = new Point(door.getPosition());
-                if (battlePosition.x == 0) {
-                    battlePosition.x += 1;
-                } else if (battlePosition.x == MapConstants.ROOM_SIZE-1) {
-                    battlePosition.x -= 1;
-                } else if (battlePosition.y == 0) {
-                    battlePosition.y += 1;
-                } else {
-                    battlePosition.y -= 1;
-                }
-
-                List<BattleCharacter> opponents = new ArrayList<>();
-
-                room.getOpponents().add(new OpponentSet(battlePosition, opponents));
+                room.getOpponents().add(generateOpponentSetFor(door));
             }
         }
     }
