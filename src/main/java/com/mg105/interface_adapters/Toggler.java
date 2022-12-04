@@ -29,6 +29,7 @@ public interface Toggler {
         INVENTORY,
         BATTLE,
         TUTORIAL,
-        WALK_MENU
+        WALK_MENU,
+        LOSE_MENU
     }
 }
