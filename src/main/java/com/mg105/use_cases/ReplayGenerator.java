@@ -35,7 +35,9 @@ public class ReplayGenerator {
      * Replay the game by interacting with the MapGenerator class
      */
     public void replay() {
-        // incomplete remake, need to amend later. exactly implementation should depend on other use cases' implementation
+        inventoryClean();
+        // incomplete remake, need to amend later. exactly implementation should depend
+        // on other use cases' implementation
         MapGenerator isekai = new MapGenerator(state);
         isekai.generateMap();
         for (Resetable resetable : resetables) {

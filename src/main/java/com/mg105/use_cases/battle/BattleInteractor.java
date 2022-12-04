@@ -1,4 +1,4 @@
-package com.mg105.use_cases;
+package com.mg105.use_cases.battle;
 
 import com.mg105.entities.*;
 import com.mg105.use_cases.inventory.InventoryInteractor;
@@ -156,16 +156,13 @@ public class BattleInteractor {
      * Starts a round of the encounter. If battle ended last round, end the encounter/the run depending on the result.
      * If encounter is still in progress, get the next moving character.
      * If opponent is moving, choose a random move and random target and use it.
-     *
+     * returns null iff the battle has ended
      * @return a String of the name of the moving character
      */
     public String roundStart() {
         int status = getBattleStatus();
-        if (status == -1) { //Player lost last round
-            this.endBattle();
-            return null;
-        } else if (status == 1) { //Player won last round
-            this.endBattle();
+        if (Math.abs(status) == 1) {
+            //Player either lost or won the battle
             return null;
         } else { //Battle is ongoing
             BattleCharacter moving = state.getCurrEncounter().getMovingCharacter();
@@ -291,21 +288,20 @@ public class BattleInteractor {
     /**
      * Method makes changes that represent an ended battle in the state of the game (won or lost)
      * The method also save the game for user
+     *
+     * @return true iff the battle was won
      */
-    public void endBattle() {
+    public boolean endBattle() {
         this.saver.save();
         int status = getBattleStatus();
         state.removeCurrEncounter();
         if (status == 1) {
             addReward();
-            return;
+            return true;
         }
 
-        if (status == -1) {
-            // something with replay generator
-        }
-
-        // status should never == 0
+        // since at this point status != 0, status must == -1 (battle was lost)
+        return false;
     }
 
     /**

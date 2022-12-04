@@ -3,7 +3,9 @@ package com.mg105.interface_adapters;
 import com.mg105.data_control.access.MoveDataAccess;
 import com.mg105.data_control.access.PartyDataAccess;
 import com.mg105.entities.*;
-import com.mg105.use_cases.BattleInteractor;
+import com.mg105.interface_adapters.battle.BattleMenuInterface;
+import com.mg105.interface_adapters.battle.BattlePresenter;
+import com.mg105.use_cases.battle.BattleInteractor;
 import com.mg105.use_cases.inventory.InventoryInteractor;
 import com.mg105.use_cases.inventory.InventoryPresenterInterface;
 import com.mg105.use_cases.outputds.ItemDetails;
@@ -45,7 +47,7 @@ class BattlePresenterTest {
         }
     };
 
-    BattleMenuInterface view = new BattleMenuInterface() {
+    private final static BattleMenuInterface view = new BattleMenuInterface() {
         @Override
         public void setNames(String[] playerNames, String[] opponentNames) {
 
@@ -56,6 +58,20 @@ class BattlePresenterTest {
 
         }
     };
+
+    private final static Toggler toggle = new Toggler() {
+        @Override
+        public void toggle(@org.jetbrains.annotations.NotNull ToggleableComponent component) {
+
+        }
+
+        // Just chose inventory for testing purposes
+        @Override
+        public @org.jetbrains.annotations.NotNull ToggleableComponent getCurrentComponent() {
+            return ToggleableComponent.INVENTORY;
+        }
+    };
+
     @Test
     void startValidBattle() {
         Inventory inventory = new Inventory();
@@ -101,7 +117,7 @@ class BattlePresenterTest {
         state.setCurrOpponent(new OpponentSet(new Point(4, 6), opponents));
         BattleInteractor interactor = new BattleInteractor(state, new InventoryInteractor(state,
             inventoryPresenterInterface), createSaver(state));
-        BattlePresenter presenter = new BattlePresenter(interactor);
+        BattlePresenter presenter = new BattlePresenter(interactor, toggle);
         presenter.setView(view);
         presenter.startBattle();
 
@@ -155,7 +171,7 @@ class BattlePresenterTest {
         state.setCurrOpponent(new OpponentSet(new Point(4, 6), opponents));
         BattleInteractor interactor = new BattleInteractor(state, new InventoryInteractor(state,
             inventoryPresenterInterface), createSaver(state));
-        BattlePresenter presenter = new BattlePresenter(interactor);
+        BattlePresenter presenter = new BattlePresenter(interactor, toggle);
         presenter.setView(view);
         presenter.startBattle();
 
@@ -213,7 +229,7 @@ class BattlePresenterTest {
         state.setCurrOpponent(new OpponentSet(new Point(4, 6), opponents));
         BattleInteractor interactor = new BattleInteractor(state, new InventoryInteractor(state,
             inventoryPresenterInterface), createSaver(state));
-        BattlePresenter presenter = new BattlePresenter(interactor);
+        BattlePresenter presenter = new BattlePresenter(interactor, toggle);
         presenter.setView(view);
         presenter.startBattle();
 
@@ -266,7 +282,7 @@ class BattlePresenterTest {
         state.setCurrOpponent(new OpponentSet(new Point(4, 6), opponents));
         BattleInteractor interactor = new BattleInteractor(state, new InventoryInteractor(state,
             inventoryPresenterInterface), createSaver(state));
-        BattlePresenter presenter = new BattlePresenter(interactor);
+        BattlePresenter presenter = new BattlePresenter(interactor, toggle);
         presenter.setView(view);
         presenter.startBattle();
 
@@ -289,7 +305,7 @@ class BattlePresenterTest {
         state.setCurrOpponent(new OpponentSet(new Point(4, 6), opponents));
         BattleInteractor interactor = new BattleInteractor(state, new InventoryInteractor(state,
             inventoryPresenterInterface), createSaver(state));
-        BattlePresenter presenter = new BattlePresenter(interactor);
+        BattlePresenter presenter = new BattlePresenter(interactor, toggle);
         presenter.setView(view);
         presenter.startBattle();
 

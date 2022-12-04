@@ -51,6 +51,7 @@ public class InventoryDisplay implements InventoryViewInterface, Toggleable {
 
     private @NotNull VBox buildLayout() {
         this.itemsDisplay = new VBox(10);
+        this.itemsDisplay.getChildren().add(new Label("Inventory"));
         controller.getInventoryDetails();
         return new VBox(5, this.itemsDisplay, buildCharacterDropdown());
     }
@@ -63,7 +64,7 @@ public class InventoryDisplay implements InventoryViewInterface, Toggleable {
 
     @Override
     public @NotNull Scene getScene() {
-        return new Scene(buildLayout(), 200, 200, Color.LIGHTBLUE);
+        return new Scene(buildLayout(), 800, 800, Color.LIGHTBLUE);
     }
 
     /**
