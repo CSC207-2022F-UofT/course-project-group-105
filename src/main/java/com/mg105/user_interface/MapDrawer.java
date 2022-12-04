@@ -2,7 +2,6 @@ package com.mg105.user_interface;
 
 import com.mg105.interface_adapters.RoomInterpreter;
 import com.mg105.interface_adapters.TileType;
-import com.mg105.use_cases.RoomUpdater;
 import com.mg105.utils.MapConstants;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -24,9 +23,9 @@ public class MapDrawer implements PropertyChangeListener, Toggleable {
 
     private final @NotNull Scene scene;
     private final @NotNull Group group;
-    private boolean isVisible;
-
     private final @NotNull Map<TileType, Image> tiles;
+    private final @NotNull Map<String, Image> playerSprites;
+    private boolean isVisible;
 
     /**
      * Create an instance of MapDrawer.
@@ -45,14 +44,20 @@ public class MapDrawer implements PropertyChangeListener, Toggleable {
         isVisible = false;
 
         tiles = new HashMap<>(6);
-        tiles.put(TileType.FLOOR, new Image(Objects.requireNonNull(RoomUpdater.class.getResourceAsStream("/tiles/floor.png"))));
-        tiles.put(TileType.WALL, new Image(Objects.requireNonNull(RoomUpdater.class.getResourceAsStream("/tiles/wall.png"))));
-        tiles.put(TileType.EXIT, new Image(Objects.requireNonNull(RoomUpdater.class.getResourceAsStream("/tiles/exit.png"))));
-        tiles.put(TileType.CHEST, new Image(Objects.requireNonNull(RoomUpdater.class.getResourceAsStream("/tiles/chest.png"))));
-        tiles.put(TileType.PLAYER, new Image(Objects.requireNonNull(RoomUpdater.class.getResourceAsStream("/sprites/A.png"))));
-        tiles.put(TileType.OPPONENT_SET, new Image(Objects.requireNonNull(RoomUpdater.class.getResourceAsStream("/tiles/battle.png"))));
+        tiles.put(TileType.FLOOR, new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/tiles/floor.png"))));
+        tiles.put(TileType.WALL, new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/tiles/wall.png"))));
+        tiles.put(TileType.EXIT, new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/tiles/exit.png"))));
+        tiles.put(TileType.CHEST, new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/tiles/chest.png"))));
+        tiles.put(TileType.PLAYER, new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/sprites/A.png"))));
+        tiles.put(TileType.OPPONENT_SET, new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/tiles/battle.png"))));
+
+        playerSprites = new HashMap<>(4);
+        playerSprites.put("/sprites/A.png", new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/sprites/A.png"))));
+        playerSprites.put("/sprites/B.png", new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/sprites/B.png"))));
+        playerSprites.put("/sprites/C.png", new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/sprites/C.png"))));
+        playerSprites.put("/sprites/D.png", new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/sprites/D.png"))));
         // While in theory getResourceAsStream can fail, in practice this will never happen because the images are
-        // bundled in the Jar.  If this isn't the case then the nullpointerexception is the least of your worries.
+        // bundled in the Jar.  If this isn't the case then the NullPointerException is the least of your worries.
     }
 
     /**
@@ -66,7 +71,7 @@ public class MapDrawer implements PropertyChangeListener, Toggleable {
     }
 
     /**
-     * Toggle the visibility of map drawer.  In this case we need to make sure the map drawing is up to date.
+     * Toggle the visibility of map drawer.  In this case we need to make sure the map drawing is up-to-date.
      *
      * @param isVisible true if the map is now visible, false otherwise.
      */
@@ -75,9 +80,7 @@ public class MapDrawer implements PropertyChangeListener, Toggleable {
         this.isVisible = isVisible;
 
         if (isVisible) { //Maybe four Image objects should be saved on a file somewhere else instead?
-            this.tiles.put(TileType.PLAYER,
-                new Image(Objects.requireNonNull(RoomUpdater.class.getResourceAsStream(
-                    this.interpreter.updateCharacterSprite()))));
+            tiles.put(TileType.PLAYER, playerSprites.get(interpreter.updateCharacterSprite()));
             updateRoom();
         }
     }
@@ -112,7 +115,7 @@ public class MapDrawer implements PropertyChangeListener, Toggleable {
      * Note that none of the properties of evt are used.
      *
      * @param evt A PropertyChangeEvent object describing the event source
-     *          and the property that has changed.
+     *            and the property that has changed.
      */
     @Override
     public void propertyChange(PropertyChangeEvent evt) {

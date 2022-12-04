@@ -1,7 +1,6 @@
 package com.mg105.user_interface;
 
-import com.mg105.controllers.TutorialTextController;
-import com.mg105.interface_adapters.Toggler;
+import com.mg105.interface_adapters.tutorial.TutorialTextController;
 import com.mg105.utils.TutorialTexts;
 import javafx.animation.AnimationTimer;
 import javafx.geometry.Insets;
@@ -23,8 +22,6 @@ public class TutorialTextWindow implements Toggleable{
     TutorialTextController textController;
     Scene tutorialScene = new Scene(tutorialPane, TutorialTexts.HELPER_PANE_X, TutorialTexts.HELPER_PANE_Y);
 
-    Toggler toggler;
-
     public TutorialTextWindow(TutorialTextController textController, @NotNull TutorialTextDisplay tutorialDisplay) {
         this.textController = textController;
         this.tutorialDisplay = tutorialDisplay;
@@ -35,7 +32,7 @@ public class TutorialTextWindow implements Toggleable{
 
         helpText.setFont(Font.font(TutorialTexts.TEXT_SIZE));
         helpText.setBackground(new Background(new BackgroundFill(Color.rgb(255, 215, 0, 1),
-            new CornerRadii(30.0), new Insets(-40.0))));
+            new CornerRadii(80.0), new Insets(-100.0))));
 
         tutorialPane.getChildren().add(bottomText);
         tutorialPane.getChildren().add(helpText);
@@ -86,15 +83,30 @@ public class TutorialTextWindow implements Toggleable{
                 bottomText.setText(tutorialDisplay.showBottomText(tutorialText));
             }
 
-            if (textController.getShowControls()){
+            if (textController.getShowControls() & textController.getTutorial().isComplete()){
                 helpText.setText(tutorialDisplay.showControlsText());
                 helpTimer --;
                 if (helpTimer < 1){
                     textController.setShowControls(false);
                     helpTimer = TutorialTexts.HELP_TIME;
                 }
-            }
-            else {
+            } else if (textController.getShowControls()) {
+                if (!textController.getTutorial().getActionPerformed(TutorialTexts.MOVED)){
+                        helpText.setText(TutorialTexts.DID_NOT_MOVE);
+                    } else if (!textController.getTutorial().getActionPerformed(TutorialTexts.USED_ITEM)) {
+                        helpText.setText(TutorialTexts.DID_NOT_OPEN_CHEST);
+                }
+                else {
+                    helpText.setText(TutorialTexts.DID_NOT_BATTLE);
+                }
+
+                helpTimer --;
+                if (helpTimer < 1){
+                    textController.setShowControls(false);
+                    helpTimer = TutorialTexts.HELP_TIME;
+                }
+
+            } else {
                 helpText.setText("");
             }
 
