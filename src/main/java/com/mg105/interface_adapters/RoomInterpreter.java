@@ -39,29 +39,47 @@ public class RoomInterpreter {
         }
 
         for (int i = 0; i < MapConstants.ROOM_SIZE; i++) {
-            canvas[0][i] = TileType.WALL;
-            canvas[i][0] = TileType.WALL;
-            canvas[MapConstants.ROOM_SIZE - 1][i] = TileType.WALL;
             canvas[i][MapConstants.ROOM_SIZE - 1] = TileType.WALL;
+            canvas[i][0] = TileType.WALL;
         }
+        for (int i = 1; i < MapConstants.ROOM_SIZE - 1; i++) {
+            canvas[MapConstants.ROOM_SIZE - 1][i] = TileType.WALL_WITH_FACE;
+            canvas[0][i] = TileType.WALL_WITH_FACE;
+        }
+        canvas[MapConstants.ROOM_SIZE - 1][0] = TileType.WALL_WITH_FACE;
+        canvas[MapConstants.ROOM_SIZE - 1][MapConstants.ROOM_SIZE - 1] = TileType.WALL_WITH_FACE;
 
         RoomLayout room = getter.getCurrentRoomLayout();
 
         for (Point doorway : room.getDoorways()) {
             canvas[doorway.y][doorway.x] = TileType.EXIT;
+            if (doorway.x == 0 || doorway.x == MapConstants.ROOM_SIZE - 1) {
+                canvas[doorway.y - 1][doorway.x] = TileType.WALL_WITH_FACE;
+            }
         }
 
-        for (Point chest : room.getChests()) {
+        for (Point chest : room.getClosedChests()) {
             canvas[chest.y][chest.x] = TileType.CHEST;
+        }
+
+        for (Point chest : room.getOpenChests()) {
+            canvas[chest.y][chest.x] = TileType.CHEST_OPEN;
         }
 
         for (Point opponents : room.getOpponents()) {
             canvas[opponents.y][opponents.x] = TileType.OPPONENT_SET;
         }
 
-        canvas[room.getPlayer().y][room.getPlayer().x] = TileType.PLAYER;
-
         return canvas;
+    }
+
+    /**
+     * Get the current player position in the room.
+     *
+     * @return the current player position in the room.
+     */
+    public @NotNull Point getPlayer() {
+        return getter.getCurrentRoomLayout().getPlayer();
     }
 
     /**
