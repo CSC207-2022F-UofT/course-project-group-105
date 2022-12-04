@@ -10,15 +10,11 @@ import java.util.ArrayList;
 public class ReplayGenerator {
     private final @NotNull GameState state;
 
-    //   No need for constructor as we would not initialize an instance for ReplayGenerator
-
     /**
-     * let a new BattleCharacter that inherit all the previous player's attributes
+     * Create a new replaygenerator
      *
-     * @param battleCharacter the battleCharacter in the previous game
-     * @return a new BattleCharacter that inherit all the previous player's attributes
+     * @param state the game state.
      */
-
     public ReplayGenerator(GameState state) {
         this.state = state;
     }
