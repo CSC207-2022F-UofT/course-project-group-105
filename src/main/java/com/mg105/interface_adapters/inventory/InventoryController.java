@@ -1,6 +1,7 @@
 package com.mg105.interface_adapters.inventory;
 
 import com.mg105.use_cases.inventory.InventoryInteractor;
+import com.mg105.use_cases.inventory.InventoryInteractorInputInterface;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -9,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class InventoryController {
 
-    @NotNull private final InventoryInteractor interactor;
+    @NotNull private final InventoryInteractorInputInterface interactor;
 
 
     /**
@@ -55,6 +56,9 @@ public class InventoryController {
         interactor.getInventoryDetails();
     }
 
+    /**
+     * Removes all items from the inventory
+     */
     public void removeAll() {
         this.interactor.removeInventory();
     }

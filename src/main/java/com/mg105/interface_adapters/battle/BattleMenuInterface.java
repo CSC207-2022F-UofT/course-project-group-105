@@ -1,4 +1,4 @@
-package com.mg105.interface_adapters;
+package com.mg105.interface_adapters.battle;
 
 /**
  * This interface should be implemented by BattleMenu.
