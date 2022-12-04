@@ -8,6 +8,7 @@ public enum TileType {
     FLOOR,
     /** Wall that cannot be walked on.  Mainly used for the border */
     WALL,
+    /** A wall where you can see the side */
     WALL_WITH_FACE,
     /** A doorway */
     EXIT,
