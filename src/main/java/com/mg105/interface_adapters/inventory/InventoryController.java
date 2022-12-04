@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class InventoryController {
 
-    @NotNull InventoryInteractor interactor;
+    @NotNull private final InventoryInteractor interactor;
 
 
     /**
