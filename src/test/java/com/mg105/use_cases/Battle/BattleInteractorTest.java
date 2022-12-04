@@ -224,6 +224,8 @@ class BattleInteractorTest {
 
     @Test
     void startRoundProperly() {
+        //Note: BattleInteractor will never have 100% line coverage due to use of Random number generation being
+        // involved in conditional statements.
         Inventory inventory = new Inventory();
         WalkingCharacter character = new WalkingCharacter(new Point(0, 0));
         BattleCharacter p1 = new BattleCharacter(14, "Leslie", 7, 2000, false,
@@ -305,7 +307,8 @@ class BattleInteractorTest {
 
         GameState state = new GameState(inventory, party, character);
         state.setCurrOpponent(new OpponentSet(new Point(4, 6), opponents));
-        BattleInteractor interactor = new BattleInteractor(state);
+        BattleInteractor interactor = new BattleInteractor(state, new InventoryInteractor(state,
+            inventoryPresenterInterface), createSaver(state));
         interactor.setPresenter(presenter);
         interactor.createEncounter();
         interactor.executeTurn(1, "Leslie", "Professor Chad");
@@ -332,7 +335,8 @@ class BattleInteractorTest {
 
         GameState state = new GameState(inventory, party, character);
         state.setCurrOpponent(new OpponentSet(new Point(4, 6), opponents));
-        BattleInteractor interactor = new BattleInteractor(state);
+        BattleInteractor interactor = new BattleInteractor(state, new InventoryInteractor(state,
+            inventoryPresenterInterface), createSaver(state));
         interactor.setPresenter(presenter);
         interactor.createEncounter();
         interactor.executeTurn(2, "Professor Chad", "Leslie");
@@ -354,7 +358,8 @@ class BattleInteractorTest {
 
         GameState state = new GameState(inventory, party, character);
         state.setCurrOpponent(new OpponentSet(new Point(4, 6), opponents));
-        BattleInteractor interactor = new BattleInteractor(state);
+        BattleInteractor interactor = new BattleInteractor(state, new InventoryInteractor(state,
+            inventoryPresenterInterface), createSaver(state));
         interactor.setPresenter(presenter);
         interactor.createEncounter();
         int dmg = interactor.getCharacterDamage("Leslie");

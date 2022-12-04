@@ -287,7 +287,8 @@ class BattlePresenterTest {
 
         GameState state = new GameState(inventory, party, character);
         state.setCurrOpponent(new OpponentSet(new Point(4, 6), opponents));
-        BattleInteractor interactor = new BattleInteractor(state);
+        BattleInteractor interactor = new BattleInteractor(state, new InventoryInteractor(state,
+            inventoryPresenterInterface), createSaver(state));
         BattlePresenter presenter = new BattlePresenter(interactor);
         presenter.setView(view);
         presenter.startBattle();
