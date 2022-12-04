@@ -20,7 +20,7 @@ public class MoveDataCreator extends DataStorageCreator {
 
         String[] header = {"name","moveChange","damageChange","isFriendly"};
         String[] m1 = {SLOW_SWING,"-3","0",IS_FALSE};
-        String[] m2 =  {NULLIFY,"0","-1",IS_FALSE};
+        String[] m2 =  {NULLIFY,"0","-3",IS_FALSE};
         String[] m3 = {STRONG_SWING,"-4","0",IS_FALSE};
         String[] m4 =  {STRONG_HEAL,"6","0",IS_TRUE};
         String[] m5 =  {WEAK_HEAL,"3","0",IS_TRUE};

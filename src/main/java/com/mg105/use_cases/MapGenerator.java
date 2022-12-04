@@ -279,9 +279,9 @@ public class MapGenerator {
     private @NotNull Move generateMove() {
         String name = MoveConstants.ALL_NAMES[random.nextInt(MoveConstants.ALL_NAMES.length)];
         if (name.contains("heal")) {
-            return new Move(random.nextInt(10), random.nextInt(10), name, true);
+            return new Move(random.nextInt(8), random.nextInt(2), name, true);
         } else {
-            return new Move(-random.nextInt(10), -random.nextInt(10), name, false);
+            return new Move(-random.nextInt(11), 0, name, false);
         }
     }
 
