@@ -1,6 +1,6 @@
 package com.mg105;
 
-import com.mg105.controllers.TutorialTextController;
+import com.mg105.interface_adapters.tutorial.TutorialTextController;
 import com.mg105.data_control.access.MoveDataAccess;
 import com.mg105.data_control.access.PartyDataAccess;
 import com.mg105.data_control.creator.MoveDataCreator;

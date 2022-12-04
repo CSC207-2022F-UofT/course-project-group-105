@@ -24,12 +24,18 @@ public interface Toggler {
      * All the possible components that could theoretically be toggled.
      */
     enum ToggleableComponent {
+        /** The main menu */
         MAIN_MENU,
+        /** The main map */
         MAP,
+        /** The inventory menu */
         INVENTORY,
+        /** The battle menu */
         BATTLE,
+        /** The tutorial window */
         TUTORIAL,
         WALK_MENU,
         LOSE_MENU
+
     }
 }
