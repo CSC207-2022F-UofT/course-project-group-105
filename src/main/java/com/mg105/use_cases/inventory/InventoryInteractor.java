@@ -83,7 +83,7 @@ public class InventoryInteractor implements InventoryInteractorInputInterface {
     @Override
     public void useItem(@NotNull String itemName, @NotNull String characterName) {
 
-        if (!(inParty(characterName))) {
+        if (!(inParty(characterName)) || state.hasCurrEncounter()) {
             response.useItem(false, characterName, getItemDetails(itemName));
             return;
         }

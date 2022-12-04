@@ -156,14 +156,12 @@ public class BattlePresenter implements BattlePresenterInterface {
      * Makes the appropriate updates to change the view in the of a battle being won or lost
      */
     public void endBattle() {
+        toggler.toggle(BATTLE);
         boolean hasWon = interactor.endBattle();
-        if(hasWon){
-            toggler.toggle(BATTLE);
-            return;
+        if(!hasWon){
+            toggler.toggle(LOSE_MENU);
+
         }
-
-        toggler.toggle(LOSE_MENU);
-
     }
 
 }
