@@ -9,13 +9,15 @@ import org.jetbrains.annotations.NotNull;
  */
 
 public abstract class Item {
-    final private String NAME;
-    final private String DESCRIPTION;
+    @NotNull final private String NAME;
 
-    public Item(@NotNull String name, @NotNull String description) {
+    /**
+     * Creates a new instance of item
+     * @param name the name of the item
+     */
+    public Item(@NotNull String name) {
 
         this.NAME = name;
-        this.DESCRIPTION = description;
     }
 
     /**

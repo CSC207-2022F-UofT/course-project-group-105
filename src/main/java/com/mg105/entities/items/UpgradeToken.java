@@ -13,8 +13,11 @@ import org.jetbrains.annotations.NotNull;
  */
 public class UpgradeToken extends Item implements Consumable {
 
+    /**
+     * Creates a new instance of upgrade token
+     */
     public UpgradeToken() {
-        super(ItemConstants.UPGRADE_TOKEN_NAME, ItemConstants.UPGRADE_TOKEN_DESCRIPTION);
+        super(ItemConstants.UPGRADE_TOKEN_NAME);
     }
 
     /**

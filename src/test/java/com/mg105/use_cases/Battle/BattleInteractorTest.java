@@ -1,8 +1,15 @@
 package com.mg105.use_cases.Battle;
 
+import com.mg105.data_control.access.MoveDataAccess;
+import com.mg105.data_control.access.PartyDataAccess;
 import com.mg105.entities.*;
 import com.mg105.use_cases.BattleInteractor;
 import com.mg105.use_cases.BattlePresenterInterface;
+import com.mg105.use_cases.inventory.InventoryInteractor;
+import com.mg105.use_cases.inventory.InventoryPresenterInterface;
+import com.mg105.use_cases.outputds.ItemDetails;
+import com.mg105.use_cases.save.PartySaver;
+import com.mg105.use_cases.save.Saver;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +19,34 @@ import java.util.List;
 
 class BattleInteractorTest {
 
-    BattlePresenterInterface presenter = new BattlePresenterInterface() {
+    private Saver createSaver(GameState state){
+        PartySaver[] partySavers = {new PartySaver(state, new PartyDataAccess(new MoveDataAccess()))};
+        return new Saver(partySavers);
+    }
+
+    private static final InventoryPresenterInterface inventoryPresenterInterface = new InventoryPresenterInterface() {
+        @Override
+        public void addItem(boolean isSuccessful, ItemDetails itemDetails) {
+
+        }
+
+        @Override
+        public void removeItem(boolean isSuccessful, ItemDetails itemDetails) {
+
+        }
+
+        @Override
+        public void useItem(boolean isSuccessful, String characterName, ItemDetails itemDetails) {
+
+        }
+
+        @Override
+        public void inventoryDetails(ItemDetails[] allItemsDetails) {
+
+        }
+    };
+
+    private final static BattlePresenterInterface presenter = new BattlePresenterInterface() {
         @Override
         public void setViewNames(String[] partyNames, String[] opponentNames) {
 
@@ -67,7 +101,8 @@ class BattleInteractorTest {
 
         GameState state = new GameState(inventory, party, character);
         state.setCurrOpponent(new OpponentSet(new Point(4, 6), opponents));
-        BattleInteractor interactor = new BattleInteractor(state);
+        BattleInteractor interactor = new BattleInteractor(state, new InventoryInteractor(state,
+            inventoryPresenterInterface), createSaver(state));
         interactor.setPresenter(presenter);
         interactor.createEncounter();
 
@@ -119,7 +154,8 @@ class BattleInteractorTest {
 
         GameState state = new GameState(inventory, party, character);
         state.setCurrOpponent(new OpponentSet(new Point(4, 6), opponents));
-        BattleInteractor interactor = new BattleInteractor(state);
+        BattleInteractor interactor = new BattleInteractor(state, new InventoryInteractor(state,
+            inventoryPresenterInterface), createSaver(state));
         interactor.setPresenter(presenter);
         interactor.createEncounter();
 
@@ -175,7 +211,8 @@ class BattleInteractorTest {
 
         GameState state = new GameState(inventory, party, character);
         state.setCurrOpponent(new OpponentSet(new Point(4, 6), opponents));
-        BattleInteractor interactor = new BattleInteractor(state);
+        BattleInteractor interactor = new BattleInteractor(state, new InventoryInteractor(state,
+            inventoryPresenterInterface), createSaver(state));
         interactor.setPresenter(presenter);
         interactor.createEncounter();
 
@@ -228,7 +265,8 @@ class BattleInteractorTest {
 
         GameState state = new GameState(inventory, party, character);
         state.setCurrOpponent(new OpponentSet(new Point(4, 6), opponents));
-        BattleInteractor interactor = new BattleInteractor(state);
+        BattleInteractor interactor = new BattleInteractor(state, new InventoryInteractor(state,
+            inventoryPresenterInterface), createSaver(state));
         interactor.setPresenter(presenter);
         interactor.createEncounter();
         String first = interactor.roundStart();

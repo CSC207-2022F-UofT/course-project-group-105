@@ -1,9 +1,10 @@
 package com.mg105.interface_adapters;
 
 import com.mg105.use_cases.ChestInteractor;
-import com.mg105.controllers.TutorialTextController;
+import com.mg105.interface_adapters.tutorial.TutorialTextController;
 import com.mg105.use_cases.CharacterMover;
 import com.mg105.use_cases.OpponentSetInteractor;
+import com.mg105.utils.TutorialTexts;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
@@ -35,8 +36,7 @@ public class InputInterpreter {
         this.toggler = toggler;
         this.textChanger = textChanger;
         this.opponentInteractor = opponentInteractor;
-        this.chestInteractor = chestInteractor;
-    }
+        this.chestInteractor = chestInteractor;}
 
     /**
      * Interpret key being pressed as an action.
@@ -47,10 +47,22 @@ public class InputInterpreter {
         switch (toggler.getCurrentComponent()) {
             case MAP -> {
                 switch (key) {
-                    case "w" -> mover.generateMapMoveBy(new Point(0, -1));
-                    case "a" -> mover.generateMapMoveBy(new Point(-1, 0));
-                    case "s" -> mover.generateMapMoveBy(new Point(0, 1));
-                    case "d" -> mover.generateMapMoveBy(new Point(1, 0));
+                    case "w" -> {
+                        mover.generateMapMoveBy(new Point(0, -1));
+                        textChanger.getTutorial().setActionPerformed(TutorialTexts.MOVED);
+                    }
+                    case "a" -> {
+                        mover.generateMapMoveBy(new Point(-1, 0));
+                        textChanger.getTutorial().setActionPerformed(TutorialTexts.MOVED);
+                    }
+                    case "s" -> {
+                        mover.generateMapMoveBy(new Point(0, 1));
+                        textChanger.getTutorial().setActionPerformed(TutorialTexts.MOVED);
+                    }
+                    case "d" -> {
+                        mover.generateMapMoveBy(new Point(1, 0));
+                        textChanger.getTutorial().setActionPerformed(TutorialTexts.MOVED);
+                    }
 
                     case "k" -> {
                         toggler.toggle(Toggler.ToggleableComponent.TUTORIAL);
@@ -61,7 +73,11 @@ public class InputInterpreter {
                         toggler.toggle(Toggler.ToggleableComponent.TUTORIAL);
                         textChanger.setChangeText();
                     }
-                    case "e" -> chestInteractor.getChestItem();
+                    case "e" -> {
+                        chestInteractor.getChestItem();
+                        // tutorial only cares that you pick up item, not that you use it
+                        textChanger.getTutorial().setActionPerformed(TutorialTexts.USED_ITEM);
+                    }
 
                     case " " ->
                         //There is a warning if curly brackets are used on this block.
@@ -71,6 +87,7 @@ public class InputInterpreter {
                     case "f" -> {
                         if (opponentInteractor.setOpponentSet()) {
                             toggler.toggle(Toggler.ToggleableComponent.BATTLE);
+                            textChanger.getTutorial().setActionPerformed(TutorialTexts.ATTACKED);
                         }
                     }
                 }
@@ -88,6 +105,12 @@ public class InputInterpreter {
             case WALK_MENU -> {
                 if (key.equals(" ")) {
                         toggler.toggle(Toggler.ToggleableComponent.WALK_MENU);
+                }
+            }
+
+            case INVENTORY -> {
+                if(key.equals("i")){
+                    toggler.toggle(Toggler.ToggleableComponent.INVENTORY);
                 }
             }
         }

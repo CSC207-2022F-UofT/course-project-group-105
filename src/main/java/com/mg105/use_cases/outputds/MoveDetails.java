@@ -1,4 +1,4 @@
-package com.mg105.outputds;
+package com.mg105.use_cases.outputds;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -8,13 +8,13 @@ import org.jetbrains.annotations.NotNull;
 
 public class MoveDetails {
 
-    private final String name;
+    @NotNull private final String name;
     private final int healthChange;
     private final int damageChange;
-    private final Boolean isFriendly;
+    private final boolean isFriendly;
 
     public MoveDetails(@NotNull String name, int healthChange, int damageChange,
-                       @NotNull boolean isFriendly) {
+                       boolean isFriendly) {
         this.name = name;
         this.healthChange = healthChange;
         this.damageChange = damageChange;

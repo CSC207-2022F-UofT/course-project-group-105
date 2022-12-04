@@ -3,10 +3,11 @@ package com.mg105.use_cases.set_up.state_setter;
 import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.GameState;
 import com.mg105.entities.Move;
-import com.mg105.outputds.BattleCharacterDetails;
-import com.mg105.outputds.MoveDetails;
+import com.mg105.use_cases.outputds.BattleCharacterDetails;
+import com.mg105.use_cases.outputds.MoveDetails;
 import com.mg105.use_cases.save.PartyDataInterface;
 import com.mg105.utils.PartyConstants;
+import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -15,8 +16,12 @@ import org.jetbrains.annotations.NotNull;
  */
 
 public class PartyCreator implements StateSetter {
-    private final PartyDataInterface party_access;
+    @NotNull private final PartyDataInterface party_access;
 
+    /**
+     * Creates a new instance of PartyCreator
+     * @param partyAccess an object that is used to access information of the party from the data storage system
+     */
     public PartyCreator(@NotNull PartyDataInterface partyAccess) {
 
         this.party_access = partyAccess;
@@ -40,7 +45,7 @@ public class PartyCreator implements StateSetter {
 
     }
 
-    private BattleCharacter createPartyMember(@NotNull BattleCharacterDetails details) {
+    private @NotNull BattleCharacter createPartyMember(@NotNull BattleCharacterDetails details) {
         Move first = createMove(details.getMoveDetails()[0]);
         Move second = createMove(details.getMoveDetails()[1]);
 
@@ -48,7 +53,7 @@ public class PartyCreator implements StateSetter {
             details.isOpponent(), first, second);
     }
 
-    private Move createMove(@NotNull MoveDetails details) {
+    private @NotNull Move createMove(@NotNull MoveDetails details) {
         return new Move(details.getHealthChange(), details.getDamageChange(), details.getName(), details.isFriendly());
 
     }

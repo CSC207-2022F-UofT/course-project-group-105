@@ -1,6 +1,7 @@
 package com.mg105.use_cases.set_up.state_setter;
 
 import com.mg105.entities.GameState;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * This class should only be called in the "main" file. It has a method that is used to set information about the
@@ -19,9 +20,14 @@ public class GameStateSetter implements StateSetter {
 
     // For example if we had inventory data in the database, that data would need to leaded and set when the game
     // starts so thus it would need its own StateSetter
-    private final StateSetter[] setters;
+    @NotNull private final StateSetter[] setters;
 
-    public GameStateSetter(StateSetter[] setters) {
+    /**
+     * Creates a new instance of GameStateSetters
+     * @param setters a group of objects that help store information in the game state
+     */
+
+    public GameStateSetter(@NotNull StateSetter[] setters) {
         this.setters = setters;
     }
 

@@ -5,12 +5,19 @@ import com.mg105.utils.TutorialTexts;
 
 import java.util.List;
 
+/** Class for determining what phase of the tutorial the player is on, and changing the phase */
 public class PlayerGetsTutorial {
     private final List<String> tutorialPhases;  // Go through multiple phases of tutorial in order
     private int currentPhase;
 
     private final GiveTutorial tutorial;
 
+    /** Constructor for PlayerGetsTutorial use case
+     *
+     * @param tutorialPhases a list of all possible phases in the tutorial
+     * @param currentPhase the integer representing what phase the player is on in the tutorial
+     * @param tutorial an instance of the GiveTutorial entity
+     * */
     public PlayerGetsTutorial(List<String> tutorialPhases, int currentPhase, GiveTutorial tutorial) {
         this.tutorialPhases = tutorialPhases;
         this.currentPhase = currentPhase;
@@ -23,7 +30,7 @@ public class PlayerGetsTutorial {
      * @return whether all actions are complete
      */
     public boolean isComplete() {
-        return tutorial.ActionPerformedGetter(TutorialTexts.MOVED) & tutorial.ActionPerformedGetter(TutorialTexts.ATTACKED) & tutorial.ActionPerformedGetter(TutorialTexts.USED_ITEM);
+        return tutorial.actionPerformedGetter(TutorialTexts.MOVED) & tutorial.actionPerformedGetter(TutorialTexts.ATTACKED) & tutorial.actionPerformedGetter(TutorialTexts.USED_ITEM);
     }
 
     /**
@@ -59,7 +66,7 @@ public class PlayerGetsTutorial {
      * @param action to set to performed
      */
     public void setActionPerformed(String action) {
-        this.tutorial.ActionPerformedSetter(action);
+        this.tutorial.actionPerformedSetter(action);
     }
 
     /**
@@ -70,7 +77,7 @@ public class PlayerGetsTutorial {
      * @return if the action has been performed
      */
     public boolean getActionPerformed(String action) {
-        return this.tutorial.ActionPerformedGetter(action);
+        return this.tutorial.actionPerformedGetter(action);
     }
 }
 
