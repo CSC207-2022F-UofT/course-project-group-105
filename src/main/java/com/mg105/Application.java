@@ -131,14 +131,12 @@ public class Application extends javafx.application.Application {
         roomUpdater.addObserver(minimapInterpreter);
 
         CharacterMover characterMover = new CharacterMover(state, roomUpdater);
-        ChestInteractor chestInteractor = new ChestInteractor(state, inventoryInteractor);
-        InputInterpreter inputInterpreter = new InputInterpreter(characterMover, sceneController,
-            textChanger, chestInteractor,
+        ChestInteractor chestInteractor = new ChestInteractor(state, inventoryInteractor, roomUpdater);
+        InputInterpreter inputInterpreter = new InputInterpreter(characterMover, sceneController, textChanger, chestInteractor,
             opponentInteractor);
         InputListener inputListener = new InputListener(inputInterpreter);
         primaryStage.addEventFilter(KeyEvent.KEY_TYPED, inputListener);
         sceneController.toggle(Toggler.ToggleableComponent.MAIN_MENU);
-        primaryStage.setTitle("Mountain Group 105");
         primaryStage.setResizable(false);
         primaryStage.show();
     }
