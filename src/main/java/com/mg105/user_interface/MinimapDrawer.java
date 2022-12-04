@@ -21,6 +21,11 @@ public class MinimapDrawer implements Toggleable {
     private final @NotNull Scene scene;
     private final @NotNull Group group;
 
+    private static final @NotNull Color PATH_COLOR = Color.rgb(135, 160, 227);
+    private static final @NotNull Color ROOM_COLOR = Color.rgb(205, 220, 255);
+    private static final @NotNull Color CURRENT_ROOM_COLOR = Color.rgb(200, 150, 61);
+    private static final @NotNull Color BACKGROUND_COLOR = Color.rgb(38, 44, 68);
+
     /**
      * Create a new MinimapDrawer.
      *
@@ -31,6 +36,7 @@ public class MinimapDrawer implements Toggleable {
 
         group = new Group();
         scene = new Scene(group, CANVAS_SIZE, CANVAS_SIZE);
+        scene.setFill(BACKGROUND_COLOR);
     }
 
     /**
@@ -71,7 +77,7 @@ public class MinimapDrawer implements Toggleable {
                         r.setY(topPadding + y * cellDimension);
                         r.setWidth(cellDimension);
                         r.setHeight(cellDimension);
-                        r.setFill(Color.GREEN);
+                        r.setFill(CURRENT_ROOM_COLOR);
                         group.getChildren().add(r);
                     }
 
@@ -83,6 +89,7 @@ public class MinimapDrawer implements Toggleable {
                         r.setY(topPadding + innerCellPadding + y * cellDimension);
                         r.setWidth(cellDimension - 2 * innerCellPadding);
                         r.setHeight(cellDimension - 2 * innerCellPadding);
+                        r.setFill(ROOM_COLOR);
                         group.getChildren().add(r);
 
                         // Now we draw the lines that sick out
@@ -96,8 +103,9 @@ public class MinimapDrawer implements Toggleable {
                             Line l = new Line();
                             l.setStartX(xMidpoint);
                             l.setEndX(xMidpoint);
-                            l.setStartY(topPadding + y * cellDimension + innerCellPadding);
+                            l.setStartY(topPadding + y * cellDimension + innerCellPadding - strokeWidthCorrection);
                             l.setEndY(topPadding + y * cellDimension + strokeWidthCorrection);
+                            l.setStroke(PATH_COLOR);
                             l.setStrokeWidth(strokeWidth);
                             group.getChildren().add(l);
                         }
@@ -107,8 +115,9 @@ public class MinimapDrawer implements Toggleable {
                             Line l = new Line();
                             l.setStartX(xMidpoint);
                             l.setEndX(xMidpoint);
-                            l.setStartY(topPadding + y * cellDimension + cellDimension - innerCellPadding);
+                            l.setStartY(topPadding + y * cellDimension + cellDimension - innerCellPadding + strokeWidthCorrection);
                             l.setEndY(topPadding + y * cellDimension + cellDimension - strokeWidthCorrection);
+                            l.setStroke(PATH_COLOR);
                             l.setStrokeWidth(strokeWidth);
                             group.getChildren().add(l);
                         }
@@ -116,10 +125,11 @@ public class MinimapDrawer implements Toggleable {
                         // Line coming out the left
                         if (x > 0 && map[y][x-1] != null) {
                             Line l = new Line();
-                            l.setStartX(leftPadding + x * cellDimension + innerCellPadding);
+                            l.setStartX(leftPadding + x * cellDimension + innerCellPadding - strokeWidthCorrection);
                             l.setEndX(leftPadding + x * cellDimension + strokeWidthCorrection);
                             l.setStartY(yMidpoint);
                             l.setEndY(yMidpoint);
+                            l.setStroke(PATH_COLOR);
                             l.setStrokeWidth(strokeWidth);
                             group.getChildren().add(l);
                         }
@@ -127,10 +137,11 @@ public class MinimapDrawer implements Toggleable {
                         // Line coming out the right
                         if (x < map[0].length - 1 && map[y][x+1] != null) {
                             Line l = new Line();
-                            l.setStartX(leftPadding + x * cellDimension + cellDimension - innerCellPadding);
+                            l.setStartX(leftPadding + x * cellDimension + cellDimension - innerCellPadding + strokeWidthCorrection);
                             l.setEndX(leftPadding + x * cellDimension + cellDimension - strokeWidthCorrection);
                             l.setStartY(yMidpoint);
                             l.setEndY(yMidpoint);
+                            l.setStroke(PATH_COLOR);
                             l.setStrokeWidth(strokeWidth);
                             group.getChildren().add(l);
                         }
