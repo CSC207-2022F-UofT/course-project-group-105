@@ -272,4 +272,33 @@ class BattlePresenterTest {
 
         Assertions.assertEquals("Leslie", presenter.roundStart());
     }
+
+    @Test
+    void givenCharacterDetails() {
+        Inventory inventory = new Inventory();
+        WalkingCharacter character = new WalkingCharacter(new Point(0, 0));
+        BattleCharacter p1 = new BattleCharacter(14, "Leslie", 7, 8, false,
+            new Move(-5, 0, "first", false),
+            new Move(0, 1, "second",true));
+
+        BattleCharacter[] party = {p1};
+
+        List<BattleCharacter> opponents = new ArrayList<>();
+
+        GameState state = new GameState(inventory, party, character);
+        state.setCurrOpponent(new OpponentSet(new Point(4, 6), opponents));
+        BattleInteractor interactor = new BattleInteractor(state, new InventoryInteractor(state,
+            inventoryPresenterInterface), createSaver(state));
+        BattlePresenter presenter = new BattlePresenter(interactor);
+        presenter.setView(view);
+        presenter.startBattle();
+
+        int dmg = presenter.givenCharacterDamage("Leslie");
+        int moveOneHpChange = presenter.givenCharacterMoveStats("Leslie")[0];
+        String moveOneName = presenter.givenCharacterMoveNames("Leslie")[0];
+
+        Assertions.assertEquals(7, dmg);
+        Assertions.assertEquals(-5, moveOneHpChange);
+        Assertions.assertEquals("first", moveOneName);
+    }
 }

@@ -26,6 +26,11 @@ public class WalkingMenu implements EventHandler<ActionEvent>, Toggleable {
     private final Button select;
     private final Scene scene;
 
+    /**
+     * Creates a new WalkingMenu with reference to a controller class.
+     * Sets up UI elements.
+     * @param controller the WalkVisController to be referred to.
+     */
     public WalkingMenu(WalkVisController controller) {
         this.controller = controller;
 
@@ -63,6 +68,11 @@ public class WalkingMenu implements EventHandler<ActionEvent>, Toggleable {
         scene = new Scene(layout, 300, 300);
     }
 
+    /**
+     * Handles button events.
+     * Pressing the select button updates the WalkingCharacter to represent the desired walking character sprite.
+     * @param event the event which occurred.
+     */
     @Override
     public void handle(ActionEvent event) {
         Object source = event.getSource();
@@ -97,11 +107,6 @@ public class WalkingMenu implements EventHandler<ActionEvent>, Toggleable {
      */
     @Override
     public void toggle(boolean isVisible) {
-        if (isVisible) {
-            radA.setSelected(true);
-            radB.setSelected(false);
-            radC.setSelected(false);
-            radD.setSelected(false);
-        }
+        //The menu should ideally remain the same.
     }
 }

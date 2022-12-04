@@ -26,7 +26,15 @@ public class BattleInteractor {
 
     private final static int MAX_UPGRADE_TOKEN_REWARDED = 3;
 
+
+    /**
+     * Creates a new BattleInteractor with a reference to the GameState.
+     * @param state the GameState to be referred to.
+     * @param inventoryInteractor the inventoryInteractor to be referred to.
+     * @param saver an instance of Saver used to save data.
+     */
     public BattleInteractor(GameState state, InventoryInteractor inventoryInteractor, Saver saver) {
+
         this.state = state;
         this.inventoryInteractor = inventoryInteractor;
         this.saver = saver;
