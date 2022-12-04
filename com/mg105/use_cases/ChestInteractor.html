@@ -88,8 +88,9 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.mg105.entities.GameState,com.mg105.use_cases.inventory.InventoryInteractor)" class="member-name-link">ChestInteractor</a><wbr>(<a href="../entities/GameState.html" title="class in com.mg105.entities">GameState</a>&nbsp;gameState,
- <a href="inventory/InventoryInteractor.html" title="class in com.mg105.use_cases.inventory">InventoryInteractor</a>&nbsp;interactor)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.mg105.entities.GameState,com.mg105.use_cases.inventory.InventoryInteractor,com.mg105.use_cases.RoomUpdater)" class="member-name-link">ChestInteractor</a><wbr>(@NotNull <a href="../entities/GameState.html" title="class in com.mg105.entities">GameState</a>&nbsp;gameState,
+ @NotNull <a href="inventory/InventoryInteractor.html" title="class in com.mg105.use_cases.inventory">InventoryInteractor</a>&nbsp;interactor,
+ @NotNull <a href="RoomUpdater.html" title="class in com.mg105.use_cases">RoomUpdater</a>&nbsp;updater)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Creates a ChestInteractor to interact with chests in a GameState.</div>
 </div>
@@ -141,15 +142,20 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(com.mg105.entities.GameState,com.mg105.use_cases.inventory.InventoryInteractor)">
+<section class="detail" id="&lt;init&gt;(com.mg105.entities.GameState,com.mg105.use_cases.inventory.InventoryInteractor,com.mg105.use_cases.RoomUpdater)">
 <h3>ChestInteractor</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ChestInteractor</span><wbr><span class="parameters">(<a href="../entities/GameState.html" title="class in com.mg105.entities">GameState</a>&nbsp;gameState,
- <a href="inventory/InventoryInteractor.html" title="class in com.mg105.use_cases.inventory">InventoryInteractor</a>&nbsp;interactor)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ChestInteractor</span><wbr><span class="parameters">(@NotNull
+ @NotNull <a href="../entities/GameState.html" title="class in com.mg105.entities">GameState</a>&nbsp;gameState,
+ @NotNull
+ @NotNull <a href="inventory/InventoryInteractor.html" title="class in com.mg105.use_cases.inventory">InventoryInteractor</a>&nbsp;interactor,
+ @NotNull
+ @NotNull <a href="RoomUpdater.html" title="class in com.mg105.use_cases">RoomUpdater</a>&nbsp;updater)</span></div>
 <div class="block">Creates a ChestInteractor to interact with chests in a GameState.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>gameState</code> - the game state.</dd>
 <dd><code>interactor</code> - the inventory interactor.</dd>
+<dd><code>updater</code> - the room updater that will be called when the room changes.</dd>
 </dl>
 </section>
 </li>

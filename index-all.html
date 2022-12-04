@@ -245,9 +245,13 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">A treasure chest</div>
 </dd>
+<dt><a href="com/mg105/interface_adapters/TileType.html#CHEST_OPEN" class="member-name-link">CHEST_OPEN</a> - Enum constant in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/TileType.html" title="enum class in com.mg105.interface_adapters">TileType</a></dt>
+<dd>
+<div class="block">A treasure chest that has been opened</div>
+</dd>
 <dt><a href="com/mg105/use_cases/ChestInteractor.html" class="type-name-link" title="class in com.mg105.use_cases">ChestInteractor</a> - Class in <a href="com/mg105/use_cases/package-summary.html">com.mg105.use_cases</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="com/mg105/use_cases/ChestInteractor.html#%3Cinit%3E(com.mg105.entities.GameState,com.mg105.use_cases.inventory.InventoryInteractor)" class="member-name-link">ChestInteractor(GameState, InventoryInteractor)</a> - Constructor for class com.mg105.use_cases.<a href="com/mg105/use_cases/ChestInteractor.html" title="class in com.mg105.use_cases">ChestInteractor</a></dt>
+<dt><a href="com/mg105/use_cases/ChestInteractor.html#%3Cinit%3E(com.mg105.entities.GameState,com.mg105.use_cases.inventory.InventoryInteractor,com.mg105.use_cases.RoomUpdater)" class="member-name-link">ChestInteractor(GameState, InventoryInteractor, RoomUpdater)</a> - Constructor for class com.mg105.use_cases.<a href="com/mg105/use_cases/ChestInteractor.html" title="class in com.mg105.use_cases">ChestInteractor</a></dt>
 <dd>
 <div class="block">Creates a ChestInteractor to interact with chests in a GameState.</div>
 </dd>
@@ -517,9 +521,9 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Get the treasure chests in this room.</div>
 </dd>
-<dt><a href="com/mg105/use_cases/outputds/RoomLayout.html#getChests()" class="member-name-link">getChests()</a> - Method in class com.mg105.use_cases.outputds.<a href="com/mg105/use_cases/outputds/RoomLayout.html" title="class in com.mg105.use_cases.outputds">RoomLayout</a></dt>
+<dt><a href="com/mg105/use_cases/outputds/RoomLayout.html#getClosedChests()" class="member-name-link">getClosedChests()</a> - Method in class com.mg105.use_cases.outputds.<a href="com/mg105/use_cases/outputds/RoomLayout.html" title="class in com.mg105.use_cases.outputds">RoomLayout</a></dt>
 <dd>
-<div class="block">Get the treasure chests in this room.</div>
+<div class="block">Get the closed treasure chests in this room.</div>
 </dd>
 <dt><a href="com/mg105/user_interface/TutorialTextDisplay.html#getController()" class="member-name-link">getController()</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/TutorialTextDisplay.html" title="class in com.mg105.user_interface">TutorialTextDisplay</a></dt>
 <dd>
@@ -690,6 +694,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Returns the number of tokens rewarded to the player upon victory</div>
 </dd>
+<dt><a href="com/mg105/use_cases/outputds/RoomLayout.html#getOpenChests()" class="member-name-link">getOpenChests()</a> - Method in class com.mg105.use_cases.outputds.<a href="com/mg105/use_cases/outputds/RoomLayout.html" title="class in com.mg105.use_cases.outputds">RoomLayout</a></dt>
+<dd>
+<div class="block">Get the open treasure chests in this room.</div>
+</dd>
 <dt><a href="com/mg105/entities/Battle.html#getOpponents()" class="member-name-link">getOpponents()</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/Battle.html" title="class in com.mg105.entities">Battle</a></dt>
 <dd>
 <div class="block">Returns the list of active opponent characters.</div>
@@ -721,6 +729,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/mg105/entities/GameState.html#getPartyMember(java.lang.String)" class="member-name-link">getPartyMember(String)</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/GameState.html" title="class in com.mg105.entities">GameState</a></dt>
 <dd>
 <div class="block">Returns the character in party based on the given name</div>
+</dd>
+<dt><a href="com/mg105/interface_adapters/RoomInterpreter.html#getPlayer()" class="member-name-link">getPlayer()</a> - Method in class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/RoomInterpreter.html" title="class in com.mg105.interface_adapters">RoomInterpreter</a></dt>
+<dd>
+<div class="block">Get the current player position in the room.</div>
 </dd>
 <dt><a href="com/mg105/use_cases/outputds/RoomLayout.html#getPlayer()" class="member-name-link">getPlayer()</a> - Method in class com.mg105.use_cases.outputds.<a href="com/mg105/use_cases/outputds/RoomLayout.html" title="class in com.mg105.use_cases.outputds">RoomLayout</a></dt>
 <dd>
@@ -1353,10 +1365,6 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Constant array containing the actual text shown to the player</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/TileType.html#PLAYER" class="member-name-link">PLAYER</a> - Enum constant in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/TileType.html" title="enum class in com.mg105.interface_adapters">TileType</a></dt>
-<dd>
-<div class="block">The player/walking character</div>
-</dd>
 <dt><a href="com/mg105/use_cases/PlayerGetsTutorial.html" class="type-name-link" title="class in com.mg105.use_cases">PlayerGetsTutorial</a> - Class in <a href="com/mg105/use_cases/package-summary.html">com.mg105.use_cases</a></dt>
 <dd>
 <div class="block">Class for determining what phase of the tutorial the player is on, and changing the phase</div>
@@ -1495,7 +1503,7 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">The layout of a room.</div>
 </dd>
-<dt><a href="com/mg105/use_cases/outputds/RoomLayout.html#%3Cinit%3E(java.util.List,java.util.List,java.util.List,java.awt.Point)" class="member-name-link">RoomLayout(List&lt;Point&gt;, List&lt;Point&gt;, List&lt;Point&gt;, Point)</a> - Constructor for class com.mg105.use_cases.outputds.<a href="com/mg105/use_cases/outputds/RoomLayout.html" title="class in com.mg105.use_cases.outputds">RoomLayout</a></dt>
+<dt><a href="com/mg105/use_cases/outputds/RoomLayout.html#%3Cinit%3E(java.util.List,java.util.List,java.util.List,java.util.List,java.awt.Point)" class="member-name-link">RoomLayout(List&lt;Point&gt;, List&lt;Point&gt;, List&lt;Point&gt;, List&lt;Point&gt;, Point)</a> - Constructor for class com.mg105.use_cases.outputds.<a href="com/mg105/use_cases/outputds/RoomLayout.html" title="class in com.mg105.use_cases.outputds">RoomLayout</a></dt>
 <dd>
 <div class="block">Create a room given some number of chests, opponents, and doorways.</div>
 </dd>
@@ -1967,6 +1975,10 @@ the order they are declared.</div>
 <dt><a href="com/mg105/interface_adapters/TileType.html#WALL" class="member-name-link">WALL</a> - Enum constant in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/TileType.html" title="enum class in com.mg105.interface_adapters">TileType</a></dt>
 <dd>
 <div class="block">Wall that cannot be walked on.</div>
+</dd>
+<dt><a href="com/mg105/interface_adapters/TileType.html#WALL_WITH_FACE" class="member-name-link">WALL_WITH_FACE</a> - Enum constant in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/TileType.html" title="enum class in com.mg105.interface_adapters">TileType</a></dt>
+<dd>
+<div class="block">A wall where you can see the side</div>
 </dd>
 <dt><a href="com/mg105/utils/MoveConstants.html#WEAK_HEAL" class="member-name-link">WEAK_HEAL</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/MoveConstants.html" title="class in com.mg105.utils">MoveConstants</a></dt>
 <dd>

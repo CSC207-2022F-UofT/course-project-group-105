@@ -108,25 +108,29 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color">
 <div class="block">A treasure chest</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="#EXIT" class="member-name-link">EXIT</a></code></div>
+<div class="col-first odd-row-color"><code><a href="#CHEST_OPEN" class="member-name-link">CHEST_OPEN</a></code></div>
 <div class="col-last odd-row-color">
+<div class="block">A treasure chest that has been opened</div>
+</div>
+<div class="col-first even-row-color"><code><a href="#EXIT" class="member-name-link">EXIT</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">A doorway</div>
 </div>
-<div class="col-first even-row-color"><code><a href="#FLOOR" class="member-name-link">FLOOR</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code><a href="#FLOOR" class="member-name-link">FLOOR</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Empty floor that can be walked on</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="#OPPONENT_SET" class="member-name-link">OPPONENT_SET</a></code></div>
-<div class="col-last odd-row-color">
-<div class="block">A potential battle</div>
-</div>
-<div class="col-first even-row-color"><code><a href="#PLAYER" class="member-name-link">PLAYER</a></code></div>
+<div class="col-first even-row-color"><code><a href="#OPPONENT_SET" class="member-name-link">OPPONENT_SET</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">The player/walking character</div>
+<div class="block">A potential battle</div>
 </div>
 <div class="col-first odd-row-color"><code><a href="#WALL" class="member-name-link">WALL</a></code></div>
 <div class="col-last odd-row-color">
 <div class="block">Wall that cannot be walked on.</div>
+</div>
+<div class="col-first even-row-color"><code><a href="#WALL_WITH_FACE" class="member-name-link">WALL_WITH_FACE</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">A wall where you can see the side</div>
 </div>
 </div>
 </section>
@@ -188,6 +192,13 @@ the order they are declared.</div>
 </section>
 </li>
 <li>
+<section class="detail" id="WALL_WITH_FACE">
+<h3>WALL_WITH_FACE</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="TileType.html" title="enum class in com.mg105.interface_adapters">TileType</a></span>&nbsp;<span class="element-name">WALL_WITH_FACE</span></div>
+<div class="block">A wall where you can see the side</div>
+</section>
+</li>
+<li>
 <section class="detail" id="EXIT">
 <h3>EXIT</h3>
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="TileType.html" title="enum class in com.mg105.interface_adapters">TileType</a></span>&nbsp;<span class="element-name">EXIT</span></div>
@@ -202,10 +213,10 @@ the order they are declared.</div>
 </section>
 </li>
 <li>
-<section class="detail" id="PLAYER">
-<h3>PLAYER</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="TileType.html" title="enum class in com.mg105.interface_adapters">TileType</a></span>&nbsp;<span class="element-name">PLAYER</span></div>
-<div class="block">The player/walking character</div>
+<section class="detail" id="CHEST_OPEN">
+<h3>CHEST_OPEN</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="TileType.html" title="enum class in com.mg105.interface_adapters">TileType</a></span>&nbsp;<span class="element-name">CHEST_OPEN</span></div>
+<div class="block">A treasure chest that has been opened</div>
 </section>
 </li>
 <li>
