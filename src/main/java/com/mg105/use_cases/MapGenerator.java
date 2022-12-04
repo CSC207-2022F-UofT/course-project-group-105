@@ -279,9 +279,11 @@ public class MapGenerator {
     private @NotNull Move generateMove() {
         String name = MoveConstants.ALL_NAMES[random.nextInt(MoveConstants.ALL_NAMES.length)];
         if (name.contains("heal")) {
-            return new Move(random.nextInt(8), random.nextInt(2), name, true);
+            return new Move(random.nextInt(MapConstants.OPPONENT_HEAL_CAP),
+                random.nextInt(MapConstants.OPPONENT_BUFF_CAP), name, true);
         } else {
-            return new Move(-random.nextInt(11), 0, name, false);
+            return new Move(-random.nextInt(MapConstants.OPPONENT_DAMAGE_CAP),
+                MapConstants.OPPONENT_NULLIFY_CAP, name, false);
         }
     }
 
@@ -305,10 +307,10 @@ public class MapGenerator {
         List<BattleCharacter> opponents = new ArrayList<>(4);
         for (int i = 0; i < 4; i++) {
             opponents.add(new BattleCharacter(
-                random.nextInt(5, 41),
+                random.nextInt(MapConstants.OPPONENT_HEALTH_MIN, MapConstants.OPPONENT_HEALTH_MAX),
                 OpponentConstants.NAMES[random.nextInt(OpponentConstants.NAMES.length)],
-                random.nextInt(1, 11),
-                random.nextInt(3, 16),
+                random.nextInt(MapConstants.OPPONENT_ATTACK_MIN, MapConstants.OPPONENT_ATTACK_MAX),
+                random.nextInt(MapConstants.OPPONENT_SPEED_MIN, MapConstants.OPPONENT_SPEED_MAX),
                 true,
                 generateMove(),
                 generateMove()
