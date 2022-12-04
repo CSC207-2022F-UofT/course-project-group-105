@@ -1,6 +1,6 @@
 package com.mg105.use_cases.save;
 
-import com.mg105.outputds.BattleCharacterDetails;
+import com.mg105.use_cases.outputds.BattleCharacterDetails;
 import org.jetbrains.annotations.NotNull;
 
 /**

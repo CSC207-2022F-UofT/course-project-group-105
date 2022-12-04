@@ -13,8 +13,15 @@ import org.jetbrains.annotations.NotNull;
 
 public class PartySaver implements Save {
 
-    private final GameState state;
-    private final PartyDataInterface partyAccess;
+     @NotNull private final GameState state;
+     @NotNull private final PartyDataInterface partyAccess;
+
+
+    /**
+     * Creates a new instance of party saver
+     * @param state the current state of the game
+     * @param partyAccess an object that represents how to access and edit party member information
+     */
 
     public PartySaver(@NotNull GameState state, @NotNull PartyDataInterface partyAccess) {
         this.state = state;

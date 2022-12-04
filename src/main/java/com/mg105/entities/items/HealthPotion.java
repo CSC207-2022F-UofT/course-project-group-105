@@ -15,8 +15,11 @@ public class HealthPotion extends Item implements Consumable {
 
     private final static int HEALING_POINTS = 25;
 
+    /**
+     * Creates a new instance of health potion
+     */
     public HealthPotion() {
-        super(ItemConstants.HEALTH_POTION_NAME, ItemConstants.HEALTH_POTION_DESCRIPTION);
+        super(ItemConstants.HEALTH_POTION_NAME);
     }
 
     public static int getHealingPoints() {
