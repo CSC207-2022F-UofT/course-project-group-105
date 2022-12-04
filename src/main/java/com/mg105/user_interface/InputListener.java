@@ -7,7 +7,7 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * InputListener takes keyboard inputs and passes them on to an appropriate interpreter.
- *
+ * <p>
  * This class is given to JavaFX and is only called by it.
  */
 public class InputListener implements EventHandler<KeyEvent> {
