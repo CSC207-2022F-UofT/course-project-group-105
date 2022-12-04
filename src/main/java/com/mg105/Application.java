@@ -19,7 +19,7 @@ import com.mg105.use_cases.set_up.data_system_creator.DataStorageSystemCreator;
 import com.mg105.use_cases.set_up.state_setter.GameStateSetter;
 import com.mg105.use_cases.set_up.state_setter.PartyCreator;
 import com.mg105.user_interface.*;
-import com.mg105.user_interface.inventory.InventoryDisplay;
+import com.mg105.user_interface.InventoryDisplay;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import java.awt.*;

@@ -1,9 +1,8 @@
-package com.mg105.user_interface.inventory;
+package com.mg105.user_interface;
 
 import com.mg105.interface_adapters.inventory.InventoryController;
 import com.mg105.interface_adapters.inventory.InventoryViewInterface;
-import com.mg105.user_interface.AlertBox;
-import com.mg105.user_interface.Toggleable;
+import com.mg105.user_interface.Alert.AlertBox;
 import com.mg105.utils.PartyConstants;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -12,7 +11,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
@@ -27,7 +25,6 @@ public class InventoryDisplay implements InventoryViewInterface, Toggleable {
     private Boolean isVisible = false;
     private VBox itemsDisplay;
     private final HashMap<String, HBox> itemNameToInfo = new HashMap<>();
-    private final Stage window = new Stage();
     private final InventoryController controller;
     private String characterSelected = PartyConstants.ALL_PARTY_MEMBER_NAMES[0];
 
@@ -55,11 +52,7 @@ public class InventoryDisplay implements InventoryViewInterface, Toggleable {
     private @NotNull VBox buildLayout() {
         this.itemsDisplay = new VBox(10);
         controller.getInventoryDetails();
-        VBox layout = new VBox(5, this.itemsDisplay, buildCharacterDropdown());
-        Button closeButton = new Button("Close");
-        closeButton.setOnAction(e -> this.window.close());
-        layout.getChildren().add(closeButton);
-        return layout;
+        return new VBox(5, this.itemsDisplay, buildCharacterDropdown());
     }
 
     /**

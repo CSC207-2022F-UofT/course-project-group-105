@@ -24,6 +24,8 @@ public class BattleInteractor {
 
     private final Saver saver;
 
+    private final static int MAX_UPGRADE_TOKEN_REWARDED = 3;
+
     public BattleInteractor(GameState state, InventoryInteractor inventoryInteractor, Saver saver) {
         this.state = state;
         this.inventoryInteractor = inventoryInteractor;
@@ -307,12 +309,11 @@ public class BattleInteractor {
             return;
         }
 
-        int reward = getRandomInt(dif);
+        int reward = getRandomInt(Math.min(MAX_UPGRADE_TOKEN_REWARDED, dif));
 
         for(int i = 1; i <= reward; i++){
             inventoryInteractor.addItem(UPGRADE_TOKEN_NAME);
         }
-
     }
 
     /**
