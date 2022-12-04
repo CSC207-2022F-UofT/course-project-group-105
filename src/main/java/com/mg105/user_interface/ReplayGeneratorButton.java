@@ -6,7 +6,6 @@ import org.jetbrains.annotations.NotNull;
 import com.mg105.interface_adapters.Toggler;
 import javafx.event.EventHandler;
 
-import javax.swing.*;
 
 public class ReplayGeneratorButton implements EventHandler<javafx.event.ActionEvent> {
     private final @NotNull ReplayGeneratorInterpreter interpreter;
