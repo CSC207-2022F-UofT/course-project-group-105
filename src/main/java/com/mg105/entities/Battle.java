@@ -19,6 +19,12 @@ public class Battle {
     // implementation will assume the latter).
     private int numTokens;
 
+    /**
+     * Creates a new Battle instance with ongoing status, given BattleCharacters, and a Queue of the characters sorted
+     * by their speed stats.
+     * @param opponents a collection of opponent BattleCharacters.
+     * @param party a collection of player BattleCharacters.
+     */
     public Battle(ArrayList<BattleCharacter> opponents, ArrayList<BattleCharacter> party) {
         this.battleStatus = 0;
         this.opponents = opponents;
@@ -114,7 +120,6 @@ public class Battle {
      * @return the BattleCharacter in the encounter with the given name
      * @throws NoSuchElementException if no character in the party has the given name
      */
-    //Same implementation as that in P.R. #45
     public BattleCharacter getCharacter(String name) throws NoSuchElementException {
         for (BattleCharacter c : this.moveQueue) {
             if (c.getName().equals(name)) {

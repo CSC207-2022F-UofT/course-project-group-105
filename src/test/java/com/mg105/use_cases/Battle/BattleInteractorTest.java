@@ -181,6 +181,8 @@ class BattleInteractorTest {
 
         interactor.executeTurn(1, "Leslie", "Opponent 0");
         Assertions.assertTrue(interactor.isCharacterFainted("Opponent 0"));
+        Assertions.assertFalse(interactor.isCharacterFainted("Opponent 1"));
+        Assertions.assertFalse(interactor.isCharacterFainted("Leslie"));
     }
 
     @Test
@@ -204,8 +206,8 @@ class BattleInteractorTest {
 
         List<BattleCharacter> opponents = new ArrayList<>();
         opponents.add(new BattleCharacter(
-            10, "Professor Chad", 10, 10, true,
-            new Move(-10, 0, "Move1", false),
+            10, "Professor Chad", 10, 1000, true,
+            new Move(0, 0, "Move1", false),
             new Move(1, 1, "Move2", true))
         );
         opponents.add(new BattleCharacter(
@@ -229,8 +231,101 @@ class BattleInteractorTest {
         BattleInteractor interactor = new BattleInteractor(state);
         interactor.setPresenter(presenter);
         interactor.createEncounter();
+        String first = interactor.roundStart();
+        String second = interactor.roundStart();
 
-        Assertions.assertEquals("Leslie", interactor.roundStart());
+
+        Assertions.assertEquals("Leslie", first);
+        Assertions.assertEquals("Professor Chad", second);
+    }
+
+    @Test
+    void roundStartWin() {
+        Inventory inventory = new Inventory();
+        WalkingCharacter character = new WalkingCharacter(new Point(0, 0));
+        BattleCharacter p1 = new BattleCharacter(14, "Leslie", 7, 8, false,
+            new Move(-2000, 0, "first", false),
+            new Move(0, 1, "second",true));
+        BattleCharacter p2 = new BattleCharacter(9, "Mariam", 6, 11, false,
+            new Move(-5, 0, "first", false),
+            new Move(0, 1, "second",true));
+        BattleCharacter p3 = new BattleCharacter(10, "Michael", 10, 10, false,
+            new Move(-5, 0, "first", false),
+            new Move(0, 1, "second",true));
+        BattleCharacter p4 = new BattleCharacter(6, "Alex", 12, 14, false,
+            new Move(-5, 0, "first", false),
+            new Move(0, 1, "second",true));
+
+        BattleCharacter[] party = {p1, p2, p3, p4};
+
+        List<BattleCharacter> opponents = new ArrayList<>();
+        opponents.add(new BattleCharacter(
+            10, "Professor Chad", 10, 10, true,
+            new Move(-10, 0, "Move1", false),
+            new Move(1, 1, "Move2", true))
+        );
+
+        GameState state = new GameState(inventory, party, character);
+        state.setCurrOpponent(new OpponentSet(new Point(4, 6), opponents));
+        BattleInteractor interactor = new BattleInteractor(state);
+        interactor.setPresenter(presenter);
+        interactor.createEncounter();
+        interactor.executeTurn(1, "Leslie", "Professor Chad");
+
+        Assertions.assertNull(interactor.roundStart());
+    }
+
+    @Test
+    void roundStartLoss() {
+        Inventory inventory = new Inventory();
+        WalkingCharacter character = new WalkingCharacter(new Point(0, 0));
+        BattleCharacter p1 = new BattleCharacter(14, "Leslie", 7, 8, false,
+            new Move(-5, 0, "first", false),
+            new Move(0, 1, "second",true));
+
+        BattleCharacter[] party = {p1};
+
+        List<BattleCharacter> opponents = new ArrayList<>();
+        opponents.add(new BattleCharacter(
+            10, "Professor Chad", 10, 10, true,
+            new Move(-10, 0, "Move1", false),
+            new Move(-1000, 0, "Move2", false))
+        );
+
+        GameState state = new GameState(inventory, party, character);
+        state.setCurrOpponent(new OpponentSet(new Point(4, 6), opponents));
+        BattleInteractor interactor = new BattleInteractor(state);
+        interactor.setPresenter(presenter);
+        interactor.createEncounter();
+        interactor.executeTurn(2, "Professor Chad", "Leslie");
+
+        Assertions.assertNull(interactor.roundStart());
+    }
+
+    @Test
+    void getCharacterDetails() {
+        Inventory inventory = new Inventory();
+        WalkingCharacter character = new WalkingCharacter(new Point(0, 0));
+        BattleCharacter p1 = new BattleCharacter(14, "Leslie", 7, 8, false,
+            new Move(-5, 0, "first", false),
+            new Move(0, 1, "second",true));
+
+        BattleCharacter[] party = {p1};
+
+        List<BattleCharacter> opponents = new ArrayList<>();
+
+        GameState state = new GameState(inventory, party, character);
+        state.setCurrOpponent(new OpponentSet(new Point(4, 6), opponents));
+        BattleInteractor interactor = new BattleInteractor(state);
+        interactor.setPresenter(presenter);
+        interactor.createEncounter();
+        int dmg = interactor.getCharacterDamage("Leslie");
+        int moveOneHpChange = interactor.getCharacterMoveStats("Leslie")[0];
+        String moveOneName = interactor.getCharacterMoveNames("Leslie")[0];
+
+        Assertions.assertEquals(7, dmg);
+        Assertions.assertEquals(-5, moveOneHpChange);
+        Assertions.assertEquals("first", moveOneName);
     }
 }
 

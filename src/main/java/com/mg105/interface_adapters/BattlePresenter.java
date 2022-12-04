@@ -15,6 +15,11 @@ public class BattlePresenter implements BattlePresenterInterface {
 
     private BattleMenuInterface view;
 
+    /**
+     * Creates a new BattlePresenter with reference to a given BattleInteractor, and sets the interactor to refer to
+     * this instance.
+     * @param interactor the BattleInteractor to be referred to.
+     */
     public BattlePresenter(BattleInteractor interactor) {
         this.interactor = interactor;
         this.interactor.setPresenter(this);

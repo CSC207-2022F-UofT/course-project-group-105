@@ -12,9 +12,6 @@ public class OpponentSet {
 
     /**
      * Create a new set of opponents to be displayed in a room.
-     *
-     * TODO/NOTE: This does not currently include any logic for handling the removal once opponents are defeated.
-     *
      * @param position  the in-room position of this OpponentSet.
      * @param opponents the opponents that will need to be fought.
      */

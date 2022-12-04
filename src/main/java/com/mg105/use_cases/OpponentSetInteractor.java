@@ -3,18 +3,26 @@ package com.mg105.use_cases;
 import com.mg105.entities.*;
 
 import java.awt.Point;
-import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * An interactor class that modifies and references GameState with methods relating to OpponentSet.
+ */
 public class OpponentSetInteractor {
     private final GameState state;
 
+    /**
+     * Creates a new OpponentSetInteractor with a reference to GameState.
+     * @param gameState the GameState to be referred to.
+     */
     public OpponentSetInteractor(GameState gameState) {
         this.state = gameState;
     }
 
     /**
      * Checks if a given spot on the map contains an OpponentSet.
+     * @param coordinates A Point representing a coordinate being checked for an OpponentSet.
+     * @param opponents A collection of OpponentSets being searched for in the given Point.
      * @return the OpponentSet if opponent is found, or null if it is not.
      */
     public static OpponentSet compareLists(Point coordinates, List<OpponentSet> opponents) {
@@ -54,6 +62,7 @@ public class OpponentSetInteractor {
         OpponentSet opponent = verifyOpponent();
 
         state.setCurrOpponent(opponent);
+        state.getCurrentRoom().getOpponents().remove(opponent);
         return opponent != null;
     }
 }

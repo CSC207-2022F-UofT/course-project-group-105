@@ -19,6 +19,10 @@ public class BattleInteractor {
 
     private BattlePresenterInterface presenter;
 
+    /**
+     * Creates a new BattleInteractor with a reference to the GameState.
+     * @param state the GameState to be referred to.
+     */
     public BattleInteractor(GameState state) {
         this.state = state;
     }

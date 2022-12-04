@@ -1,7 +1,6 @@
 package com.mg105.use_cases;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.mg105.entities.GameState;
@@ -69,6 +68,7 @@ public class ChestInteractor {
     public void getChestItem() {
 
         TreasureChest chest = verifyChest();
+        gameState.getCurrentRoom().getChests().remove(chest);
         if (chest != null) {
             if (!chest.isOpened()) {
                 Item reward = chest.open();
