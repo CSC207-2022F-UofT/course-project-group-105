@@ -1,8 +1,5 @@
 package com.mg105.user_interface;
 
-import com.mg105.interface_adapters.MapGeneratorInterpreter;
-import com.mg105.interface_adapters.inventory.InventoryController;
-import com.mg105.use_cases.MapGenerator;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
