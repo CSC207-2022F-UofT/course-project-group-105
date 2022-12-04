@@ -31,6 +31,8 @@ public class CharacterMover {
      *                  cardinal direction.
      */
     public void generateMapMoveBy(Point direction) {
+        ReplayGenerator replay = new ReplayGenerator(state);
+
         // Because direction.x and direction.y are integers, the precondition for direction is satisfied iff the
         // magnitude of the vector is 1 which is true iff the sum of the absolute value of the components is 1.
         assert Math.abs(direction.x) + Math.abs(direction.y) == 1;
@@ -74,6 +76,12 @@ public class CharacterMover {
                 (nextPositionMaybeLastRoom && doorway.getPosition().equals(currentPosition))) {
                 Room nextRoom = doorway.getNextRoom();
                 state.setCurrentRoom(nextRoom);
+
+                // if in final room, replay the game
+                if (state.isCurrentRoomLastRoom()){
+                    replay.replay();
+                }
+
                 nextPosition = getNextRoomPosition(room, nextRoom);
                 nextPositionValid = true;
                 break;
