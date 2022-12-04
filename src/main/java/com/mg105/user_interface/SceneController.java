@@ -58,6 +58,7 @@ public class SceneController implements Toggler {
 
         components.get(activeComponents.peek()).toggle(true);
         primaryStage.setScene(components.get(activeComponents.peek()).getScene());
+        primaryStage.setTitle("Mountain Group 105: " + activeComponents.peek());
     }
 
     /**

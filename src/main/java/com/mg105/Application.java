@@ -137,7 +137,6 @@ public class Application extends javafx.application.Application {
         InputListener inputListener = new InputListener(inputInterpreter);
         primaryStage.addEventFilter(KeyEvent.KEY_TYPED, inputListener);
         sceneController.toggle(Toggler.ToggleableComponent.MAIN_MENU);
-        primaryStage.setTitle("Mountain Group 105");
         primaryStage.setResizable(false);
         primaryStage.show();
     }
