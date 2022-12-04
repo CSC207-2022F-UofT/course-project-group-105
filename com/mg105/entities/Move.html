@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="../../../script.js"></script>
-<script type="text/javascript" src="../../../script-dir/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="../../../script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
@@ -93,7 +93,9 @@ loadScripts(document, 'script');</script>
  int&nbsp;damageChange,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  boolean&nbsp;isFriendly)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Creates a Move with the given details.</div>
+</div>
 </div>
 </section>
 </li>
@@ -152,6 +154,14 @@ loadScripts(document, 'script');</script>
  int&nbsp;damageChange,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  boolean&nbsp;isFriendly)</span></div>
+<div class="block">Creates a Move with the given details.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>healthChange</code> - the amount the targeted BattleCharacter's current health will change when the Move is used.</dd>
+<dd><code>damageChange</code> - the amount the targeted BattleCharacter's damage stat will change when the Move is used.</dd>
+<dd><code>name</code> - the name of the Move.</dd>
+<dd><code>isFriendly</code> - boolean for if the Move is to be applied on a character on the same team as the caster.</dd>
+</dl>
 </section>
 </li>
 </ul>

@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="../../../script.js"></script>
-<script type="text/javascript" src="../../../script-dir/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="../../../script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
@@ -77,6 +77,12 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">MapGenerator</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">MapGenerator generates the map
+ <p>
+ If given more time some length of this class could be refactored into factories, but that would only reduce the line
+ count (and complexity) by less than 10%.
+ <p>
+ Alas, this is just a complex algorithm and must necessarily be somewhat long.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -91,6 +97,11 @@ loadScripts(document, 'script');</script>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.mg105.entities.GameState)" class="member-name-link">MapGenerator</a><wbr>(@NotNull <a href="../entities/GameState.html" title="class in com.mg105.entities">GameState</a>&nbsp;state)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Creates a new MapGenerator that acts on a GameState.</div>
+</div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(com.mg105.entities.GameState,java.util.Random)" class="member-name-link">MapGenerator</a><wbr>(@NotNull <a href="../entities/GameState.html" title="class in com.mg105.entities">GameState</a>&nbsp;state,
+ @NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Random.html" title="class or interface in java.util" class="external-link">Random</a>&nbsp;random)</code></div>
+<div class="col-last odd-row-color">
+<div class="block">Create a new MapGenerator that acts on a GameState</div>
 </div>
 </div>
 </section>
@@ -137,6 +148,21 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>state</code> - the game state.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="&lt;init&gt;(com.mg105.entities.GameState,java.util.Random)">
+<h3>MapGenerator</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">MapGenerator</span><wbr><span class="parameters">(@NotNull
+ @NotNull <a href="../entities/GameState.html" title="class in com.mg105.entities">GameState</a>&nbsp;state,
+ @NotNull
+ @NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Random.html" title="class or interface in java.util" class="external-link">Random</a>&nbsp;random)</span></div>
+<div class="block">Create a new MapGenerator that acts on a GameState</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>state</code> - the game state.</dd>
+<dd><code>random</code> - the random number generator.</dd>
 </dl>
 </section>
 </li>

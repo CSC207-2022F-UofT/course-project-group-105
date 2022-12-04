@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="script-dir/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="script.js"></script>
-<script type="text/javascript" src="script-dir/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="script-dir/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="index-page">
@@ -111,6 +111,10 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/utils/ItemConstants.html#ALL_ITEM_NAMES" class="member-name-link">ALL_ITEM_NAMES</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/ItemConstants.html" title="class in com.mg105.utils">ItemConstants</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/mg105/utils/MoveConstants.html#ALL_NAMES" class="member-name-link">ALL_NAMES</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/MoveConstants.html" title="class in com.mg105.utils">MoveConstants</a></dt>
+<dd>
+<div class="block">All the names of the moves in one place</div>
+</dd>
 <dt><a href="com/mg105/utils/PartyConstants.html#ALL_PARTY_MEMBER_NAMES" class="member-name-link">ALL_PARTY_MEMBER_NAMES</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/PartyConstants.html" title="class in com.mg105.utils">PartyConstants</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/utils/ItemConstants.html#ALL_USABLE_ITEM_NAMES" class="member-name-link">ALL_USABLE_ITEM_NAMES</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/ItemConstants.html" title="class in com.mg105.utils">ItemConstants</a></dt>
@@ -129,6 +133,8 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Constant string for attack phase</div>
 </dd>
+<dt><a href="com/mg105/use_cases/ReplayGenerator.html#attributeInheritance()" class="member-name-link">attributeInheritance()</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/ReplayGenerator.html" title="class in com.mg105.use_cases">ReplayGenerator</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <h2 class="title" id="I:B">B</h2>
 <dl class="index">
@@ -140,7 +146,10 @@ loadScripts(document, 'script');</script>
  and the order in which they would move, along with a number of upgrade tokens upon victory.</div>
 </dd>
 <dt><a href="com/mg105/entities/Battle.html#%3Cinit%3E(java.util.ArrayList,java.util.ArrayList)" class="member-name-link">Battle(ArrayList&lt;BattleCharacter&gt;, ArrayList&lt;BattleCharacter&gt;)</a> - Constructor for class com.mg105.entities.<a href="com/mg105/entities/Battle.html" title="class in com.mg105.entities">Battle</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Creates a new Battle instance with ongoing status, given BattleCharacters, and a Queue of the characters sorted
+ by their speed stats.</div>
+</dd>
 <dt><a href="com/mg105/interface_adapters/Toggler.ToggleableComponent.html#BATTLE" class="member-name-link">BATTLE</a> - Enum constant in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/Toggler.ToggleableComponent.html" title="enum class in com.mg105.interface_adapters">Toggler.ToggleableComponent</a></dt>
 <dd>
 <div class="block">The battle menu</div>
@@ -151,7 +160,9 @@ loadScripts(document, 'script');</script>
  specific character.</div>
 </dd>
 <dt><a href="com/mg105/entities/BattleCharacter.html#%3Cinit%3E(int,java.lang.String,int,int,boolean,com.mg105.entities.Move,com.mg105.entities.Move)" class="member-name-link">BattleCharacter(int, String, int, int, boolean, Move, Move)</a> - Constructor for class com.mg105.entities.<a href="com/mg105/entities/BattleCharacter.html" title="class in com.mg105.entities">BattleCharacter</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Creates a new BattleCharacter with the given stats.</div>
+</dd>
 <dt><a href="com/mg105/use_cases/outputds/BattleCharacterDetails.html" class="type-name-link" title="class in com.mg105.use_cases.outputds">BattleCharacterDetails</a> - Class in <a href="com/mg105/use_cases/outputds/package-summary.html">com.mg105.use_cases.outputds</a></dt>
 <dd>
 <div class="block">A struct like class that represents a BattleCharacter</div>
@@ -163,13 +174,17 @@ loadScripts(document, 'script');</script>
 <div class="block">This class interacts with the Battle entity.</div>
 </dd>
 <dt><a href="com/mg105/use_cases/BattleInteractor.html#%3Cinit%3E(com.mg105.entities.GameState,com.mg105.use_cases.inventory.InventoryInteractor,com.mg105.use_cases.save.Saver)" class="member-name-link">BattleInteractor(GameState, InventoryInteractor, Saver)</a> - Constructor for class com.mg105.use_cases.<a href="com/mg105/use_cases/BattleInteractor.html" title="class in com.mg105.use_cases">BattleInteractor</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Creates a new BattleInteractor with a reference to the GameState.</div>
+</dd>
 <dt><a href="com/mg105/user_interface/BattleMenu.html" class="type-name-link" title="class in com.mg105.user_interface">BattleMenu</a> - Class in <a href="com/mg105/user_interface/package-summary.html">com.mg105.user_interface</a></dt>
 <dd>
 <div class="block">This class uses JavaFX and is displayed during an active battle.</div>
 </dd>
 <dt><a href="com/mg105/user_interface/BattleMenu.html#%3Cinit%3E(com.mg105.interface_adapters.BattlePresenter)" class="member-name-link">BattleMenu(BattlePresenter)</a> - Constructor for class com.mg105.user_interface.<a href="com/mg105/user_interface/BattleMenu.html" title="class in com.mg105.user_interface">BattleMenu</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Creates a new BattleMenu.</div>
+</dd>
 <dt><a href="com/mg105/interface_adapters/BattleMenuInterface.html" class="type-name-link" title="interface in com.mg105.interface_adapters">BattleMenuInterface</a> - Interface in <a href="com/mg105/interface_adapters/package-summary.html">com.mg105.interface_adapters</a></dt>
 <dd>
 <div class="block">This interface should be implemented by BattleMenu.</div>
@@ -179,7 +194,10 @@ loadScripts(document, 'script');</script>
 <div class="block">Class communicating between BattleMenuInterface view and BattleInteractor.</div>
 </dd>
 <dt><a href="com/mg105/interface_adapters/BattlePresenter.html#%3Cinit%3E(com.mg105.use_cases.BattleInteractor)" class="member-name-link">BattlePresenter(BattleInteractor)</a> - Constructor for class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/BattlePresenter.html" title="class in com.mg105.interface_adapters">BattlePresenter</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Creates a new BattlePresenter with reference to a given BattleInteractor, and sets the interactor to refer to
+ this instance.</div>
+</dd>
 <dt><a href="com/mg105/use_cases/BattlePresenterInterface.html" class="type-name-link" title="interface in com.mg105.use_cases">BattlePresenterInterface</a> - Interface in <a href="com/mg105/use_cases/package-summary.html">com.mg105.use_cases</a></dt>
 <dd>
 <div class="block">This interface should be implemented by BattlePresenter.</div>
@@ -267,6 +285,10 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/utils/package-summary.html">com.mg105.utils</a> - package com.mg105.utils</dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/mg105/utils/PointComparator.html#compare(java.awt.Point,java.awt.Point)" class="member-name-link">compare(Point, Point)</a> - Method in class com.mg105.utils.<a href="com/mg105/utils/PointComparator.html" title="class in com.mg105.utils">PointComparator</a></dt>
+<dd>
+<div class="block">Compare two points.</div>
+</dd>
 <dt><a href="com/mg105/use_cases/OpponentSetInteractor.html#compareLists(java.awt.Point,java.util.List)" class="member-name-link">compareLists(Point, List&lt;OpponentSet&gt;)</a> - Static method in class com.mg105.use_cases.<a href="com/mg105/use_cases/OpponentSetInteractor.html" title="class in com.mg105.use_cases">OpponentSetInteractor</a></dt>
 <dd>
 <div class="block">Checks if a given spot on the map contains an OpponentSet.</div>
@@ -369,6 +391,10 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="com/mg105/user_interface/Alert/AlertBox.html#display(java.lang.String)" class="member-name-link">display(String)</a> - Method in class com.mg105.user_interface.Alert.<a href="com/mg105/user_interface/Alert/AlertBox.html" title="class in com.mg105.user_interface.Alert">AlertBox</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/mg105/utils/PointComparator.html#distanceTo(java.awt.Point)" class="member-name-link">distanceTo(Point)</a> - Method in class com.mg105.utils.<a href="com/mg105/utils/PointComparator.html" title="class in com.mg105.utils">PointComparator</a></dt>
+<dd>
+<div class="block">Calculate the cartesian distance between the reference and the destination.</div>
+</dd>
 <dt><a href="com/mg105/entities/Doorway.html" class="type-name-link" title="class in com.mg105.entities">Doorway</a> - Class in <a href="com/mg105/entities/package-summary.html">com.mg105.entities</a></dt>
 <dd>
 <div class="block">A Doorway represents a single-direction connection from one room to another.</div>
@@ -404,6 +430,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/mg105/utils/TutorialTexts.html#EXIT_ROOM" class="member-name-link">EXIT_ROOM</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/TutorialTexts.html" title="class in com.mg105.utils">TutorialTexts</a></dt>
 <dd>
 <div class="block">Constant string for good luck text</div>
+</dd>
+<dt><a href="com/mg105/interface_adapters/MinimapInterpreter.RoomState.html#EXPLORED" class="member-name-link">EXPLORED</a> - Enum constant in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/MinimapInterpreter.RoomState.html" title="enum class in com.mg105.interface_adapters">MinimapInterpreter.RoomState</a></dt>
+<dd>
+<div class="block">The room has been visited at least once</div>
 </dd>
 </dl>
 <h2 class="title" id="I:F">F</h2>
@@ -511,6 +541,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Get the current visible component.</div>
 </dd>
+<dt><a href="com/mg105/interface_adapters/MinimapInterpreter.html#getCurrentPosition()" class="member-name-link">getCurrentPosition()</a> - Method in class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/MinimapInterpreter.html" title="class in com.mg105.interface_adapters">MinimapInterpreter</a></dt>
+<dd>
+<div class="block">Get the current position in (x, y)-coordinates of the result of getMapSoFar.</div>
+</dd>
 <dt><a href="com/mg105/entities/GameState.html#getCurrentRoom()" class="member-name-link">getCurrentRoom()</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/GameState.html" title="class in com.mg105.entities">GameState</a></dt>
 <dd>
 <div class="block">Get the room the player happens to currently be in.</div>
@@ -590,6 +624,10 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="com/mg105/use_cases/inventory/InventoryInteractor.html#getInventoryLimit()" class="member-name-link">getInventoryLimit()</a> - Method in class com.mg105.use_cases.inventory.<a href="com/mg105/use_cases/inventory/InventoryInteractor.html" title="class in com.mg105.use_cases.inventory">InventoryInteractor</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/mg105/interface_adapters/MinimapInterpreter.html#getMapSoFar()" class="member-name-link">getMapSoFar()</a> - Method in class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/MinimapInterpreter.html" title="class in com.mg105.interface_adapters">MinimapInterpreter</a></dt>
+<dd>
+<div class="block">Get the current explored map.</div>
+</dd>
 <dt><a href="com/mg105/entities/BattleCharacter.html#getMaxHp()" class="member-name-link">getMaxHp()</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/BattleCharacter.html" title="class in com.mg105.entities">BattleCharacter</a></dt>
 <dd>
 <div class="block">Returns the maximum health of the character.</div>
@@ -712,11 +750,17 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Returns the scene that displays the information for the Inventory</div>
 </dd>
+<dt><a href="com/mg105/user_interface/LoseMenu.html#getScene()" class="member-name-link">getScene()</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/LoseMenu.html" title="class in com.mg105.user_interface">LoseMenu</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="com/mg105/user_interface/MainMenu.html#getScene()" class="member-name-link">getScene()</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/MainMenu.html" title="class in com.mg105.user_interface">MainMenu</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/user_interface/MapDrawer.html#getScene()" class="member-name-link">getScene()</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/MapDrawer.html" title="class in com.mg105.user_interface">MapDrawer</a></dt>
 <dd>
 <div class="block">Get the scene that will be used to draw to.</div>
+</dd>
+<dt><a href="com/mg105/user_interface/MinimapDrawer.html#getScene()" class="member-name-link">getScene()</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/MinimapDrawer.html" title="class in com.mg105.user_interface">MinimapDrawer</a></dt>
+<dd>
+<div class="block">Get the minimap scene.</div>
 </dd>
 <dt><a href="com/mg105/user_interface/Toggleable.html#getScene()" class="member-name-link">getScene()</a> - Method in interface com.mg105.user_interface.<a href="com/mg105/user_interface/Toggleable.html" title="interface in com.mg105.user_interface">Toggleable</a></dt>
 <dd>
@@ -790,13 +834,19 @@ loadScripts(document, 'script');</script>
 <h2 class="title" id="I:H">H</h2>
 <dl class="index">
 <dt><a href="com/mg105/user_interface/BattleMenu.html#handle(javafx.event.ActionEvent)" class="member-name-link">handle(ActionEvent)</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/BattleMenu.html" title="class in com.mg105.user_interface">BattleMenu</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Handles button events.</div>
+</dd>
 <dt><a href="com/mg105/user_interface/MapGeneratorButton.html#handle(javafx.event.ActionEvent)" class="member-name-link">handle(ActionEvent)</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/MapGeneratorButton.html" title="class in com.mg105.user_interface">MapGeneratorButton</a></dt>
 <dd>
 <div class="block">This method is called when the button is pressed.</div>
 </dd>
-<dt><a href="com/mg105/user_interface/WalkingMenu.html#handle(javafx.event.ActionEvent)" class="member-name-link">handle(ActionEvent)</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/WalkingMenu.html" title="class in com.mg105.user_interface">WalkingMenu</a></dt>
+<dt><a href="com/mg105/user_interface/ReplayGeneratorButton.html#handle(javafx.event.ActionEvent)" class="member-name-link">handle(ActionEvent)</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/ReplayGeneratorButton.html" title="class in com.mg105.user_interface">ReplayGeneratorButton</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/mg105/user_interface/WalkingMenu.html#handle(javafx.event.ActionEvent)" class="member-name-link">handle(ActionEvent)</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/WalkingMenu.html" title="class in com.mg105.user_interface">WalkingMenu</a></dt>
+<dd>
+<div class="block">Handles button events.</div>
+</dd>
 <dt><a href="com/mg105/user_interface/InputListener.html#handle(javafx.scene.input.KeyEvent)" class="member-name-link">handle(KeyEvent)</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/InputListener.html" title="class in com.mg105.user_interface">InputListener</a></dt>
 <dd>
 <div class="block">Pass the keyevent onto the input interpreter.</div>
@@ -865,6 +915,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/mg105/interface_adapters/Toggler.ToggleableComponent.html#INVENTORY" class="member-name-link">INVENTORY</a> - Enum constant in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/Toggler.ToggleableComponent.html" title="enum class in com.mg105.interface_adapters">Toggler.ToggleableComponent</a></dt>
 <dd>
 <div class="block">The inventory menu</div>
+</dd>
+<dt><a href="com/mg105/use_cases/ReplayGenerator.html#inventoryClean()" class="member-name-link">inventoryClean()</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/ReplayGenerator.html" title="class in com.mg105.use_cases">ReplayGenerator</a></dt>
+<dd>
+<div class="block">Clean all the items in the inventory</div>
 </dd>
 <dt><a href="com/mg105/interface_adapters/inventory/InventoryController.html" class="type-name-link" title="class in com.mg105.interface_adapters.inventory">InventoryController</a> - Class in <a href="com/mg105/interface_adapters/inventory/package-summary.html">com.mg105.interface_adapters.inventory</a></dt>
 <dd>
@@ -1001,6 +1055,14 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Returns the maximum amount items allowed in the inventory</div>
 </dd>
+<dt><a href="com/mg105/interface_adapters/Toggler.ToggleableComponent.html#LOSE_MENU" class="member-name-link">LOSE_MENU</a> - Enum constant in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/Toggler.ToggleableComponent.html" title="enum class in com.mg105.interface_adapters">Toggler.ToggleableComponent</a></dt>
+<dd>
+<div class="block">The game Lose menu</div>
+</dd>
+<dt><a href="com/mg105/user_interface/LoseMenu.html" class="type-name-link" title="class in com.mg105.user_interface">LoseMenu</a> - Class in <a href="com/mg105/user_interface/package-summary.html">com.mg105.user_interface</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/mg105/user_interface/LoseMenu.html#%3Cinit%3E(com.mg105.user_interface.ReplayGeneratorButton)" class="member-name-link">LoseMenu(ReplayGeneratorButton)</a> - Constructor for class com.mg105.user_interface.<a href="com/mg105/user_interface/LoseMenu.html" title="class in com.mg105.user_interface">LoseMenu</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <h2 class="title" id="I:M">M</h2>
 <dl class="index">
@@ -1022,7 +1084,7 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="com/mg105/utils/MapConstants.html" class="type-name-link" title="class in com.mg105.utils">MapConstants</a> - Class in <a href="com/mg105/utils/package-summary.html">com.mg105.utils</a></dt>
 <dd>
-<div class="block">Constants used in the map.</div>
+<div class="block">Constants used in the map and map generation.</div>
 </dd>
 <dt><a href="com/mg105/utils/MapConstants.html#%3Cinit%3E()" class="member-name-link">MapConstants()</a> - Constructor for class com.mg105.utils.<a href="com/mg105/utils/MapConstants.html" title="class in com.mg105.utils">MapConstants</a></dt>
 <dd>&nbsp;</dd>
@@ -1034,11 +1096,45 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Create an instance of MapDrawer.</div>
 </dd>
+<dt><a href="com/mg105/utils/MapConstants.html#MAPGEN_ANCHOR_SPARSITY" class="member-name-link">MAPGEN_ANCHOR_SPARSITY</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/MapConstants.html" title="class in com.mg105.utils">MapConstants</a></dt>
+<dd>
+<div class="block">An integer between -1 and 100 inclusive that somewhat reflects how crowded rooms will be.</div>
+</dd>
+<dt><a href="com/mg105/utils/MapConstants.html#MAPGEN_BATTLE_SPARSITY" class="member-name-link">MAPGEN_BATTLE_SPARSITY</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/MapConstants.html" title="class in com.mg105.utils">MapConstants</a></dt>
+<dd>
+<div class="block">An integer between -1 and 100 inclusive that somewhat reflects how many battles will be generated.</div>
+</dd>
+<dt><a href="com/mg105/utils/MapConstants.html#MAPGEN_CHEST_SPARSITY" class="member-name-link">MAPGEN_CHEST_SPARSITY</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/MapConstants.html" title="class in com.mg105.utils">MapConstants</a></dt>
+<dd>
+<div class="block">An integer between -1 and 100 inclusive that somewhat reflects how may chests will be generated.</div>
+</dd>
+<dt><a href="com/mg105/utils/MapConstants.html#MAPGEN_MAX_MAP_HEIGHT" class="member-name-link">MAPGEN_MAX_MAP_HEIGHT</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/MapConstants.html" title="class in com.mg105.utils">MapConstants</a></dt>
+<dd>
+<div class="block">The maximum possible height of map rooms</div>
+</dd>
+<dt><a href="com/mg105/utils/MapConstants.html#MAPGEN_MAX_MAP_WIDTH" class="member-name-link">MAPGEN_MAX_MAP_WIDTH</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/MapConstants.html" title="class in com.mg105.utils">MapConstants</a></dt>
+<dd>
+<div class="block">The maximum possible width of map rooms</div>
+</dd>
+<dt><a href="com/mg105/utils/MapConstants.html#MAPGEN_MIN_MAP_HEIGHT" class="member-name-link">MAPGEN_MIN_MAP_HEIGHT</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/MapConstants.html" title="class in com.mg105.utils">MapConstants</a></dt>
+<dd>
+<div class="block">The minimum possible height of map rooms</div>
+</dd>
+<dt><a href="com/mg105/utils/MapConstants.html#MAPGEN_MIN_MAP_WIDTH" class="member-name-link">MAPGEN_MIN_MAP_WIDTH</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/MapConstants.html" title="class in com.mg105.utils">MapConstants</a></dt>
+<dd>
+<div class="block">The minimum possible width of map rooms</div>
+</dd>
 <dt><a href="com/mg105/use_cases/MapGenerator.html" class="type-name-link" title="class in com.mg105.use_cases">MapGenerator</a> - Class in <a href="com/mg105/use_cases/package-summary.html">com.mg105.use_cases</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">MapGenerator generates the map</div>
+</dd>
 <dt><a href="com/mg105/use_cases/MapGenerator.html#%3Cinit%3E(com.mg105.entities.GameState)" class="member-name-link">MapGenerator(GameState)</a> - Constructor for class com.mg105.use_cases.<a href="com/mg105/use_cases/MapGenerator.html" title="class in com.mg105.use_cases">MapGenerator</a></dt>
 <dd>
 <div class="block">Creates a new MapGenerator that acts on a GameState.</div>
+</dd>
+<dt><a href="com/mg105/use_cases/MapGenerator.html#%3Cinit%3E(com.mg105.entities.GameState,java.util.Random)" class="member-name-link">MapGenerator(GameState, Random)</a> - Constructor for class com.mg105.use_cases.<a href="com/mg105/use_cases/MapGenerator.html" title="class in com.mg105.use_cases">MapGenerator</a></dt>
+<dd>
+<div class="block">Create a new MapGenerator that acts on a GameState</div>
 </dd>
 <dt><a href="com/mg105/user_interface/MapGeneratorButton.html" class="type-name-link" title="class in com.mg105.user_interface">MapGeneratorButton</a> - Class in <a href="com/mg105/user_interface/package-summary.html">com.mg105.user_interface</a></dt>
 <dd>
@@ -1070,6 +1166,30 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Creates a new instance of mega potion</div>
 </dd>
+<dt><a href="com/mg105/interface_adapters/Toggler.ToggleableComponent.html#MINIMAP" class="member-name-link">MINIMAP</a> - Enum constant in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/Toggler.ToggleableComponent.html" title="enum class in com.mg105.interface_adapters">Toggler.ToggleableComponent</a></dt>
+<dd>
+<div class="block">The minimap</div>
+</dd>
+<dt><a href="com/mg105/user_interface/MinimapDrawer.html" class="type-name-link" title="class in com.mg105.user_interface">MinimapDrawer</a> - Class in <a href="com/mg105/user_interface/package-summary.html">com.mg105.user_interface</a></dt>
+<dd>
+<div class="block">Draw the Minimap.</div>
+</dd>
+<dt><a href="com/mg105/user_interface/MinimapDrawer.html#%3Cinit%3E(com.mg105.interface_adapters.MinimapInterpreter)" class="member-name-link">MinimapDrawer(MinimapInterpreter)</a> - Constructor for class com.mg105.user_interface.<a href="com/mg105/user_interface/MinimapDrawer.html" title="class in com.mg105.user_interface">MinimapDrawer</a></dt>
+<dd>
+<div class="block">Create a new MinimapDrawer.</div>
+</dd>
+<dt><a href="com/mg105/interface_adapters/MinimapInterpreter.html" class="type-name-link" title="class in com.mg105.interface_adapters">MinimapInterpreter</a> - Class in <a href="com/mg105/interface_adapters/package-summary.html">com.mg105.interface_adapters</a></dt>
+<dd>
+<div class="block">The MinimapInterpreter processes room change data an interprets its implicit position.</div>
+</dd>
+<dt><a href="com/mg105/interface_adapters/MinimapInterpreter.html#%3Cinit%3E(com.mg105.use_cases.RoomGetter)" class="member-name-link">MinimapInterpreter(RoomGetter)</a> - Constructor for class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/MinimapInterpreter.html" title="class in com.mg105.interface_adapters">MinimapInterpreter</a></dt>
+<dd>
+<div class="block">Create a new MinimapInterpreter.</div>
+</dd>
+<dt><a href="com/mg105/interface_adapters/MinimapInterpreter.RoomState.html" class="type-name-link" title="enum class in com.mg105.interface_adapters">MinimapInterpreter.RoomState</a> - Enum Class in <a href="com/mg105/interface_adapters/package-summary.html">com.mg105.interface_adapters</a></dt>
+<dd>
+<div class="block">Possible knowledge states of a room.</div>
+</dd>
 <dt><a href="com/mg105/entities/BattleCharacter.html#modifyDamage(int)" class="member-name-link">modifyDamage(int)</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/BattleCharacter.html" title="class in com.mg105.entities">BattleCharacter</a></dt>
 <dd>
 <div class="block">Updates the character's attack damage by the given amount.</div>
@@ -1091,11 +1211,15 @@ loadScripts(document, 'script');</script>
 <div class="block">Move is a class which contains the combat properties and name of a specific move used by a specific character.</div>
 </dd>
 <dt><a href="com/mg105/entities/Move.html#%3Cinit%3E(int,int,java.lang.String,boolean)" class="member-name-link">Move(int, int, String, boolean)</a> - Constructor for class com.mg105.entities.<a href="com/mg105/entities/Move.html" title="class in com.mg105.entities">Move</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Creates a Move with the given details.</div>
+</dd>
 <dt><a href="com/mg105/utils/DataAccessConstants.html#MOVE_DATA_PATH" class="member-name-link">MOVE_DATA_PATH</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/DataAccessConstants.html" title="class in com.mg105.utils">DataAccessConstants</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/utils/MoveConstants.html" class="type-name-link" title="class in com.mg105.utils">MoveConstants</a> - Class in <a href="com/mg105/utils/package-summary.html">com.mg105.utils</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Constants pertaining to the names of moves.</div>
+</dd>
 <dt><a href="com/mg105/utils/MoveConstants.html#%3Cinit%3E()" class="member-name-link">MoveConstants()</a> - Constructor for class com.mg105.utils.<a href="com/mg105/utils/MoveConstants.html" title="class in com.mg105.utils">MoveConstants</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/utils/TutorialTexts.html#MOVED" class="member-name-link">MOVED</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/TutorialTexts.html" title="class in com.mg105.utils">TutorialTexts</a></dt>
@@ -1123,6 +1247,10 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:N">N</h2>
 <dl class="index">
+<dt><a href="com/mg105/utils/OpponentConstants.html#NAMES" class="member-name-link">NAMES</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/OpponentConstants.html" title="class in com.mg105.utils">OpponentConstants</a></dt>
+<dd>
+<div class="block">Possible names for opponents</div>
+</dd>
 <dt><a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html#nextPhase()" class="member-name-link">nextPhase()</a> - Method in class com.mg105.interface_adapters.tutorial.<a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html" title="class in com.mg105.interface_adapters.tutorial">TutorialTextController</a></dt>
 <dd>
 <div class="block">Go to the next tutorial phase</div>
@@ -1132,7 +1260,9 @@ loadScripts(document, 'script');</script>
 <div class="block">Advance current phase by 1</div>
 </dd>
 <dt><a href="com/mg105/utils/MoveConstants.html#NULLIFY" class="member-name-link">NULLIFY</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/MoveConstants.html" title="class in com.mg105.utils">MoveConstants</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">A move name.</div>
+</dd>
 <dt><a href="com/mg105/entities/Inventory.html#numberOfItems()" class="member-name-link">numberOfItems()</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/Inventory.html" title="class in com.mg105.entities">Inventory</a></dt>
 <dd>
 <div class="block">Returns the number of items in the inventory currently</div>
@@ -1152,6 +1282,12 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">A potential battle</div>
 </dd>
+<dt><a href="com/mg105/utils/OpponentConstants.html" class="type-name-link" title="class in com.mg105.utils">OpponentConstants</a> - Class in <a href="com/mg105/utils/package-summary.html">com.mg105.utils</a></dt>
+<dd>
+<div class="block">OpponentConstant contains constants that pertain to the names of opponents.</div>
+</dd>
+<dt><a href="com/mg105/utils/OpponentConstants.html#%3Cinit%3E()" class="member-name-link">OpponentConstants()</a> - Constructor for class com.mg105.utils.<a href="com/mg105/utils/OpponentConstants.html" title="class in com.mg105.utils">OpponentConstants</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="com/mg105/entities/OpponentSet.html" class="type-name-link" title="class in com.mg105.entities">OpponentSet</a> - Class in <a href="com/mg105/entities/package-summary.html">com.mg105.entities</a></dt>
 <dd>
 <div class="block">OpponentSet stores a potential battle on a map.</div>
@@ -1161,9 +1297,13 @@ loadScripts(document, 'script');</script>
 <div class="block">Create a new set of opponents to be displayed in a room.</div>
 </dd>
 <dt><a href="com/mg105/use_cases/OpponentSetInteractor.html" class="type-name-link" title="class in com.mg105.use_cases">OpponentSetInteractor</a> - Class in <a href="com/mg105/use_cases/package-summary.html">com.mg105.use_cases</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">An interactor class that modifies and references GameState with methods relating to OpponentSet.</div>
+</dd>
 <dt><a href="com/mg105/use_cases/OpponentSetInteractor.html#%3Cinit%3E(com.mg105.entities.GameState)" class="member-name-link">OpponentSetInteractor(GameState)</a> - Constructor for class com.mg105.use_cases.<a href="com/mg105/use_cases/OpponentSetInteractor.html" title="class in com.mg105.use_cases">OpponentSetInteractor</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Creates a new OpponentSetInteractor with a reference to GameState.</div>
+</dd>
 </dl>
 <h2 class="title" id="I:P">P</h2>
 <dl class="index">
@@ -1225,6 +1365,18 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Constructor for PlayerGetsTutorial use case</div>
 </dd>
+<dt><a href="com/mg105/utils/PointComparator.html" class="type-name-link" title="class in com.mg105.utils">PointComparator</a> - Class in <a href="com/mg105/utils/package-summary.html">com.mg105.utils</a></dt>
+<dd>
+<div class="block">A comparator for calculating distances between Points.</div>
+</dd>
+<dt><a href="com/mg105/utils/PointComparator.html#%3Cinit%3E(java.awt.Point)" class="member-name-link">PointComparator(Point)</a> - Constructor for class com.mg105.utils.<a href="com/mg105/utils/PointComparator.html" title="class in com.mg105.utils">PointComparator</a></dt>
+<dd>
+<div class="block">Create a new PointComparator.</div>
+</dd>
+<dt><a href="com/mg105/interface_adapters/MinimapInterpreter.html#propertyChange(java.beans.PropertyChangeEvent)" class="member-name-link">propertyChange(PropertyChangeEvent)</a> - Method in class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/MinimapInterpreter.html" title="class in com.mg105.interface_adapters">MinimapInterpreter</a></dt>
+<dd>
+<div class="block">Update room position data.</div>
+</dd>
 <dt><a href="com/mg105/user_interface/MapDrawer.html#propertyChange(java.beans.PropertyChangeEvent)" class="member-name-link">propertyChange(PropertyChangeEvent)</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/MapDrawer.html" title="class in com.mg105.user_interface">MapDrawer</a></dt>
 <dd>
 <div class="block">Update the current room based on evt.</div>
@@ -1233,6 +1385,12 @@ loadScripts(document, 'script');</script>
 <h2 class="title" id="I:R">R</h2>
 <dl class="index">
 <dt><a href="com/mg105/utils/MoveConstants.html#REINFORCE" class="member-name-link">REINFORCE</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/MoveConstants.html" title="class in com.mg105.utils">MoveConstants</a></dt>
+<dd>
+<div class="block">A move name.</div>
+</dd>
+<dt><a href="com/mg105/entities/Inventory.html#removeAll()" class="member-name-link">removeAll()</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/Inventory.html" title="class in com.mg105.entities">Inventory</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/mg105/interface_adapters/inventory/InventoryController.html#removeAll()" class="member-name-link">removeAll()</a> - Method in class com.mg105.interface_adapters.inventory.<a href="com/mg105/interface_adapters/inventory/InventoryController.html" title="class in com.mg105.interface_adapters.inventory">InventoryController</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/entities/Battle.html#removeChar(com.mg105.entities.BattleCharacter)" class="member-name-link">removeChar(BattleCharacter)</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/Battle.html" title="class in com.mg105.entities">Battle</a></dt>
 <dd>
@@ -1242,6 +1400,8 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Removes the current active battle from the game state.</div>
 </dd>
+<dt><a href="com/mg105/use_cases/inventory/InventoryInteractor.html#removeInventory()" class="member-name-link">removeInventory()</a> - Method in class com.mg105.use_cases.inventory.<a href="com/mg105/use_cases/inventory/InventoryInteractor.html" title="class in com.mg105.use_cases.inventory">InventoryInteractor</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="com/mg105/interface_adapters/inventory/InventoryPresenter.html#removeItem(boolean,com.mg105.use_cases.outputds.ItemDetails)" class="member-name-link">removeItem(boolean, ItemDetails)</a> - Method in class com.mg105.interface_adapters.inventory.<a href="com/mg105/interface_adapters/inventory/InventoryPresenter.html" title="class in com.mg105.interface_adapters.inventory">InventoryPresenter</a></dt>
 <dd>
 <div class="block">Sends an alert the view about the status of the potentially removed item.</div>
@@ -1275,6 +1435,26 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Remove an observer from the RoomUpdater.</div>
 </dd>
+<dt><a href="com/mg105/use_cases/ReplayGenerator.html#replay()" class="member-name-link">replay()</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/ReplayGenerator.html" title="class in com.mg105.use_cases">ReplayGenerator</a></dt>
+<dd>
+<div class="block">Replay the game by interacting with the MapGenerator class</div>
+</dd>
+<dt><a href="com/mg105/interface_adapters/ReplayGeneratorInterpreter.html#replayGenerateMap()" class="member-name-link">replayGenerateMap()</a> - Method in class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/ReplayGeneratorInterpreter.html" title="class in com.mg105.interface_adapters">ReplayGeneratorInterpreter</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/mg105/use_cases/ReplayGenerator.html" class="type-name-link" title="class in com.mg105.use_cases">ReplayGenerator</a> - Class in <a href="com/mg105/use_cases/package-summary.html">com.mg105.use_cases</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/mg105/use_cases/ReplayGenerator.html#%3Cinit%3E(com.mg105.entities.GameState)" class="member-name-link">ReplayGenerator(GameState)</a> - Constructor for class com.mg105.use_cases.<a href="com/mg105/use_cases/ReplayGenerator.html" title="class in com.mg105.use_cases">ReplayGenerator</a></dt>
+<dd>
+<div class="block">Create a new replaygenerator</div>
+</dd>
+<dt><a href="com/mg105/user_interface/ReplayGeneratorButton.html" class="type-name-link" title="class in com.mg105.user_interface">ReplayGeneratorButton</a> - Class in <a href="com/mg105/user_interface/package-summary.html">com.mg105.user_interface</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/mg105/user_interface/ReplayGeneratorButton.html#%3Cinit%3E(com.mg105.interface_adapters.ReplayGeneratorInterpreter,com.mg105.interface_adapters.Toggler)" class="member-name-link">ReplayGeneratorButton(ReplayGeneratorInterpreter, Toggler)</a> - Constructor for class com.mg105.user_interface.<a href="com/mg105/user_interface/ReplayGeneratorButton.html" title="class in com.mg105.user_interface">ReplayGeneratorButton</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/mg105/interface_adapters/ReplayGeneratorInterpreter.html" class="type-name-link" title="class in com.mg105.interface_adapters">ReplayGeneratorInterpreter</a> - Class in <a href="com/mg105/interface_adapters/package-summary.html">com.mg105.interface_adapters</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/mg105/interface_adapters/ReplayGeneratorInterpreter.html#%3Cinit%3E(com.mg105.use_cases.ReplayGenerator)" class="member-name-link">ReplayGeneratorInterpreter(ReplayGenerator)</a> - Constructor for class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/ReplayGeneratorInterpreter.html" title="class in com.mg105.interface_adapters">ReplayGeneratorInterpreter</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="com/mg105/interface_adapters/BattlePresenter.html#retrieveTargets(int,java.lang.String)" class="member-name-link">retrieveTargets(int, String)</a> - Method in class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/BattlePresenter.html" title="class in com.mg105.interface_adapters">BattlePresenter</a></dt>
 <dd>
 <div class="block">Returns the name of every BattleCharacter which can be targeted by the given move.</div>
@@ -1292,7 +1472,9 @@ loadScripts(document, 'script');</script>
 <div class="block">Create a room given some number of chests, opponents, and doorways.</div>
 </dd>
 <dt><a href="com/mg105/utils/MapConstants.html#ROOM_SIZE" class="member-name-link">ROOM_SIZE</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/MapConstants.html" title="class in com.mg105.utils">MapConstants</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">The width and height of a room in tiles, must be at leats 8</div>
+</dd>
 <dt><a href="com/mg105/use_cases/RoomGetter.html" class="type-name-link" title="class in com.mg105.use_cases">RoomGetter</a> - Class in <a href="com/mg105/use_cases/package-summary.html">com.mg105.use_cases</a></dt>
 <dd>
 <div class="block">RoomGetter is responsible for getting the state current room.</div>
@@ -1337,7 +1519,9 @@ loadScripts(document, 'script');</script>
 <h2 class="title" id="I:S">S</h2>
 <dl class="index">
 <dt><a href="com/mg105/utils/MoveConstants.html#SABOTAGE" class="member-name-link">SABOTAGE</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/MoveConstants.html" title="class in com.mg105.utils">MoveConstants</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">A move name.</div>
+</dd>
 <dt><a href="com/mg105/use_cases/save/PartySaver.html#save()" class="member-name-link">save()</a> - Method in class com.mg105.use_cases.save.<a href="com/mg105/use_cases/save/PartySaver.html" title="class in com.mg105.use_cases.save">PartySaver</a></dt>
 <dd>
 <div class="block">Save the current stats of the party members to a "database"</div>
@@ -1474,7 +1658,9 @@ loadScripts(document, 'script');</script>
 <div class="block">String for reminding user of controls</div>
 </dd>
 <dt><a href="com/mg105/utils/MoveConstants.html#SLOW_SWING" class="member-name-link">SLOW_SWING</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/MoveConstants.html" title="class in com.mg105.utils">MoveConstants</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">A move name.</div>
+</dd>
 <dt><a href="com/mg105/utils/StatConstants.html#SPEED" class="member-name-link">SPEED</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/StatConstants.html" title="class in com.mg105.utils">StatConstants</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/Application.html#start(javafx.stage.Stage)" class="member-name-link">start(Stage)</a> - Method in class com.mg105.<a href="com/mg105/Application.html" title="class in com.mg105">Application</a></dt>
@@ -1499,11 +1685,17 @@ loadScripts(document, 'script');</script>
 <div class="block">Constant string for story text</div>
 </dd>
 <dt><a href="com/mg105/utils/MoveConstants.html#STRONG_HEAL" class="member-name-link">STRONG_HEAL</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/MoveConstants.html" title="class in com.mg105.utils">MoveConstants</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">A move name.</div>
+</dd>
 <dt><a href="com/mg105/utils/MoveConstants.html#STRONG_SWING" class="member-name-link">STRONG_SWING</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/MoveConstants.html" title="class in com.mg105.utils">MoveConstants</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">A move name.</div>
+</dd>
 <dt><a href="com/mg105/utils/MoveConstants.html#SURPRISE_ATTACK" class="member-name-link">SURPRISE_ATTACK</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/MoveConstants.html" title="class in com.mg105.utils">MoveConstants</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">A move name.</div>
+</dd>
 </dl>
 <h2 class="title" id="I:T">T</h2>
 <dl class="index">
@@ -1532,7 +1724,9 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/mg105/entities/TextGenerator.html#%3Cinit%3E()" class="member-name-link">TextGenerator()</a> - Constructor for class com.mg105.entities.<a href="com/mg105/entities/TextGenerator.html" title="class in com.mg105.entities">TextGenerator</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/utils/MapConstants.html#TILE_SIZE" class="member-name-link">TILE_SIZE</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/MapConstants.html" title="class in com.mg105.utils">MapConstants</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">The size in pixels of a single tile on the screen</div>
+</dd>
 <dt><a href="com/mg105/interface_adapters/TileType.html" class="type-name-link" title="enum class in com.mg105.interface_adapters">TileType</a> - Enum Class in <a href="com/mg105/interface_adapters/package-summary.html">com.mg105.interface_adapters</a></dt>
 <dd>
 <div class="block">Types of tiles that can appear within a room.</div>
@@ -1545,11 +1739,17 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Changes the state of the InventoryDisplay based on if the inventory display is shown in the ui</div>
 </dd>
+<dt><a href="com/mg105/user_interface/LoseMenu.html#toggle(boolean)" class="member-name-link">toggle(boolean)</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/LoseMenu.html" title="class in com.mg105.user_interface">LoseMenu</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="com/mg105/user_interface/MainMenu.html#toggle(boolean)" class="member-name-link">toggle(boolean)</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/MainMenu.html" title="class in com.mg105.user_interface">MainMenu</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/user_interface/MapDrawer.html#toggle(boolean)" class="member-name-link">toggle(boolean)</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/MapDrawer.html" title="class in com.mg105.user_interface">MapDrawer</a></dt>
 <dd>
 <div class="block">Toggle the visibility of map drawer.</div>
+</dd>
+<dt><a href="com/mg105/user_interface/MinimapDrawer.html#toggle(boolean)" class="member-name-link">toggle(boolean)</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/MinimapDrawer.html" title="class in com.mg105.user_interface">MinimapDrawer</a></dt>
+<dd>
+<div class="block">Toggle the minimap.</div>
 </dd>
 <dt><a href="com/mg105/user_interface/Toggleable.html#toggle(boolean)" class="member-name-link">toggle(boolean)</a> - Method in interface com.mg105.user_interface.<a href="com/mg105/user_interface/Toggleable.html" title="interface in com.mg105.user_interface">Toggleable</a></dt>
 <dd>
@@ -1616,6 +1816,10 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:U">U</h2>
 <dl class="index">
+<dt><a href="com/mg105/interface_adapters/MinimapInterpreter.RoomState.html#UNEXPLORED" class="member-name-link">UNEXPLORED</a> - Enum constant in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/MinimapInterpreter.RoomState.html" title="enum class in com.mg105.interface_adapters">MinimapInterpreter.RoomState</a></dt>
+<dd>
+<div class="block">The room is implied to exist but is unexplored.</div>
+</dd>
 <dt><a href="com/mg105/interface_adapters/BattleMenuInterface.html#updateCharacter(java.lang.String)" class="member-name-link">updateCharacter(String)</a> - Method in interface com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/BattleMenuInterface.html" title="interface in com.mg105.interface_adapters">BattleMenuInterface</a></dt>
 <dd>
 <div class="block">Updates the display corresponding to the given affected character.</div>
@@ -1686,6 +1890,10 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:V">V</h2>
 <dl class="index">
+<dt><a href="com/mg105/interface_adapters/MinimapInterpreter.RoomState.html#valueOf(java.lang.String)" class="member-name-link">valueOf(String)</a> - Static method in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/MinimapInterpreter.RoomState.html" title="enum class in com.mg105.interface_adapters">MinimapInterpreter.RoomState</a></dt>
+<dd>
+<div class="block">Returns the enum constant of this class with the specified name.</div>
+</dd>
 <dt><a href="com/mg105/interface_adapters/TileType.html#valueOf(java.lang.String)" class="member-name-link">valueOf(String)</a> - Static method in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/TileType.html" title="enum class in com.mg105.interface_adapters">TileType</a></dt>
 <dd>
 <div class="block">Returns the enum constant of this class with the specified name.</div>
@@ -1693,6 +1901,11 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/mg105/interface_adapters/Toggler.ToggleableComponent.html#valueOf(java.lang.String)" class="member-name-link">valueOf(String)</a> - Static method in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/Toggler.ToggleableComponent.html" title="enum class in com.mg105.interface_adapters">Toggler.ToggleableComponent</a></dt>
 <dd>
 <div class="block">Returns the enum constant of this class with the specified name.</div>
+</dd>
+<dt><a href="com/mg105/interface_adapters/MinimapInterpreter.RoomState.html#values()" class="member-name-link">values()</a> - Static method in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/MinimapInterpreter.RoomState.html" title="enum class in com.mg105.interface_adapters">MinimapInterpreter.RoomState</a></dt>
+<dd>
+<div class="block">Returns an array containing the constants of this enum class, in
+the order they are declared.</div>
 </dd>
 <dt><a href="com/mg105/interface_adapters/TileType.html#values()" class="member-name-link">values()</a> - Static method in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/TileType.html" title="enum class in com.mg105.interface_adapters">TileType</a></dt>
 <dd>
@@ -1732,25 +1945,33 @@ the order they are declared.</div>
 <div class="block">This class uses JavaFX and is displayed when the user wants to change the walking character sprite.</div>
 </dd>
 <dt><a href="com/mg105/user_interface/WalkingMenu.html#%3Cinit%3E(com.mg105.interface_adapters.WalkVisController)" class="member-name-link">WalkingMenu(WalkVisController)</a> - Constructor for class com.mg105.user_interface.<a href="com/mg105/user_interface/WalkingMenu.html" title="class in com.mg105.user_interface">WalkingMenu</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Creates a new WalkingMenu with reference to a controller class.</div>
+</dd>
 <dt><a href="com/mg105/interface_adapters/WalkVisController.html" class="type-name-link" title="class in com.mg105.interface_adapters">WalkVisController</a> - Class in <a href="com/mg105/interface_adapters/package-summary.html">com.mg105.interface_adapters</a></dt>
 <dd>
 <div class="block">This class communicates with WalkVisInteractor, called on by WalkingMenu.</div>
 </dd>
 <dt><a href="com/mg105/interface_adapters/WalkVisController.html#%3Cinit%3E(com.mg105.use_cases.WalkVisInteractor)" class="member-name-link">WalkVisController(WalkVisInteractor)</a> - Constructor for class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/WalkVisController.html" title="class in com.mg105.interface_adapters">WalkVisController</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Creates a new WalkVisController referring to a WalkVisInteractor.</div>
+</dd>
 <dt><a href="com/mg105/use_cases/WalkVisInteractor.html" class="type-name-link" title="class in com.mg105.use_cases">WalkVisInteractor</a> - Class in <a href="com/mg105/use_cases/package-summary.html">com.mg105.use_cases</a></dt>
 <dd>
 <div class="block">This class interacts with the WalkingCharacter entity.</div>
 </dd>
 <dt><a href="com/mg105/use_cases/WalkVisInteractor.html#%3Cinit%3E(com.mg105.entities.GameState)" class="member-name-link">WalkVisInteractor(GameState)</a> - Constructor for class com.mg105.use_cases.<a href="com/mg105/use_cases/WalkVisInteractor.html" title="class in com.mg105.use_cases">WalkVisInteractor</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Creates a new WalkVisInteractor with reference to GameState.</div>
+</dd>
 <dt><a href="com/mg105/interface_adapters/TileType.html#WALL" class="member-name-link">WALL</a> - Enum constant in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/TileType.html" title="enum class in com.mg105.interface_adapters">TileType</a></dt>
 <dd>
 <div class="block">Wall that cannot be walked on.</div>
 </dd>
 <dt><a href="com/mg105/utils/MoveConstants.html#WEAK_HEAL" class="member-name-link">WEAK_HEAL</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/MoveConstants.html" title="class in com.mg105.utils">MoveConstants</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">A move name.</div>
+</dd>
 </dl>
 <a href="#I:A">A</a>&nbsp;<a href="#I:B">B</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:N">N</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:U">U</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:W">W</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a><span class="vertical-separator">|</span><a href="constant-values.html">Constant&nbsp;Field&nbsp;Values</a></main>
 </div>

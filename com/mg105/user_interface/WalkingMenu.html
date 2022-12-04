@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="../../../script.js"></script>
-<script type="text/javascript" src="../../../script-dir/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="../../../script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
@@ -95,7 +95,9 @@ implements javafx.event.EventHandler&lt;javafx.event.ActionEvent&gt;, <a href="T
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.mg105.interface_adapters.WalkVisController)" class="member-name-link">WalkingMenu</a><wbr>(<a href="../interface_adapters/WalkVisController.html" title="class in com.mg105.interface_adapters">WalkVisController</a>&nbsp;controller)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Creates a new WalkingMenu with reference to a controller class.</div>
+</div>
 </div>
 </section>
 </li>
@@ -117,7 +119,9 @@ implements javafx.event.EventHandler&lt;javafx.event.ActionEvent&gt;, <a href="T
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handle(javafx.event.ActionEvent)" class="member-name-link">handle</a><wbr>(javafx.event.ActionEvent&nbsp;event)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Handles button events.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toggle(boolean)" class="member-name-link">toggle</a><wbr>(boolean&nbsp;isVisible)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
@@ -144,6 +148,12 @@ implements javafx.event.EventHandler&lt;javafx.event.ActionEvent&gt;, <a href="T
 <section class="detail" id="&lt;init&gt;(com.mg105.interface_adapters.WalkVisController)">
 <h3>WalkingMenu</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">WalkingMenu</span><wbr><span class="parameters">(<a href="../interface_adapters/WalkVisController.html" title="class in com.mg105.interface_adapters">WalkVisController</a>&nbsp;controller)</span></div>
+<div class="block">Creates a new WalkingMenu with reference to a controller class.
+ Sets up UI elements.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>controller</code> - the WalkVisController to be referred to.</dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -158,9 +168,13 @@ implements javafx.event.EventHandler&lt;javafx.event.ActionEvent&gt;, <a href="T
 <section class="detail" id="handle(javafx.event.ActionEvent)">
 <h3>handle</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">handle</span><wbr><span class="parameters">(javafx.event.ActionEvent&nbsp;event)</span></div>
+<div class="block">Handles button events.
+ Pressing the select button updates the WalkingCharacter to represent the desired walking character sprite.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>handle</code>&nbsp;in interface&nbsp;<code>javafx.event.EventHandler&lt;javafx.event.ActionEvent&gt;</code></dd>
+<dt>Parameters:</dt>
+<dd><code>event</code> - the event which occurred.</dd>
 </dl>
 </section>
 </li>

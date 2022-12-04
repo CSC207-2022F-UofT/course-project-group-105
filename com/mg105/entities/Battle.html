@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="../../../script.js"></script>
-<script type="text/javascript" src="../../../script-dir/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="../../../script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
@@ -92,7 +92,10 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.util.ArrayList,java.util.ArrayList)" class="member-name-link">Battle</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="BattleCharacter.html" title="class in com.mg105.entities">BattleCharacter</a>&gt;&nbsp;opponents,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="BattleCharacter.html" title="class in com.mg105.entities">BattleCharacter</a>&gt;&nbsp;party)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Creates a new Battle instance with ongoing status, given BattleCharacters, and a Queue of the characters sorted
+ by their speed stats.</div>
+</div>
 </div>
 </section>
 </li>
@@ -169,6 +172,13 @@ loadScripts(document, 'script');</script>
 <h3>Battle</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Battle</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="BattleCharacter.html" title="class in com.mg105.entities">BattleCharacter</a>&gt;&nbsp;opponents,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="BattleCharacter.html" title="class in com.mg105.entities">BattleCharacter</a>&gt;&nbsp;party)</span></div>
+<div class="block">Creates a new Battle instance with ongoing status, given BattleCharacters, and a Queue of the characters sorted
+ by their speed stats.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>opponents</code> - a collection of opponent BattleCharacters.</dd>
+<dd><code>party</code> - a collection of player BattleCharacters.</dd>
+</dl>
 </section>
 </li>
 </ul>
