@@ -4,9 +4,11 @@ com.mg105.data_control.creator
 com.mg105.entities
 com.mg105.entities.items
 com.mg105.interface_adapters
+com.mg105.interface_adapters.battle
 com.mg105.interface_adapters.inventory
 com.mg105.interface_adapters.tutorial
 com.mg105.use_cases
+com.mg105.use_cases.battle
 com.mg105.use_cases.inventory
 com.mg105.use_cases.outputds
 com.mg105.use_cases.save
