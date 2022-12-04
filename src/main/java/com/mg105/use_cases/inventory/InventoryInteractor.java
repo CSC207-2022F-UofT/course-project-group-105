@@ -14,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
  * inventory.
  */
 
-public class InventoryInteractor {
+public class InventoryInteractor implements InventoryInteractorInputInterface {
 
     @NotNull private final GameState state;
 
@@ -62,6 +62,7 @@ public class InventoryInteractor {
      * @see InventoryPresenterInterface
      */
 
+    @Override
     public void removeItem(@NotNull String itemName) {
 
         boolean isRemoved = state.getInventory().removeItem(itemName);
@@ -79,6 +80,7 @@ public class InventoryInteractor {
      * @see InventoryPresenterInterface
      */
 
+    @Override
     public void useItem(@NotNull String itemName, @NotNull String characterName) {
 
         if (!(inParty(characterName))) {
@@ -97,6 +99,7 @@ public class InventoryInteractor {
      *
      * @see InventoryPresenterInterface
      */
+    @Override
     public void getInventoryDetails() {
         ItemDetails[] output = new ItemDetails[ItemConstants.ALL_ITEM_NAMES.length];
         for (int i = 0; i < ItemConstants.ALL_ITEM_NAMES.length; i++) {
@@ -112,12 +115,32 @@ public class InventoryInteractor {
 
     }
 
+    /**
+     * Returns the limit of the inventory
+     * The limit of the inventory is the maximum possible number of items that could be placed in it
+     * @return and integer representing the limit of the inventory
+     */
+
     public int getInventoryLimit(){
         return state.getInventory().limit();
     }
 
+    /**
+     * Returns the number of items currently in the inventory
+     * @return the number of items currently in the inventory
+     */
+
     public int getNumOfItem(){
         return state.getInventory().numberOfItems();
+    }
+
+    /**
+     * Removes all items from the inventory
+     */
+    @Override
+    public void removeInventory()
+    {
+        this.state.getInventory().removeAll();
     }
 
     private @NotNull ItemDetails getItemDetails(@NotNull String itemName) {
@@ -166,11 +189,6 @@ public class InventoryInteractor {
 
         // should only be called iff the itemName does not exist
         return "N/A";
-    }
-
-    public void removeInventory()
-    {
-        this.state.getInventory().removeAll();
     }
 }
 

@@ -1,4 +1,4 @@
-package com.mg105.use_cases;
+package com.mg105.use_cases.battle;
 
 /**
  * This interface should be implemented by BattlePresenter.

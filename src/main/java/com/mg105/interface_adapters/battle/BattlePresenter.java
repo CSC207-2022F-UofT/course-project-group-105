@@ -1,9 +1,13 @@
-package com.mg105.interface_adapters;
+package com.mg105.interface_adapters.battle;
 
-import com.mg105.use_cases.BattlePresenterInterface;
-import com.mg105.use_cases.BattleInteractor;
+import com.mg105.interface_adapters.Toggler;
+import com.mg105.use_cases.battle.BattlePresenterInterface;
+import com.mg105.use_cases.battle.BattleInteractor;
 
 import java.util.ArrayList;
+
+import static com.mg105.interface_adapters.Toggler.ToggleableComponent.BATTLE;
+import static com.mg105.interface_adapters.Toggler.ToggleableComponent.LOSE_MENU;
 
 /**
  * Class communicating between BattleMenuInterface view and BattleInteractor.
@@ -13,6 +17,8 @@ public class BattlePresenter implements BattlePresenterInterface {
 
     private final BattleInteractor interactor;
 
+    private final Toggler toggler;
+
     private BattleMenuInterface view;
 
     /**
@@ -20,9 +26,10 @@ public class BattlePresenter implements BattlePresenterInterface {
      * this instance.
      * @param interactor the BattleInteractor to be referred to.
      */
-    public BattlePresenter(BattleInteractor interactor) {
+    public BattlePresenter(BattleInteractor interactor, Toggler toggler) {
         this.interactor = interactor;
         this.interactor.setPresenter(this);
+        this.toggler = toggler;
     }
 
     /**
@@ -94,7 +101,7 @@ public class BattlePresenter implements BattlePresenterInterface {
      * Starts a round of the encounter. If battle ended last round, end the encounter/the run depending on the result.
      * If encounter is still in progress, get the next moving character.
      * If opponent is moving, choose a random move and random target and use it.
-     *
+     * returns null iff the battle has ended
      * @return a String of the name of the moving character
      */
     public String roundStart() {
@@ -143,11 +150,20 @@ public class BattlePresenter implements BattlePresenterInterface {
         this.view.updateCharacter(targetName);
     }
 
+
     /**
-     * UNIMPLEMENTED
+     * Makes the appropriate calls to change the state in the case of a battle being lost or won and then
+     * Makes the appropriate updates to change the view in the of a battle being won or lost
      */
     public void endBattle() {
-        interactor.endBattle();
+        boolean hasWon = interactor.endBattle();
+        if(hasWon){
+            toggler.toggle(BATTLE);
+            return;
+        }
+
+        toggler.toggle(LOSE_MENU);
+
     }
 
 }
