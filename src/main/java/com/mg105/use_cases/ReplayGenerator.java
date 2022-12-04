@@ -2,21 +2,22 @@ package com.mg105.use_cases;
 
 import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.GameState;
-import com.mg105.entities.Inventory;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
 public class ReplayGenerator {
     private final @NotNull GameState state;
+    private final @NotNull Resetable[] resetables;
 
     /**
      * Create a new replaygenerator
      *
      * @param state the game state.
      */
-    public ReplayGenerator(@NotNull GameState state) {
+    public ReplayGenerator(@NotNull GameState state, @NotNull Resetable... resetables) {
         this.state = state;
+        this.resetables = resetables;
     }
 
     public ArrayList<BattleCharacter> attributeInheritance() {
@@ -39,5 +40,8 @@ public class ReplayGenerator {
         // on other use cases' implementation
         MapGenerator isekai = new MapGenerator(state);
         isekai.generateMap();
+        for (Resetable resetable : resetables) {
+            resetable.reset();
+        }
     }
 }

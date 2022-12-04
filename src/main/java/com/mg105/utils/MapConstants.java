@@ -4,6 +4,10 @@ package com.mg105.utils;
  * Constants used in the map and map generation.
  */
 public class MapConstants {
+    /** Whether you can walk through (and over) chests.
+        Note: do not commit this variable being equal to true. */
+    public static final boolean NOCLIP = false;
+
     /** The width and height of a room in tiles, must be at leats 8 */
     public static final int ROOM_SIZE = 8;
     /** The size in pixels of a single tile on the screen */
