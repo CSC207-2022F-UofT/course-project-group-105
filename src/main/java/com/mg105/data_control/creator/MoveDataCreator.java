@@ -24,7 +24,7 @@ public class MoveDataCreator extends DataStorageCreator {
         String[] m3 = {STRONG_SWING,"-4","0",IS_FALSE};
         String[] m4 =  {STRONG_HEAL,"6","0",IS_TRUE};
         String[] m5 =  {WEAK_HEAL,"3","0",IS_TRUE};
-        String[] m6 =  {REINFORCE,"2","2",IS_TRUE};
+        String[] m6 =  {REINFORCE,"2","1",IS_TRUE};
         String[] m7 =  {SURPRISE_ATTACK,"-5","0",IS_FALSE};
         String[] m8 =  {SABOTAGE,"-2","-2",IS_FALSE};
         return new String[][]{header, m1, m2, m3, m4, m5, m6, m7, m8};
