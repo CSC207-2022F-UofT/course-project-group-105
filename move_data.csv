@@ -1,0 +1,9 @@
+name,moveChange,damageChange,isFriendly
+Slow swing,-3,0,FALSE
+Nullify,0,-1,FALSE
+Strong swing,-4,0,FALSE
+Strong heal,6,0,TRUE
+Weak heal,3,0,TRUE
+Reinforce,2,2,TRUE
+Surprise attack,-5,0,FALSE
+Sabotage,-2,-2,FALSE
