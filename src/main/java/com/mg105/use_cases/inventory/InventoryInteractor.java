@@ -2,7 +2,7 @@ package com.mg105.use_cases.inventory;
 
 import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.GameState;
-import com.mg105.outputds.ItemDetails;
+import com.mg105.use_cases.outputds.ItemDetails;
 import com.mg105.utils.ItemConstants;
 import com.mg105.utils.PartyConstants;
 import org.jetbrains.annotations.NotNull;
@@ -16,11 +16,17 @@ import org.jetbrains.annotations.NotNull;
 
 public class InventoryInteractor {
 
-    private final GameState state;
+    @NotNull private final GameState state;
 
-    private final ItemFactory itemFactory = new ItemFactory();
+    @NotNull private final ItemFactory itemFactory = new ItemFactory();
 
-    private final InventoryPresenterInterface response;
+    @NotNull private final InventoryPresenterInterface response;
+
+    /**
+     * Creates a new instance of InventoryInteractor
+     * @param gamestate the current state of the game
+     * @param response an object the represents what data to perhaps output
+     */
 
     public InventoryInteractor(@NotNull GameState gamestate, @NotNull InventoryPresenterInterface response) {
         this.state = gamestate;
@@ -40,6 +46,8 @@ public class InventoryInteractor {
             response.addItem(false, getItemDetails(itemName));
             return;
         }
+
+        // This uses the simple factory design patterns
 
         boolean addedItem = state.getInventory().addItem(itemFactory.createItem(itemName));
 
@@ -104,6 +112,14 @@ public class InventoryInteractor {
 
     }
 
+    public int getInventoryLimit(){
+        return state.getInventory().limit();
+    }
+
+    public int getNumOfItem(){
+        return state.getInventory().numberOfItems();
+    }
+
     private @NotNull ItemDetails getItemDetails(@NotNull String itemName) {
         return new ItemDetails(itemName, getItemDescription(itemName), getItemCount(itemName), isItemUsable(itemName));
     }
@@ -151,4 +167,10 @@ public class InventoryInteractor {
         // should only be called iff the itemName does not exist
         return "N/A";
     }
+
+    public void removeInventory()
+    {
+        this.state.getInventory().removeAll();
+    }
 }
+

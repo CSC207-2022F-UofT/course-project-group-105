@@ -1,12 +1,13 @@
 package com.mg105.use_cases;
 
-import com.mg105.entities.Battle;
-import com.mg105.entities.BattleCharacter;
-import com.mg105.entities.GameState;
-import com.mg105.entities.Move;
+import com.mg105.entities.*;
+import com.mg105.use_cases.inventory.InventoryInteractor;
+import com.mg105.use_cases.save.Saver;
 
 import java.util.ArrayList;
 import java.util.Random;
+
+import static com.mg105.utils.ItemConstants.UPGRADE_TOKEN_NAME;
 
 /**
  * This class interacts with the Battle entity.
@@ -19,8 +20,24 @@ public class BattleInteractor {
 
     private BattlePresenterInterface presenter;
 
-    public BattleInteractor(GameState state) {
+    private final InventoryInteractor inventoryInteractor;
+
+    private final Saver saver;
+
+    private final static int MAX_UPGRADE_TOKEN_REWARDED = 3;
+
+
+    /**
+     * Creates a new BattleInteractor with a reference to the GameState.
+     * @param state the GameState to be referred to.
+     * @param inventoryInteractor the inventoryInteractor to be referred to.
+     * @param saver an instance of Saver used to save data.
+     */
+    public BattleInteractor(GameState state, InventoryInteractor inventoryInteractor, Saver saver) {
+
         this.state = state;
+        this.inventoryInteractor = inventoryInteractor;
+        this.saver = saver;
     }
 
     /**
@@ -120,7 +137,7 @@ public class BattleInteractor {
      */
     public int[] getCharacterMoveStats(String name) {
         BattleCharacter caster = state.getCurrEncounter().getCharacter(name);
-        return new int[] {caster.getMoveOne().getHealthChange(), caster.getMoveOne().getDamageChange(),
+        return new int[]{caster.getMoveOne().getHealthChange(), caster.getMoveOne().getDamageChange(),
             caster.getMoveTwo().getHealthChange(), caster.getMoveTwo().getDamageChange()};
     }
 
@@ -132,7 +149,7 @@ public class BattleInteractor {
      */
     public String[] getCharacterMoveNames(String name) {
         BattleCharacter caster = state.getCurrEncounter().getCharacter(name);
-        return new String[] {caster.getMoveOne().getName(), caster.getMoveTwo().getName()};
+        return new String[]{caster.getMoveOne().getName(), caster.getMoveTwo().getName()};
     }
 
     /**
@@ -143,9 +160,9 @@ public class BattleInteractor {
      * @return a String of the name of the moving character
      */
     public String roundStart() {
-        int status = state.getCurrEncounter().getBattleStatus();
+        int status = getBattleStatus();
         if (status == -1) { //Player lost last round
-            //Something with ReplayGenerator
+            this.endBattle();
             return null;
         } else if (status == 1) { //Player won last round
             this.endBattle();
@@ -191,7 +208,7 @@ public class BattleInteractor {
      * Note: Function should only be called from view when caster is friendly, so method does not accommodate for case
      * where caster is an opponent.
      *
-     * @param moveNum integer representing which of the two Moves is being used.
+     * @param moveNum    integer representing which of the two Moves is being used.
      * @param casterName String representing the name of the given moving BattleCharacter.
      * @return ArrayList of Strings representing the names of every possible target BattleCharacter.
      */
@@ -228,7 +245,8 @@ public class BattleInteractor {
 
     /**
      * Use one of (given) the given caster's moves on the given target.
-     * @param moveNum integer representing which of the two moves is being used.
+     *
+     * @param moveNum    integer representing which of the two moves is being used.
      * @param casterName String representing the name of the caster BattleCharacter.
      * @param targetName String representing the name of the target BattleCharacter.
      */
@@ -271,23 +289,60 @@ public class BattleInteractor {
     }
 
     /**
-     * UNIMPLEMENTED
+     * Method makes changes that represent an ended battle in the state of the game (won or lost)
+     * The method also save the game for user
      */
     public void endBattle() {
-        //unimplemented, includes _removeActiveBattle and _addReward()
+        this.saver.save();
+        int status = getBattleStatus();
+        state.removeCurrEncounter();
+        if (status == 1) {
+            addReward();
+            return;
+        }
+
+        if (status == -1) {
+            // something with replay generator
+        }
+
+        // status should never == 0
     }
 
     /**
-     * UNIMPLEMENTED
+     * Adds the appropriate number of upgrade tokens to the inventory
      */
-    private void _addReward() {
-        //unimplemented
+    private void addReward() {
+        int dif = Math.max(0, inventoryInteractor.getInventoryLimit() - inventoryInteractor.getNumOfItem());
+        if (dif == 0) {
+            return;
+        }
+
+        int reward = getRandomInt(Math.min(MAX_UPGRADE_TOKEN_REWARDED, dif));
+
+        for (int i = 1; i <= reward; i++) {
+            inventoryInteractor.addItem(UPGRADE_TOKEN_NAME);
+        }
     }
 
     /**
-     * UNIMPLEMENTED
+     * Returns a random integer from 1 to max
+     *
+     * @param max the maximum value of the random integer
+     * @return a random integer from 1 to max
      */
-    private void _removeActiveBattle() {
-        //unimplemented
+
+    private int getRandomInt(int max) {
+        return (int) Math.floor(Math.random() * (max - 1 + 1) + 1);
+    }
+
+    /**
+     * Returns the battle status of the current battle
+     * Precondition there is currently is a battle
+     *
+     * @return the battle status of the current battle
+     */
+    private int getBattleStatus() {
+        return state.getCurrEncounter().getBattleStatus();
+
     }
 }

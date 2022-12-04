@@ -1,6 +1,7 @@
 package com.mg105.interface_adapters.inventory;
 
 import com.mg105.use_cases.inventory.InventoryInteractor;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * A class that serves the UI and allows users to make the desired changes to the Inventory
@@ -8,9 +9,15 @@ import com.mg105.use_cases.inventory.InventoryInteractor;
 
 public class InventoryController {
 
-    InventoryInteractor interactor;
+    @NotNull private final InventoryInteractor interactor;
 
-    public InventoryController(InventoryInteractor interactor) {
+
+    /**
+     * Creates a new instance of inventory controller
+     * @param interactor an object that interacts directly with the inventory
+     */
+
+    public InventoryController(@NotNull InventoryInteractor interactor) {
         this.interactor = interactor;
     }
 
@@ -22,7 +29,7 @@ public class InventoryController {
      * @see InventoryInteractor
      */
 
-    public void removeItem(String itemName) {
+    public void removeItem(@NotNull String itemName) {
         interactor.removeItem(itemName);
     }
 
@@ -34,7 +41,7 @@ public class InventoryController {
      * @param characterName the character to use the item on
      * @see InventoryInteractor
      */
-    public void useItem(String itemName, String characterName) {
+    public void useItem(@NotNull String itemName, @NotNull String characterName) {
         interactor.useItem(itemName, characterName);
     }
 
@@ -46,5 +53,9 @@ public class InventoryController {
 
     public void getInventoryDetails() {
         interactor.getInventoryDetails();
+    }
+
+    public void removeAll() {
+        this.interactor.removeInventory();
     }
 }

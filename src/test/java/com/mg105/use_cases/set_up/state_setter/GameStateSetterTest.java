@@ -21,7 +21,12 @@ class GameStateSetterTest {
 
     // PartyCreator and PartyDataAccess and MoveDataAccess are all tested through this as well!
 
+    // This test only works for the "inital" state of the user party and moves
+    // This is not because the class is depedent on the initial state but because of the
+    // hard coded expected values
+
     private static final GameState state = new GameState(new Inventory(), new WalkingCharacter(new Point()));
+
 
     private static final StateSetter[] setters  = {new PartyCreator(new PartyDataAccess(new MoveDataAccess()))};
 

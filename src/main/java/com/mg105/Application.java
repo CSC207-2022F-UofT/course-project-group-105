@@ -11,14 +11,18 @@ import com.mg105.interface_adapters.inventory.InventoryController;
 import com.mg105.interface_adapters.inventory.InventoryPresenter;
 import com.mg105.use_cases.*;
 import com.mg105.use_cases.inventory.InventoryInteractor;
+import com.mg105.use_cases.save.PartySaver;
+import com.mg105.use_cases.save.Save;
+import com.mg105.use_cases.save.Saver;
 import com.mg105.use_cases.set_up.data_system_creator.CreateDataStorage;
 import com.mg105.use_cases.set_up.data_system_creator.DataStorageSystemCreator;
 import com.mg105.use_cases.set_up.state_setter.GameStateSetter;
 import com.mg105.use_cases.set_up.state_setter.PartyCreator;
 import com.mg105.user_interface.*;
-import com.mg105.user_interface.inventory.InventoryDisplay;
+import com.mg105.user_interface.InventoryDisplay;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -52,13 +56,6 @@ public class Application extends javafx.application.Application {
         GameStateSetter setter = new GameStateSetter(partyCreator);
         setter.setState(state);
 
-        // InventoryDisplay set up
-        InventoryPresenter inventoryPresenter = new InventoryPresenter();
-        InventoryInteractor inventoryInteractor = new InventoryInteractor(state, inventoryPresenter);
-        InventoryDisplay inventoryDisplay = new InventoryDisplay(new InventoryController(
-            inventoryInteractor));
-        inventoryPresenter.setView(inventoryDisplay);
-
         Map<Toggler.ToggleableComponent, Toggleable> drawableComponents = new HashMap<>();
         // We fill this map in later because of the ordering of parameters
         SceneController sceneController = new SceneController(
@@ -77,6 +74,19 @@ public class Application extends javafx.application.Application {
         drawableComponents.put(Toggler.ToggleableComponent.MAIN_MENU, mainMenu);
         drawableComponents.put(Toggler.ToggleableComponent.MAP, mapDrawer);
 
+        // Minimap setup
+        MinimapInterpreter minimapInterpreter = new MinimapInterpreter(roomGetter);
+        MinimapDrawer minimapDrawer = new MinimapDrawer(minimapInterpreter);
+        drawableComponents.put(Toggler.ToggleableComponent.MINIMAP, minimapDrawer);
+
+        // InventoryDisplay set up
+        InventoryPresenter inventoryPresenter = new InventoryPresenter();
+        InventoryInteractor inventoryInteractor = new InventoryInteractor(state, inventoryPresenter);
+        InventoryDisplay inventoryDisplay = new InventoryDisplay(new InventoryController(
+            inventoryInteractor));
+        inventoryPresenter.setView(inventoryDisplay);
+        drawableComponents.put(Toggler.ToggleableComponent.INVENTORY, inventoryDisplay);
+
         /////Tutorial scene////
         TutorialTextController textChanger = new TutorialTextController(false);
         TutorialTextDisplay textDisplay = new TutorialTextDisplay();
@@ -91,12 +101,26 @@ public class Application extends javafx.application.Application {
         drawableComponents.put(Toggler.ToggleableComponent.WALK_MENU, walkingMenu);
         /////////////////////
 
+        //LoseMenu scene//
+        ReplayGenerator replayGenerator = new ReplayGenerator(state);
+        replayGenerator.inventoryClean();
+        replayGenerator.attributeInheritance();
+        ReplayGeneratorInterpreter replayGeneratorInterpreter = new ReplayGeneratorInterpreter(replayGenerator);
+        ReplayGeneratorButton replayGeneratorButton = new ReplayGeneratorButton(replayGeneratorInterpreter, sceneController);
+        LoseMenu loseMenu = new LoseMenu(replayGeneratorButton);
+        drawableComponents.put(Toggler.ToggleableComponent.LOSE_MENU, loseMenu);
+        ////////////////////
+
         //BattleMenu scene//
         //OpponentSet setup
         OpponentSetInteractor opponentInteractor = new OpponentSetInteractor(state);
 
+        // Creating Saver
+        Save[] savers = {new PartySaver(state, new PartyDataAccess(new MoveDataAccess()))};
+        Saver saver = new Saver(savers);
+
         //Battle setup
-        BattleInteractor battleInteractor = new BattleInteractor(state);
+        BattleInteractor battleInteractor = new BattleInteractor(state, inventoryInteractor, saver);
         BattlePresenter battlePresenter = new BattlePresenter(battleInteractor);
         BattleMenu battleMenu = new BattleMenu(battlePresenter);
         drawableComponents.put(Toggler.ToggleableComponent.BATTLE, battleMenu);
@@ -104,6 +128,7 @@ public class Application extends javafx.application.Application {
 
         RoomUpdater roomUpdater = new RoomUpdater();
         roomUpdater.addObserver(mapDrawer);
+        roomUpdater.addObserver(minimapInterpreter);
 
         CharacterMover characterMover = new CharacterMover(state, roomUpdater);
         ChestInteractor chestInteractor = new ChestInteractor(state, inventoryInteractor);

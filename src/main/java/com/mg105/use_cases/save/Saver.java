@@ -5,14 +5,16 @@ import org.jetbrains.annotations.NotNull;
 /**
  * This classes only job is to save data about the state of the game in some sort of "database"
  * This class is the Facade class that uses others savers to save info about the game
- * <p>
- * Most likely this class will be used as composition in other use_case classes
  */
 
 public class Saver implements Save {
 
-    private final Save[] saver;
+    @NotNull private final Save[] saver;
 
+    /**
+     * Creates a new instance of saver
+     * @param savers a group of object that can be used to save piece of the game state's data
+     */
     public Saver(@NotNull Save[] savers) {
         this.saver = savers;
     }

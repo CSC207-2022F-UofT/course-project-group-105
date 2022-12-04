@@ -10,7 +10,8 @@ import org.jetbrains.annotations.NotNull;
 import java.util.NoSuchElementException;
 
 /**
- * This class' sole responsibility is to create new items
+ * This class' sole responsibility is to create new items.
+ * This is done by using the simple factory design pattern
  */
 
 public class ItemFactory {
