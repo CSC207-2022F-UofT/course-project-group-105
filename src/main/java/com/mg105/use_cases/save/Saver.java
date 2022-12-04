@@ -5,7 +5,6 @@ import org.jetbrains.annotations.NotNull;
 /**
  * This classes only job is to save data about the state of the game in some sort of "database"
  * This class is the Facade class that uses others savers to save info about the game
- * <p>
  */
 
 public class Saver implements Save {
