@@ -12,16 +12,19 @@ import java.awt.*;
 public class CharacterMover {
     private final @NotNull GameState state;
     private final @NotNull RoomUpdater updater;
+    private final @NotNull ReplayGenerator replay;
 
     /**
      * Create a CharacterMover to operate on state and to update the room visuals via the updater
      *
      * @param state   the current game state.
      * @param updater something that will update the visual representation of the room on change.
+     * @param replay  the replay generator that resets game when stepping into final room
      */
-    public CharacterMover(@NotNull GameState state, @NotNull RoomUpdater updater) {
+    public CharacterMover(@NotNull GameState state, @NotNull RoomUpdater updater, @NotNull ReplayGenerator replay) {
         this.state = state;
         this.updater = updater;
+        this.replay = replay;
     }
 
     /**
@@ -31,8 +34,6 @@ public class CharacterMover {
      *                  cardinal direction.
      */
     public void generateMapMoveBy(Point direction) {
-        ReplayGenerator replay = new ReplayGenerator(state);
-
         // Because direction.x and direction.y are integers, the precondition for direction is satisfied iff the
         // magnitude of the vector is 1 which is true iff the sum of the absolute value of the components is 1.
         assert Math.abs(direction.x) + Math.abs(direction.y) == 1;
@@ -81,7 +82,7 @@ public class CharacterMover {
 
                 // if in final room, replay the game
                 if (state.isCurrentRoomLastRoom()){
-                    replay.replay();
+                    this.replay.replay();
                 }
 
                 nextPosition = getNextRoomPosition(room, nextRoom);
