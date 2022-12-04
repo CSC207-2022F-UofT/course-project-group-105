@@ -1,6 +1,6 @@
 # Mountain Group 105
 
-You are a group of four weary travellers.
+You are a group of four weary travelers.
 You have been walking for so long that you no longer have any memory of where you came from or who you are.
 You cannot recall anything but the endless action of putting one foot in front of the other, traversing this empty landscape.
 Suddenly, you look up, startled out of your reverie.
@@ -66,14 +66,14 @@ on any Unix-like operating system (or the built-in IntelliJ IDEA terminal).
   - All twelve (12) of our original user stories are complete.
   - In addition we've added the following extra functionality:
     - Persistence: When a battle ends your characters' stats are automatically saved and are recalled on next game open.
-      Even if you lose the game your characters' stats get saved.
-    - Minimap: Press 'm' to open a minimap that will show a visual representation of the map you've discovered so far.
+      Even if you lose the game your characters' stats get saved!
+    - Minimap: Press 'm' to open a minimap that will show a visual representation of the map you've discovered so far!
 - Code Organization
   - Code is organized by layers, `com.mg105.user_interface`, `com.mg105.interface_adapters`, `com.mg105.use_cases`, `com.mg105.entities`.
   - The `com.mg105.user_interface` package is the only package that knows anything about the graphics library, JavaFX.
   - The `com.mg105.utils` package mostly keeps track of constants.
 - Testing
-  - TODO
+  - As of 246787a13d, test coverage is at 44%, 96% for `com.mg105.entities` only and 86% for `com.mg105.use_cases` only.
 - Documentation
   - Current up-to-date Javadoc can be found [here](https://docs.mg105.com/).
 - Extra GitHub Features Used
@@ -83,4 +83,9 @@ on any Unix-like operating system (or the built-in IntelliJ IDEA terminal).
 
 ## Copyright
 
-TODO
+Unless mentioned otherwise, code is licensed under the GNU Affero General Public License, Version 3.0.
+See the [LICENSE](/LICENSE) file for more details.
+
+Here are the exceptions:
+
+- `imgs/background2.jpg` by Fred Seibert is licensed under [CC BY-NC-ND 2.0](https://www.creativecommons.org/licenses/by-nc-nd/2.0/).
