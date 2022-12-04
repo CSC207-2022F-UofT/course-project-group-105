@@ -4,6 +4,7 @@ import com.mg105.entities.Doorway;
 import com.mg105.entities.GameState;
 import com.mg105.entities.OpponentSet;
 import com.mg105.entities.TreasureChest;
+import com.mg105.use_cases.outputds.RoomLayout;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;

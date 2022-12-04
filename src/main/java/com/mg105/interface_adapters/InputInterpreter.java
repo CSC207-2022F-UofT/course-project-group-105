@@ -36,8 +36,7 @@ public class InputInterpreter {
         this.toggler = toggler;
         this.textChanger = textChanger;
         this.opponentInteractor = opponentInteractor;
-        this.chestInteractor = chestInteractor;
-    }
+        this.chestInteractor = chestInteractor;}
 
     /**
      * Interpret key being pressed as an action.
@@ -106,6 +105,12 @@ public class InputInterpreter {
             case WALK_MENU -> {
                 if (key.equals(" ")) {
                         toggler.toggle(Toggler.ToggleableComponent.WALK_MENU);
+                }
+            }
+
+            case INVENTORY -> {
+                if(key.equals("i")){
+                    toggler.toggle(Toggler.ToggleableComponent.INVENTORY);
                 }
             }
         }
