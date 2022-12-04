@@ -33,6 +33,10 @@ public interface Toggler {
          */
         MAP,
         /**
+         * The minimap
+         */
+        MINIMAP,
+        /**
          * The inventory menu
          */
         INVENTORY,

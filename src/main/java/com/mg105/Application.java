@@ -74,6 +74,11 @@ public class Application extends javafx.application.Application {
         drawableComponents.put(Toggler.ToggleableComponent.MAIN_MENU, mainMenu);
         drawableComponents.put(Toggler.ToggleableComponent.MAP, mapDrawer);
 
+        // Minimap setup
+        MinimapInterpreter minimapInterpreter = new MinimapInterpreter(roomGetter);
+        MinimapDrawer minimapDrawer = new MinimapDrawer(minimapInterpreter);
+        drawableComponents.put(Toggler.ToggleableComponent.MINIMAP, minimapDrawer);
+
         // InventoryDisplay set up
         InventoryPresenter inventoryPresenter = new InventoryPresenter();
         InventoryInteractor inventoryInteractor = new InventoryInteractor(state, inventoryPresenter);
@@ -123,6 +128,7 @@ public class Application extends javafx.application.Application {
 
         RoomUpdater roomUpdater = new RoomUpdater();
         roomUpdater.addObserver(mapDrawer);
+        roomUpdater.addObserver(minimapInterpreter);
 
         CharacterMover characterMover = new CharacterMover(state, roomUpdater);
         ChestInteractor chestInteractor = new ChestInteractor(state, inventoryInteractor);
