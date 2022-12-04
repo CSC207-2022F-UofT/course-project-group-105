@@ -305,10 +305,16 @@ public class MapGenerator {
         }
 
         List<BattleCharacter> opponents = new ArrayList<>(4);
-        for (int i = 0; i < 4; i++) {
+        List<String> usedOpponentNames = new ArrayList<>();
+        while (usedOpponentNames.size() < 4) {
+            String name = OpponentConstants.NAMES[random.nextInt(OpponentConstants.NAMES.length)];
+            if (usedOpponentNames.contains(name)) {
+                continue;
+            }
+            usedOpponentNames.add(name);
             opponents.add(new BattleCharacter(
                 random.nextInt(MapConstants.OPPONENT_HEALTH_MIN, MapConstants.OPPONENT_HEALTH_MAX),
-                OpponentConstants.NAMES[random.nextInt(OpponentConstants.NAMES.length)],
+                name,
                 random.nextInt(MapConstants.OPPONENT_ATTACK_MIN, MapConstants.OPPONENT_ATTACK_MAX),
                 random.nextInt(MapConstants.OPPONENT_SPEED_MIN, MapConstants.OPPONENT_SPEED_MAX),
                 true,
