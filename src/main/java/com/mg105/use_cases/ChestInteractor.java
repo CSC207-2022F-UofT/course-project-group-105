@@ -30,7 +30,7 @@ public class ChestInteractor {
      *
      * @return the TreasureChest if chest is found. Otherwise, return null.
      */
-    public static TreasureChest compareLists(Point coordinates, List<TreasureChest> chests) {
+    public TreasureChest compareLists(Point coordinates, List<TreasureChest> chests) {
         for (TreasureChest roomChest : chests) {
             if (coordinates.equals(roomChest.getPosition()) && !roomChest.isOpened()) {
                 return roomChest;
@@ -46,7 +46,6 @@ public class ChestInteractor {
      */
 
     public TreasureChest verifyChest() {
-
         Point charPosition = gameState.getWalkingCharacter().getCharPosition();
         Room room = gameState.getCurrentRoom();
         java.util.List<TreasureChest> chests = room.getChests();
@@ -61,12 +60,10 @@ public class ChestInteractor {
     }
 
     /**
-     * Adds the item in an adjacent chest (if one exists) to the inventory,
-     * then shows the user text describing what happened.
+     * Adds the item in an adjacent chest (if one exists) to the inventory.
      */
 
     public void getChestItem() {
-
         TreasureChest chest = verifyChest();
         gameState.getCurrentRoom().getChests().remove(chest);
         if (chest != null) {

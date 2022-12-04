@@ -1,4 +1,4 @@
-package com.mg105.controllers;
+package com.mg105.interface_adapters.tutorial;
 
 import com.mg105.entities.GiveTutorial;
 import com.mg105.use_cases.PlayerGetsTutorial;

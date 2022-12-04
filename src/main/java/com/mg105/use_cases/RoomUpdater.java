@@ -9,6 +9,8 @@ import java.beans.PropertyChangeSupport;
  * RoomUpdater updates any components that need updating when the state of the current room changes.
  * <p>
  * One example of a component that might need updating is the GUI.
+ * <p>
+ * RoomUpdater makes use of the Java9+ Observable pattern.
  */
 public class RoomUpdater {
     private final @NotNull PropertyChangeSupport observable;
