@@ -215,6 +215,8 @@ public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterfac
             setupCharacterLabel(o1, 1, true);
             setupCharacterLabel(o2, 2, true);
             setupCharacterLabel(o3, 3, true);
+
+            nextRound.setDisable(false);
         }
     }
 
