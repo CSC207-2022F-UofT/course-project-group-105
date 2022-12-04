@@ -1,5 +1,0 @@
-name,maxHp,dmg,speed,isOpponent,moveName,moveName
-Alan,30,4,5,FALSE,Slow swing,Nullify
-Beatrice,20,6,8,FALSE,Strong swing,Weak heal
-Callum,25,3,6,FALSE,Strong heal,Reinforce
-Diana,15,9,10,FALSE,Surprise attack,Sabotage
