@@ -1,6 +1,7 @@
 package com.mg105.entities;
 import com.mg105.entities.items.HealthPotion;
-import com.mg105.use_cases.outputds.ItemDetails;
+import com.mg105.entities.items.MegaPotion;
+import com.mg105.outputds.ItemDetails;
 import com.mg105.use_cases.ChestInteractor;
 import com.mg105.use_cases.inventory.InventoryInteractor;
 import com.mg105.use_cases.inventory.InventoryPresenterInterface;
@@ -18,6 +19,8 @@ class ChestTest {
     private static final Point coordinates1 = new Point(0, 1);
     private static final Point coordinates2 = new Point(3, 3);
     private static final Point coordinates3 = new Point(2, 3);
+
+    private static final Point coordinates4 = new Point(2, 2);
     private static final WalkingCharacter character = new WalkingCharacter(coordinates3);
     private static final Inventory inventory = new Inventory();
     private static final BattleCharacter[] party = new BattleCharacter[PartyConstants.ALL_PARTY_MEMBER_NAMES.length];
@@ -55,8 +58,44 @@ class ChestTest {
     void setUp() {
         chestList1.clear();
         chestList2.clear();
-        opponents.clear();
-        doors.clear();
+    }
+
+    @Test
+    void testCompareListsYesChest() {
+        TreasureChest testChest = new TreasureChest(new MegaPotion(), coordinates2);
+        chestList1.add(testChest);
+        Point coord = new Point(3, 3);
+        assertEquals(testChest, chestInteractor.compareLists(coord, chestList1));
+    }
+
+    @Test
+    void testCompareListsNoChest() {
+        TreasureChest testChest = new TreasureChest(new HealthPotion(), coordinates1);
+        chestList1.add(testChest);
+        Point coord = new Point(3, 3);
+        assertNull(chestInteractor.compareLists(coord, chestList1));
+    }
+
+    @Test
+    void verifyChestYes() {
+        TreasureChest testChest = new TreasureChest(new MegaPotion(), coordinates4);
+        chestList1.add(testChest);
+        Room firstRoom = new Room(chestList1, opponents, doors);
+        Room lastRoom = new Room(chestList2, opponents, doors);
+        game.setMap(firstRoom, lastRoom);
+
+        assertEquals(testChest, chestInteractor.verifyChest());
+    }
+
+    @Test
+    void verifyChestNo() {
+        TreasureChest testChest = new TreasureChest(new MegaPotion(), coordinates1);
+        chestList1.add(testChest);
+        Room firstRoom = new Room(chestList1, opponents, doors);
+        Room lastRoom = new Room(chestList2, opponents, doors);
+        game.setMap(firstRoom, lastRoom);
+
+        assertNull(chestInteractor.verifyChest());
     }
 
     @Test

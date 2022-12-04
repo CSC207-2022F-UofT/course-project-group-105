@@ -1,6 +1,18 @@
 # Project Template
 
-This is a template repository for CSC 207 projects. 
+You are a group of four weary travellers.
+You have been walking for so long that you no longer have any memory of where you came from or who you are.
+You cannot recall anything but the endless action of putting one foot in front of the other, traversing this empty landscape.
+Suddenly, you look up, startled out of your reverie.
+An imposing mountain looms before you.
+Your party steps forward, drawn to it for some inexplicable reason.
+You crane your neck to see if you can make out the peak, but the morning mist impedes your view.
+You all know you cannot go back to wherever you came from.
+You have to keep going.
+You have to climb the mountain.
+Maybe whatever waits for you up there will remind you of who you are… and what you’re searching for.
+
+This is a template repository for CSC 207 projects.
 This repository contains starter code for a gradle project.
 It also contains workflow documents that give instructions on how to manage your Github repository and how to use Github Projects for efficient collaboration.
 

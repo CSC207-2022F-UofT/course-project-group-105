@@ -16,7 +16,12 @@ class InventoryTest {
         Inventory inventory = new Inventory();
         assertEquals(0, inventory.numberOfItems());
     }
-
+    
+    @Test
+    void inLimit() {
+        Inventory inventory = new Inventory();
+        assertEquals(10, inventory.limit());
+    }
 
     @Test
     void isFullEmptyInventory() {

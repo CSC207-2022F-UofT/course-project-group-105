@@ -7,6 +7,8 @@ import java.util.List;
 
 /**
  * Room represents a single room in the map.
+ * <p>
+ * Rooms are stored together in a graph-like data structure where doorways act as single directional edges.
  */
 public class Room {
     private final @NotNull List<TreasureChest> chests;
