@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="../../../script.js"></script>
-<script type="text/javascript" src="../../../script-dir/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="../../../script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
@@ -76,12 +76,12 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/beans/PropertyChangeListener.html" title="class or interface in java.beans" class="external-link">PropertyChangeListener</a></code>, <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/EventListener.html" title="class or interface in java.util" class="external-link">EventListener</a></code></dd>
+<dd><code><a href="../use_cases/Resetable.html" title="interface in com.mg105.use_cases">Resetable</a></code>, <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/beans/PropertyChangeListener.html" title="class or interface in java.beans" class="external-link">PropertyChangeListener</a></code>, <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/EventListener.html" title="class or interface in java.util" class="external-link">EventListener</a></code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">MinimapInterpreter</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
-implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/beans/PropertyChangeListener.html" title="class or interface in java.beans" class="external-link">PropertyChangeListener</a></span></div>
+implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/beans/PropertyChangeListener.html" title="class or interface in java.beans" class="external-link">PropertyChangeListener</a>, <a href="../use_cases/Resetable.html" title="interface in com.mg105.use_cases">Resetable</a></span></div>
 <div class="block">The MinimapInterpreter processes room change data an interprets its implicit position.</div>
 </section>
 <section class="summary">
@@ -144,6 +144,11 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.desk
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Update room position data.</div>
 </div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#reset()" class="member-name-link">reset</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Reset the minimap to its 'factory new' state.</div>
+</div>
 </div>
 </div>
 </div>
@@ -181,6 +186,17 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.desk
 <section class="method-details" id="method-detail">
 <h2>Method Details</h2>
 <ul class="member-list">
+<li>
+<section class="detail" id="reset()">
+<h3>reset</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">reset</span>()</div>
+<div class="block">Reset the minimap to its 'factory new' state.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../use_cases/Resetable.html#reset()">reset</a></code>&nbsp;in interface&nbsp;<code><a href="../use_cases/Resetable.html" title="interface in com.mg105.use_cases">Resetable</a></code></dd>
+</dl>
+</section>
+</li>
 <li>
 <section class="detail" id="propertyChange(java.beans.PropertyChangeEvent)">
 <h3>propertyChange</h3>
