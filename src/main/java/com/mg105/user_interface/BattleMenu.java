@@ -50,12 +50,14 @@ public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterfac
     private final Button targetO3;
     private final GridPane grid;
     private final Scene scene;
-
-    //Used in Button handle event
     private String moving;
     private int moveNum;
 
-
+    /**
+     * Creates a new BattleMenu.
+     * Sets every UI element, except for labels which are set when the view is toggled on.
+     * @param battlePres the BattlePresenter to refer to (following MVP pattern)
+     */
     public BattleMenu(BattlePresenter battlePres) {
         this.presenter = battlePres;
         presenter.setView(this);
@@ -216,6 +218,15 @@ public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterfac
         }
     }
 
+    /**
+     * Handles button events.
+     * NextRound will start the next round, which is handled in BattlePresenter.
+     * The two move buttons represent a move to be selected, and will cause target buttons to appear next to valid
+     * target characters and the move buttons to disappear.
+     * The target buttons only become visible when the character they represent can be targeted with the selected move,
+     * and pressing them will apply the move onto the character and make the target buttons disappear.
+     * @param event the event which occurred.
+     */
     @Override
     public void handle(ActionEvent event) {
         Object source = event.getSource();

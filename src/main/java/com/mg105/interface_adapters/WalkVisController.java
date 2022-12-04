@@ -10,6 +10,10 @@ public class WalkVisController {
 
     private final WalkVisInteractor interactor;
 
+    /**
+     * Creates a new WalkVisController referring to a WalkVisInteractor.
+     * @param interactor the WalkVisInteractor to be referred to.
+     */
     public WalkVisController(WalkVisInteractor interactor) {
         this.interactor = interactor;
     }

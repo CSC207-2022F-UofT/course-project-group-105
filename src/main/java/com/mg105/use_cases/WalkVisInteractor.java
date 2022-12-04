@@ -11,6 +11,10 @@ public class WalkVisInteractor {
 
     private final GameState state;
 
+    /**
+     * Creates a new WalkVisInteractor with reference to GameState.
+     * @param state the GameState being referred to.
+     */
     public WalkVisInteractor(GameState state) {
         this.state = state;
     }

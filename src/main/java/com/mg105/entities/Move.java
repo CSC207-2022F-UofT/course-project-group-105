@@ -10,6 +10,13 @@ public class Move {
 
     private final String name;
 
+    /**
+     * Creates a Move with the given details.
+     * @param healthChange the amount the targeted BattleCharacter's current health will change when the Move is used.
+     * @param damageChange the amount the targeted BattleCharacter's damage stat will change when the Move is used.
+     * @param name the name of the Move.
+     * @param isFriendly boolean for if the Move is to be applied on a character on the same team as the caster.
+     */
     public Move(int healthChange, int damageChange, String name, boolean isFriendly) {
         this.healthChange = healthChange;
         this.damageChange = damageChange;
