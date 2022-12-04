@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../../jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="../../../../script.js"></script>
-<script type="text/javascript" src="../../../../script-dir/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="../../../../script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
@@ -94,7 +94,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.mg105.entities.GameState,com.mg105.use_cases.inventory.InventoryPresenterInterface)" class="member-name-link">InventoryInteractor</a><wbr>(@NotNull <a href="../../entities/GameState.html" title="class in com.mg105.entities">GameState</a>&nbsp;gamestate,
  @NotNull <a href="InventoryPresenterInterface.html" title="interface in com.mg105.use_cases.inventory">InventoryPresenterInterface</a>&nbsp;response)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Creates a new instance of InventoryInteractor</div>
+</div>
 </div>
 </section>
 </li>
@@ -120,6 +122,12 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Collects data the represents the state of the inventory (i.e.</div>
 </div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getInventoryLimit()" class="member-name-link">getInventoryLimit</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNumOfItem()" class="member-name-link">getNumOfItem</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeItem(java.lang.String)" class="member-name-link">removeItem</a><wbr>(@NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;itemName)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
@@ -157,6 +165,12 @@ loadScripts(document, 'script');</script>
  @NotNull <a href="../../entities/GameState.html" title="class in com.mg105.entities">GameState</a>&nbsp;gamestate,
  @NotNull
  @NotNull <a href="InventoryPresenterInterface.html" title="interface in com.mg105.use_cases.inventory">InventoryPresenterInterface</a>&nbsp;response)</span></div>
+<div class="block">Creates a new instance of InventoryInteractor</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>gamestate</code> - the current state of the game</dd>
+<dd><code>response</code> - an object the represents what data to perhaps output</dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -241,6 +255,18 @@ loadScripts(document, 'script');</script>
 </ul>
 </dd>
 </dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getInventoryLimit()">
+<h3>getInventoryLimit</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getInventoryLimit</span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getNumOfItem()">
+<h3>getNumOfItem</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getNumOfItem</span>()</div>
 </section>
 </li>
 </ul>

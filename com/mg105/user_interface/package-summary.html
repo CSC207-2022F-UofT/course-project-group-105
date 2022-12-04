@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="../../../script.js"></script>
-<script type="text/javascript" src="../../../script-dir/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="../../../script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="package-declaration-page">
@@ -73,18 +73,16 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><a href="../package-summary.html">com.mg105</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="inventory/package-summary.html">com.mg105.user_interface.inventory</a></div>
+<div class="col-first odd-row-color"><a href="Alert/package-summary.html">com.mg105.user_interface.Alert</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><a href="../entities/package-summary.html">com.mg105.entities</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><a href="../interface_adapters/package-summary.html">com.mg105.interface_adapters</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="../outputds/package-summary.html">com.mg105.outputds</a></div>
+<div class="col-first even-row-color"><a href="../use_cases/package-summary.html">com.mg105.use_cases</a></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><a href="../use_cases/package-summary.html">com.mg105.use_cases</a></div>
+<div class="col-first odd-row-color"><a href="../utils/package-summary.html">com.mg105.utils</a></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><a href="../utils/package-summary.html">com.mg105.utils</a></div>
-<div class="col-last even-row-color">&nbsp;</div>
 </div>
 </div>
 </li>
@@ -95,14 +93,6 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary" aria-labelledby="class-summary-tab0">
 <div class="table-header col-first">Class</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color class-summary class-summary-tab1"><a href="Alert.html" title="interface in com.mg105.user_interface">Alert</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab1">
-<div class="block">An interface that defines one function that alerts the user of something</div>
-</div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="AlertBox.html" title="class in com.mg105.user_interface">AlertBox</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
-<div class="block">AlertBox is a component that creates a new window and display a users a message.</div>
-</div>
 <div class="col-first even-row-color class-summary class-summary-tab2"><a href="BattleMenu.html" title="class in com.mg105.user_interface">BattleMenu</a></div>
 <div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">This class uses JavaFX and is displayed during an active battle.</div>
@@ -111,30 +101,35 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">InputListener takes keyboard inputs and passes them on to an appropriate interpreter.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="MainMenu.html" title="class in com.mg105.user_interface">MainMenu</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab2">&nbsp;</div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="MapDrawer.html" title="class in com.mg105.user_interface">MapDrawer</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="InventoryDisplay.html" title="class in com.mg105.user_interface">InventoryDisplay</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="block">A user interface class that displays the state of the inventory to the user and allows them to
+ perform actions that relate to the inventory and its items.</div>
+</div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="MainMenu.html" title="class in com.mg105.user_interface">MainMenu</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">&nbsp;</div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="MapDrawer.html" title="class in com.mg105.user_interface">MapDrawer</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">MapDrawer draws the map as a grid of tiles.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="MapGeneratorButton.html" title="class in com.mg105.user_interface">MapGeneratorButton</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="MapGeneratorButton.html" title="class in com.mg105.user_interface">MapGeneratorButton</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">MapGeneratorButton acts as the event handler for the actual JavaFX button that will generate a map.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="SceneController.html" title="class in com.mg105.user_interface">SceneController</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="SceneController.html" title="class in com.mg105.user_interface">SceneController</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">SceneController acts as the central coordination mechanism for the user interface.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab1"><a href="Toggleable.html" title="interface in com.mg105.user_interface">Toggleable</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab1">
+<div class="col-first odd-row-color class-summary class-summary-tab1"><a href="Toggleable.html" title="interface in com.mg105.user_interface">Toggleable</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab1">
 <div class="block">A user interface component that can be toggled on or off depending on its visibility.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="TutorialTextDisplay.html" title="class in com.mg105.user_interface">TutorialTextDisplay</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">&nbsp;</div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="TutorialTextWindow.html" title="class in com.mg105.user_interface">TutorialTextWindow</a></div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="TutorialTextDisplay.html" title="class in com.mg105.user_interface">TutorialTextDisplay</a></div>
 <div class="col-last even-row-color class-summary class-summary-tab2">&nbsp;</div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="WalkingMenu.html" title="class in com.mg105.user_interface">WalkingMenu</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="TutorialTextWindow.html" title="class in com.mg105.user_interface">TutorialTextWindow</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">&nbsp;</div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="WalkingMenu.html" title="class in com.mg105.user_interface">WalkingMenu</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">This class uses JavaFX and is displayed when the user wants to change the walking character sprite.</div>
 </div>
 </div>

@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../../jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="../../../../script.js"></script>
-<script type="text/javascript" src="../../../../script-dir/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="../../../../script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
@@ -84,8 +84,7 @@ loadScripts(document, 'script');</script>
 implements <a href="Save.html" title="interface in com.mg105.use_cases.save">Save</a></span></div>
 <div class="block">This classes only job is to save data about the state of the game in some sort of "database"
  This class is the Facade class that uses others savers to save info about the game
- <p>
- Most likely this class will be used as composition in other use_case classes</div>
+ <p></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -98,7 +97,9 @@ implements <a href="Save.html" title="interface in com.mg105.use_cases.save">Sav
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.mg105.use_cases.save.Save%5B%5D)" class="member-name-link">Saver</a><wbr>(@NotNull <a href="Save.html" title="interface in com.mg105.use_cases.save">Save</a>[]&nbsp;savers)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Creates a new instance of saver</div>
+</div>
 </div>
 </section>
 </li>
@@ -140,6 +141,11 @@ implements <a href="Save.html" title="interface in com.mg105.use_cases.save">Sav
 <h3>Saver</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Saver</span><wbr><span class="parameters">(@NotNull
  @NotNull <a href="Save.html" title="interface in com.mg105.use_cases.save">Save</a>[]&nbsp;savers)</span></div>
+<div class="block">Creates a new instance of saver</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>savers</code> - a group of object that can be used to save piece of the game state's data</dd>
+</dl>
 </section>
 </li>
 </ul>

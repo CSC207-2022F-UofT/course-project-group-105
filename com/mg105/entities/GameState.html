@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="../../../script.js"></script>
-<script type="text/javascript" src="../../../script-dir/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="../../../script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
@@ -168,30 +168,35 @@ loadScripts(document, 'script');</script>
 <div class="block">Get if the player is in the last room.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCurrEncounter(com.mg105.entities.Battle)" class="member-name-link">setCurrEncounter</a><wbr>(<a href="Battle.html" title="class in com.mg105.entities">Battle</a>&nbsp;currEncounter)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeCurrEncounter()" class="member-name-link">removeCurrEncounter</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Removes the current active battle from the game state.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCurrEncounter(com.mg105.entities.Battle)" class="member-name-link">setCurrEncounter</a><wbr>(<a href="Battle.html" title="class in com.mg105.entities">Battle</a>&nbsp;currEncounter)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Set currEncounter to the given active Battle.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCurrentRoom(com.mg105.entities.Room)" class="member-name-link">setCurrentRoom</a><wbr>(@NotNull <a href="Room.html" title="class in com.mg105.entities">Room</a>&nbsp;room)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCurrentRoom(com.mg105.entities.Room)" class="member-name-link">setCurrentRoom</a><wbr>(@NotNull <a href="Room.html" title="class in com.mg105.entities">Room</a>&nbsp;room)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Set the current room.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCurrOpponent(com.mg105.entities.OpponentSet)" class="member-name-link">setCurrOpponent</a><wbr>(<a href="OpponentSet.html" title="class in com.mg105.entities">OpponentSet</a>&nbsp;currOpponent)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCurrOpponent(com.mg105.entities.OpponentSet)" class="member-name-link">setCurrOpponent</a><wbr>(<a href="OpponentSet.html" title="class in com.mg105.entities">OpponentSet</a>&nbsp;currOpponent)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the current OpponentSet to be faced.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMap(com.mg105.entities.Room,com.mg105.entities.Room)" class="member-name-link">setMap</a><wbr>(@NotNull <a href="Room.html" title="class in com.mg105.entities">Room</a>&nbsp;firstRoom,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMap(com.mg105.entities.Room,com.mg105.entities.Room)" class="member-name-link">setMap</a><wbr>(@NotNull <a href="Room.html" title="class in com.mg105.entities">Room</a>&nbsp;firstRoom,
  @NotNull <a href="Room.html" title="class in com.mg105.entities">Room</a>&nbsp;lastRoom)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Swap out the map of the game state to a new one defined by an interconnected graph between firstRoom and
  lastRoom.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setParty(com.mg105.entities.BattleCharacter%5B%5D)" class="member-name-link">setParty</a><wbr>(@NotNull <a href="BattleCharacter.html" title="class in com.mg105.entities">BattleCharacter</a>[]&nbsp;party)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setParty(com.mg105.entities.BattleCharacter%5B%5D)" class="member-name-link">setParty</a><wbr>(@NotNull <a href="BattleCharacter.html" title="class in com.mg105.entities">BattleCharacter</a>[]&nbsp;party)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets these BattleCharacters as the party
  This function should really only ever be called once</div>
 </div>
@@ -344,6 +349,13 @@ loadScripts(document, 'script');</script>
 <dt>Parameters:</dt>
 <dd><code>currEncounter</code> - the Battle to set currEncounter to.</dd>
 </dl>
+</section>
+</li>
+<li>
+<section class="detail" id="removeCurrEncounter()">
+<h3>removeCurrEncounter</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeCurrEncounter</span>()</div>
+<div class="block">Removes the current active battle from the game state.</div>
 </section>
 </li>
 <li>
