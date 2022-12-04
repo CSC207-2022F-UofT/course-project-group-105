@@ -16,6 +16,14 @@ import java.util.Queue;
 import java.util.*;
 import java.util.function.Predicate;
 
+/**
+ * MapGenerator generates the map
+ * <p>
+ * If given more time some length of this class could be refactored into factories, but that would only reduce the line
+ * count (and complexity) by less than 10%.
+ * <p>
+ * Alas, this is just a complex algorithm and must necessarily be somewhat long.
+ */
 public class MapGenerator {
     private final @NotNull GameState state;
     private final @NotNull Random random;
