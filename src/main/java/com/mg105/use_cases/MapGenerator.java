@@ -71,4 +71,5 @@ public class MapGenerator {
         // Finally set the map
         state.setMap(firstRoom, lastRoom);
     }
+
 }

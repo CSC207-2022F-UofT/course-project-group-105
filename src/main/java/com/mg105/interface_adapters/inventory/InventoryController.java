@@ -54,4 +54,8 @@ public class InventoryController {
     public void getInventoryDetails() {
         interactor.getInventoryDetails();
     }
+
+    public void removeAll() {
+        this.interactor.removeInventory();
+    }
 }
