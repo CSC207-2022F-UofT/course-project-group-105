@@ -1,6 +1,6 @@
 package com.mg105.data_control.access;
 
-import com.mg105.outputds.MoveDetails;
+import com.mg105.use_cases.outputds.MoveDetails;
 import com.opencsv.CSVParser;
 import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;

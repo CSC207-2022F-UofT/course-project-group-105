@@ -17,9 +17,9 @@ import java.util.Arrays;
 
 public abstract class DataStorageCreator implements CreateDataStorage {
 
-    private final String path;
+    @NotNull private final String path;
 
-    private final String[][] initialData;
+    @NotNull private final String[][] initialData;
 
      public DataStorageCreator(@NotNull String path, @NotNull String[][] initialData){
          this.path = path;

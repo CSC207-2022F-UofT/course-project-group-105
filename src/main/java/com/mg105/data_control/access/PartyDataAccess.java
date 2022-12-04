@@ -1,7 +1,7 @@
 package com.mg105.data_control.access;
 
-import com.mg105.outputds.BattleCharacterDetails;
-import com.mg105.outputds.MoveDetails;
+import com.mg105.use_cases.outputds.BattleCharacterDetails;
+import com.mg105.use_cases.outputds.MoveDetails;
 import com.mg105.use_cases.save.PartyDataInterface;
 import com.mg105.utils.PartyConstants;
 import com.mg105.utils.StatConstants;
@@ -20,12 +20,6 @@ public class PartyDataAccess implements PartyDataInterface {
 
     private final static int NUMBER_OF_MOVES_PER_CHARACTER = 2;
     private final MoveDataAccess moveDataAccess;
-
-    public static void main(String[] args){
-        PartyDataAccess p = new PartyDataAccess(new MoveDataAccess());
-
-        System.out.println(p.getPartyBattleDetails()[0].getName());
-    }
 
 
     public PartyDataAccess(MoveDataAccess moveDataAccess) {
@@ -56,7 +50,6 @@ public class PartyDataAccess implements PartyDataInterface {
             for (String[] memberStats : partyStats) {
                 if (memberStats[0].equals(name)) {
                     int i = getColumnNumber(stat);
-                    System.out.println(i);
                     if (i == -1) {
                         // Occurs when an invalid stat argument is passed
                         reader.close();

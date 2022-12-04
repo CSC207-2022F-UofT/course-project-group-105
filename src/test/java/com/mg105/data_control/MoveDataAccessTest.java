@@ -2,13 +2,18 @@ package com.mg105.data_control;
 
 import com.mg105.data_control.access.MoveDataAccess;
 import com.mg105.data_control.creator.MoveDataCreator;
-import com.mg105.outputds.MoveDetails;
+import com.mg105.use_cases.outputds.MoveDetails;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static com.mg105.utils.MoveConstants.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MoveDataAccessTest {
+
+    // This test only works for the "inital" state of the user party and moves
+    // This is not because the class is depedent on the initial state but because of the
+    // hard coded expected values
 
     @BeforeAll
     static void setData(){
@@ -19,8 +24,8 @@ class MoveDataAccessTest {
     @Test
     void getMoveDetailsFirst() {
         MoveDataAccess m = new MoveDataAccess();
-        MoveDetails d = m.getMoveDetails("Slow swing");
-        assertEquals("Slow swing", d.getName());
+        MoveDetails d = m.getMoveDetails(SLOW_SWING);
+        assertEquals(SLOW_SWING, d.getName());
         assertEquals(-3, d.getHealthChange());
         assertEquals(0, d.getDamageChange());
         assertFalse(d.isFriendly());
@@ -30,8 +35,8 @@ class MoveDataAccessTest {
     void getMoveDetailsMiddle() {
 
         MoveDataAccess m = new MoveDataAccess();
-        MoveDetails d = m.getMoveDetails("Reinforce");
-        assertEquals("Reinforce", d.getName());
+        MoveDetails d = m.getMoveDetails(REINFORCE);
+        assertEquals(REINFORCE, d.getName());
         assertEquals(2, d.getHealthChange());
         assertEquals(2, d.getDamageChange());
         assertTrue(d.isFriendly());
@@ -41,8 +46,8 @@ class MoveDataAccessTest {
     void getMoveDetailsLast() {
 
         MoveDataAccess m = new MoveDataAccess();
-        MoveDetails d = m.getMoveDetails("Sabotage");
-        assertEquals("Sabotage", d.getName());
+        MoveDetails d = m.getMoveDetails(SABOTAGE);
+        assertEquals(SABOTAGE, d.getName());
         assertEquals(-2, d.getHealthChange());
         assertEquals(-2, d.getDamageChange());
         assertFalse(d.isFriendly());

@@ -1,6 +1,6 @@
 package com.mg105.interface_adapters.inventory;
 
-import com.mg105.outputds.ItemDetails;
+import com.mg105.use_cases.outputds.ItemDetails;
 import com.mg105.use_cases.inventory.InventoryPresenterInterface;
 import org.jetbrains.annotations.NotNull;
 
@@ -17,7 +17,7 @@ public class InventoryPresenter implements InventoryPresenterInterface {
      * Sets the view of the of this presenter
      * This should be called right after the presenter is created
      *
-     * @param view
+     * @param view an object that is used to display information to the user
      */
     public void setView(@NotNull InventoryViewInterface view) {
         this.display = view;
