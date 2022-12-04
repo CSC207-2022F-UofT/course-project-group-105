@@ -9,7 +9,6 @@ import com.mg105.utils.MoveConstants;
 import com.mg105.utils.OpponentConstants;
 import com.mg105.utils.PointComparator;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.TestOnly;
 
 import java.awt.*;
 import java.util.List;
@@ -172,9 +171,6 @@ public class MapGenerator {
         map[startPos.y][startPos.x] = firstRoom;
         map[endPos.y][endPos.x]     = lastRoom;
 
-        //System.out.println("Anchors:");
-        //printMap(map, firstRoom, lastRoom);
-
         // Next we connect the anchors together
         Point closest = getClosestPointTo(map, startPos, endPos);
         while (!closest.equals(endPos)) {
@@ -184,9 +180,6 @@ public class MapGenerator {
 
             closest = getClosestPointTo(map, startPos, endPos);
         }
-
-        //System.out.println("Final:");
-        //printMap(map, firstRoom, lastRoom);
 
         // Finally we actually connect the connectible rooms
         for (int y = 0; y < mapHeight; y++) {
@@ -362,44 +355,5 @@ public class MapGenerator {
                 populateRoomWithBattles(current);
             }
         }
-    }
-
-    /**
-     * Print out a map.  Used to heuristically determine if the map has a nice general shape.
-     * <p>
-     * Empty spaces are denoted with spaces, rooms are denoted with #.
-     *
-     * @param map   the map to draw.
-     * @param first the first room, will be denoted by ^.
-     * @param last  the last room, will be denoted by !.
-     */
-    private @TestOnly void printMap(@NotNull Room[][] map, @NotNull Room first, @NotNull Room last) {
-        System.out.print('+');
-        for (int x = 0; x < map[0].length; x++) {
-            System.out.print('-');
-        }
-        System.out.println('+');
-        for (Room[] rooms : map) {
-            System.out.print('|');
-            for (int x = 0; x < map[0].length; x++) {
-                if (rooms[x] == null) {
-                    System.out.print(' ');
-                } else {
-                    if (rooms[x] == first) {
-                        System.out.print('^');
-                    } else if (rooms[x] == last) {
-                        System.out.print('!');
-                    } else {
-                        System.out.print('#');
-                    }
-                }
-            }
-            System.out.println('|');
-        }
-        System.out.print('+');
-        for (int x = 0; x < map[0].length; x++) {
-            System.out.print('-');
-        }
-        System.out.println('+');
     }
 }
