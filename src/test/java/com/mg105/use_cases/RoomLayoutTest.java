@@ -1,5 +1,6 @@
 package com.mg105.use_cases;
 
+import com.mg105.use_cases.outputds.RoomLayout;
 import org.junit.jupiter.api.Test;
 import java.util.List;
 
