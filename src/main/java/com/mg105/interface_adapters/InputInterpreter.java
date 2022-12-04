@@ -78,7 +78,7 @@ public class InputInterpreter {
                         // tutorial only cares that you pick up item, not that you use it
                         textChanger.getTutorial().setActionPerformed(TutorialTexts.USED_ITEM);
                     }
-
+                    case "i" -> toggler.toggle(Toggler.ToggleableComponent.INVENTORY);
                     case " " ->
                         //There is a warning if curly brackets are used on this block.
                         // I don't know what is correct to do in this situation.
@@ -90,6 +90,7 @@ public class InputInterpreter {
                             textChanger.getTutorial().setActionPerformed(TutorialTexts.ATTACKED);
                         }
                     }
+                    case "m" -> toggler.toggle(Toggler.ToggleableComponent.MINIMAP);
                 }
             }
             case TUTORIAL -> {
@@ -107,7 +108,7 @@ public class InputInterpreter {
                         toggler.toggle(Toggler.ToggleableComponent.WALK_MENU);
                 }
             }
-
+            case MINIMAP -> toggler.toggle(Toggler.ToggleableComponent.MINIMAP);
             case INVENTORY -> {
                 if(key.equals("i")){
                     toggler.toggle(Toggler.ToggleableComponent.INVENTORY);
