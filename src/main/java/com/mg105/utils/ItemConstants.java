@@ -12,7 +12,7 @@ public class ItemConstants {
 
     public static final String HEALTH_POTION_NAME = "Health Potion";
     public static final String HEALTH_POTION_DESCRIPTION = "This potion will heal a character by" +
-        String.valueOf(HealthPotion.getHealingPoints()) + "points";
+        HealthPotion.getHealingPoints() + "points";
 
     public static final String MEGA_POTION_NAME = "Mega Health Potion";
 

@@ -1,5 +1,7 @@
 package com.mg105.entities;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * Consumable is an interface that should only be implemented by items that can be use on a character
  * <p>
@@ -12,5 +14,5 @@ public interface Consumable {
      *
      * @param character the battleCharacter to use the item on
      */
-    void consume(BattleCharacter character);
+    void consume(@NotNull BattleCharacter character);
 }

@@ -1,27 +1,13 @@
 package com.mg105.entities;
 
-import com.mg105.entities.BattleCharacter;
-import com.mg105.entities.Inventory;
-import com.mg105.entities.Move;
 import com.mg105.entities.items.HealthPotion;
 import com.mg105.entities.items.UpgradeToken;
 import com.mg105.utils.ItemConstants;
 import org.junit.jupiter.api.Test;
 
-import java.util.NoSuchElementException;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class InventoryTest {
-
-//    @BeforeEach
-//    void setUp() {
-//
-//    }
-//
-//    @AfterEach
-//    void tearDown() {
-//    }
 
     // Inventory limit is 10 for all tests
 
@@ -30,7 +16,12 @@ class InventoryTest {
         Inventory inventory = new Inventory();
         assertEquals(0, inventory.numberOfItems());
     }
-
+    
+    @Test
+    void inLimit() {
+        Inventory inventory = new Inventory();
+        assertEquals(10, inventory.limit());
+    }
 
     @Test
     void isFullEmptyInventory() {
@@ -113,9 +104,9 @@ class InventoryTest {
     void addItemEmptyInventory() {
 
         Inventory inventory = new Inventory();
-        assertTrue(inventory.numberOfItems() == 0);
+        assertEquals(0, inventory.numberOfItems());
         inventory.addItem(new UpgradeToken());
-        assertTrue(inventory.numberOfItems() == 1);
+        assertEquals(1, inventory.numberOfItems());
     }
 
     @Test

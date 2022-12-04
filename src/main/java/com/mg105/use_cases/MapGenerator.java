@@ -1,7 +1,7 @@
 package com.mg105.use_cases;
 
 import com.mg105.entities.*;
-import com.mg105.entities.items.*;
+import com.mg105.entities.items.HealthPotion;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
@@ -44,11 +44,26 @@ public class MapGenerator {
         // Add battles
         List<BattleCharacter> firstRoomBattle = new ArrayList<>();
         firstRoomBattle.add(new BattleCharacter(
-            10, "Mr. Dr. Professor Chad", 10, 10, true,
-            new Move(-10, -10, "Move1", false),
-            new Move(1, 1, "Move2", false))
+            10, "Professor Chad", 10, 10, true,
+            new Move(-10, 0, "Move1", false),
+            new Move(1, 1, "Move2", true))
         );
-        firstRoom.getOpponents().add(new OpponentSet(new Point(6, 2), firstRoomBattle));
+        firstRoomBattle.add(new BattleCharacter(
+            10, "RobotOneEvil", 10, 10, true,
+            new Move(-10, 0, "Move1", false),
+            new Move(1, 1, "Move2", true))
+        );
+        firstRoomBattle.add(new BattleCharacter(
+            10, "Evil Person", 10, 10, true,
+            new Move(-10, 0, "Move1", false),
+            new Move(1, 1, "Move2", true))
+        );
+        firstRoomBattle.add(new BattleCharacter(
+            10, "Megan", 10, 10, true,
+            new Move(-10, 0, "Move1", false),
+            new Move(1, 1, "Move2", true))
+        );
+        firstRoom.getOpponents().add(new OpponentSet(new Point(4, 6), firstRoomBattle));
 
         // Add chests
         firstRoom.getChests().add(new TreasureChest(new HealthPotion(), new Point(2, 2)));

@@ -11,9 +11,9 @@ public class BattleCharacter implements Comparable<BattleCharacter> {
     private int dmg;
     private int speed;
 
-    private boolean isOpponent;
+    private final boolean isOpponent;
 
-    private Move[] moves = new Move[2];
+    private final Move[] moves = new Move[2];
 
     //Don't know how to handle the sprite instance
 
@@ -154,12 +154,6 @@ public class BattleCharacter implements Comparable<BattleCharacter> {
      */
     @Override
     public int compareTo(BattleCharacter other) {
-        if (this.speed < other.speed) {
-            return -1;
-        } else if (this.speed > other.speed) {
-            return 1;
-        } else {
-            return 0;
-        }
+        return Integer.compare(this.speed, other.speed);
     }
 }
