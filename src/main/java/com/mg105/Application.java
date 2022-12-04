@@ -11,12 +11,15 @@ import com.mg105.interface_adapters.inventory.InventoryController;
 import com.mg105.interface_adapters.inventory.InventoryPresenter;
 import com.mg105.use_cases.*;
 import com.mg105.use_cases.inventory.InventoryInteractor;
+import com.mg105.use_cases.save.PartySaver;
+import com.mg105.use_cases.save.Save;
+import com.mg105.use_cases.save.Saver;
 import com.mg105.use_cases.set_up.data_system_creator.CreateDataStorage;
 import com.mg105.use_cases.set_up.data_system_creator.DataStorageSystemCreator;
 import com.mg105.use_cases.set_up.state_setter.GameStateSetter;
 import com.mg105.use_cases.set_up.state_setter.PartyCreator;
 import com.mg105.user_interface.*;
-import com.mg105.user_interface.inventory.InventoryDisplay;
+import com.mg105.user_interface.InventoryDisplay;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
@@ -53,13 +56,6 @@ public class Application extends javafx.application.Application {
         GameStateSetter setter = new GameStateSetter(partyCreator);
         setter.setState(state);
 
-        // InventoryDisplay set up
-        InventoryPresenter inventoryPresenter = new InventoryPresenter();
-        InventoryInteractor inventoryInteractor = new InventoryInteractor(state, inventoryPresenter);
-        InventoryDisplay inventoryDisplay = new InventoryDisplay(new InventoryController(
-            inventoryInteractor));
-        inventoryPresenter.setView(inventoryDisplay);
-
         Map<Toggler.ToggleableComponent, Toggleable> drawableComponents = new HashMap<>();
         // We fill this map in later because of the ordering of parameters
         SceneController sceneController = new SceneController(
@@ -77,6 +73,14 @@ public class Application extends javafx.application.Application {
         MapDrawer mapDrawer = new MapDrawer(roomInterpreter);
         drawableComponents.put(Toggler.ToggleableComponent.MAIN_MENU, mainMenu);
         drawableComponents.put(Toggler.ToggleableComponent.MAP, mapDrawer);
+
+        // InventoryDisplay set up
+        InventoryPresenter inventoryPresenter = new InventoryPresenter();
+        InventoryInteractor inventoryInteractor = new InventoryInteractor(state, inventoryPresenter);
+        InventoryDisplay inventoryDisplay = new InventoryDisplay(new InventoryController(
+            inventoryInteractor));
+        inventoryPresenter.setView(inventoryDisplay);
+        drawableComponents.put(Toggler.ToggleableComponent.INVENTORY, inventoryDisplay);
 
         /////Tutorial scene////
         TutorialTextController textChanger = new TutorialTextController(false);
@@ -106,8 +110,12 @@ public class Application extends javafx.application.Application {
         //OpponentSet setup
         OpponentSetInteractor opponentInteractor = new OpponentSetInteractor(state);
 
+        // Creating Saver
+        Save[] savers = {new PartySaver(state, new PartyDataAccess(new MoveDataAccess()))};
+        Saver saver = new Saver(savers);
+
         //Battle setup
-        BattleInteractor battleInteractor = new BattleInteractor(state);
+        BattleInteractor battleInteractor = new BattleInteractor(state, inventoryInteractor, saver);
         BattlePresenter battlePresenter = new BattlePresenter(battleInteractor);
         BattleMenu battleMenu = new BattleMenu(battlePresenter);
         drawableComponents.put(Toggler.ToggleableComponent.BATTLE, battleMenu);
