@@ -120,7 +120,7 @@ public class BattleInteractor {
      */
     public int[] getCharacterMoveStats(String name) {
         BattleCharacter caster = state.getCurrEncounter().getCharacter(name);
-        return new int[] {caster.getMoveOne().getHealthChange(), caster.getMoveOne().getDamageChange(),
+        return new int[]{caster.getMoveOne().getHealthChange(), caster.getMoveOne().getDamageChange(),
             caster.getMoveTwo().getHealthChange(), caster.getMoveTwo().getDamageChange()};
     }
 
@@ -132,7 +132,7 @@ public class BattleInteractor {
      */
     public String[] getCharacterMoveNames(String name) {
         BattleCharacter caster = state.getCurrEncounter().getCharacter(name);
-        return new String[] {caster.getMoveOne().getName(), caster.getMoveTwo().getName()};
+        return new String[]{caster.getMoveOne().getName(), caster.getMoveTwo().getName()};
     }
 
     /**
@@ -191,7 +191,7 @@ public class BattleInteractor {
      * Note: Function should only be called from view when caster is friendly, so method does not accommodate for case
      * where caster is an opponent.
      *
-     * @param moveNum integer representing which of the two Moves is being used.
+     * @param moveNum    integer representing which of the two Moves is being used.
      * @param casterName String representing the name of the given moving BattleCharacter.
      * @return ArrayList of Strings representing the names of every possible target BattleCharacter.
      */
@@ -228,7 +228,8 @@ public class BattleInteractor {
 
     /**
      * Use one of (given) the given caster's moves on the given target.
-     * @param moveNum integer representing which of the two moves is being used.
+     *
+     * @param moveNum    integer representing which of the two moves is being used.
      * @param casterName String representing the name of the caster BattleCharacter.
      * @param targetName String representing the name of the target BattleCharacter.
      */

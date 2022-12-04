@@ -87,13 +87,13 @@ public class Inventory {
         }
         return false;
     }
-    public void removeAll()
-    {
-        for (int i = 0; i < numberOfItems(); i++)
-        {
-                this.items.remove(i);
+
+    public void removeAll() {
+        for (int i = 0; i < numberOfItems(); i++) {
+            this.items.remove(i);
         }
     }
+
     /**
      * Uses the item on the given character
      *
