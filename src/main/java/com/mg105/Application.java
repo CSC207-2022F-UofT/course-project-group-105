@@ -19,6 +19,7 @@ import com.mg105.user_interface.*;
 import com.mg105.user_interface.inventory.InventoryDisplay;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -90,6 +91,16 @@ public class Application extends javafx.application.Application {
         WalkingMenu walkingMenu = new WalkingMenu(walkVisController);
         drawableComponents.put(Toggler.ToggleableComponent.WALK_MENU, walkingMenu);
         /////////////////////
+
+        //LoseMenu scene//
+        ReplayGenerator replayGenerator = new ReplayGenerator(state);
+        replayGenerator.inventoryClean();
+        replayGenerator.attributeInheritance();
+        ReplayGeneratorInterpreter replayGeneratorInterpreter = new ReplayGeneratorInterpreter(replayGenerator);
+        ReplayGeneratorButton replayGeneratorButton = new ReplayGeneratorButton(replayGeneratorInterpreter, sceneController);
+        LoseMenu loseMenu = new LoseMenu(replayGeneratorButton);
+        drawableComponents.put(Toggler.ToggleableComponent.LOSE_MENU, loseMenu);
+        ////////////////////
 
         //BattleMenu scene//
         //OpponentSet setup

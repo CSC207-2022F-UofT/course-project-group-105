@@ -13,12 +13,9 @@ public class LoseMenu implements Toggleable {
     private final @NotNull Scene scene;
     private final @NotNull Pane layout;
 
-    public LoseMenu(@NotNull ReplayGeneratorButton ReplayButton, InventoryController inventoryController) {
+    public LoseMenu(@NotNull ReplayGeneratorButton ReplayButton) {
         Button generateMapButton = new Button("Replay The Game");
         //Clean Inventory
-        inventoryController.removeAll();
-
-
         generateMapButton.setOnAction(ReplayButton);
         layout = new StackPane();
         layout.getChildren().add(generateMapButton);
