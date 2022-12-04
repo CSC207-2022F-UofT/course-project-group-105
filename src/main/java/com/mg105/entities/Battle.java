@@ -15,10 +15,6 @@ public class Battle {
     private final ArrayList<BattleCharacter> playerCharacters;
     private final ArrayList<BattleCharacter> moveQueue = new ArrayList<>();
 
-    //not sure if numTokens should be randomly generated on creation, or after battleStatus has changed (this
-    // implementation will assume the latter).
-    private int numTokens;
-
     /**
      * Creates a new Battle instance with ongoing status, given BattleCharacters, and a Queue of the characters sorted
      * by their speed stats.
@@ -29,8 +25,6 @@ public class Battle {
         this.battleStatus = 0;
         this.opponents = opponents;
         this.playerCharacters = party;
-        this.numTokens = 0;
-
         this.moveQueue.addAll(this.opponents);
         this.moveQueue.addAll(playerCharacters);
         Collections.sort(moveQueue);
@@ -61,24 +55,6 @@ public class Battle {
      */
     public ArrayList<BattleCharacter> getPlayerCharacters() {
         return playerCharacters;
-    }
-
-    /**
-     * Returns the number of tokens rewarded to the player upon victory
-     *
-     * @return the number of upgrade tokens the player receives if they win the Battle.
-     */
-    public int getNumTokens() {
-        return numTokens;
-    }
-
-    /**
-     * Modifies the number of tokens rewarded to the player upon victory
-     *
-     * @param reward the number of upgrade tokens the player receives if they win the Battle.
-     */
-    public void setNumTokens(int reward) {
-        this.numTokens = reward;
     }
 
     /**
