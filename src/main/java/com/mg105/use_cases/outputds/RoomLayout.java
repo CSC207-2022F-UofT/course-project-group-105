@@ -11,7 +11,8 @@ import java.awt.*;
  * Note: There is an implicit, assumed, border around the edge.
  */
 public class RoomLayout {
-    private final @NotNull List<Point> chests;
+    private final @NotNull List<Point> closedChests;
+    private final @NotNull List<Point> openChests;
     private final @NotNull List<Point> opponents;
     private final @NotNull List<Point> doorways;
     private final @NotNull Point player;
@@ -19,28 +20,40 @@ public class RoomLayout {
     /**
      * Create a room given some number of chests, opponents, and doorways.
      *
-     * @param chests    the chests in this room.
-     * @param opponents the opponents in this room.
-     * @param doorways  the doorways in this room leading to other rooms.
-     * @param player    the player's position.
+     * @param closedChests the closed chests in the room.
+     * @param openChests   the open chests in the room.
+     * @param opponents    the opponents in this room.
+     * @param doorways     the doorways in this room leading to other rooms.
+     * @param player       the player's position.
      */
-    public RoomLayout(@NotNull List<Point> chests,
+    public RoomLayout(@NotNull List<Point> closedChests,
+                      @NotNull List<Point> openChests,
                       @NotNull List<Point> opponents,
                       @NotNull List<Point> doorways,
                       @NotNull Point player) {
-        this.chests = chests;
+        this.closedChests = closedChests;
+        this.openChests = openChests;
         this.opponents = opponents;
         this.doorways = doorways;
         this.player = player;
     }
 
     /**
-     * Get the treasure chests in this room.
+     * Get the closed treasure chests in this room.
      *
-     * @return the treasure chest positions in this room.
+     * @return the closed treasure chest positions in this room.
      */
-    public @NotNull List<Point> getChests() {
-        return chests;
+    public @NotNull List<Point> getClosedChests() {
+        return closedChests;
+    }
+
+    /**
+     * Get the open treasure chests in this room.
+     *
+     * @return the open treasure chest positions in this room
+     */
+    public @NotNull List<Point> getOpenChests() {
+        return openChests;
     }
 
     /**

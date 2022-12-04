@@ -131,7 +131,7 @@ public class Application extends javafx.application.Application {
         roomUpdater.addObserver(minimapInterpreter);
 
         CharacterMover characterMover = new CharacterMover(state, roomUpdater);
-        ChestInteractor chestInteractor = new ChestInteractor(state, inventoryInteractor);
+        ChestInteractor chestInteractor = new ChestInteractor(state, inventoryInteractor, roomUpdater);
         InputInterpreter inputInterpreter = new InputInterpreter(characterMover, sceneController, textChanger, chestInteractor,
             opponentInteractor);
         InputListener inputListener = new InputListener(inputInterpreter);

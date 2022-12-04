@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import org.jetbrains.annotations.NotNull;
 
+import java.awt.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.HashMap;
@@ -25,6 +26,7 @@ public class MapDrawer implements PropertyChangeListener, Toggleable {
     private final @NotNull Group group;
     private final @NotNull Map<TileType, Image> tiles;
     private final @NotNull Map<String, Image> playerSprites;
+    private final @NotNull Image missingTile;
     private boolean isVisible;
 
     /**
@@ -43,12 +45,15 @@ public class MapDrawer implements PropertyChangeListener, Toggleable {
         );
         isVisible = false;
 
+        missingTile = new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/tiles/missing.png")));
+
         tiles = new HashMap<>(6);
         tiles.put(TileType.FLOOR, new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/tiles/floor.png"))));
         tiles.put(TileType.WALL, new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/tiles/wall.png"))));
+        tiles.put(TileType.WALL_WITH_FACE, new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/tiles/wall_face.png"))));
         tiles.put(TileType.EXIT, new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/tiles/exit.png"))));
         tiles.put(TileType.CHEST, new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/tiles/chest.png"))));
-        tiles.put(TileType.PLAYER, new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/sprites/A.png"))));
+        tiles.put(TileType.CHEST_OPEN, new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/tiles/chest_open.png"))));
         tiles.put(TileType.OPPONENT_SET, new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/tiles/battle.png"))));
 
         playerSprites = new HashMap<>(4);
@@ -79,8 +84,7 @@ public class MapDrawer implements PropertyChangeListener, Toggleable {
     public void toggle(boolean isVisible) {
         this.isVisible = isVisible;
 
-        if (isVisible) { //Maybe four Image objects should be saved on a file somewhere else instead?
-            tiles.put(TileType.PLAYER, playerSprites.get(interpreter.updateCharacterSprite()));
+        if (isVisible) {
             updateRoom();
         }
     }
@@ -96,7 +100,7 @@ public class MapDrawer implements PropertyChangeListener, Toggleable {
 
         for (int y = 0; y < MapConstants.ROOM_SIZE; y++) {
             for (int x = 0; x < MapConstants.ROOM_SIZE; x++) {
-                ImageView tile = new ImageView(tiles.get(room[y][x]));
+                ImageView tile = new ImageView(tiles.getOrDefault(room[y][x], missingTile));
 
                 tile.setPreserveRatio(true);
                 tile.setX(x * MapConstants.TILE_SIZE);
@@ -107,6 +111,15 @@ public class MapDrawer implements PropertyChangeListener, Toggleable {
                 group.getChildren().add(tile);
             }
         }
+
+        Point player = interpreter.getPlayer();
+        ImageView playerTile = new ImageView(playerSprites.getOrDefault(interpreter.updateCharacterSprite(), missingTile));
+        playerTile.setPreserveRatio(true);
+        playerTile.setX(player.x * MapConstants.TILE_SIZE);
+        playerTile.setY(player.y * MapConstants.TILE_SIZE);
+        playerTile.setFitHeight(MapConstants.TILE_SIZE);
+        playerTile.setFitWidth(MapConstants.TILE_SIZE);
+        group.getChildren().add(playerTile);
     }
 
     /**
