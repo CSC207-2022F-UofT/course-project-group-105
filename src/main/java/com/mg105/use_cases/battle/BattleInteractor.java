@@ -304,6 +304,9 @@ public class BattleInteractor {
         if (status == 1) {
             addReward();
             return true;
+        } else if (status == -1) {
+            state.getParty().addAll(state.getFainted());
+            state.getFainted().removeAll(state.getParty());
         }
 
         // since at this point status != 0, status must == -1 (battle was lost)
