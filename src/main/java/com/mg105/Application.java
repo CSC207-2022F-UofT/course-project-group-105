@@ -105,9 +105,10 @@ public class Application extends javafx.application.Application {
         ReplayGenerator replayGenerator = new ReplayGenerator(state, minimapInterpreter);
         replayGenerator.replay();
         ReplayGeneratorInterpreter replayGeneratorInterpreter = new ReplayGeneratorInterpreter(replayGenerator);
-        ReplayGeneratorButton replayGeneratorButton = new ReplayGeneratorButton(replayGeneratorInterpreter, sceneController);
-        LoseMenu loseMenu = new LoseMenu(replayGeneratorButton);
+        ReplayGeneratorButton loseButton = new ReplayGeneratorButton(replayGeneratorInterpreter, sceneController, Toggler.ToggleableComponent.LOSE_MENU);
+        LoseMenu loseMenu = new LoseMenu(loseButton);
         drawableComponents.put(Toggler.ToggleableComponent.LOSE_MENU, loseMenu);
+
         ////////////////////
 
         //BattleMenu scene//
@@ -128,12 +129,22 @@ public class Application extends javafx.application.Application {
         RoomUpdater roomUpdater = new RoomUpdater();
         roomUpdater.addObserver(mapDrawer);
         roomUpdater.addObserver(minimapInterpreter);
-
         CharacterMover characterMover = new CharacterMover(state, roomUpdater);
+
+        /////WinGame Scene/////
+        ReplayGeneratorButton winButton = new ReplayGeneratorButton(replayGeneratorInterpreter, sceneController, Toggler.ToggleableComponent.WIN_MENU);
+        WinMenu winMenu = new WinMenu(winButton);
+        WinDisplay winDisplay= new WinDisplay(sceneController, roomGetter);
+        roomUpdater.addObserver(winDisplay);
+        drawableComponents.put(Toggler.ToggleableComponent.WIN_MENU, winMenu);
+        /////////////////
+
         ChestInteractor chestInteractor = new ChestInteractor(state, inventoryInteractor, roomUpdater);
         InputInterpreter inputInterpreter = new InputInterpreter(characterMover, sceneController, textChanger, chestInteractor,
             opponentInteractor);
         InputListener inputListener = new InputListener(inputInterpreter);
+
+
         primaryStage.addEventFilter(KeyEvent.KEY_TYPED, inputListener);
         sceneController.toggle(Toggler.ToggleableComponent.MAIN_MENU);
         primaryStage.setResizable(false);
