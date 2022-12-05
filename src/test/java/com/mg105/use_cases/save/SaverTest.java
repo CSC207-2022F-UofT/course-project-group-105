@@ -76,13 +76,13 @@ class SaverTest {
 
         BattleCharacterDetails[] details = pda.getPartyBattleDetails();
 
-        assertEquals(4, details[1].getDmg());
+        assertEquals(3, details[1].getDmg());
 
-        pda.changeCharacterStat(ALL_PARTY_MEMBER_NAMES[1], StatConstants.DAMAGE, 6);
+        pda.changeCharacterStat(ALL_PARTY_MEMBER_NAMES[1], StatConstants.DAMAGE, 5);
 
         details = pda.getPartyBattleDetails();
 
-        assertEquals(6, details[1].getDmg());
+        assertEquals(5, details[1].getDmg());
 
         state.getPartyMember(ALL_PARTY_MEMBER_NAMES[1]).modifyDamage(2);
     }
