@@ -66,6 +66,9 @@ public class MapGenerator {
         }
 
         state.setMap(firstRoom, lastRoom);
+
+        // Finally, we ensure the player is in a valid position
+        state.getWalkingCharacter().setCharPosition(new Point(MapConstants.ROOM_SIZE / 2, MapConstants.ROOM_SIZE - 2));
     }
 
     /**
