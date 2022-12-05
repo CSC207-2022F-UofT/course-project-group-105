@@ -71,7 +71,7 @@ public class GameState {
      * @return a character in party
      */
     public BattleCharacter getPartyAliveMember(@NotNull String characterName) {
-        for (BattleCharacter character : this.fainted) {
+        for (BattleCharacter character : this.party) {
             if (character.getName().equals(characterName)) {
                 return character;
             }
@@ -88,7 +88,7 @@ public class GameState {
      * @return a character in party
      */
     public BattleCharacter getFaintedPartyMember(@NotNull String characterName) throws NoSuchElementException {
-        for (BattleCharacter character : this.party) {
+        for (BattleCharacter character : this.fainted) {
             if (character.getName().equals(characterName)) {
                 return character;
             }
@@ -104,12 +104,15 @@ public class GameState {
      */
 
     public @NotNull BattleCharacter getPartyMember(String characterName) throws NoSuchElementException{
-        if(getPartyAliveMember(characterName) != null){
-            return getPartyAliveMember(characterName);
+        BattleCharacter member = getPartyAliveMember(characterName);
+        if( member != null){
+            return member;
         }
 
-        if(getFaintedPartyMember(characterName) != null){
-            return getFaintedPartyMember(characterName);
+        member = getFaintedPartyMember(characterName);
+
+        if(member != null){
+            return member;
         }
 
         throw new NoSuchElementException("Could not find party member of this name");
