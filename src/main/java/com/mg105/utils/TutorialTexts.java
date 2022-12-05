@@ -3,6 +3,9 @@ package com.mg105.utils;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Constants for texts related to the tutorial
+ */
 public class TutorialTexts {
     /** Constant string for move phase */
     public static final String MOVED = "moved";

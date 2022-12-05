@@ -5,10 +5,16 @@ import com.mg105.use_cases.RoomGetter;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
+/**
+ * Decides when to show game win screen
+ */
 public class WinDisplay implements PropertyChangeListener {
     private final Toggler toggler;
     private final RoomGetter roomGetter;
 
+    /**
+     * Construction for the WinDisplay interface adapter
+     */
     public WinDisplay(Toggler toggler, RoomGetter roomGetter){
         this.toggler = toggler;
         this.roomGetter = roomGetter;

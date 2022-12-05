@@ -5,10 +5,15 @@ import com.mg105.utils.TutorialTexts;
 import javafx.scene.control.Label;
 import javafx.scene.text.Font;
 
-
+/**
+ * Returns the actual text that is displayed to the player
+ */
 public class TutorialTextDisplay {
     private final TutorialTextController tutorialControl = new TutorialTextController(false);
 
+    /**
+     * Constructor for a new TutorialTextDisplay ui
+     */
     public TutorialTextDisplay() {
     }
 
