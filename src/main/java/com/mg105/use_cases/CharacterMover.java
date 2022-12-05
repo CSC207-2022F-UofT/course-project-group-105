@@ -12,19 +12,16 @@ import java.awt.*;
 public class CharacterMover {
     private final @NotNull GameState state;
     private final @NotNull RoomUpdater updater;
-    private final @NotNull ReplayGenerator replay;
 
     /**
      * Create a CharacterMover to operate on state and to update the room visuals via the updater
      *
      * @param state   the current game state.
      * @param updater something that will update the visual representation of the room on change.
-     * @param replay  the replay generator that resets game when stepping into final room
      */
-    public CharacterMover(@NotNull GameState state, @NotNull RoomUpdater updater, @NotNull ReplayGenerator replay) {
+    public CharacterMover(@NotNull GameState state, @NotNull RoomUpdater updater) {
         this.state = state;
         this.updater = updater;
-        this.replay = replay;
     }
 
     /**
@@ -80,11 +77,6 @@ public class CharacterMover {
                 Room nextRoom = doorway.getNextRoom();
                 state.setCurrentRoom(nextRoom);
 
-                // if in final room, replay the game
-                if (state.isCurrentRoomLastRoom()){
-                    this.replay.replay();
-                }
-
                 nextPosition = getNextRoomPosition(room, nextRoom);
                 nextPositionValid = true;
                 break;
@@ -115,4 +107,5 @@ public class CharacterMover {
         assert false : "No relevant back channel.";
         return null; // Just to satisfy IDEA warnings
     }
+
 }
