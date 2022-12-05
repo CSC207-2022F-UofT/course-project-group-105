@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="../../../script.js"></script>
-<script type="text/javascript" src="../../../script-dir/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="../../../script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
@@ -125,6 +125,56 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color"><code><a href="#NOCLIP" class="member-name-link">NOCLIP</a></code></div>
 <div class="col-last odd-row-color">
 <div class="block">Whether you can walk through (and over) chests.</div>
+</div>
+<div class="col-first even-row-color"><code>static final int</code></div>
+<div class="col-second even-row-color"><code><a href="#OPPONENT_ATTACK_MAX" class="member-name-link">OPPONENT_ATTACK_MAX</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">The upper bound on the opponent's damage stat.</div>
+</div>
+<div class="col-first odd-row-color"><code>static final int</code></div>
+<div class="col-second odd-row-color"><code><a href="#OPPONENT_ATTACK_MIN" class="member-name-link">OPPONENT_ATTACK_MIN</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">The lower bound on the opponent's damage stat.</div>
+</div>
+<div class="col-first even-row-color"><code>static final int</code></div>
+<div class="col-second even-row-color"><code><a href="#OPPONENT_BUFF_CAP" class="member-name-link">OPPONENT_BUFF_CAP</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">The upper bound on the damage buffing effect of an opponent's friendly move.</div>
+</div>
+<div class="col-first odd-row-color"><code>static final int</code></div>
+<div class="col-second odd-row-color"><code><a href="#OPPONENT_DAMAGE_CAP" class="member-name-link">OPPONENT_DAMAGE_CAP</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">The upper bound on the damaging effect of an opponent's unfriendly move.</div>
+</div>
+<div class="col-first even-row-color"><code>static final int</code></div>
+<div class="col-second even-row-color"><code><a href="#OPPONENT_HEAL_CAP" class="member-name-link">OPPONENT_HEAL_CAP</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">The upper bound on the healing effect of an opponent's friendly move.</div>
+</div>
+<div class="col-first odd-row-color"><code>static final int</code></div>
+<div class="col-second odd-row-color"><code><a href="#OPPONENT_HEALTH_MAX" class="member-name-link">OPPONENT_HEALTH_MAX</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">The upper bound on the opponent's health stat.</div>
+</div>
+<div class="col-first even-row-color"><code>static final int</code></div>
+<div class="col-second even-row-color"><code><a href="#OPPONENT_HEALTH_MIN" class="member-name-link">OPPONENT_HEALTH_MIN</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">The lower bound on the opponent's health stat.</div>
+</div>
+<div class="col-first odd-row-color"><code>static final int</code></div>
+<div class="col-second odd-row-color"><code><a href="#OPPONENT_NULLIFY_CAP" class="member-name-link">OPPONENT_NULLIFY_CAP</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">The upper bound on the nullifying effect of an opponent's unfriendly move.</div>
+</div>
+<div class="col-first even-row-color"><code>static final int</code></div>
+<div class="col-second even-row-color"><code><a href="#OPPONENT_SPEED_MAX" class="member-name-link">OPPONENT_SPEED_MAX</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">The upper bound on the opponent's speed stat.</div>
+</div>
+<div class="col-first odd-row-color"><code>static final int</code></div>
+<div class="col-second odd-row-color"><code><a href="#OPPONENT_SPEED_MIN" class="member-name-link">OPPONENT_SPEED_MIN</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">The lower bound on the opponent's speed stat.</div>
 </div>
 <div class="col-first even-row-color"><code>static final int</code></div>
 <div class="col-second even-row-color"><code><a href="#ROOM_SIZE" class="member-name-link">ROOM_SIZE</a></code></div>
@@ -319,6 +369,156 @@ loadScripts(document, 'script');</script>
 <dd>
 <ul class="see-list">
 <li><a href="../../../constant-values.html#com.mg105.utils.MapConstants.MAPGEN_CHEST_SPARSITY">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="OPPONENT_HEAL_CAP">
+<h3>OPPONENT_HEAL_CAP</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">OPPONENT_HEAL_CAP</span></div>
+<div class="block">The upper bound on the healing effect of an opponent's friendly move.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list">
+<li><a href="../../../constant-values.html#com.mg105.utils.MapConstants.OPPONENT_HEAL_CAP">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="OPPONENT_BUFF_CAP">
+<h3>OPPONENT_BUFF_CAP</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">OPPONENT_BUFF_CAP</span></div>
+<div class="block">The upper bound on the damage buffing effect of an opponent's friendly move.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list">
+<li><a href="../../../constant-values.html#com.mg105.utils.MapConstants.OPPONENT_BUFF_CAP">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="OPPONENT_DAMAGE_CAP">
+<h3>OPPONENT_DAMAGE_CAP</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">OPPONENT_DAMAGE_CAP</span></div>
+<div class="block">The upper bound on the damaging effect of an opponent's unfriendly move.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list">
+<li><a href="../../../constant-values.html#com.mg105.utils.MapConstants.OPPONENT_DAMAGE_CAP">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="OPPONENT_NULLIFY_CAP">
+<h3>OPPONENT_NULLIFY_CAP</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">OPPONENT_NULLIFY_CAP</span></div>
+<div class="block">The upper bound on the nullifying effect of an opponent's unfriendly move.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list">
+<li><a href="../../../constant-values.html#com.mg105.utils.MapConstants.OPPONENT_NULLIFY_CAP">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="OPPONENT_HEALTH_MIN">
+<h3>OPPONENT_HEALTH_MIN</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">OPPONENT_HEALTH_MIN</span></div>
+<div class="block">The lower bound on the opponent's health stat.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list">
+<li><a href="../../../constant-values.html#com.mg105.utils.MapConstants.OPPONENT_HEALTH_MIN">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="OPPONENT_HEALTH_MAX">
+<h3>OPPONENT_HEALTH_MAX</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">OPPONENT_HEALTH_MAX</span></div>
+<div class="block">The upper bound on the opponent's health stat.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list">
+<li><a href="../../../constant-values.html#com.mg105.utils.MapConstants.OPPONENT_HEALTH_MAX">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="OPPONENT_ATTACK_MIN">
+<h3>OPPONENT_ATTACK_MIN</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">OPPONENT_ATTACK_MIN</span></div>
+<div class="block">The lower bound on the opponent's damage stat.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list">
+<li><a href="../../../constant-values.html#com.mg105.utils.MapConstants.OPPONENT_ATTACK_MIN">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="OPPONENT_ATTACK_MAX">
+<h3>OPPONENT_ATTACK_MAX</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">OPPONENT_ATTACK_MAX</span></div>
+<div class="block">The upper bound on the opponent's damage stat.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list">
+<li><a href="../../../constant-values.html#com.mg105.utils.MapConstants.OPPONENT_ATTACK_MAX">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="OPPONENT_SPEED_MIN">
+<h3>OPPONENT_SPEED_MIN</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">OPPONENT_SPEED_MIN</span></div>
+<div class="block">The lower bound on the opponent's speed stat.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list">
+<li><a href="../../../constant-values.html#com.mg105.utils.MapConstants.OPPONENT_SPEED_MIN">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="OPPONENT_SPEED_MAX">
+<h3>OPPONENT_SPEED_MAX</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">OPPONENT_SPEED_MAX</span></div>
+<div class="block">The upper bound on the opponent's speed stat.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list">
+<li><a href="../../../constant-values.html#com.mg105.utils.MapConstants.OPPONENT_SPEED_MAX">Constant Field Values</a></li>
 </ul>
 </dd>
 </dl>
