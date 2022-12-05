@@ -103,8 +103,7 @@ public class Application extends javafx.application.Application {
 
         //LoseMenu scene//
         ReplayGenerator replayGenerator = new ReplayGenerator(state, minimapInterpreter);
-        replayGenerator.inventoryClean();
-        replayGenerator.attributeInheritance();
+        replayGenerator.replay();
         ReplayGeneratorInterpreter replayGeneratorInterpreter = new ReplayGeneratorInterpreter(replayGenerator);
         ReplayGeneratorButton replayGeneratorButton = new ReplayGeneratorButton(replayGeneratorInterpreter, sceneController);
         LoseMenu loseMenu = new LoseMenu(replayGeneratorButton);
