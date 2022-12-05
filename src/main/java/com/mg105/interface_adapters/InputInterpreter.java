@@ -23,11 +23,10 @@ public class InputInterpreter {
     /**
      * Create a new InputInterpreter that translates keyboard inputs to appropriate function invocations.
      *
-     * @param mover the character mover.
-     * @param toggler the toggler used to change the displayed interface.
+     * @param mover           the character mover.
+     * @param toggler         the toggler used to change the displayed interface.
+     * @param textChanger     the text controller for tutorial
      * @param chestInteractor the ChestInteractor used to interact with chests.
-     * @param textChanger the text controller for tutorial
-
      */
     public InputInterpreter(@NotNull CharacterMover mover, @NotNull Toggler toggler,
                             @NotNull TutorialTextController textChanger, @NotNull ChestInteractor chestInteractor,
@@ -36,7 +35,8 @@ public class InputInterpreter {
         this.toggler = toggler;
         this.textChanger = textChanger;
         this.opponentInteractor = opponentInteractor;
-        this.chestInteractor = chestInteractor;}
+        this.chestInteractor = chestInteractor;
+    }
 
     /**
      * Interpret key being pressed as an action.

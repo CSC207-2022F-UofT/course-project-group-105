@@ -13,16 +13,19 @@ import javafx.event.EventHandler;
 public class ReplayGeneratorButton implements EventHandler<javafx.event.ActionEvent> {
     private final @NotNull ReplayGeneratorInterpreter interpreter;
     private final @NotNull Toggler toggler;
+    private final @NotNull Toggler.ToggleableComponent componentToToggle;
 
     /**
      * Create a new ReplayGeneratorButton.
      *
-     * @param interpreter the interpreter for the replay generator button.
-     * @param toggler the toggler used to close the user interface once pressed.
+     * @param interpreter       the interpreter for the replay generator button.
+     * @param toggler           the toggler used to close the user interface once pressed.
+     * @param componentToToggle the component that needs to be toggled
      */
-    public ReplayGeneratorButton(@NotNull ReplayGeneratorInterpreter interpreter, @NotNull Toggler toggler) {
+    public ReplayGeneratorButton(@NotNull ReplayGeneratorInterpreter interpreter, @NotNull Toggler toggler, Toggler.@NotNull ToggleableComponent componentToToggle) {
         this.interpreter = interpreter;
         this.toggler = toggler;
+        this.componentToToggle = componentToToggle;
     }
 
     /**
@@ -33,7 +36,7 @@ public class ReplayGeneratorButton implements EventHandler<javafx.event.ActionEv
     @Override
     public void handle(ActionEvent event) {
         interpreter.replayGenerateMap();
-        toggler.toggle(Toggler.ToggleableComponent.LOSE_MENU);
+        toggler.toggle(componentToToggle);
     }
 
 }
