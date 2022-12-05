@@ -14,6 +14,8 @@ public class WinDisplay implements PropertyChangeListener {
 
     /**
      * Construction for the WinDisplay interface adapter
+     * @param toggler toggles the win screen
+     * @param roomGetter gets the current room of the player
      */
     public WinDisplay(Toggler toggler, RoomGetter roomGetter){
         this.toggler = toggler;
