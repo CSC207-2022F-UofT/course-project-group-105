@@ -94,8 +94,9 @@ implements javafx.event.EventHandler&lt;javafx.event.ActionEvent&gt;</span></div
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.mg105.interface_adapters.ReplayGeneratorInterpreter,com.mg105.interface_adapters.Toggler)" class="member-name-link">ReplayGeneratorButton</a><wbr>(@NotNull <a href="../interface_adapters/ReplayGeneratorInterpreter.html" title="class in com.mg105.interface_adapters">ReplayGeneratorInterpreter</a>&nbsp;interpreter,
- @NotNull <a href="../interface_adapters/Toggler.html" title="interface in com.mg105.interface_adapters">Toggler</a>&nbsp;toggler)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.mg105.interface_adapters.ReplayGeneratorInterpreter,com.mg105.interface_adapters.Toggler,com.mg105.interface_adapters.Toggler.ToggleableComponent)" class="member-name-link">ReplayGeneratorButton</a><wbr>(@NotNull <a href="../interface_adapters/ReplayGeneratorInterpreter.html" title="class in com.mg105.interface_adapters">ReplayGeneratorInterpreter</a>&nbsp;interpreter,
+ @NotNull <a href="../interface_adapters/Toggler.html" title="interface in com.mg105.interface_adapters">Toggler</a>&nbsp;toggler,
+ @NotNull <a href="../interface_adapters/Toggler.ToggleableComponent.html" title="enum class in com.mg105.interface_adapters">Toggler.ToggleableComponent</a>&nbsp;componentToToggle)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Create a new ReplayGeneratorButton.</div>
 </div>
@@ -136,17 +137,19 @@ implements javafx.event.EventHandler&lt;javafx.event.ActionEvent&gt;</span></div
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(com.mg105.interface_adapters.ReplayGeneratorInterpreter,com.mg105.interface_adapters.Toggler)">
+<section class="detail" id="&lt;init&gt;(com.mg105.interface_adapters.ReplayGeneratorInterpreter,com.mg105.interface_adapters.Toggler,com.mg105.interface_adapters.Toggler.ToggleableComponent)">
 <h3>ReplayGeneratorButton</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ReplayGeneratorButton</span><wbr><span class="parameters">(@NotNull
  @NotNull <a href="../interface_adapters/ReplayGeneratorInterpreter.html" title="class in com.mg105.interface_adapters">ReplayGeneratorInterpreter</a>&nbsp;interpreter,
  @NotNull
- @NotNull <a href="../interface_adapters/Toggler.html" title="interface in com.mg105.interface_adapters">Toggler</a>&nbsp;toggler)</span></div>
+ @NotNull <a href="../interface_adapters/Toggler.html" title="interface in com.mg105.interface_adapters">Toggler</a>&nbsp;toggler,
+ @NotNull <a href="../interface_adapters/Toggler.ToggleableComponent.html" title="enum class in com.mg105.interface_adapters">Toggler.ToggleableComponent</a>&nbsp;componentToToggle)</span></div>
 <div class="block">Create a new ReplayGeneratorButton.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>interpreter</code> - the interpreter for the replay generator button.</dd>
 <dd><code>toggler</code> - the toggler used to close the user interface once pressed.</dd>
+<dd><code>componentToToggle</code> - the component that needs to be toggled</dd>
 </dl>
 </section>
 </li>

@@ -806,6 +806,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Get the scene of this toggleable object.</div>
 </dd>
+<dt><a href="com/mg105/user_interface/WinMenu.html#getScene()" class="member-name-link">getScene()</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/WinMenu.html" title="class in com.mg105.user_interface">WinMenu</a></dt>
+<dd>
+<div class="block">Get scene of the WinMenu</div>
+</dd>
 <dt><a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html#getShowControls()" class="member-name-link">getShowControls()</a> - Method in class com.mg105.interface_adapters.tutorial.<a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html" title="class in com.mg105.interface_adapters.tutorial">TutorialTextController</a></dt>
 <dd>
 <div class="block">Check if player should be shown controls again</div>
@@ -1027,6 +1031,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/mg105/entities/GameState.html#isCurrentRoomLastRoom()" class="member-name-link">isCurrentRoomLastRoom()</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/GameState.html" title="class in com.mg105.entities">GameState</a></dt>
 <dd>
 <div class="block">Get if the player is in the last room.</div>
+</dd>
+<dt><a href="com/mg105/use_cases/RoomGetter.html#isFinalRoom()" class="member-name-link">isFinalRoom()</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/RoomGetter.html" title="class in com.mg105.use_cases">RoomGetter</a></dt>
+<dd>
+<div class="block">Checks if the player is in the final room</div>
 </dd>
 <dt><a href="com/mg105/entities/Move.html#isFriendly()" class="member-name-link">isFriendly()</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/Move.html" title="class in com.mg105.entities">Move</a></dt>
 <dd>
@@ -1455,6 +1463,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Update room position data.</div>
 </dd>
+<dt><a href="com/mg105/interface_adapters/WinDisplay.html#propertyChange(java.beans.PropertyChangeEvent)" class="member-name-link">propertyChange(PropertyChangeEvent)</a> - Method in class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/WinDisplay.html" title="class in com.mg105.interface_adapters">WinDisplay</a></dt>
+<dd>
+<div class="block">This method gets called when a bound property is changed.</div>
+</dd>
 <dt><a href="com/mg105/user_interface/MapDrawer.html#propertyChange(java.beans.PropertyChangeEvent)" class="member-name-link">propertyChange(PropertyChangeEvent)</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/MapDrawer.html" title="class in com.mg105.user_interface">MapDrawer</a></dt>
 <dd>
 <div class="block">Update the current room based on evt.</div>
@@ -1545,7 +1557,7 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">ReplayGeneratorButton acts as the event handler for the actual JavaFx button that will replay the game.</div>
 </dd>
-<dt><a href="com/mg105/user_interface/ReplayGeneratorButton.html#%3Cinit%3E(com.mg105.interface_adapters.ReplayGeneratorInterpreter,com.mg105.interface_adapters.Toggler)" class="member-name-link">ReplayGeneratorButton(ReplayGeneratorInterpreter, Toggler)</a> - Constructor for class com.mg105.user_interface.<a href="com/mg105/user_interface/ReplayGeneratorButton.html" title="class in com.mg105.user_interface">ReplayGeneratorButton</a></dt>
+<dt><a href="com/mg105/user_interface/ReplayGeneratorButton.html#%3Cinit%3E(com.mg105.interface_adapters.ReplayGeneratorInterpreter,com.mg105.interface_adapters.Toggler,com.mg105.interface_adapters.Toggler.ToggleableComponent)" class="member-name-link">ReplayGeneratorButton(ReplayGeneratorInterpreter, Toggler, Toggler.ToggleableComponent)</a> - Constructor for class com.mg105.user_interface.<a href="com/mg105/user_interface/ReplayGeneratorButton.html" title="class in com.mg105.user_interface">ReplayGeneratorButton</a></dt>
 <dd>
 <div class="block">Create a new ReplayGeneratorButton.</div>
 </dd>
@@ -1871,6 +1883,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Set the visibility of this component.</div>
 </dd>
+<dt><a href="com/mg105/user_interface/WinMenu.html#toggle(boolean)" class="member-name-link">toggle(boolean)</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/WinMenu.html" title="class in com.mg105.user_interface">WinMenu</a></dt>
+<dd>
+<div class="block">Toggle the WinMenu</div>
+</dd>
 <dt><a href="com/mg105/interface_adapters/Toggler.html#toggle(com.mg105.interface_adapters.Toggler.ToggleableComponent)" class="member-name-link">toggle(Toggler.ToggleableComponent)</a> - Method in interface com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/Toggler.html" title="interface in com.mg105.interface_adapters">Toggler</a></dt>
 <dd>
 <div class="block">Toggle the component.</div>
@@ -1910,17 +1926,25 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html#%3Cinit%3E(boolean)" class="member-name-link">TutorialTextController(boolean)</a> - Constructor for class com.mg105.interface_adapters.tutorial.<a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html" title="class in com.mg105.interface_adapters.tutorial">TutorialTextController</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/user_interface/TutorialTextDisplay.html" class="type-name-link" title="class in com.mg105.user_interface">TutorialTextDisplay</a> - Class in <a href="com/mg105/user_interface/package-summary.html">com.mg105.user_interface</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Returns the actual text that is displayed to the player</div>
+</dd>
 <dt><a href="com/mg105/user_interface/TutorialTextDisplay.html#%3Cinit%3E()" class="member-name-link">TutorialTextDisplay()</a> - Constructor for class com.mg105.user_interface.<a href="com/mg105/user_interface/TutorialTextDisplay.html" title="class in com.mg105.user_interface">TutorialTextDisplay</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Constructor for a new TutorialTextDisplay ui</div>
+</dd>
 <dt><a href="com/mg105/utils/TutorialTexts.html" class="type-name-link" title="class in com.mg105.utils">TutorialTexts</a> - Class in <a href="com/mg105/utils/package-summary.html">com.mg105.utils</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Constants for texts related to the tutorial</div>
+</dd>
 <dt><a href="com/mg105/utils/TutorialTexts.html#%3Cinit%3E()" class="member-name-link">TutorialTexts()</a> - Constructor for class com.mg105.utils.<a href="com/mg105/utils/TutorialTexts.html" title="class in com.mg105.utils">TutorialTexts</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/user_interface/TutorialTextWindow.html" class="type-name-link" title="class in com.mg105.user_interface">TutorialTextWindow</a> - Class in <a href="com/mg105/user_interface/package-summary.html">com.mg105.user_interface</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/user_interface/TutorialTextWindow.html#%3Cinit%3E(com.mg105.interface_adapters.tutorial.TutorialTextController,com.mg105.user_interface.TutorialTextDisplay)" class="member-name-link">TutorialTextWindow(TutorialTextController, TutorialTextDisplay)</a> - Constructor for class com.mg105.user_interface.<a href="com/mg105/user_interface/TutorialTextWindow.html" title="class in com.mg105.user_interface">TutorialTextWindow</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Window for the tutorial</div>
+</dd>
 </dl>
 <h2 class="title" id="I:U">U</h2>
 <dl class="index">
@@ -2087,6 +2111,26 @@ the order they are declared.</div>
 <dt><a href="com/mg105/utils/MoveConstants.html#WEAK_HEAL" class="member-name-link">WEAK_HEAL</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/MoveConstants.html" title="class in com.mg105.utils">MoveConstants</a></dt>
 <dd>
 <div class="block">A move name.</div>
+</dd>
+<dt><a href="com/mg105/interface_adapters/Toggler.ToggleableComponent.html#WIN_MENU" class="member-name-link">WIN_MENU</a> - Enum constant in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/Toggler.ToggleableComponent.html" title="enum class in com.mg105.interface_adapters">Toggler.ToggleableComponent</a></dt>
+<dd>
+<div class="block">The game Win menu</div>
+</dd>
+<dt><a href="com/mg105/interface_adapters/WinDisplay.html" class="type-name-link" title="class in com.mg105.interface_adapters">WinDisplay</a> - Class in <a href="com/mg105/interface_adapters/package-summary.html">com.mg105.interface_adapters</a></dt>
+<dd>
+<div class="block">Decides when to show game win screen</div>
+</dd>
+<dt><a href="com/mg105/interface_adapters/WinDisplay.html#%3Cinit%3E(com.mg105.interface_adapters.Toggler,com.mg105.use_cases.RoomGetter)" class="member-name-link">WinDisplay(Toggler, RoomGetter)</a> - Constructor for class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/WinDisplay.html" title="class in com.mg105.interface_adapters">WinDisplay</a></dt>
+<dd>
+<div class="block">Construction for the WinDisplay interface adapter</div>
+</dd>
+<dt><a href="com/mg105/user_interface/WinMenu.html" class="type-name-link" title="class in com.mg105.user_interface">WinMenu</a> - Class in <a href="com/mg105/user_interface/package-summary.html">com.mg105.user_interface</a></dt>
+<dd>
+<div class="block">A menu that is shown to the player after they have reached the final room</div>
+</dd>
+<dt><a href="com/mg105/user_interface/WinMenu.html#%3Cinit%3E(com.mg105.user_interface.ReplayGeneratorButton)" class="member-name-link">WinMenu(ReplayGeneratorButton)</a> - Constructor for class com.mg105.user_interface.<a href="com/mg105/user_interface/WinMenu.html" title="class in com.mg105.user_interface">WinMenu</a></dt>
+<dd>
+<div class="block">Shows a button that congratulates you and lets you replay the game</div>
 </dd>
 </dl>
 <a href="#I:A">A</a>&nbsp;<a href="#I:B">B</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:N">N</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:U">U</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:W">W</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a><span class="vertical-separator">|</span><a href="constant-values.html">Constant&nbsp;Field&nbsp;Values</a></main>
