@@ -600,6 +600,12 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Returns an ArrayList of the player's fainted characters.</div>
 </dd>
+<dt><a href="com/mg105/entities/GameState.html#getFaintedPartyMember(java.lang.String)" class="member-name-link">getFaintedPartyMember(String)</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/GameState.html" title="class in com.mg105.entities">GameState</a></dt>
+<dd>
+<div class="block">Returns the character in the party based on the given name
+ Only returns a party member that is fainted
+ return null iff the name is not of a fainted party member</div>
+</dd>
 <dt><a href="com/mg105/entities/items/HealthPotion.html#getHealingPoints()" class="member-name-link">getHealingPoints()</a> - Static method in class com.mg105.entities.items.<a href="com/mg105/entities/items/HealthPotion.html" title="class in com.mg105.entities.items">HealthPotion</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/entities/items/MegaPotion.html#getHealingPoints()" class="member-name-link">getHealingPoints()</a> - Static method in class com.mg105.entities.items.<a href="com/mg105/entities/items/MegaPotion.html" title="class in com.mg105.entities.items">MegaPotion</a></dt>
@@ -726,6 +732,12 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Returns an ArrayList of the player's characters.</div>
 </dd>
+<dt><a href="com/mg105/entities/GameState.html#getPartyAliveMember(java.lang.String)" class="member-name-link">getPartyAliveMember(String)</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/GameState.html" title="class in com.mg105.entities">GameState</a></dt>
+<dd>
+<div class="block">Returns the character in party based on the given name
+ Only returns a party member that is not fainted
+ return null iff the name is not of an non-fainted party member</div>
+</dd>
 <dt><a href="com/mg105/data_control/access/PartyDataAccess.html#getPartyBattleDetails()" class="member-name-link">getPartyBattleDetails()</a> - Method in class com.mg105.data_control.access.<a href="com/mg105/data_control/access/PartyDataAccess.html" title="class in com.mg105.data_control.access">PartyDataAccess</a></dt>
 <dd>
 <div class="block">Returns an array of objects that each represent the battle attributes of a single party member</div>
@@ -736,7 +748,7 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="com/mg105/entities/GameState.html#getPartyMember(java.lang.String)" class="member-name-link">getPartyMember(String)</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/GameState.html" title="class in com.mg105.entities">GameState</a></dt>
 <dd>
-<div class="block">Returns the character in party based on the given name</div>
+<div class="block">Returns the correct party member given a name</div>
 </dd>
 <dt><a href="com/mg105/interface_adapters/RoomInterpreter.html#getPlayer()" class="member-name-link">getPlayer()</a> - Method in class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/RoomInterpreter.html" title="class in com.mg105.interface_adapters">RoomInterpreter</a></dt>
 <dd>

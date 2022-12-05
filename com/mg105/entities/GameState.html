@@ -136,21 +136,35 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns an ArrayList of the player's fainted characters.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Inventory.html" title="class in com.mg105.entities">Inventory</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getInventory()" class="member-name-link">getInventory</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="BattleCharacter.html" title="class in com.mg105.entities">BattleCharacter</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFaintedPartyMember(java.lang.String)" class="member-name-link">getFaintedPartyMember</a><wbr>(@NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;characterName)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns the character in the party based on the given name
+ Only returns a party member that is fainted
+ return null iff the name is not of a fainted party member</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Inventory.html" title="class in com.mg105.entities">Inventory</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getInventory()" class="member-name-link">getInventory</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the inventory of GameState
  The Inventory is class that manages the items in a game</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="BattleCharacter.html" title="class in com.mg105.entities">BattleCharacter</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getParty()" class="member-name-link">getParty</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="BattleCharacter.html" title="class in com.mg105.entities">BattleCharacter</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getParty()" class="member-name-link">getParty</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns an ArrayList of the player's characters.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="BattleCharacter.html" title="class in com.mg105.entities">BattleCharacter</a></code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="BattleCharacter.html" title="class in com.mg105.entities">BattleCharacter</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPartyAliveMember(java.lang.String)" class="member-name-link">getPartyAliveMember</a><wbr>(@NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;characterName)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns the character in party based on the given name
+ Only returns a party member that is not fainted
+ return null iff the name is not of an non-fainted party member</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>@NotNull <a href="BattleCharacter.html" title="class in com.mg105.entities">BattleCharacter</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPartyMember(java.lang.String)" class="member-name-link">getPartyMember</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;characterName)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the character in party based on the given name</div>
+<div class="block">Returns the correct party member given a name</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>@NotNull <a href="WalkingCharacter.html" title="class in com.mg105.entities">WalkingCharacter</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getWalkingCharacter()" class="member-name-link">getWalkingCharacter</a>()</code></div>
@@ -277,18 +291,54 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="getPartyMember(java.lang.String)">
-<h3>getPartyMember</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="BattleCharacter.html" title="class in com.mg105.entities">BattleCharacter</a></span>&nbsp;<span class="element-name">getPartyMember</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;characterName)</span>
-                               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NoSuchElementException.html" title="class or interface in java.util" class="external-link">NoSuchElementException</a></span></div>
-<div class="block">Returns the character in party based on the given name</div>
+<section class="detail" id="getPartyAliveMember(java.lang.String)">
+<h3>getPartyAliveMember</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="BattleCharacter.html" title="class in com.mg105.entities">BattleCharacter</a></span>&nbsp;<span class="element-name">getPartyAliveMember</span><wbr><span class="parameters">(@NotNull
+ @NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;characterName)</span></div>
+<div class="block">Returns the character in party based on the given name
+ Only returns a party member that is not fainted
+ return null iff the name is not of an non-fainted party member</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>characterName</code> - the name of the character</dd>
 <dt>Returns:</dt>
 <dd>a character in party</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getFaintedPartyMember(java.lang.String)">
+<h3>getFaintedPartyMember</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="BattleCharacter.html" title="class in com.mg105.entities">BattleCharacter</a></span>&nbsp;<span class="element-name">getFaintedPartyMember</span><wbr><span class="parameters">(@NotNull
+ @NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;characterName)</span>
+                                      throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NoSuchElementException.html" title="class or interface in java.util" class="external-link">NoSuchElementException</a></span></div>
+<div class="block">Returns the character in the party based on the given name
+ Only returns a party member that is fainted
+ return null iff the name is not of a fainted party member</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>characterName</code> - the name of the character to be returned</dd>
+<dt>Returns:</dt>
+<dd>a character in party</dd>
 <dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NoSuchElementException.html" title="class or interface in java.util" class="external-link">NoSuchElementException</a></code> - if no character in the party has the given name</dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NoSuchElementException.html" title="class or interface in java.util" class="external-link">NoSuchElementException</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getPartyMember(java.lang.String)">
+<h3>getPartyMember</h3>
+<div class="member-signature"><span class="annotations">@NotNull
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type">@NotNull <a href="BattleCharacter.html" title="class in com.mg105.entities">BattleCharacter</a></span>&nbsp;<span class="element-name">getPartyMember</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;characterName)</span>
+                                        throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NoSuchElementException.html" title="class or interface in java.util" class="external-link">NoSuchElementException</a></span></div>
+<div class="block">Returns the correct party member given a name</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>characterName</code> - the name of the party member to return</dd>
+<dt>Returns:</dt>
+<dd>the correct party member given a name</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NoSuchElementException.html" title="class or interface in java.util" class="external-link">NoSuchElementException</a></code> - iff there is no party member of this name</dd>
 </dl>
 </section>
 </li>
