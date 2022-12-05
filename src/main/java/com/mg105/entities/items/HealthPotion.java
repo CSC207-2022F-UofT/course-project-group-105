@@ -37,6 +37,7 @@ public class HealthPotion extends Item implements Consumable {
         BattleCharacter character = state.getPartyMember(characterName);
         if(character.getHp() == 0){
             state.removeFaintedPartyMember(characterName);
+            state.addPartyMemberToAlive(character);
         }
         character.modifyHealth(HEALING_POINTS);
 

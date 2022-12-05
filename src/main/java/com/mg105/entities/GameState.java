@@ -81,6 +81,14 @@ public class GameState {
     }
 
     /**
+     * Adds the battleCharacter to the party
+     * @param character the ALIVE character to add to the party
+     */
+    public void addPartyMemberToAlive(BattleCharacter character){
+        this.party.add(character);
+    }
+
+    /**
      * Returns the character in the party based on the given name
      * Only returns a party member that is fainted
      * return null iff the name is not of a fainted party member

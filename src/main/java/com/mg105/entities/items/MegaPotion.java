@@ -35,6 +35,9 @@ public class MegaPotion extends Item implements Consumable {
         BattleCharacter character = state.getFaintedPartyMember(characterName);
         if(character != null){
             state.removeFaintedPartyMember(characterName);
+            state.addPartyMemberToAlive(character);
+            character.modifyHealth(HEALING_POINTS);
+            return;
         }
 
         character = state.getPartyAliveMember(characterName);
