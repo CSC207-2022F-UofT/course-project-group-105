@@ -96,6 +96,20 @@ public class GameState {
         return null;
     }
 
+
+    /**
+     * Removes the given fainted party
+     * This should only be done to fainted party members who's hp is about to become above zero
+     * @param characterName the name of the party member that is fainted
+     */
+    public void removeFaintedPartyMember(@NotNull String characterName){
+        BattleCharacter character = getFaintedPartyMember(characterName);
+        if(character == null){
+            return;
+        }
+        this.fainted.remove(character);
+    }
+
     /**
      * Returns the correct party member given a name
      * @param characterName the name of the party member to return
@@ -105,7 +119,7 @@ public class GameState {
 
     public @NotNull BattleCharacter getPartyMember(String characterName) throws NoSuchElementException{
         BattleCharacter member = getPartyAliveMember(characterName);
-        if( member != null){
+        if(member != null){
             return member;
         }
 

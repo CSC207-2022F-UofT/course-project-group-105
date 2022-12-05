@@ -1,6 +1,5 @@
 package com.mg105.use_cases.inventory;
 
-import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.GameState;
 import com.mg105.use_cases.outputds.ItemDetails;
 import com.mg105.utils.ItemConstants;
@@ -87,8 +86,7 @@ public class InventoryInteractor implements InventoryInteractorInputInterface {
             response.useItem(false, characterName, getItemDetails(itemName));
             return;
         }
-        BattleCharacter partyMember = state.getPartyMember(characterName);
-        boolean isUsed = state.getInventory().useItem(partyMember, itemName);
+        boolean isUsed = state.getInventory().useItem(state, itemName,characterName);
 
         response.useItem(isUsed, characterName, getItemDetails(itemName));
     }
