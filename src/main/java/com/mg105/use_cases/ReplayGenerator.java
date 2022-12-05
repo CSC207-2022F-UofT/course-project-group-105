@@ -27,7 +27,7 @@ public class ReplayGenerator {
     /**
      * let players inherit their attribute in the last game and recover their HP to their max HP.
      */
-    public void attributeInheritance() {
+    private void attributeInheritance() {
         for (BattleCharacter bc : state.getParty()) {
             bc.modifyHealth(bc.getMaxHp());
         }
@@ -36,7 +36,7 @@ public class ReplayGenerator {
     /**
      * Clean all the items in the inventory
      */
-    public void inventoryClean() {
+    private void inventoryClean() {
         state.getInventory().removeAll();
     }
 
