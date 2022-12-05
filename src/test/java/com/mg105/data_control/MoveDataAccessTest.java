@@ -38,7 +38,7 @@ class MoveDataAccessTest {
         MoveDetails d = m.getMoveDetails(REINFORCE);
         assertEquals(REINFORCE, d.getName());
         assertEquals(2, d.getHealthChange());
-        assertEquals(2, d.getDamageChange());
+        assertEquals(1, d.getDamageChange());
         assertTrue(d.isFriendly());
     }
 

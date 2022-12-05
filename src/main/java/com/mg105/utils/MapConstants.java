@@ -31,4 +31,34 @@ public class MapConstants {
     /** An integer between -1 and 100 inclusive that somewhat reflects how may chests will be generated.
      Note: -1 represents always generate battles and 100 represents never generate battles. */
     public static final int MAPGEN_CHEST_SPARSITY = 67;
+
+    /** The upper bound on the healing effect of an opponent's friendly move. */
+    public static final int OPPONENT_HEAL_CAP = 8;
+
+    /** The upper bound on the damage buffing effect of an opponent's friendly move. */
+    public static final int OPPONENT_BUFF_CAP = 2;
+
+    /** The upper bound on the damaging effect of an opponent's unfriendly move. */
+    public static final int OPPONENT_DAMAGE_CAP = 11;
+
+    /** The upper bound on the nullifying effect of an opponent's unfriendly move. */
+    public static final int OPPONENT_NULLIFY_CAP = 0;
+
+    /** The lower bound on the opponent's health stat. */
+    public static final int OPPONENT_HEALTH_MIN = 5;
+
+    /** The upper bound on the opponent's health stat. */
+    public static final int OPPONENT_HEALTH_MAX = 41;
+
+    /** The lower bound on the opponent's damage stat. */
+    public static final int OPPONENT_ATTACK_MIN = 1;
+
+    /** The upper bound on the opponent's damage stat. */
+    public static final int OPPONENT_ATTACK_MAX = 11;
+
+    /** The lower bound on the opponent's speed stat. */
+    public static final int OPPONENT_SPEED_MIN = 3;
+
+    /** The upper bound on the opponent's speed stat. */
+    public static final int OPPONENT_SPEED_MAX = 16;
 }

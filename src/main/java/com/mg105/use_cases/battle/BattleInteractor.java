@@ -267,9 +267,15 @@ public class BattleInteractor {
         target.modifyHealth(m.getHealthChange());
 
         //If the move is to be used on a character on the other team, and the move is meant to deal health damage,
-        // then increase the health damage applied by the move based on the character's damage stat.
+        // then increase the health damage applied by the move based on the caster's damage stat.
         if (!m.isFriendly() && m.getHealthChange() < 0) {
             target.modifyHealth(-caster.getDmg());
+        }
+
+        //If the move is to be used on a character on the same team, and the move is meant to heal, then increase the
+        // healing effect applied by the move based on the caster's damage stat.
+        if(m.isFriendly() && m.getHealthChange() > 0) {
+            target.modifyHealth(Math.floorDiv(caster.getDmg(), 2));
         }
 
         if (target.getHp() == 0) {
@@ -298,6 +304,9 @@ public class BattleInteractor {
         if (status == 1) {
             addReward();
             return true;
+        } else if (status == -1) {
+            state.getParty().addAll(state.getFainted());
+            state.getFainted().removeAll(state.getParty());
         }
 
         // since at this point status != 0, status must == -1 (battle was lost)
