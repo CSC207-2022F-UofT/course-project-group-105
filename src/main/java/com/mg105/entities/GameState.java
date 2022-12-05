@@ -65,19 +65,54 @@ public class GameState {
 
     /**
      * Returns the character in party based on the given name
-     *
+     * Only returns a party member that is not fainted
+     * return null iff the name is not of an non-fainted party member
      * @param characterName the name of the character
      * @return a character in party
-     * @throws NoSuchElementException if no character in the party has the given name
      */
-    public BattleCharacter getPartyMember(String characterName) throws NoSuchElementException {
-        for (BattleCharacter character : this.party) {
+    public BattleCharacter getPartyAliveMember(@NotNull String characterName) {
+        for (BattleCharacter character : this.fainted) {
             if (character.getName().equals(characterName)) {
                 return character;
             }
         }
 
-        throw new NoSuchElementException("No Battle Character with this name exists");
+        return null;
+    }
+
+    /**
+     * Returns the character in the party based on the given name
+     * Only returns a party member that is fainted
+     * return null iff the name is not of a fainted party member
+     * @param characterName the name of the character to be returned
+     * @return a character in party
+     */
+    public BattleCharacter getFaintedPartyMember(@NotNull String characterName) throws NoSuchElementException {
+        for (BattleCharacter character : this.party) {
+            if (character.getName().equals(characterName)) {
+                return character;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Returns the correct party member given a name
+     * @param characterName the name of the party member to return
+     * @return the correct party member given a name
+     * @throws NoSuchElementException iff there is no party member of this name
+     */
+
+    public @NotNull BattleCharacter getPartyMember(String characterName) throws NoSuchElementException{
+        if(getPartyAliveMember(characterName) != null){
+            return getPartyAliveMember(characterName);
+        }
+
+        if(getFaintedPartyMember(characterName) != null){
+            return getFaintedPartyMember(characterName);
+        }
+
+        throw new NoSuchElementException("Could not find party member of this name");
     }
 
     /**
@@ -138,7 +173,6 @@ public class GameState {
     public void removeCurrEncounter(){
         this.currEncounter = null;
     }
-
 
     /**
      * Returns an ArrayList of the player's characters.
