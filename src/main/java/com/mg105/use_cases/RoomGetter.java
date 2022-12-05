@@ -64,4 +64,12 @@ public class RoomGetter {
     public String getWalkingSprite() {
         return "/sprites/" + state.getWalkingCharacter().getSpriteName() + ".png";
     }
+
+    /**
+     * Checks if the player is in the final room
+     * @return whether the player is in the final room
+     */
+    public boolean isFinalRoom(){
+        return state.isCurrentRoomLastRoom();
+    }
 }

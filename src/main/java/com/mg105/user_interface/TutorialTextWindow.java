@@ -22,6 +22,11 @@ public class TutorialTextWindow implements Toggleable{
     TutorialTextController textController;
     Scene tutorialScene = new Scene(tutorialPane, TutorialTexts.HELPER_PANE_X, TutorialTexts.HELPER_PANE_Y);
 
+    /**
+     * Window for the tutorial
+     * @param textController the controller for the tutorial
+     * @param tutorialDisplay the ui that displays the tutorial
+     */
     public TutorialTextWindow(TutorialTextController textController, @NotNull TutorialTextDisplay tutorialDisplay) {
         this.textController = textController;
         this.tutorialDisplay = tutorialDisplay;

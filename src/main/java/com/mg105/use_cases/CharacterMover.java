@@ -76,6 +76,7 @@ public class CharacterMover {
                 (nextPositionMaybeLastRoom && doorway.getPosition().equals(currentPosition))) {
                 Room nextRoom = doorway.getNextRoom();
                 state.setCurrentRoom(nextRoom);
+
                 nextPosition = getNextRoomPosition(room, nextRoom);
                 nextPositionValid = true;
                 break;
@@ -106,4 +107,5 @@ public class CharacterMover {
         assert false : "No relevant back channel.";
         return null; // Just to satisfy IDEA warnings
     }
+
 }

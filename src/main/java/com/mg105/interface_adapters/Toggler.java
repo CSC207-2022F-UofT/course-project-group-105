@@ -55,7 +55,11 @@ public interface Toggler {
         /**
          * The game Lose menu
          */
-        LOSE_MENU
+        LOSE_MENU,
+        /**
+         * The game Win menu
+         */
+        WIN_MENU
 
     }
 }
