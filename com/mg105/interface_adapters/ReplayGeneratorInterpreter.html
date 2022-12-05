@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="../../../script.js"></script>
-<script type="text/javascript" src="../../../script-dir/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="../../../script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
@@ -77,6 +77,8 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">ReplayGeneratorInterpreter</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">ReplayGenerator asks as a thin interface adapter whose sole purpose is to maintain clean architecture.
+ All it does is pass control on to the use case component of game replay generation.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -106,7 +108,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#replayGenerateMap()" class="member-name-link">replayGenerateMap</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Replay the game.</div>
+</div>
 </div>
 </div>
 </div>
@@ -129,6 +133,10 @@ loadScripts(document, 'script');</script>
 <h3>ReplayGeneratorInterpreter</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ReplayGeneratorInterpreter</span><wbr><span class="parameters">(@NotNull
  @NotNull <a href="../use_cases/ReplayGenerator.html" title="class in com.mg105.use_cases">ReplayGenerator</a>&nbsp;replayGenerator)</span></div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>replayGenerator</code> - the replayGenerator that would be used to replay the game.</dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -143,6 +151,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="replayGenerateMap()">
 <h3>replayGenerateMap</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">replayGenerateMap</span>()</div>
+<div class="block">Replay the game.</div>
 </section>
 </li>
 </ul>

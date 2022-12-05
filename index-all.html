@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="script-dir/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="script.js"></script>
-<script type="text/javascript" src="script-dir/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="script-dir/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="index-page">
@@ -133,8 +133,6 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Constant string for attack phase</div>
 </dd>
-<dt><a href="com/mg105/use_cases/ReplayGenerator.html#attributeInheritance()" class="member-name-link">attributeInheritance()</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/ReplayGenerator.html" title="class in com.mg105.use_cases">ReplayGenerator</a></dt>
-<dd>&nbsp;</dd>
 </dl>
 <h2 class="title" id="I:B">B</h2>
 <dl class="index">
@@ -864,7 +862,9 @@ loadScripts(document, 'script');</script>
 <div class="block">This method is called when the button is pressed.</div>
 </dd>
 <dt><a href="com/mg105/user_interface/ReplayGeneratorButton.html#handle(javafx.event.ActionEvent)" class="member-name-link">handle(ActionEvent)</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/ReplayGeneratorButton.html" title="class in com.mg105.user_interface">ReplayGeneratorButton</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">this method is called when the button is pressed.</div>
+</dd>
 <dt><a href="com/mg105/user_interface/WalkingMenu.html#handle(javafx.event.ActionEvent)" class="member-name-link">handle(ActionEvent)</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/WalkingMenu.html" title="class in com.mg105.user_interface">WalkingMenu</a></dt>
 <dd>
 <div class="block">Handles button events.</div>
@@ -941,10 +941,6 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/mg105/interface_adapters/Toggler.ToggleableComponent.html#INVENTORY" class="member-name-link">INVENTORY</a> - Enum constant in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/Toggler.ToggleableComponent.html" title="enum class in com.mg105.interface_adapters">Toggler.ToggleableComponent</a></dt>
 <dd>
 <div class="block">The inventory menu</div>
-</dd>
-<dt><a href="com/mg105/use_cases/ReplayGenerator.html#inventoryClean()" class="member-name-link">inventoryClean()</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/ReplayGenerator.html" title="class in com.mg105.use_cases">ReplayGenerator</a></dt>
-<dd>
-<div class="block">Clean all the items in the inventory</div>
 </dd>
 <dt><a href="com/mg105/interface_adapters/inventory/InventoryController.html" class="type-name-link" title="class in com.mg105.interface_adapters.inventory">InventoryController</a> - Class in <a href="com/mg105/interface_adapters/inventory/package-summary.html">com.mg105.interface_adapters.inventory</a></dt>
 <dd>
@@ -1482,19 +1478,29 @@ loadScripts(document, 'script');</script>
 <div class="block">Replay the game by interacting with the MapGenerator class</div>
 </dd>
 <dt><a href="com/mg105/interface_adapters/ReplayGeneratorInterpreter.html#replayGenerateMap()" class="member-name-link">replayGenerateMap()</a> - Method in class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/ReplayGeneratorInterpreter.html" title="class in com.mg105.interface_adapters">ReplayGeneratorInterpreter</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Replay the game.</div>
+</dd>
 <dt><a href="com/mg105/use_cases/ReplayGenerator.html" class="type-name-link" title="class in com.mg105.use_cases">ReplayGenerator</a> - Class in <a href="com/mg105/use_cases/package-summary.html">com.mg105.use_cases</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">A class that implement the game restart and replay function.</div>
+</dd>
 <dt><a href="com/mg105/use_cases/ReplayGenerator.html#%3Cinit%3E(com.mg105.entities.GameState,com.mg105.use_cases.Resetable...)" class="member-name-link">ReplayGenerator(GameState, Resetable...)</a> - Constructor for class com.mg105.use_cases.<a href="com/mg105/use_cases/ReplayGenerator.html" title="class in com.mg105.use_cases">ReplayGenerator</a></dt>
 <dd>
 <div class="block">Create a new replaygenerator</div>
 </dd>
 <dt><a href="com/mg105/user_interface/ReplayGeneratorButton.html" class="type-name-link" title="class in com.mg105.user_interface">ReplayGeneratorButton</a> - Class in <a href="com/mg105/user_interface/package-summary.html">com.mg105.user_interface</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">ReplayGeneratorButton acts as the event handler for the actual JavaFx button that will replay the game.</div>
+</dd>
 <dt><a href="com/mg105/user_interface/ReplayGeneratorButton.html#%3Cinit%3E(com.mg105.interface_adapters.ReplayGeneratorInterpreter,com.mg105.interface_adapters.Toggler)" class="member-name-link">ReplayGeneratorButton(ReplayGeneratorInterpreter, Toggler)</a> - Constructor for class com.mg105.user_interface.<a href="com/mg105/user_interface/ReplayGeneratorButton.html" title="class in com.mg105.user_interface">ReplayGeneratorButton</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Create a new ReplayGeneratorButton.</div>
+</dd>
 <dt><a href="com/mg105/interface_adapters/ReplayGeneratorInterpreter.html" class="type-name-link" title="class in com.mg105.interface_adapters">ReplayGeneratorInterpreter</a> - Class in <a href="com/mg105/interface_adapters/package-summary.html">com.mg105.interface_adapters</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">ReplayGenerator asks as a thin interface adapter whose sole purpose is to maintain clean architecture.</div>
+</dd>
 <dt><a href="com/mg105/interface_adapters/ReplayGeneratorInterpreter.html#%3Cinit%3E(com.mg105.use_cases.ReplayGenerator)" class="member-name-link">ReplayGeneratorInterpreter(ReplayGenerator)</a> - Constructor for class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/ReplayGeneratorInterpreter.html" title="class in com.mg105.interface_adapters">ReplayGeneratorInterpreter</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/interface_adapters/MinimapInterpreter.html#reset()" class="member-name-link">reset()</a> - Method in class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/MinimapInterpreter.html" title="class in com.mg105.interface_adapters">MinimapInterpreter</a></dt>
