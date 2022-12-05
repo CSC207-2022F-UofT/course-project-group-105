@@ -4,7 +4,6 @@ import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.GameState;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
 
 public class ReplayGenerator {
     private final @NotNull GameState state;
@@ -14,7 +13,6 @@ public class ReplayGenerator {
      * Create a new replaygenerator
      *
      * @param state the game state.
-     *
      */
     public ReplayGenerator(@NotNull GameState state, @NotNull Resetable... resetables) {
         this.state = state;
