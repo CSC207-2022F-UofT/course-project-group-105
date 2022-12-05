@@ -82,8 +82,8 @@ class PartyDataAccessTest {
     @Test
     void partyDmgs() {
         Assertions.assertEquals(4, details[0].getDmg());
-        Assertions.assertEquals(6, details[1].getDmg());
-        Assertions.assertEquals(3, details[2].getDmg());
+        Assertions.assertEquals(5, details[1].getDmg());
+        Assertions.assertEquals(4, details[2].getDmg());
         Assertions.assertEquals(9, details[3].getDmg());
     }
 

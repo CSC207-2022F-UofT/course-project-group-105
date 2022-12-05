@@ -24,8 +24,8 @@ public class PartyDataCreator extends DataStorageCreator {
 
         String[] header = {"name",MAX_HP,DAMAGE,SPEED,"isOpponent","moveName","moveName"};
         String[] p1 = {ALL_PARTY_MEMBER_NAMES[0],"30","4","5",IS_FALSE, SLOW_SWING, NULLIFY};
-        String[] p2 =  {ALL_PARTY_MEMBER_NAMES[1],"20","6","8",IS_FALSE, STRONG_SWING, WEAK_HEAL};
-        String[] p3 = {ALL_PARTY_MEMBER_NAMES[2],"25","3","6",IS_FALSE, STRONG_HEAL, REINFORCE};
+        String[] p2 =  {ALL_PARTY_MEMBER_NAMES[1],"20","5","8",IS_FALSE, STRONG_SWING, WEAK_HEAL};
+        String[] p3 = {ALL_PARTY_MEMBER_NAMES[2],"25","4","6",IS_FALSE, STRONG_HEAL, REINFORCE};
         String[] p4 =  {ALL_PARTY_MEMBER_NAMES[3],"15","9","10",IS_FALSE, SURPRISE_ATTACK, SABOTAGE};
         return new String[][]{header, p1, p2, p3, p4};
 

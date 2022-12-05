@@ -58,7 +58,7 @@ class GameStateSetterTest {
 
         BattleCharacter p = state.getPartyMember(ALL_PARTY_MEMBER_NAMES[1]);
         assertEquals(20, p.getMaxHp());
-        assertEquals(6, p.getDmg());
+        assertEquals(5, p.getDmg());
         assertEquals(8, p.getSpeed());
         assertFalse(p.isOpponent());
         assertEquals(STRONG_SWING, p.getMoveOne().getName());
@@ -70,7 +70,7 @@ class GameStateSetterTest {
 
         BattleCharacter p = state.getPartyMember(ALL_PARTY_MEMBER_NAMES[2]);
         assertEquals(25, p.getMaxHp());
-        assertEquals(3, p.getDmg());
+        assertEquals(4, p.getDmg());
         assertEquals(6, p.getSpeed());
         assertFalse(p.isOpponent());
         assertEquals(STRONG_HEAL, p.getMoveOne().getName());
