@@ -89,8 +89,8 @@ public class Inventory {
     }
 
     public void removeAll() {
-        if (numberOfItems() > 0) {
-            this.items.subList(0, numberOfItems()).clear();
+        for (int i = numberOfItems() - 1; i >=0; i--) {
+            this.items.remove(i);
         }
     }
 
