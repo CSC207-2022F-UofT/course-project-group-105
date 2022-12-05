@@ -14,14 +14,17 @@ public class ReplayGenerator {
      * Create a new replaygenerator
      *
      * @param state the game state.
+     *
      */
     public ReplayGenerator(@NotNull GameState state, @NotNull Resetable... resetables) {
         this.state = state;
         this.resetables = resetables;
     }
 
-    public ArrayList<BattleCharacter> attributeInheritance() {
-        return state.getParty();
+    public void attributeInheritance() {
+        for (BattleCharacter bc : state.getParty()) {
+            bc.modifyHealth(bc.getMaxHp());
+        }
     }
 
     /**
@@ -35,7 +38,8 @@ public class ReplayGenerator {
      * Replay the game by interacting with the MapGenerator class
      */
     public void replay() {
-        inventoryClean();
+        this.inventoryClean();
+        this.attributeInheritance();
         // incomplete remake, need to amend later. exactly implementation should depend
         // on other use cases' implementation
         MapGenerator isekai = new MapGenerator(state);
