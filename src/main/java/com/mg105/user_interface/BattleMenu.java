@@ -1,7 +1,7 @@
 package com.mg105.user_interface;
 
-import com.mg105.interface_adapters.BattleMenuInterface;
-import com.mg105.interface_adapters.BattlePresenter;
+import com.mg105.interface_adapters.battle.BattleMenuInterface;
+import com.mg105.interface_adapters.battle.BattlePresenter;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -215,6 +215,8 @@ public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterfac
             setupCharacterLabel(o1, 1, true);
             setupCharacterLabel(o2, 2, true);
             setupCharacterLabel(o3, 3, true);
+
+            nextRound.setDisable(false);
         }
     }
 
@@ -235,8 +237,10 @@ public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterfac
 
             moving = presenter.roundStart();
 
-            if (moving == null) { //Battle ended
+            if (moving == null) {
+                //Battle ended
                 presenter.endBattle();
+                return;
             }
 
             //moving != null

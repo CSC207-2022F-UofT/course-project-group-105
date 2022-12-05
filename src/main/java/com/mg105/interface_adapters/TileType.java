@@ -8,12 +8,14 @@ public enum TileType {
     FLOOR,
     /** Wall that cannot be walked on.  Mainly used for the border */
     WALL,
+    /** A wall where you can see the side */
+    WALL_WITH_FACE,
     /** A doorway */
     EXIT,
     /** A treasure chest */
     CHEST,
-    /** The player/walking character */
-    PLAYER,
+    /** A treasure chest that has been opened */
+    CHEST_OPEN,
     /** A potential battle */
     OPPONENT_SET,
 }

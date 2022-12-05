@@ -1,5 +1,6 @@
 package com.mg105;
 
+import com.mg105.interface_adapters.battle.BattlePresenter;
 import com.mg105.interface_adapters.tutorial.TutorialTextController;
 import com.mg105.data_control.access.MoveDataAccess;
 import com.mg105.data_control.access.PartyDataAccess;
@@ -9,6 +10,8 @@ import com.mg105.entities.*;
 import com.mg105.interface_adapters.*;
 import com.mg105.interface_adapters.inventory.InventoryController;
 import com.mg105.interface_adapters.inventory.InventoryPresenter;
+import com.mg105.use_cases.battle.BattleInteractor;
+import com.mg105.user_interface.*;
 import com.mg105.use_cases.*;
 import com.mg105.use_cases.inventory.InventoryInteractor;
 import com.mg105.use_cases.save.PartySaver;
@@ -18,11 +21,8 @@ import com.mg105.use_cases.set_up.data_system_creator.CreateDataStorage;
 import com.mg105.use_cases.set_up.data_system_creator.DataStorageSystemCreator;
 import com.mg105.use_cases.set_up.state_setter.GameStateSetter;
 import com.mg105.use_cases.set_up.state_setter.PartyCreator;
-import com.mg105.user_interface.*;
-import com.mg105.user_interface.InventoryDisplay;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -102,9 +102,8 @@ public class Application extends javafx.application.Application {
         /////////////////////
 
         //LoseMenu scene//
-        ReplayGenerator replayGenerator = new ReplayGenerator(state);
-        replayGenerator.inventoryClean();
-        replayGenerator.attributeInheritance();
+        ReplayGenerator replayGenerator = new ReplayGenerator(state, minimapInterpreter);
+        replayGenerator.replay();
         ReplayGeneratorInterpreter replayGeneratorInterpreter = new ReplayGeneratorInterpreter(replayGenerator);
         ReplayGeneratorButton replayGeneratorButton = new ReplayGeneratorButton(replayGeneratorInterpreter, sceneController);
         LoseMenu loseMenu = new LoseMenu(replayGeneratorButton);
@@ -121,7 +120,7 @@ public class Application extends javafx.application.Application {
 
         //Battle setup
         BattleInteractor battleInteractor = new BattleInteractor(state, inventoryInteractor, saver);
-        BattlePresenter battlePresenter = new BattlePresenter(battleInteractor);
+        BattlePresenter battlePresenter = new BattlePresenter(battleInteractor, sceneController);
         BattleMenu battleMenu = new BattleMenu(battlePresenter);
         drawableComponents.put(Toggler.ToggleableComponent.BATTLE, battleMenu);
         /////////////////////
@@ -131,13 +130,12 @@ public class Application extends javafx.application.Application {
         roomUpdater.addObserver(minimapInterpreter);
 
         CharacterMover characterMover = new CharacterMover(state, roomUpdater);
-        ChestInteractor chestInteractor = new ChestInteractor(state, inventoryInteractor);
+        ChestInteractor chestInteractor = new ChestInteractor(state, inventoryInteractor, roomUpdater);
         InputInterpreter inputInterpreter = new InputInterpreter(characterMover, sceneController, textChanger, chestInteractor,
             opponentInteractor);
         InputListener inputListener = new InputListener(inputInterpreter);
         primaryStage.addEventFilter(KeyEvent.KEY_TYPED, inputListener);
         sceneController.toggle(Toggler.ToggleableComponent.MAIN_MENU);
-        primaryStage.setTitle("Mountain Group 105");
         primaryStage.setResizable(false);
         primaryStage.show();
     }
