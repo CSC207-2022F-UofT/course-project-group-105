@@ -8,21 +8,27 @@ import com.mg105.entities.Item;
 import com.mg105.entities.Room;
 import com.mg105.entities.TreasureChest;
 import com.mg105.use_cases.inventory.InventoryInteractor;
+import org.jetbrains.annotations.NotNull;
 
 public class ChestInteractor {
 
-    private final GameState gameState;
-    private final InventoryInteractor interactor;
+    private final @NotNull GameState gameState;
+    private final @NotNull InventoryInteractor interactor;
+    private final @NotNull RoomUpdater updater;
 
     /**
      * Creates a ChestInteractor to interact with chests in a GameState.
      *
-     * @param gameState the game state.
+     * @param gameState  the game state.
      * @param interactor the inventory interactor.
+     * @param updater    the room updater that will be called when the room changes.
      */
-    public ChestInteractor(GameState gameState, InventoryInteractor interactor) {
+    public ChestInteractor(@NotNull GameState gameState,
+                           @NotNull InventoryInteractor interactor,
+                           @NotNull RoomUpdater updater) {
         this.gameState = gameState;
         this.interactor = interactor;
+        this.updater = updater;
     }
 
     /**
@@ -65,11 +71,11 @@ public class ChestInteractor {
 
     public void getChestItem() {
         TreasureChest chest = verifyChest();
-        gameState.getCurrentRoom().getChests().remove(chest);
         if (chest != null) {
             if (!chest.isOpened()) {
                 Item reward = chest.open();
                 interactor.addItem(reward.getName());
+                updater.updateRoom();
             }
         }
     }

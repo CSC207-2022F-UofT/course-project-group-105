@@ -178,6 +178,15 @@ public class GameState {
     }
 
     /**
+     * Returns true iff the player is currently in a battle
+     * @return true iff the player is currently in a battle
+     */
+
+    public boolean hasCurrEncounter(){
+        return this.currEncounter != null;
+    }
+
+    /**
      * Returns an ArrayList of the player's characters.
      *
      * @return An ArrayList of the player's characters.

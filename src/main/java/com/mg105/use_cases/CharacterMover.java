@@ -52,19 +52,21 @@ public class CharacterMover {
             nextPositionMaybeLastRoom = true;
         }
 
-        // treasure chests are impassible
-        for (TreasureChest chest : room.getChests()) {
-            if (chest.getPosition().equals(nextPosition)) {
-                nextPositionValid = false;
-                break;
+        if (!MapConstants.NOCLIP) {
+            // treasure chests are impassible
+            for (TreasureChest chest : room.getChests()) {
+                if (chest.getPosition().equals(nextPosition)) {
+                    nextPositionValid = false;
+                    break;
+                }
             }
-        }
 
-        // opponentsets are impassible
-        for (OpponentSet opponents : room.getOpponents()) {
-            if (opponents.getPosition().equals(nextPosition)) {
-                nextPositionValid = false;
-                break;
+            // opponentsets are impassible
+            for (OpponentSet opponents : room.getOpponents()) {
+                if (opponents.getPosition().equals(nextPosition)) {
+                    nextPositionValid = false;
+                    break;
+                }
             }
         }
 

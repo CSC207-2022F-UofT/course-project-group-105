@@ -34,9 +34,14 @@ public class RoomGetter {
      * @return the current room.
      */
     public @NotNull RoomLayout getCurrentRoomLayout() {
-        List<Point> chests = new ArrayList<>(state.getCurrentRoom().getChests().size());
+        List<Point> closedChests = new ArrayList<>();
+        List<Point> openChests = new ArrayList<>();
         for (TreasureChest chest : state.getCurrentRoom().getChests()) {
-            chests.add(chest.getPosition());
+            if (chest.isOpened()) {
+                openChests.add(chest.getPosition());
+            } else {
+                closedChests.add(chest.getPosition());
+            }
         }
 
         List<Point> opponents = new ArrayList<>(state.getCurrentRoom().getOpponents().size());
@@ -49,7 +54,7 @@ public class RoomGetter {
             doorways.add(doorway.getPosition());
         }
 
-        return new RoomLayout(chests, opponents, doorways, state.getWalkingCharacter().getCharPosition());
+        return new RoomLayout(closedChests, openChests, opponents, doorways, state.getWalkingCharacter().getCharPosition());
     }
 
     /**
