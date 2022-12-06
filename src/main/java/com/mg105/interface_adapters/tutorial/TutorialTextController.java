@@ -1,12 +1,13 @@
 package com.mg105.interface_adapters.tutorial;
 
-import com.mg105.entities.GiveTutorial;
 import com.mg105.use_cases.PlayerGetsTutorial;
 import com.mg105.utils.TutorialTexts;
 
+import java.util.List;
+
 public class TutorialTextController {
 
-    private final PlayerGetsTutorial tutorial = new PlayerGetsTutorial(TutorialTexts.PHASES, 0, new GiveTutorial(false, false, false));
+    private final PlayerGetsTutorial tutorial = new PlayerGetsTutorial(TutorialTexts.PHASES, 0);
     private boolean changeText;
     private boolean showControls = false;
 
@@ -42,7 +43,9 @@ public class TutorialTextController {
      *
      * @return if text should start changing
      */
-    public boolean changeText() { return this.changeText; }
+    public boolean changeText() {
+        return this.changeText;
+    }
 
     /**
      * Tell player the controls again
@@ -58,7 +61,9 @@ public class TutorialTextController {
      *
      * @return whether player should be shown the control texts
      */
-    public boolean getShowControls() { return this.showControls; }
+    public boolean getShowControls() {
+        return this.showControls;
+    }
 
     /**
      * Get an instance of the PlayerGetsTutorial use case
@@ -67,6 +72,33 @@ public class TutorialTextController {
      */
     public PlayerGetsTutorial getTutorial() {
         return this.tutorial;
+    }
+
+    /**
+     * Get if the tutorial is complete, changes text if it is
+     *
+     * @return if the tutorial is complete
+     */
+    public boolean isComplete() {
+        return tutorial.isComplete();
+    }
+
+    /**
+     * Returns if the action has been performed
+     *
+     * @return if the specified action has been performed
+     */
+    public boolean getActionPerformed(String action) {
+        return !tutorial.getActionPerformed(action);
+    }
+
+    /**
+     * Get names of all phases of tutorial
+     *
+     * @return the list of all tutorial phases
+     */
+    public List<String> allPhases() {
+        return tutorial.allPhases();
     }
 
 }
