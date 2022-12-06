@@ -1,6 +1,5 @@
 package com.mg105.use_cases.Tutorial;
 
-import com.mg105.entities.GiveTutorial;
 import com.mg105.use_cases.PlayerGetsTutorial;
 import com.mg105.user_interface.TutorialTextDisplay;
 import com.mg105.utils.TutorialTexts;
@@ -12,7 +11,7 @@ public class TutorialInteractorTest {
     @Test
     void testAdvancePhase() {
         PlayerGetsTutorial tutorialPlayer
-            = new PlayerGetsTutorial(TutorialTexts.PHASES, 0, new GiveTutorial(false, false, false));
+            = new PlayerGetsTutorial(TutorialTexts.PHASES, 0);
 
         assertEquals(tutorialPlayer.currentPhase(), 0);
         tutorialPlayer.nextPhase();
@@ -26,11 +25,9 @@ public class TutorialInteractorTest {
     @Test
     void testTutorialComplete() {
         PlayerGetsTutorial tutorialPlayer1
-            = new PlayerGetsTutorial(TutorialTexts.PHASES, 0,
-            new GiveTutorial(false, false, false));
+            = new PlayerGetsTutorial(TutorialTexts.PHASES, 0);
         PlayerGetsTutorial tutorialPlayer2
-            = new PlayerGetsTutorial(TutorialTexts.PHASES, 0,
-            new GiveTutorial(false, false, true));
+            = new PlayerGetsTutorial(TutorialTexts.PHASES, 0);
         tutorialPlayer2.setActionPerformed(TutorialTexts.MOVED);
         tutorialPlayer2.setActionPerformed(TutorialTexts.ATTACKED);
 

@@ -14,7 +14,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import org.jetbrains.annotations.NotNull;
 
-public class TutorialTextWindow implements Toggleable{
+public class TutorialTextWindow implements Toggleable {
     TutorialTextDisplay tutorialDisplay;
     Pane tutorialPane = new Pane();
     Label bottomText = new Label();
@@ -24,7 +24,8 @@ public class TutorialTextWindow implements Toggleable{
 
     /**
      * Window for the tutorial
-     * @param textController the controller for the tutorial
+     *
+     * @param textController  the controller for the tutorial
      * @param tutorialDisplay the ui that displays the tutorial
      */
     public TutorialTextWindow(TutorialTextController textController, @NotNull TutorialTextDisplay tutorialDisplay) {
@@ -52,7 +53,9 @@ public class TutorialTextWindow implements Toggleable{
      * @return the scene to be displayed.
      */
     @Override
-    public @NotNull Scene getScene() {return tutorialScene;}
+    public @NotNull Scene getScene() {
+        return tutorialScene;
+    }
 
     /**
      * Set the visibility of this component.
@@ -88,25 +91,24 @@ public class TutorialTextWindow implements Toggleable{
                 bottomText.setText(tutorialDisplay.showBottomText(tutorialText));
             }
 
-            if (textController.getShowControls() & textController.getTutorial().isComplete()){
+            if (textController.getShowControls() & textController.isComplete()) {
                 helpText.setText(tutorialDisplay.showControlsText());
-                helpTimer --;
-                if (helpTimer < 1){
+                helpTimer--;
+                if (helpTimer < 1) {
                     textController.setShowControls(false);
                     helpTimer = TutorialTexts.HELP_TIME;
                 }
             } else if (textController.getShowControls()) {
-                if (!textController.getTutorial().getActionPerformed(TutorialTexts.MOVED)){
-                        helpText.setText(TutorialTexts.DID_NOT_MOVE);
-                    } else if (!textController.getTutorial().getActionPerformed(TutorialTexts.USED_ITEM)) {
-                        helpText.setText(TutorialTexts.DID_NOT_OPEN_CHEST);
-                }
-                else {
+                if (textController.getActionPerformed(TutorialTexts.MOVED)) {
+                    helpText.setText(TutorialTexts.DID_NOT_MOVE);
+                } else if (textController.getActionPerformed(TutorialTexts.USED_ITEM)) {
+                    helpText.setText(TutorialTexts.DID_NOT_OPEN_CHEST);
+                } else {
                     helpText.setText(TutorialTexts.DID_NOT_BATTLE);
                 }
 
-                helpTimer --;
-                if (helpTimer < 1){
+                helpTimer--;
+                if (helpTimer < 1) {
                     textController.setShowControls(false);
                     helpTimer = TutorialTexts.HELP_TIME;
                 }
