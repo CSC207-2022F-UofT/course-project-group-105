@@ -1,6 +1,7 @@
-package com.mg105.interface_adapters;
+package com.mg105.interface_adapters.map;
 
-import com.mg105.use_cases.RoomGetter;
+import com.mg105.interface_adapters.TileType;
+import com.mg105.use_cases.map.RoomGetter;
 import com.mg105.use_cases.outputds.RoomLayout;
 import com.mg105.utils.MapConstants;
 import org.jetbrains.annotations.NotNull;

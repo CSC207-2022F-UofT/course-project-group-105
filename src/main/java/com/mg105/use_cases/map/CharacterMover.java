@@ -1,4 +1,4 @@
-package com.mg105.use_cases;
+package com.mg105.use_cases.map;
 
 import com.mg105.entities.*;
 import com.mg105.utils.MapConstants;
@@ -94,7 +94,6 @@ public class CharacterMover {
      *
      * @param currentRoom the current room you are in
      * @param nextRoom    the room you will be in.
-     *
      * @return the position you would be in nextRoom if just exiting from currentRoom.
      */
     private @NotNull Point getNextRoomPosition(@NotNull Room currentRoom, @NotNull Room nextRoom) {

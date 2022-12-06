@@ -1,6 +1,6 @@
 package com.mg105.user_interface;
 
-import com.mg105.interface_adapters.RoomInterpreter;
+import com.mg105.interface_adapters.map.RoomInterpreter;
 import com.mg105.interface_adapters.TileType;
 import com.mg105.utils.MapConstants;
 import javafx.scene.Group;

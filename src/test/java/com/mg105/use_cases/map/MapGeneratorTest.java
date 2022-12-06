@@ -1,4 +1,4 @@
-package com.mg105.use_cases;
+package com.mg105.use_cases.map;
 
 import com.mg105.entities.*;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,7 +10,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.fail;
 
 class MapGeneratorTest {
     private GameState state;

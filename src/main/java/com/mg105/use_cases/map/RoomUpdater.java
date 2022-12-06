@@ -1,4 +1,4 @@
-package com.mg105.use_cases;
+package com.mg105.use_cases.map;
 
 import org.jetbrains.annotations.NotNull;
 

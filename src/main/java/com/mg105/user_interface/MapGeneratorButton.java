@@ -1,6 +1,6 @@
 package com.mg105.user_interface;
 
-import com.mg105.interface_adapters.MapGeneratorInterpreter;
+import com.mg105.interface_adapters.map.MapGeneratorInterpreter;
 import com.mg105.interface_adapters.Toggler;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

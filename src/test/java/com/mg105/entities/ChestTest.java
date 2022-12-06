@@ -1,7 +1,7 @@
 package com.mg105.entities;
 import com.mg105.entities.items.HealthPotion;
 import com.mg105.entities.items.MegaPotion;
-import com.mg105.use_cases.RoomUpdater;
+import com.mg105.use_cases.map.RoomUpdater;
 import com.mg105.use_cases.outputds.ItemDetails;
 import com.mg105.use_cases.ChestInteractor;
 import com.mg105.use_cases.inventory.InventoryInteractor;

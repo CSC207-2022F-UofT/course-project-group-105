@@ -1,6 +1,6 @@
-package com.mg105.interface_adapters;
+package com.mg105.interface_adapters.map;
 
-import com.mg105.use_cases.MapGenerator;
+import com.mg105.use_cases.map.MapGenerator;
 import org.jetbrains.annotations.NotNull;
 
 /**

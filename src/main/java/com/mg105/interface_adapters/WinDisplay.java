@@ -1,6 +1,6 @@
 package com.mg105.interface_adapters;
 
-import com.mg105.use_cases.RoomGetter;
+import com.mg105.use_cases.map.RoomGetter;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;

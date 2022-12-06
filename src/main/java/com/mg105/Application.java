@@ -1,6 +1,9 @@
 package com.mg105;
 
 import com.mg105.interface_adapters.battle.BattlePresenter;
+import com.mg105.interface_adapters.map.MapGeneratorInterpreter;
+import com.mg105.interface_adapters.map.MinimapInterpreter;
+import com.mg105.interface_adapters.map.RoomInterpreter;
 import com.mg105.interface_adapters.tutorial.TutorialTextController;
 import com.mg105.data_control.access.MoveDataAccess;
 import com.mg105.data_control.access.PartyDataAccess;
@@ -11,6 +14,7 @@ import com.mg105.interface_adapters.*;
 import com.mg105.interface_adapters.inventory.InventoryController;
 import com.mg105.interface_adapters.inventory.InventoryPresenter;
 import com.mg105.use_cases.battle.BattleInteractor;
+import com.mg105.use_cases.map.*;
 import com.mg105.user_interface.*;
 import com.mg105.use_cases.*;
 import com.mg105.use_cases.inventory.InventoryInteractor;

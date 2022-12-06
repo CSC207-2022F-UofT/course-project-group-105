@@ -1,4 +1,4 @@
-package com.mg105.use_cases;
+package com.mg105.use_cases.map;
 
 import com.mg105.entities.*;
 import com.mg105.entities.items.HealthPotion;
@@ -53,7 +53,7 @@ public class MapGenerator {
      */
     public void generateMap() {
         Room firstRoom = generateEmptyRoom();
-        Room lastRoom  = generateEmptyRoom();
+        Room lastRoom = generateEmptyRoom();
 
         // Randomly generate the in between rooms
         generateBetweenRooms(firstRoom, lastRoom);
@@ -86,7 +86,6 @@ public class MapGenerator {
      * @param map    the map to reference.
      * @param target the point whose neighbours we're looking for.
      * @param filter a predicate saying which points should be excluded.
-     *
      * @return a list of all the neighbours satisfying the precondition.
      */
     private @NotNull List<Point> getNeighbours(@NotNull Room[][] map,
@@ -120,7 +119,6 @@ public class MapGenerator {
      * @param map   the map to draw adjacency from (basically the adjacency matrix).
      * @param start the starting point.
      * @param end   the target.
-     *
      * @return the closet point to end that is graph-connected to start.
      */
     private @NotNull Point getClosestPointTo(@NotNull Room[][] map, @NotNull Point start, @NotNull Point end) {
@@ -163,7 +161,7 @@ public class MapGenerator {
      */
     private void generateBetweenRooms(@NotNull Room firstRoom, @NotNull Room lastRoom) {
         final int mapHeight = random.nextInt(MapConstants.MAPGEN_MIN_MAP_HEIGHT, MapConstants.MAPGEN_MAX_MAP_HEIGHT);
-        final int mapWidth  = random.nextInt(MapConstants.MAPGEN_MIN_MAP_WIDTH,  MapConstants.MAPGEN_MAX_MAP_WIDTH);
+        final int mapWidth = random.nextInt(MapConstants.MAPGEN_MIN_MAP_WIDTH, MapConstants.MAPGEN_MAX_MAP_WIDTH);
         Room[][] map = new Room[mapHeight][mapWidth];
 
         // First fill in some random 'anchor' rooms
@@ -176,11 +174,11 @@ public class MapGenerator {
         }
 
         // Next we manually place the first and last room
-        Point startPos = new Point(random.nextInt(mapWidth), mapHeight-1);
-        Point endPos   = new Point(random.nextInt(mapWidth), 0);
+        Point startPos = new Point(random.nextInt(mapWidth), mapHeight - 1);
+        Point endPos = new Point(random.nextInt(mapWidth), 0);
 
         map[startPos.y][startPos.x] = firstRoom;
-        map[endPos.y][endPos.x]     = lastRoom;
+        map[endPos.y][endPos.x] = lastRoom;
 
         // Next we connect the anchors together
         Point closest = getClosestPointTo(map, startPos, endPos);
@@ -200,7 +198,7 @@ public class MapGenerator {
                     List<Point> neighbours = getNeighbours(map, new Point(x, y), Objects::isNull);
                     for (Point neighbour : neighbours) {
                         Room neighbourRoom = map[neighbour.y][neighbour.x];
-                        int wallPosition = 3 + random.nextInt(MapConstants.ROOM_SIZE-6);
+                        int wallPosition = 3 + random.nextInt(MapConstants.ROOM_SIZE - 6);
 
                         Doorway doorway;
                         if (neighbour.y < y) {
@@ -208,13 +206,13 @@ public class MapGenerator {
                             doorway = new Doorway(new Point(wallPosition, 0), neighbourRoom);
                         } else if (neighbour.y > y) {
                             // neighbourRoom is below the currentRoom
-                            doorway = new Doorway(new Point(wallPosition, MapConstants.ROOM_SIZE-1), neighbourRoom);
+                            doorway = new Doorway(new Point(wallPosition, MapConstants.ROOM_SIZE - 1), neighbourRoom);
                         } else if (neighbour.x < x) {
                             // neighbourRoom is to the left of the currentRoom
                             doorway = new Doorway(new Point(0, wallPosition), neighbourRoom);
                         } else {
                             // neighbourRoom is to the right of the currentRoom\
-                            doorway = new Doorway(new Point(MapConstants.ROOM_SIZE-1, wallPosition), neighbourRoom);
+                            doorway = new Doorway(new Point(MapConstants.ROOM_SIZE - 1, wallPosition), neighbourRoom);
                         }
                         currentRoom.getDoorways().add(doorway);
                     }
@@ -238,13 +236,13 @@ public class MapGenerator {
 
         Point[] possibleLocations = {
             new Point(
-                MapConstants.ROOM_SIZE/2 - 1 + random.nextInt(2),
-                MapConstants.ROOM_SIZE/2 - 1 + random.nextInt(2)
+                MapConstants.ROOM_SIZE / 2 - 1 + random.nextInt(2),
+                MapConstants.ROOM_SIZE / 2 - 1 + random.nextInt(2)
             ),
             new Point(1, 1),
-            new Point(1, MapConstants.ROOM_SIZE-2),
-            new Point(MapConstants.ROOM_SIZE-2, 1),
-            new Point(MapConstants.ROOM_SIZE-2, MapConstants.ROOM_SIZE-2)
+            new Point(1, MapConstants.ROOM_SIZE - 2),
+            new Point(MapConstants.ROOM_SIZE - 2, 1),
+            new Point(MapConstants.ROOM_SIZE - 2, MapConstants.ROOM_SIZE - 2)
         };
 
         for (Point chestLocation : possibleLocations) {
@@ -299,7 +297,7 @@ public class MapGenerator {
         Point battlePosition = new Point(door.getPosition());
         if (battlePosition.x == 0) {
             battlePosition.x += 1;
-        } else if (battlePosition.x == MapConstants.ROOM_SIZE-1) {
+        } else if (battlePosition.x == MapConstants.ROOM_SIZE - 1) {
             battlePosition.x -= 1;
         } else if (battlePosition.y == 0) {
             battlePosition.y += 1;
@@ -361,7 +359,7 @@ public class MapGenerator {
         while (!unpopulatedRooms.isEmpty()) {
             Room current = unpopulatedRooms.remove();
 
-            for (Doorway door: current.getDoorways()) {
+            for (Doorway door : current.getDoorways()) {
                 if (!visited.contains(door.getNextRoom())) {
                     unpopulatedRooms.add(door.getNextRoom());
                     visited.add(door.getNextRoom());

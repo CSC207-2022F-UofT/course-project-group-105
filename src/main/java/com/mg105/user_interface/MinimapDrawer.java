@@ -1,6 +1,6 @@
 package com.mg105.user_interface;
 
-import com.mg105.interface_adapters.MinimapInterpreter;
+import com.mg105.interface_adapters.map.MinimapInterpreter;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.shape.Line;

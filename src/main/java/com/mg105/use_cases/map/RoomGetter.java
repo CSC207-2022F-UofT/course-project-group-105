@@ -1,4 +1,4 @@
-package com.mg105.use_cases;
+package com.mg105.use_cases.map;
 
 import com.mg105.entities.Doorway;
 import com.mg105.entities.GameState;
@@ -59,6 +59,7 @@ public class RoomGetter {
 
     /**
      * Retrieves the WalkingCharacter sprite name String, returns a file name/location corresponding to the name.
+     *
      * @return a String representing the file name/location for the selected character sprite.
      */
     public String getWalkingSprite() {
@@ -67,9 +68,10 @@ public class RoomGetter {
 
     /**
      * Checks if the player is in the final room
+     *
      * @return whether the player is in the final room
      */
-    public boolean isFinalRoom(){
+    public boolean isFinalRoom() {
         return state.isCurrentRoomLastRoom();
     }
 }

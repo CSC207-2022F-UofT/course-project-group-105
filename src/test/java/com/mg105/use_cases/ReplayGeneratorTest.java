@@ -1,5 +1,6 @@
 package com.mg105.use_cases;
 
+import com.mg105.use_cases.map.ReplayGenerator;
 import org.junit.jupiter.api.Test;
 import com.mg105.entities.*;
 import com.mg105.entities.items.UpgradeToken;

@@ -2,7 +2,7 @@ package com.mg105.interface_adapters;
 
 import com.mg105.use_cases.ChestInteractor;
 import com.mg105.interface_adapters.tutorial.TutorialTextController;
-import com.mg105.use_cases.CharacterMover;
+import com.mg105.use_cases.map.CharacterMover;
 import com.mg105.use_cases.OpponentSetInteractor;
 import com.mg105.utils.TutorialTexts;
 import org.jetbrains.annotations.NotNull;

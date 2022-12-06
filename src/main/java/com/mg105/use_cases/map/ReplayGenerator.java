@@ -1,7 +1,8 @@
-package com.mg105.use_cases;
+package com.mg105.use_cases.map;
 
 import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.GameState;
+import com.mg105.use_cases.Resetable;
 import org.jetbrains.annotations.NotNull;
 
 
@@ -16,7 +17,7 @@ public class ReplayGenerator {
     /**
      * Create a new replaygenerator
      *
-     * @param state the game state.
+     * @param state      the game state.
      * @param resetables resetable things.
      */
     public ReplayGenerator(@NotNull GameState state, @NotNull Resetable... resetables) {

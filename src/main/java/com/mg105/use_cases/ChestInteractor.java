@@ -8,6 +8,7 @@ import com.mg105.entities.Item;
 import com.mg105.entities.Room;
 import com.mg105.entities.TreasureChest;
 import com.mg105.use_cases.inventory.InventoryInteractor;
+import com.mg105.use_cases.map.RoomUpdater;
 import org.jetbrains.annotations.NotNull;
 
 public class ChestInteractor {
