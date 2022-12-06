@@ -13,7 +13,6 @@ import java.util.NoSuchElementException;
  */
 
 public class GameState {
-    private Room firstRoom;
     private Room lastRoom;
     private Room currentRoom;
 
@@ -160,7 +159,6 @@ public class GameState {
      * @param lastRoom  the end room of the map (where the game is won).
      */
     public void setMap(@NotNull Room firstRoom, @NotNull Room lastRoom) {
-        this.firstRoom = firstRoom;
         this.currentRoom = firstRoom;
         this.lastRoom = lastRoom;
     }
@@ -241,18 +239,6 @@ public class GameState {
      */
     public void setCurrOpponent(OpponentSet currOpponent) {
         this.currOpponent = currOpponent;
-    }
-
-    /**
-     * Get if the player is in the first room.
-     *
-     * @return true if the player is in the first room, false otherwise.
-     */
-    public boolean isCurrentRoomFirstRoom() {
-        // NOTE: In this case it is actually ok to directly compare the two via == and not .equals()... This is because
-        // we actually care that this is exactly the same instance of the room, not just two rooms that happen to have
-        // the same configuration.
-        return currentRoom == firstRoom;
     }
 
     /**
