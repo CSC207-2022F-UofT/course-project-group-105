@@ -1,6 +1,6 @@
 package com.mg105.interface_adapters;
 
-import com.mg105.use_cases.map.ReplayGenerator;
+import com.mg105.use_cases.ReplayGenerator;
 import org.jetbrains.annotations.NotNull;
 
 /**

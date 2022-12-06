@@ -73,7 +73,7 @@ public class Application extends javafx.application.Application {
         MapGeneratorButton generateMapButton = new MapGeneratorButton(mapGeneratorInterpreter, sceneController);
         MainMenu mainMenu = new MainMenu(generateMapButton);
 
-        RoomGetter roomGetter = new RoomGetter(state);
+        RoomGetterInterface roomGetter = new RoomGetter(state);
         RoomInterpreterInterface roomInterpreter = new RoomInterpreter(roomGetter);
         MapDrawer mapDrawer = new MapDrawer(roomInterpreter);
         drawableComponents.put(Toggler.ToggleableComponent.MAIN_MENU, mainMenu);
@@ -134,7 +134,7 @@ public class Application extends javafx.application.Application {
         RoomUpdater roomUpdater = new RoomUpdater();
         roomUpdater.addObserver(mapDrawer);
         roomUpdater.addObserver(minimapInterpreter);
-        CharacterMover characterMover = new CharacterMover(state, roomUpdater);
+        CharacterMoverInterface characterMover = new CharacterMover(state, roomUpdater);
 
         /////WinGame Scene/////
         ReplayGeneratorButton winButton = new ReplayGeneratorButton(replayGeneratorInterpreter, sceneController, Toggler.ToggleableComponent.WIN_MENU);

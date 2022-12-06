@@ -1,7 +1,7 @@
 package com.mg105.interface_adapters.map;
 
 import com.mg105.use_cases.Resetable;
-import com.mg105.use_cases.map.RoomGetter;
+import com.mg105.use_cases.map.RoomGetterInterface;
 import com.mg105.use_cases.outputds.RoomLayout;
 import com.mg105.utils.MapConstants;
 import com.mg105.utils.PointComparator;
@@ -16,7 +16,7 @@ import java.beans.PropertyChangeListener;
  * The MinimapInterpreter processes room change data an interprets its implicit position.
  */
 public class MinimapInterpreter implements PropertyChangeListener, Resetable, MinimapInterpreterInterface {
-    private final @NotNull RoomGetter getter;
+    private final @NotNull RoomGetterInterface getter;
 
     private @Nullable Point lastPosition;
     private @NotNull RoomState[][] mapSoFar;
@@ -27,7 +27,7 @@ public class MinimapInterpreter implements PropertyChangeListener, Resetable, Mi
      *
      * @param getter the RoomGetter that will get room information.
      */
-    public MinimapInterpreter(@NotNull RoomGetter getter) {
+    public MinimapInterpreter(@NotNull RoomGetterInterface getter) {
         this.getter = getter;
         currentRoom = new Point();
 

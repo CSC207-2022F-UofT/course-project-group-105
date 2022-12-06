@@ -1,8 +1,8 @@
-package com.mg105.use_cases.map;
+package com.mg105.use_cases;
 
 import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.GameState;
-import com.mg105.use_cases.Resetable;
+import com.mg105.use_cases.map.MapGenerator;
 import org.jetbrains.annotations.NotNull;
 
 

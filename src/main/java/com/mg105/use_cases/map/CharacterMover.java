@@ -9,9 +9,9 @@ import java.awt.*;
 /**
  * Move the player within a room.
  */
-public class CharacterMover {
+public class CharacterMover implements CharacterMoverInterface {
     private final @NotNull GameState state;
-    private final @NotNull RoomUpdater updater;
+    private final @NotNull RoomUpdaterInterface updater;
 
     /**
      * Create a CharacterMover to operate on state and to update the room visuals via the updater
@@ -19,7 +19,7 @@ public class CharacterMover {
      * @param state   the current game state.
      * @param updater something that will update the visual representation of the room on change.
      */
-    public CharacterMover(@NotNull GameState state, @NotNull RoomUpdater updater) {
+    public CharacterMover(@NotNull GameState state, @NotNull RoomUpdaterInterface updater) {
         this.state = state;
         this.updater = updater;
     }
@@ -30,6 +30,7 @@ public class CharacterMover {
      * @param direction the direction to move. The direction must have a magnitude of 1 and be in exactly one
      *                  cardinal direction.
      */
+    @Override
     public void generateMapMoveBy(Point direction) {
         // Because direction.x and direction.y are integers, the precondition for direction is satisfied iff the
         // magnitude of the vector is 1 which is true iff the sum of the absolute value of the components is 1.

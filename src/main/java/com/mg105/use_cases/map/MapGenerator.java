@@ -24,7 +24,7 @@ import java.util.function.Predicate;
  * <p>
  * Alas, this is just a complex algorithm and must necessarily be somewhat long.
  */
-public class MapGenerator {
+public class MapGenerator implements MapGeneratorInterface {
     private final @NotNull GameState state;
     private final @NotNull Random random;
 
@@ -51,6 +51,7 @@ public class MapGenerator {
     /**
      * Generates a map.
      */
+    @Override
     public void generateMap() {
         Room firstRoom = generateEmptyRoom();
         Room lastRoom = generateEmptyRoom();

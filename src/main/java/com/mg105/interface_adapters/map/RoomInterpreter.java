@@ -1,6 +1,6 @@
 package com.mg105.interface_adapters.map;
 
-import com.mg105.use_cases.map.RoomGetter;
+import com.mg105.use_cases.map.RoomGetterInterface;
 import com.mg105.use_cases.outputds.RoomLayout;
 import com.mg105.utils.MapConstants;
 import org.jetbrains.annotations.NotNull;
@@ -11,14 +11,14 @@ import java.awt.*;
  * RoomInterpreter interprets the current room in a format that is easier to draw from.
  */
 public class RoomInterpreter implements RoomInterpreterInterface {
-    private final @NotNull RoomGetter getter;
+    private final @NotNull RoomGetterInterface getter;
 
     /**
      * Create a new RoomInterpreter that will get its information from getter.
      *
      * @param getter the information source for the RoomInterpreter.
      */
-    public RoomInterpreter(@NotNull RoomGetter getter) {
+    public RoomInterpreter(@NotNull RoomGetterInterface getter) {
         this.getter = getter;
     }
 

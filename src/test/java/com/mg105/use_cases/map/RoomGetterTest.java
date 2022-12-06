@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RoomGetterTest {
     private GameState state;
-    private RoomGetter getter;
+    private RoomGetterInterface getter;
 
     @BeforeEach
     void setup() {

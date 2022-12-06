@@ -1,6 +1,6 @@
 package com.mg105.interface_adapters;
 
-import com.mg105.use_cases.map.RoomGetter;
+import com.mg105.use_cases.map.RoomGetterInterface;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -10,14 +10,14 @@ import java.beans.PropertyChangeListener;
  */
 public class WinDisplay implements PropertyChangeListener {
     private final Toggler toggler;
-    private final RoomGetter roomGetter;
+    private final RoomGetterInterface roomGetter;
 
     /**
      * Construction for the WinDisplay interface adapter
      * @param toggler toggles the win screen
      * @param roomGetter gets the current room of the player
      */
-    public WinDisplay(Toggler toggler, RoomGetter roomGetter){
+    public WinDisplay(Toggler toggler, RoomGetterInterface roomGetter){
         this.toggler = toggler;
         this.roomGetter = roomGetter;
     }
