@@ -1,8 +1,9 @@
 package com.mg105.use_cases;
 
-import com.mg105.entities.*;
+import com.mg105.entities.GameState;
+import com.mg105.entities.OpponentSet;
 
-import java.awt.Point;
+import java.awt.*;
 import java.util.List;
 
 /**

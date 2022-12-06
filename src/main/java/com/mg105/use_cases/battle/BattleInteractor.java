@@ -1,6 +1,9 @@
 package com.mg105.use_cases.battle;
 
-import com.mg105.entities.*;
+import com.mg105.entities.Battle;
+import com.mg105.entities.BattleCharacter;
+import com.mg105.entities.GameState;
+import com.mg105.entities.Move;
 import com.mg105.use_cases.inventory.InventoryInteractor;
 import com.mg105.use_cases.save.Saver;
 

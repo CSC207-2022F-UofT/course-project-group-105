@@ -1,8 +1,5 @@
 package com.mg105.use_cases;
 
-import java.awt.*;
-import java.util.List;
-
 import com.mg105.entities.GameState;
 import com.mg105.entities.Item;
 import com.mg105.entities.Room;
@@ -10,6 +7,9 @@ import com.mg105.entities.TreasureChest;
 import com.mg105.use_cases.inventory.InventoryInteractor;
 import com.mg105.use_cases.map.RoomUpdaterInterface;
 import org.jetbrains.annotations.NotNull;
+
+import java.awt.*;
+import java.util.List;
 
 public class ChestInteractor {
 

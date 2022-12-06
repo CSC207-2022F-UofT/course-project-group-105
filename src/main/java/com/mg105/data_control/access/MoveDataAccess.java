@@ -13,7 +13,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import static com.mg105.utils.DataAccessConstants.*;
+import static com.mg105.utils.DataAccessConstants.IS_TRUE;
+import static com.mg105.utils.DataAccessConstants.MOVE_DATA_PATH;
 
 /**
  * This is a class mean to interact and get information about moves from a "database"
