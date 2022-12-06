@@ -5,6 +5,8 @@ import com.mg105.entities.items.UpgradeToken;
 import com.mg105.utils.ItemConstants;
 import org.junit.jupiter.api.Test;
 
+import java.awt.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class InventoryTest {
@@ -16,7 +18,7 @@ class InventoryTest {
         Inventory inventory = new Inventory();
         assertEquals(0, inventory.numberOfItems());
     }
-    
+
     @Test
     void inLimit() {
         Inventory inventory = new Inventory();
@@ -346,7 +348,11 @@ class InventoryTest {
         inventory.addItem(new HealthPotion());
         inventory.addItem(new HealthPotion());
 
-        assertFalse(inventory.useItem(character, ItemConstants.UPGRADE_TOKEN_NAME));
+        BattleCharacter[] cs = {character};
+
+        GameState state = new GameState(inventory, cs, new WalkingCharacter(new Point()));
+
+        assertFalse(inventory.useItem(state, ItemConstants.UPGRADE_TOKEN_NAME, "John"));
 
     }
 
@@ -361,7 +367,11 @@ class InventoryTest {
 
         inventory.addItem(new UpgradeToken());
 
-        inventory.useItem(character, ItemConstants.UPGRADE_TOKEN_NAME);
+        BattleCharacter[] cs = {character};
+
+        GameState state = new GameState(inventory, cs, new WalkingCharacter(new Point()));
+
+        inventory.useItem(state, ItemConstants.UPGRADE_TOKEN_NAME, "John");
 
         assertEquals(0, inventory.numberOfItems());
 
@@ -386,7 +396,11 @@ class InventoryTest {
         inventory.addItem(new HealthPotion());
         inventory.addItem(new HealthPotion());
 
-        inventory.useItem(character, ItemConstants.HEALTH_POTION_NAME);
+        BattleCharacter[] cs = {character};
+
+        GameState state = new GameState(inventory, cs, new WalkingCharacter(new Point()));
+
+        inventory.useItem(state, ItemConstants.HEALTH_POTION_NAME, "John");
 
         assertEquals(1, inventory.numberOfItems());
 

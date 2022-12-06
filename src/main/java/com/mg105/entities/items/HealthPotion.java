@@ -2,6 +2,7 @@ package com.mg105.entities.items;
 
 import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.Consumable;
+import com.mg105.entities.GameState;
 import com.mg105.entities.Item;
 import com.mg105.utils.ItemConstants;
 import org.jetbrains.annotations.NotNull;
@@ -28,12 +29,16 @@ public class HealthPotion extends Item implements Consumable {
 
     /**
      * Heals the battleCharacter provided
-     *
-     * @param character the battleCharacter to use the item on
-     * @see Consumable
+     * @param state the state of the game
+     * @param characterName the name of the character to use the item on
      */
     @Override
-    public void consume(@NotNull BattleCharacter character) {
+    public void consume(@NotNull GameState state, @NotNull String characterName) {
+        BattleCharacter character = state.getPartyMember(characterName);
+        if(character.getHp() == 0){
+            state.removeFaintedPartyMember(characterName);
+            state.addPartyMemberToAlive(character);
+        }
         character.modifyHealth(HEALING_POINTS);
 
     }

@@ -1,4 +1,4 @@
-package com.mg105.user_interface.Alert;
+package com.mg105.user_interface;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -22,8 +22,8 @@ public class AlertBox {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("Alert");
-        window.setHeight(100);
-        window.setWidth(200);
+        window.setHeight(400);
+        window.setWidth(400);
         window.setResizable(false);
         Label label = new Label();
         label.setText(msg);

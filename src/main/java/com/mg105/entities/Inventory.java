@@ -97,21 +97,22 @@ public class Inventory {
     /**
      * Uses the item on the given character
      *
-     * @param character The character to use the item on
+     * @param state The current state of the game
      * @param itemName  The name of the item to use
+     * @param characterName the character to use the item on
      * @return true iff the item with a name of itemName was used
      * @see Item
      * @see Consumable
      */
 
-    public boolean useItem(@NotNull BattleCharacter character, @NotNull String itemName) {
+    public boolean useItem(@NotNull GameState state, @NotNull String itemName, @NotNull String characterName) {
         for (int i = 0; i < numberOfItems(); i++) {
             Item item = this.items.get(i);
 
             if (item.getName().equals(itemName)) {
 
                 if (item instanceof Consumable consumableItem) {
-                    consumableItem.consume(character);
+                    consumableItem.consume(state, characterName);
                     this.items.remove(i);
                     return true;
 
