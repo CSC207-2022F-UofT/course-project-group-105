@@ -89,7 +89,11 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Add a new observer to the RoomUpdater.</div>
 </dd>
-<dt><a href="com/mg105/user_interface/Alert/Alert.html#alert(java.lang.String)" class="member-name-link">alert(String)</a> - Method in interface com.mg105.user_interface.Alert.<a href="com/mg105/user_interface/Alert/Alert.html" title="interface in com.mg105.user_interface.Alert">Alert</a></dt>
+<dt><a href="com/mg105/entities/GameState.html#addPartyMemberToAlive(com.mg105.entities.BattleCharacter)" class="member-name-link">addPartyMemberToAlive(BattleCharacter)</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/GameState.html" title="class in com.mg105.entities">GameState</a></dt>
+<dd>
+<div class="block">Adds the battleCharacter to the party</div>
+</dd>
+<dt><a href="com/mg105/interface_adapters/Alert.html#alert(java.lang.String)" class="member-name-link">alert(String)</a> - Method in interface com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/Alert.html" title="interface in com.mg105.interface_adapters">Alert</a></dt>
 <dd>
 <div class="block">Display an alert to the user</div>
 </dd>
@@ -97,15 +101,15 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Opens a window displaying a message to the user</div>
 </dd>
-<dt><a href="com/mg105/user_interface/Alert/Alert.html" class="type-name-link" title="interface in com.mg105.user_interface.Alert">Alert</a> - Interface in <a href="com/mg105/user_interface/Alert/package-summary.html">com.mg105.user_interface.Alert</a></dt>
+<dt><a href="com/mg105/interface_adapters/Alert.html" class="type-name-link" title="interface in com.mg105.interface_adapters">Alert</a> - Interface in <a href="com/mg105/interface_adapters/package-summary.html">com.mg105.interface_adapters</a></dt>
 <dd>
 <div class="block">An interface that defines one function that alerts the user of something</div>
 </dd>
-<dt><a href="com/mg105/user_interface/Alert/AlertBox.html" class="type-name-link" title="class in com.mg105.user_interface.Alert">AlertBox</a> - Class in <a href="com/mg105/user_interface/Alert/package-summary.html">com.mg105.user_interface.Alert</a></dt>
+<dt><a href="com/mg105/user_interface/AlertBox.html" class="type-name-link" title="class in com.mg105.user_interface">AlertBox</a> - Class in <a href="com/mg105/user_interface/package-summary.html">com.mg105.user_interface</a></dt>
 <dd>
 <div class="block">AlertBox is a component that creates a new window and display a users a message.</div>
 </dd>
-<dt><a href="com/mg105/user_interface/Alert/AlertBox.html#%3Cinit%3E()" class="member-name-link">AlertBox()</a> - Constructor for class com.mg105.user_interface.Alert.<a href="com/mg105/user_interface/Alert/AlertBox.html" title="class in com.mg105.user_interface.Alert">AlertBox</a></dt>
+<dt><a href="com/mg105/user_interface/AlertBox.html#%3Cinit%3E()" class="member-name-link">AlertBox()</a> - Constructor for class com.mg105.user_interface.<a href="com/mg105/user_interface/AlertBox.html" title="class in com.mg105.user_interface">AlertBox</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/utils/ItemConstants.html#ALL_ITEM_DESCRIPTIONS" class="member-name-link">ALL_ITEM_DESCRIPTIONS</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/ItemConstants.html" title="class in com.mg105.utils">ItemConstants</a></dt>
 <dd>&nbsp;</dd>
@@ -287,8 +291,6 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/user_interface/package-summary.html">com.mg105.user_interface</a> - package com.mg105.user_interface</dt>
 <dd>&nbsp;</dd>
-<dt><a href="com/mg105/user_interface/Alert/package-summary.html">com.mg105.user_interface.Alert</a> - package com.mg105.user_interface.Alert</dt>
-<dd>&nbsp;</dd>
 <dt><a href="com/mg105/utils/package-summary.html">com.mg105.utils</a> - package com.mg105.utils</dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/utils/PointComparator.html#compare(java.awt.Point,java.awt.Point)" class="member-name-link">compare(Point, Point)</a> - Method in class com.mg105.utils.<a href="com/mg105/utils/PointComparator.html" title="class in com.mg105.utils">PointComparator</a></dt>
@@ -311,19 +313,19 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Consumable is an interface that should only be implemented by items that can be use on a character</div>
 </dd>
-<dt><a href="com/mg105/entities/Consumable.html#consume(com.mg105.entities.BattleCharacter)" class="member-name-link">consume(BattleCharacter)</a> - Method in interface com.mg105.entities.<a href="com/mg105/entities/Consumable.html" title="interface in com.mg105.entities">Consumable</a></dt>
+<dt><a href="com/mg105/entities/Consumable.html#consume(com.mg105.entities.GameState,java.lang.String)" class="member-name-link">consume(GameState, String)</a> - Method in interface com.mg105.entities.<a href="com/mg105/entities/Consumable.html" title="interface in com.mg105.entities">Consumable</a></dt>
 <dd>
 <div class="block">This method allow a character to use an item on themselves.</div>
 </dd>
-<dt><a href="com/mg105/entities/items/HealthPotion.html#consume(com.mg105.entities.BattleCharacter)" class="member-name-link">consume(BattleCharacter)</a> - Method in class com.mg105.entities.items.<a href="com/mg105/entities/items/HealthPotion.html" title="class in com.mg105.entities.items">HealthPotion</a></dt>
+<dt><a href="com/mg105/entities/items/HealthPotion.html#consume(com.mg105.entities.GameState,java.lang.String)" class="member-name-link">consume(GameState, String)</a> - Method in class com.mg105.entities.items.<a href="com/mg105/entities/items/HealthPotion.html" title="class in com.mg105.entities.items">HealthPotion</a></dt>
 <dd>
 <div class="block">Heals the battleCharacter provided</div>
 </dd>
-<dt><a href="com/mg105/entities/items/MegaPotion.html#consume(com.mg105.entities.BattleCharacter)" class="member-name-link">consume(BattleCharacter)</a> - Method in class com.mg105.entities.items.<a href="com/mg105/entities/items/MegaPotion.html" title="class in com.mg105.entities.items">MegaPotion</a></dt>
+<dt><a href="com/mg105/entities/items/MegaPotion.html#consume(com.mg105.entities.GameState,java.lang.String)" class="member-name-link">consume(GameState, String)</a> - Method in class com.mg105.entities.items.<a href="com/mg105/entities/items/MegaPotion.html" title="class in com.mg105.entities.items">MegaPotion</a></dt>
 <dd>
 <div class="block">Heals the battleCharacter provided</div>
 </dd>
-<dt><a href="com/mg105/entities/items/UpgradeToken.html#consume(com.mg105.entities.BattleCharacter)" class="member-name-link">consume(BattleCharacter)</a> - Method in class com.mg105.entities.items.<a href="com/mg105/entities/items/UpgradeToken.html" title="class in com.mg105.entities.items">UpgradeToken</a></dt>
+<dt><a href="com/mg105/entities/items/UpgradeToken.html#consume(com.mg105.entities.GameState,java.lang.String)" class="member-name-link">consume(GameState, String)</a> - Method in class com.mg105.entities.items.<a href="com/mg105/entities/items/UpgradeToken.html" title="class in com.mg105.entities.items">UpgradeToken</a></dt>
 <dd>
 <div class="block">Upgrades the stats of the given character</div>
 </dd>
@@ -395,7 +397,7 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Constant string for reminding player to open chest</div>
 </dd>
-<dt><a href="com/mg105/user_interface/Alert/AlertBox.html#display(java.lang.String)" class="member-name-link">display(String)</a> - Method in class com.mg105.user_interface.Alert.<a href="com/mg105/user_interface/Alert/AlertBox.html" title="class in com.mg105.user_interface.Alert">AlertBox</a></dt>
+<dt><a href="com/mg105/user_interface/AlertBox.html#display(java.lang.String)" class="member-name-link">display(String)</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/AlertBox.html" title="class in com.mg105.user_interface">AlertBox</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/utils/PointComparator.html#distanceTo(java.awt.Point)" class="member-name-link">distanceTo(Point)</a> - Method in class com.mg105.utils.<a href="com/mg105/utils/PointComparator.html" title="class in com.mg105.utils">PointComparator</a></dt>
 <dd>
@@ -1492,6 +1494,11 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Removes the current active battle from the game state.</div>
 </dd>
+<dt><a href="com/mg105/entities/GameState.html#removeFaintedPartyMember(java.lang.String)" class="member-name-link">removeFaintedPartyMember(String)</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/GameState.html" title="class in com.mg105.entities">GameState</a></dt>
+<dd>
+<div class="block">Removes the given fainted party
+ This should only be done to fainted party members who's hp is about to become above zero</div>
+</dd>
 <dt><a href="com/mg105/use_cases/inventory/InventoryInteractor.html#removeInventory()" class="member-name-link">removeInventory()</a> - Method in class com.mg105.use_cases.inventory.<a href="com/mg105/use_cases/inventory/InventoryInteractor.html" title="class in com.mg105.use_cases.inventory">InventoryInteractor</a></dt>
 <dd>
 <div class="block">Removes all items from the inventory</div>
@@ -2005,7 +2012,7 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Sends a message to update the view about a used item</div>
 </dd>
-<dt><a href="com/mg105/entities/Inventory.html#useItem(com.mg105.entities.BattleCharacter,java.lang.String)" class="member-name-link">useItem(BattleCharacter, String)</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/Inventory.html" title="class in com.mg105.entities">Inventory</a></dt>
+<dt><a href="com/mg105/entities/Inventory.html#useItem(com.mg105.entities.GameState,java.lang.String,java.lang.String)" class="member-name-link">useItem(GameState, String, String)</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/Inventory.html" title="class in com.mg105.entities">Inventory</a></dt>
 <dd>
 <div class="block">Uses the item on the given character</div>
 </dd>

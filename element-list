@@ -15,5 +15,4 @@ com.mg105.use_cases.save
 com.mg105.use_cases.set_up.data_system_creator
 com.mg105.use_cases.set_up.state_setter
 com.mg105.user_interface
-com.mg105.user_interface.Alert
 com.mg105.utils

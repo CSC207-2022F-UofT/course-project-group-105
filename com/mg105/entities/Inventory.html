@@ -144,8 +144,9 @@ loadScripts(document, 'script');</script>
 <div class="block">Removes ONE instance of an item from the inventory that has the same itemName.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#useItem(com.mg105.entities.BattleCharacter,java.lang.String)" class="member-name-link">useItem</a><wbr>(@NotNull <a href="BattleCharacter.html" title="class in com.mg105.entities">BattleCharacter</a>&nbsp;character,
- @NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;itemName)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#useItem(com.mg105.entities.GameState,java.lang.String,java.lang.String)" class="member-name-link">useItem</a><wbr>(@NotNull <a href="GameState.html" title="class in com.mg105.entities">GameState</a>&nbsp;state,
+ @NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;itemName,
+ @NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;characterName)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Uses the item on the given character</div>
 </div>
@@ -274,17 +275,20 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="useItem(com.mg105.entities.BattleCharacter,java.lang.String)">
+<section class="detail" id="useItem(com.mg105.entities.GameState,java.lang.String,java.lang.String)">
 <h3>useItem</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">useItem</span><wbr><span class="parameters">(@NotNull
- @NotNull <a href="BattleCharacter.html" title="class in com.mg105.entities">BattleCharacter</a>&nbsp;character,
+ @NotNull <a href="GameState.html" title="class in com.mg105.entities">GameState</a>&nbsp;state,
  @NotNull
- @NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;itemName)</span></div>
+ @NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;itemName,
+ @NotNull
+ @NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;characterName)</span></div>
 <div class="block">Uses the item on the given character</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>character</code> - The character to use the item on</dd>
+<dd><code>state</code> - The current state of the game</dd>
 <dd><code>itemName</code> - The name of the item to use</dd>
+<dd><code>characterName</code> - the character to use the item on</dd>
 <dt>Returns:</dt>
 <dd>true iff the item with a name of itemName was used</dd>
 <dt>See Also:</dt>

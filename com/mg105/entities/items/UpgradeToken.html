@@ -117,7 +117,8 @@ implements <a href="../Consumable.html" title="interface in com.mg105.entities">
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#consume(com.mg105.entities.BattleCharacter)" class="member-name-link">consume</a><wbr>(@NotNull <a href="../BattleCharacter.html" title="class in com.mg105.entities">BattleCharacter</a>&nbsp;character)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#consume(com.mg105.entities.GameState,java.lang.String)" class="member-name-link">consume</a><wbr>(@NotNull <a href="../GameState.html" title="class in com.mg105.entities">GameState</a>&nbsp;state,
+ @NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;characterName)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Upgrades the stats of the given character</div>
 </div>
@@ -157,16 +158,19 @@ implements <a href="../Consumable.html" title="interface in com.mg105.entities">
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="consume(com.mg105.entities.BattleCharacter)">
+<section class="detail" id="consume(com.mg105.entities.GameState,java.lang.String)">
 <h3>consume</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">consume</span><wbr><span class="parameters">(@NotNull
- @NotNull <a href="../BattleCharacter.html" title="class in com.mg105.entities">BattleCharacter</a>&nbsp;character)</span></div>
+ @NotNull <a href="../GameState.html" title="class in com.mg105.entities">GameState</a>&nbsp;state,
+ @NotNull
+ @NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;characterName)</span></div>
 <div class="block">Upgrades the stats of the given character</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="../Consumable.html#consume(com.mg105.entities.BattleCharacter)">consume</a></code>&nbsp;in interface&nbsp;<code><a href="../Consumable.html" title="interface in com.mg105.entities">Consumable</a></code></dd>
+<dd><code><a href="../Consumable.html#consume(com.mg105.entities.GameState,java.lang.String)">consume</a></code>&nbsp;in interface&nbsp;<code><a href="../Consumable.html" title="interface in com.mg105.entities">Consumable</a></code></dd>
 <dt>Parameters:</dt>
-<dd><code>character</code> - the BattleCharacter to use the item on</dd>
+<dd><code>state</code> - the state of the game</dd>
+<dd><code>characterName</code> - the name of the character to use the item on</dd>
 </dl>
 </section>
 </li>
