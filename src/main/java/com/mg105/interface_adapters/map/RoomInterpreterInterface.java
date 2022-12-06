@@ -13,7 +13,7 @@ public interface RoomInterpreterInterface {
      *
      * @return the state of the current room.
      */
-    TileType[][] getCurrentRoom();
+    RoomTileType[][] getCurrentRoom();
 
     /**
      * Get the position of the player within the room.

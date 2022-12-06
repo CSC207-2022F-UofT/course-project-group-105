@@ -30,45 +30,45 @@ public class RoomInterpreter implements RoomInterpreterInterface {
      * right corner.
      */
     @Override
-    public TileType[][] getCurrentRoom() {
-        TileType[][] canvas = new TileType[MapConstants.ROOM_SIZE][MapConstants.ROOM_SIZE];
+    public RoomTileType[][] getCurrentRoom() {
+        RoomTileType[][] canvas = new RoomTileType[MapConstants.ROOM_SIZE][MapConstants.ROOM_SIZE];
 
         for (int y = 1; y < MapConstants.ROOM_SIZE - 1; y++) {
             for (int x = 1; x < MapConstants.ROOM_SIZE - 1; x++) {
-                canvas[y][x] = TileType.FLOOR;
+                canvas[y][x] = RoomTileType.FLOOR;
             }
         }
 
         for (int i = 0; i < MapConstants.ROOM_SIZE; i++) {
-            canvas[i][MapConstants.ROOM_SIZE - 1] = TileType.WALL;
-            canvas[i][0] = TileType.WALL;
+            canvas[i][MapConstants.ROOM_SIZE - 1] = RoomTileType.WALL;
+            canvas[i][0] = RoomTileType.WALL;
         }
         for (int i = 1; i < MapConstants.ROOM_SIZE - 1; i++) {
-            canvas[MapConstants.ROOM_SIZE - 1][i] = TileType.WALL_WITH_FACE;
-            canvas[0][i] = TileType.WALL_WITH_FACE;
+            canvas[MapConstants.ROOM_SIZE - 1][i] = RoomTileType.WALL_WITH_FACE;
+            canvas[0][i] = RoomTileType.WALL_WITH_FACE;
         }
-        canvas[MapConstants.ROOM_SIZE - 1][0] = TileType.WALL_WITH_FACE;
-        canvas[MapConstants.ROOM_SIZE - 1][MapConstants.ROOM_SIZE - 1] = TileType.WALL_WITH_FACE;
+        canvas[MapConstants.ROOM_SIZE - 1][0] = RoomTileType.WALL_WITH_FACE;
+        canvas[MapConstants.ROOM_SIZE - 1][MapConstants.ROOM_SIZE - 1] = RoomTileType.WALL_WITH_FACE;
 
         RoomLayout room = getter.getCurrentRoomLayout();
 
         for (Point doorway : room.getDoorways()) {
-            canvas[doorway.y][doorway.x] = TileType.EXIT;
+            canvas[doorway.y][doorway.x] = RoomTileType.EXIT;
             if (doorway.x == 0 || doorway.x == MapConstants.ROOM_SIZE - 1) {
-                canvas[doorway.y - 1][doorway.x] = TileType.WALL_WITH_FACE;
+                canvas[doorway.y - 1][doorway.x] = RoomTileType.WALL_WITH_FACE;
             }
         }
 
         for (Point chest : room.getClosedChests()) {
-            canvas[chest.y][chest.x] = TileType.CHEST;
+            canvas[chest.y][chest.x] = RoomTileType.CHEST;
         }
 
         for (Point chest : room.getOpenChests()) {
-            canvas[chest.y][chest.x] = TileType.CHEST_OPEN;
+            canvas[chest.y][chest.x] = RoomTileType.CHEST_OPEN;
         }
 
         for (Point opponents : room.getOpponents()) {
-            canvas[opponents.y][opponents.x] = TileType.OPPONENT_SET;
+            canvas[opponents.y][opponents.x] = RoomTileType.OPPONENT_SET;
         }
 
         return canvas;

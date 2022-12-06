@@ -15,7 +15,7 @@ public interface MinimapInterpreterInterface {
      *
      * @see MinimapInterpreterInterface#getCurrentPosition()
      */
-    @NotNull RoomState[][] getMapSoFar();
+    @NotNull MinimapRoomState[][] getMapSoFar();
 
     /**
      * Get the current room position

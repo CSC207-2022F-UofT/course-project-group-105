@@ -19,7 +19,7 @@ public class MinimapInterpreter implements PropertyChangeListener, Resetable, Mi
     private final @NotNull RoomGetterInterface getter;
 
     private @Nullable Point lastPosition;
-    private @NotNull RoomState[][] mapSoFar;
+    private @NotNull MinimapRoomState[][] mapSoFar;
     private final @NotNull Point currentRoom;
 
     /**
@@ -40,8 +40,8 @@ public class MinimapInterpreter implements PropertyChangeListener, Resetable, Mi
     @Override
     public void reset() {
         lastPosition = null;
-        mapSoFar = new RoomState[1][1];
-        mapSoFar[0][0] = RoomState.EXPLORED;
+        mapSoFar = new MinimapRoomState[1][1];
+        mapSoFar[0][0] = MinimapRoomState.EXPLORED;
         currentRoom.x = 0;
         currentRoom.y = 0;
     }
@@ -73,7 +73,7 @@ public class MinimapInterpreter implements PropertyChangeListener, Resetable, Mi
             }
 
             autoBumpMapSoFarBecauseOf(currentRoom);
-            mapSoFar[currentRoom.y][currentRoom.x] = RoomState.EXPLORED;
+            mapSoFar[currentRoom.y][currentRoom.x] = MinimapRoomState.EXPLORED;
 
             // Set look for potential next rooms
             for (Point nextDoowayPosition : layout.getDoorways()) {
@@ -90,7 +90,7 @@ public class MinimapInterpreter implements PropertyChangeListener, Resetable, Mi
 
                 autoBumpMapSoFarBecauseOf(nextRoom, currentRoom);
                 if (mapSoFar[nextRoom.y][nextRoom.x] == null) {
-                    mapSoFar[nextRoom.y][nextRoom.x] = RoomState.UNEXPLORED;
+                    mapSoFar[nextRoom.y][nextRoom.x] = MinimapRoomState.UNEXPLORED;
                 }
             }
         }
@@ -104,7 +104,7 @@ public class MinimapInterpreter implements PropertyChangeListener, Resetable, Mi
      * @return the currently explored map.
      */
     @Override
-    public @NotNull RoomState[][] getMapSoFar() {
+    public @NotNull MinimapRoomState[][] getMapSoFar() {
         return mapSoFar;
     }
 
@@ -130,11 +130,11 @@ public class MinimapInterpreter implements PropertyChangeListener, Resetable, Mi
     private void autoBumpMapSoFarBecauseOf(@NotNull Point next, @NotNull Point... toMaintain) {
         int yOffset = 0;
         int xOffset = 0;
-        RoomState[][] nextMap = new RoomState[0][0];
+        MinimapRoomState[][] nextMap = new MinimapRoomState[0][0];
         boolean needsBump = false;
 
         if (next.x < 0 || next.x >= mapSoFar[0].length) {
-            nextMap = new RoomState[mapSoFar.length][mapSoFar[0].length + 1];
+            nextMap = new MinimapRoomState[mapSoFar.length][mapSoFar[0].length + 1];
             if (next.x < 0) {
                 xOffset = 1;
                 next.x += 1;
@@ -144,7 +144,7 @@ public class MinimapInterpreter implements PropertyChangeListener, Resetable, Mi
             }
             needsBump = true;
         } else if (next.y < 0 || next.y >= mapSoFar.length) {
-            nextMap = new RoomState[mapSoFar.length + 1][mapSoFar[0].length];
+            nextMap = new MinimapRoomState[mapSoFar.length + 1][mapSoFar[0].length];
             if (next.y < 0) {
                 yOffset = 1;
                 next.y += 1;

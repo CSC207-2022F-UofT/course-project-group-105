@@ -1,7 +1,7 @@
 package com.mg105.user_interface;
 
 import com.mg105.interface_adapters.map.MinimapInterpreterInterface;
-import com.mg105.interface_adapters.map.RoomState;
+import com.mg105.interface_adapters.map.MinimapRoomState;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
@@ -59,7 +59,7 @@ public class MinimapDrawer implements Toggleable {
     @Override
     public void toggle(boolean isVisible) {
         if (isVisible) {
-            RoomState[][] map = interpreter.getMapSoFar();
+            MinimapRoomState[][] map = interpreter.getMapSoFar();
             Point currentPosition = interpreter.getCurrentPosition();
 
             final int cellDimension = CANVAS_SIZE / Math.max(map.length, map[0].length);
@@ -83,7 +83,7 @@ public class MinimapDrawer implements Toggleable {
                     }
 
                     // Rectangle for each room
-                    if (map[y][x] == RoomState.EXPLORED) {
+                    if (map[y][x] == MinimapRoomState.EXPLORED) {
                         // First we draw the middle square
                         Rectangle r = new Rectangle();
                         r.setX(leftPadding + innerCellPadding + x * cellDimension);
