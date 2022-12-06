@@ -68,8 +68,17 @@ on any Unix-like operating system (or the built-in IntelliJ IDEA terminal).
     - Persistence: When a battle ends your characters' stats are automatically saved and are recalled on next game open.
       Even if you lose the game your characters' stats get saved!
     - Minimap: Press 'm' to open a minimap that will show a visual representation of the map you've discovered so far!
+  - Keyboard layout:
+    - `w`, `a`, `s`, `d`: movement keys, in the usual configuration.
+    - `e`: interact with an adjacent chest on the map.
+    - `f`: fight an adjacent enemy on the map.
+    - `m`: open the minimap (any key closes it).
+    - `i`: open/close the inventory.
+    - `<SPACEBAR>`: open the walking menu.
+    - `k`: open the help text.
+    - `t`: start the tutorial.
 - Code Organization
-  - Code is organized by layers, `com.mg105.user_interface`, `com.mg105.interface_adapters`, `com.mg105.use_cases`, `com.mg105.entities`.
+  - Code is organized by layers, `com.mg105.user_interface`, `com.mg105.interface_adapters`, `com.mg105.data_control`, `com.mg105.use_cases`, `com.mg105.entities`.
   - The `com.mg105.user_interface` package is the only package that knows anything about the graphics library, JavaFX.
   - The `com.mg105.utils` package mostly keeps track of constants.
 - Testing
