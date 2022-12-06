@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="script-dir/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="script.js"></script>
-<script type="text/javascript" src="script-dir/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="script-dir/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="index-page">
@@ -123,6 +123,10 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/utils/ItemConstants.html#ALL_USABLE_ITEM_NAMES" class="member-name-link">ALL_USABLE_ITEM_NAMES</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/ItemConstants.html" title="class in com.mg105.utils">ItemConstants</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html#allPhases()" class="member-name-link">allPhases()</a> - Method in class com.mg105.interface_adapters.tutorial.<a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html" title="class in com.mg105.interface_adapters.tutorial">TutorialTextController</a></dt>
+<dd>
+<div class="block">Get names of all phases of tutorial</div>
+</dd>
 <dt><a href="com/mg105/use_cases/PlayerGetsTutorial.html#allPhases()" class="member-name-link">allPhases()</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/PlayerGetsTutorial.html" title="class in com.mg105.use_cases">PlayerGetsTutorial</a></dt>
 <dd>
 <div class="block">Get names of all phases of tutorial</div>
@@ -485,6 +489,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/mg105/use_cases/CharacterMover.html#generateMapMoveBy(java.awt.Point)" class="member-name-link">generateMapMoveBy(Point)</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/CharacterMover.html" title="class in com.mg105.use_cases">CharacterMover</a></dt>
 <dd>
 <div class="block">Attempt to move by direction.</div>
+</dd>
+<dt><a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html#getActionPerformed(java.lang.String)" class="member-name-link">getActionPerformed(String)</a> - Method in class com.mg105.interface_adapters.tutorial.<a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html" title="class in com.mg105.interface_adapters.tutorial">TutorialTextController</a></dt>
+<dd>
+<div class="block">Returns if the action has been performed</div>
 </dd>
 <dt><a href="com/mg105/use_cases/PlayerGetsTutorial.html#getActionPerformed(java.lang.String)" class="member-name-link">getActionPerformed(String)</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/PlayerGetsTutorial.html" title="class in com.mg105.use_cases">PlayerGetsTutorial</a></dt>
 <dd>
@@ -1022,6 +1030,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Returns whether the given name is associated with a fainted character.</div>
 </dd>
+<dt><a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html#isComplete()" class="member-name-link">isComplete()</a> - Method in class com.mg105.interface_adapters.tutorial.<a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html" title="class in com.mg105.interface_adapters.tutorial">TutorialTextController</a></dt>
+<dd>
+<div class="block">Get if the tutorial is complete, changes text if it is</div>
+</dd>
 <dt><a href="com/mg105/use_cases/PlayerGetsTutorial.html#isComplete()" class="member-name-link">isComplete()</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/PlayerGetsTutorial.html" title="class in com.mg105.use_cases">PlayerGetsTutorial</a></dt>
 <dd>
 <div class="block">Check if all required actions performed by player</div>
@@ -1449,7 +1461,7 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Class for determining what phase of the tutorial the player is on, and changing the phase</div>
 </dd>
-<dt><a href="com/mg105/use_cases/PlayerGetsTutorial.html#%3Cinit%3E(java.util.List,int,com.mg105.entities.GiveTutorial)" class="member-name-link">PlayerGetsTutorial(List&lt;String&gt;, int, GiveTutorial)</a> - Constructor for class com.mg105.use_cases.<a href="com/mg105/use_cases/PlayerGetsTutorial.html" title="class in com.mg105.use_cases">PlayerGetsTutorial</a></dt>
+<dt><a href="com/mg105/use_cases/PlayerGetsTutorial.html#%3Cinit%3E(java.util.List,int)" class="member-name-link">PlayerGetsTutorial(List&lt;String&gt;, int)</a> - Constructor for class com.mg105.use_cases.<a href="com/mg105/use_cases/PlayerGetsTutorial.html" title="class in com.mg105.use_cases">PlayerGetsTutorial</a></dt>
 <dd>
 <div class="block">Constructor for PlayerGetsTutorial use case</div>
 </dd>
@@ -1844,7 +1856,11 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="com/mg105/utils/TutorialTexts.html#TEXT_SIZE" class="member-name-link">TEXT_SIZE</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/TutorialTexts.html" title="class in com.mg105.utils">TutorialTexts</a></dt>
 <dd>
-<div class="block">Constant int for size of the text</div>
+<div class="block">Constant int for size of the regular text</div>
+</dd>
+<dt><a href="com/mg105/utils/TutorialTexts.html#TEXT_SIZE_LARGE" class="member-name-link">TEXT_SIZE_LARGE</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/TutorialTexts.html" title="class in com.mg105.utils">TutorialTexts</a></dt>
+<dd>
+<div class="block">Constant int for size of the larger  text</div>
 </dd>
 <dt><a href="com/mg105/entities/TextGenerator.html" class="type-name-link" title="class in com.mg105.entities">TextGenerator</a> - Class in <a href="com/mg105/entities/package-summary.html">com.mg105.entities</a></dt>
 <dd>&nbsp;</dd>
