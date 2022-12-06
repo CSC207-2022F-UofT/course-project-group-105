@@ -30,6 +30,7 @@ public class TutorialInteractorTest {
             = new PlayerGetsTutorial(TutorialTexts.PHASES, 0);
         tutorialPlayer2.setActionPerformed(TutorialTexts.MOVED);
         tutorialPlayer2.setActionPerformed(TutorialTexts.ATTACKED);
+        tutorialPlayer2.setActionPerformed(TutorialTexts.USED_ITEM);
 
         assertFalse(tutorialPlayer1.getActionPerformed(TutorialTexts.MOVED));
         assertFalse(tutorialPlayer1.getActionPerformed(TutorialTexts.ATTACKED));
