@@ -2,6 +2,7 @@ package com.mg105.entities.items;
 
 import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.Consumable;
+import com.mg105.entities.GameState;
 import com.mg105.entities.Item;
 import com.mg105.utils.ItemConstants;
 import org.jetbrains.annotations.NotNull;
@@ -22,11 +23,12 @@ public class UpgradeToken extends Item implements Consumable {
 
     /**
      * Upgrades the stats of the given character
-     *
-     * @param character the BattleCharacter to use the item on
+     * @param state the state of the game
+     * @param characterName the name of the character to use the item on
      */
     @Override
-    public void consume(@NotNull BattleCharacter character) {
+    public void consume(@NotNull GameState state, @NotNull String characterName) {
+        BattleCharacter  character = state.getPartyMember(characterName);
         character.modifyDamage(1);
         character.modifyMaxHp(1);
         character.modifySpeed(1);
