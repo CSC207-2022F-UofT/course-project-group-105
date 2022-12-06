@@ -1,4 +1,4 @@
-package com.mg105.interface_adapters;
+package com.mg105.interface_adapters.map;
 
 /**
  * Types of tiles that can appear within a room.

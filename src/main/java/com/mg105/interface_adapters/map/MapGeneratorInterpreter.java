@@ -7,7 +7,7 @@ import org.jetbrains.annotations.NotNull;
  * MapGeneratorInterpreter asks as a thin interface adapter whose sole purpose is to maintain clean architecture.
  * All it does is pass control on to the use case component of map generation.
  */
-public class MapGeneratorInterpreter {
+public class MapGeneratorInterpreter implements MapGeneratorInterpreterInterface {
     private final @NotNull MapGenerator generator;
 
     /**
@@ -22,6 +22,7 @@ public class MapGeneratorInterpreter {
     /**
      * Generate (or re-generate) the map.
      */
+    @Override
     public void generateMap() {
         generator.generateMap();
     }

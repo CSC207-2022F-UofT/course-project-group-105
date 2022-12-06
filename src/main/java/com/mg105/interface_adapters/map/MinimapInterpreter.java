@@ -15,7 +15,7 @@ import java.beans.PropertyChangeListener;
 /**
  * The MinimapInterpreter processes room change data an interprets its implicit position.
  */
-public class MinimapInterpreter implements PropertyChangeListener, Resetable {
+public class MinimapInterpreter implements PropertyChangeListener, Resetable, MinimapInterpreterInterface {
     private final @NotNull RoomGetter getter;
 
     private @Nullable Point lastPosition;
@@ -103,6 +103,7 @@ public class MinimapInterpreter implements PropertyChangeListener, Resetable {
      *
      * @return the currently explored map.
      */
+    @Override
     public @NotNull RoomState[][] getMapSoFar() {
         return mapSoFar;
     }
@@ -112,6 +113,7 @@ public class MinimapInterpreter implements PropertyChangeListener, Resetable {
      *
      * @return the current room you are in.
      */
+    @Override
     public @NotNull Point getCurrentPosition() {
         return new Point(currentRoom);
     }
@@ -161,17 +163,5 @@ public class MinimapInterpreter implements PropertyChangeListener, Resetable {
 
             mapSoFar = nextMap;
         }
-    }
-
-    /**
-     * Possible knowledge states of a room.
-     * <p>
-     * Note that we treat 'null' as a roomm state being unknown.
-     */
-    public enum RoomState {
-        /** The room is implied to exist but is unexplored. */
-        UNEXPLORED,
-        /** The room has been visited at least once */
-        EXPLORED
     }
 }

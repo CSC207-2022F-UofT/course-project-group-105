@@ -1,7 +1,7 @@
 package com.mg105.user_interface;
 
-import com.mg105.interface_adapters.map.RoomInterpreter;
-import com.mg105.interface_adapters.TileType;
+import com.mg105.interface_adapters.map.RoomInterpreterInterface;
+import com.mg105.interface_adapters.map.TileType;
 import com.mg105.utils.MapConstants;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -20,7 +20,7 @@ import java.util.Objects;
  * MapDrawer draws the map as a grid of tiles.
  */
 public class MapDrawer implements PropertyChangeListener, Toggleable {
-    private final @NotNull RoomInterpreter interpreter;
+    private final @NotNull RoomInterpreterInterface interpreter;
 
     private final @NotNull Scene scene;
     private final @NotNull Group group;
@@ -34,7 +34,7 @@ public class MapDrawer implements PropertyChangeListener, Toggleable {
      *
      * @param interpreter the room interpreter used to format the data in an acceptable way for this class.
      */
-    public MapDrawer(@NotNull RoomInterpreter interpreter) {
+    public MapDrawer(@NotNull RoomInterpreterInterface interpreter) {
         this.interpreter = interpreter;
 
         group = new Group();
@@ -113,7 +113,7 @@ public class MapDrawer implements PropertyChangeListener, Toggleable {
         }
 
         Point player = interpreter.getPlayer();
-        ImageView playerTile = new ImageView(playerSprites.getOrDefault(interpreter.updateCharacterSprite(), missingTile));
+        ImageView playerTile = new ImageView(playerSprites.getOrDefault(interpreter.getCharacterSprite(), missingTile));
         playerTile.setPreserveRatio(true);
         playerTile.setX(player.x * MapConstants.TILE_SIZE);
         playerTile.setY(player.y * MapConstants.TILE_SIZE);

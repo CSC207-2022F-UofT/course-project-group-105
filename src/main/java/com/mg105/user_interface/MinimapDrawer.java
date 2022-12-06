@@ -1,6 +1,7 @@
 package com.mg105.user_interface;
 
-import com.mg105.interface_adapters.map.MinimapInterpreter;
+import com.mg105.interface_adapters.map.MinimapInterpreterInterface;
+import com.mg105.interface_adapters.map.RoomState;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.shape.Line;
@@ -16,7 +17,7 @@ import java.awt.*;
 public class MinimapDrawer implements Toggleable {
     private static final int CANVAS_SIZE = 400;
 
-    private final @NotNull MinimapInterpreter interpreter;
+    private final @NotNull MinimapInterpreterInterface interpreter;
 
     private final @NotNull Scene scene;
     private final @NotNull Group group;
@@ -31,7 +32,7 @@ public class MinimapDrawer implements Toggleable {
      *
      * @param interpreter the MinimapInterpreter that will process room change data.
      */
-    public MinimapDrawer(@NotNull MinimapInterpreter interpreter) {
+    public MinimapDrawer(@NotNull MinimapInterpreterInterface interpreter) {
         this.interpreter = interpreter;
 
         group = new Group();
@@ -58,7 +59,7 @@ public class MinimapDrawer implements Toggleable {
     @Override
     public void toggle(boolean isVisible) {
         if (isVisible) {
-            MinimapInterpreter.RoomState[][] map = interpreter.getMapSoFar();
+            RoomState[][] map = interpreter.getMapSoFar();
             Point currentPosition = interpreter.getCurrentPosition();
 
             final int cellDimension = CANVAS_SIZE / Math.max(map.length, map[0].length);
@@ -82,7 +83,7 @@ public class MinimapDrawer implements Toggleable {
                     }
 
                     // Rectangle for each room
-                    if (map[y][x] == MinimapInterpreter.RoomState.EXPLORED) {
+                    if (map[y][x] == RoomState.EXPLORED) {
                         // First we draw the middle square
                         Rectangle r = new Rectangle();
                         r.setX(leftPadding + innerCellPadding + x * cellDimension);

@@ -4,6 +4,7 @@ import com.mg105.interface_adapters.battle.BattlePresenter;
 import com.mg105.interface_adapters.map.MapGeneratorInterpreter;
 import com.mg105.interface_adapters.map.MinimapInterpreter;
 import com.mg105.interface_adapters.map.RoomInterpreter;
+import com.mg105.interface_adapters.map.RoomInterpreterInterface;
 import com.mg105.interface_adapters.tutorial.TutorialTextController;
 import com.mg105.data_control.access.MoveDataAccess;
 import com.mg105.data_control.access.PartyDataAccess;
@@ -73,7 +74,7 @@ public class Application extends javafx.application.Application {
         MainMenu mainMenu = new MainMenu(generateMapButton);
 
         RoomGetter roomGetter = new RoomGetter(state);
-        RoomInterpreter roomInterpreter = new RoomInterpreter(roomGetter);
+        RoomInterpreterInterface roomInterpreter = new RoomInterpreter(roomGetter);
         MapDrawer mapDrawer = new MapDrawer(roomInterpreter);
         drawableComponents.put(Toggler.ToggleableComponent.MAIN_MENU, mainMenu);
         drawableComponents.put(Toggler.ToggleableComponent.MAP, mapDrawer);

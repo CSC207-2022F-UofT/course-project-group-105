@@ -1,6 +1,5 @@
 package com.mg105.interface_adapters.map;
 
-import com.mg105.interface_adapters.TileType;
 import com.mg105.use_cases.map.RoomGetter;
 import com.mg105.use_cases.outputds.RoomLayout;
 import com.mg105.utils.MapConstants;
@@ -11,7 +10,7 @@ import java.awt.*;
 /**
  * RoomInterpreter interprets the current room in a format that is easier to draw from.
  */
-public class RoomInterpreter {
+public class RoomInterpreter implements RoomInterpreterInterface {
     private final @NotNull RoomGetter getter;
 
     /**
@@ -30,6 +29,7 @@ public class RoomInterpreter {
      * represents the top-left corner and (MapConstants.ROOM_SIZE, MapConstants.ROOM_SIZE) represents the bottom
      * right corner.
      */
+    @Override
     public TileType[][] getCurrentRoom() {
         TileType[][] canvas = new TileType[MapConstants.ROOM_SIZE][MapConstants.ROOM_SIZE];
 
@@ -79,6 +79,7 @@ public class RoomInterpreter {
      *
      * @return the current player position in the room.
      */
+    @Override
     public @NotNull Point getPlayer() {
         return getter.getCurrentRoomLayout().getPlayer();
     }
@@ -87,7 +88,8 @@ public class RoomInterpreter {
      * Retrieves the sprite String currently associated with the WalkingCharacter.
      * @return a file name/location as a String for the desired character sprite.
      */
-    public String updateCharacterSprite() {
+    @Override
+    public @NotNull String getCharacterSprite() {
         return this.getter.getWalkingSprite();
     }
 }
