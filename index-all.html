@@ -255,6 +255,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Create a CharacterMover to operate on state and to update the room visuals via the updater</div>
 </dd>
+<dt><a href="com/mg105/entities/GameState.html#charactersList()" class="member-name-link">charactersList()</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/GameState.html" title="class in com.mg105.entities">GameState</a></dt>
+<dd>
+<div class="block">Returns the list of characters in the party</div>
+</dd>
 <dt><a href="com/mg105/interface_adapters/TileType.html#CHEST" class="member-name-link">CHEST</a> - Enum constant in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/TileType.html" title="enum class in com.mg105.interface_adapters">TileType</a></dt>
 <dd>
 <div class="block">A treasure chest</div>
@@ -465,6 +469,8 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Empty floor that can be walked on</div>
 </dd>
+<dt><a href="com/mg105/entities/BattleCharacter.html#fullHealCharacter()" class="member-name-link">fullHealCharacter()</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/BattleCharacter.html" title="class in com.mg105.entities">BattleCharacter</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <h2 class="title" id="I:G">G</h2>
 <dl class="index">
@@ -760,7 +766,7 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Returns the character in party based on the given name
  Only returns a party member that is not fainted
- return null iff the name is not of an non-fainted party member</div>
+ return null iff the name is not of a non-fainted party member</div>
 </dd>
 <dt><a href="com/mg105/data_control/access/PartyDataAccess.html#getPartyBattleDetails()" class="member-name-link">getPartyBattleDetails()</a> - Method in class com.mg105.data_control.access.<a href="com/mg105/data_control/access/PartyDataAccess.html" title="class in com.mg105.data_control.access">PartyDataAccess</a></dt>
 <dd>
@@ -1630,6 +1636,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Returns the name of every BattleCharacter which can be targeted by the given move.</div>
 </dd>
+<dt><a href="com/mg105/use_cases/ReplayGenerator.html#reviveCharacters()" class="member-name-link">reviveCharacters()</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/ReplayGenerator.html" title="class in com.mg105.use_cases">ReplayGenerator</a></dt>
+<dd>
+<div class="block">Revive all characters and add them to the list of alive characters</div>
+</dd>
 <dt><a href="com/mg105/entities/Room.html" class="type-name-link" title="class in com.mg105.entities">Room</a> - Class in <a href="com/mg105/entities/package-summary.html">com.mg105.entities</a></dt>
 <dd>
 <div class="block">Room represents a single room in the map.</div>
@@ -1816,10 +1826,6 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Check if specific action has been performed</div>
 </dd>
-<dt><a href="com/mg105/user_interface/TutorialTextDisplay.html#showControlsText()" class="member-name-link">showControlsText()</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/TutorialTextDisplay.html" title="class in com.mg105.user_interface">TutorialTextDisplay</a></dt>
-<dd>
-<div class="block">String for reminding user of controls</div>
-</dd>
 <dt><a href="com/mg105/utils/MoveConstants.html#SLOW_SWING" class="member-name-link">SLOW_SWING</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/MoveConstants.html" title="class in com.mg105.utils">MoveConstants</a></dt>
 <dd>
 <div class="block">A move name.</div>
@@ -1967,9 +1973,13 @@ loadScripts(document, 'script');</script>
 <div class="block">Return a label that will show at the bottom of the screen.</div>
 </dd>
 <dt><a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html" class="type-name-link" title="class in com.mg105.interface_adapters.tutorial">TutorialTextController</a> - Class in <a href="com/mg105/interface_adapters/tutorial/package-summary.html">com.mg105.interface_adapters.tutorial</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">A controller that converts phase number into displayed text</div>
+</dd>
 <dt><a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html#%3Cinit%3E(boolean)" class="member-name-link">TutorialTextController(boolean)</a> - Constructor for class com.mg105.interface_adapters.tutorial.<a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html" title="class in com.mg105.interface_adapters.tutorial">TutorialTextController</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">A constructor for the tutorial controller</div>
+</dd>
 <dt><a href="com/mg105/user_interface/TutorialTextDisplay.html" class="type-name-link" title="class in com.mg105.user_interface">TutorialTextDisplay</a> - Class in <a href="com/mg105/user_interface/package-summary.html">com.mg105.user_interface</a></dt>
 <dd>
 <div class="block">Returns the actual text that is displayed to the player</div>
@@ -1985,7 +1995,9 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/mg105/utils/TutorialTexts.html#%3Cinit%3E()" class="member-name-link">TutorialTexts()</a> - Constructor for class com.mg105.utils.<a href="com/mg105/utils/TutorialTexts.html" title="class in com.mg105.utils">TutorialTexts</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/user_interface/TutorialTextWindow.html" class="type-name-link" title="class in com.mg105.user_interface">TutorialTextWindow</a> - Class in <a href="com/mg105/user_interface/package-summary.html">com.mg105.user_interface</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Create a window for the tutorial scenes</div>
+</dd>
 <dt><a href="com/mg105/user_interface/TutorialTextWindow.html#%3Cinit%3E(com.mg105.interface_adapters.tutorial.TutorialTextController,com.mg105.user_interface.TutorialTextDisplay)" class="member-name-link">TutorialTextWindow(TutorialTextController, TutorialTextDisplay)</a> - Constructor for class com.mg105.user_interface.<a href="com/mg105/user_interface/TutorialTextWindow.html" title="class in com.mg105.user_interface">TutorialTextWindow</a></dt>
 <dd>
 <div class="block">Window for the tutorial</div>
@@ -2169,7 +2181,7 @@ the order they are declared.</div>
 <dd>
 <div class="block">Decides when to show game win screen</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/WinDisplay.html#%3Cinit%3E(com.mg105.interface_adapters.Toggler,com.mg105.use_cases.RoomGetter)" class="member-name-link">WinDisplay(Toggler, RoomGetter)</a> - Constructor for class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/WinDisplay.html" title="class in com.mg105.interface_adapters">WinDisplay</a></dt>
+<dt><a href="com/mg105/interface_adapters/WinDisplay.html#%3Cinit%3E(com.mg105.interface_adapters.Toggler,com.mg105.use_cases.RoomGetter,com.mg105.use_cases.ReplayGenerator)" class="member-name-link">WinDisplay(Toggler, RoomGetter, ReplayGenerator)</a> - Constructor for class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/WinDisplay.html" title="class in com.mg105.interface_adapters">WinDisplay</a></dt>
 <dd>
 <div class="block">Construction for the WinDisplay interface adapter</div>
 </dd>
