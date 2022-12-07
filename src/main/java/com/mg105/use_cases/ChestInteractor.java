@@ -11,6 +11,11 @@ import org.jetbrains.annotations.NotNull;
 import java.awt.*;
 import java.util.List;
 
+/**
+ * A class that interacts with TreasureChests.
+ * <p>
+ * ChestInteractor can remove items from nearby unopened TreasureChests and add them to the inventory.
+ */
 public class ChestInteractor {
 
     private final @NotNull GameState gameState;
@@ -35,6 +40,8 @@ public class ChestInteractor {
     /**
      * Checks if a given spot on the map contains a TreasureChest.
      *
+     * @param coordinates the coordinates of a specific spot in the Room.
+     * @param chests the list of chests in the current Room.
      * @return the TreasureChest if chest is found. Otherwise, return null.
      */
     public TreasureChest compareLists(Point coordinates, List<TreasureChest> chests) {

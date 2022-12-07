@@ -23,6 +23,10 @@ public class HealthPotion extends Item implements Consumable {
         super(ItemConstants.HEALTH_POTION_NAME);
     }
 
+    /**
+     * Gets the healing points that the potion provides to a character.
+     * @return the healing points that this potion has.
+     */
     public static int getHealingPoints() {
         return HEALING_POINTS;
     }

@@ -27,7 +27,7 @@ public class InputInterpreter {
      * @param toggler            the toggler used to change the displayed interface.
      * @param textChanger        the text controller for tutorial
      * @param chestInteractor    the ChestInteractor used to interact with chests.
-     * @param opponentInteractor the opponentInteractor used to ineract with opponents.
+     * @param opponentInteractor the interactor used to interact with opponents.
      */
     public InputInterpreter(@NotNull CharacterMoverInterface mover, @NotNull Toggler toggler,
                             @NotNull TutorialTextController textChanger, @NotNull ChestInteractor chestInteractor,
