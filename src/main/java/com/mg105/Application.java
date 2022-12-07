@@ -23,6 +23,7 @@ import com.mg105.use_cases.set_up.state_setter.GameStateSetter;
 import com.mg105.use_cases.set_up.state_setter.PartyCreator;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -134,7 +135,7 @@ public class Application extends javafx.application.Application {
         /////WinGame Scene/////
         ReplayGeneratorButton winButton = new ReplayGeneratorButton(replayGeneratorInterpreter, sceneController, Toggler.ToggleableComponent.WIN_MENU);
         WinMenu winMenu = new WinMenu(winButton);
-        WinDisplay winDisplay= new WinDisplay(sceneController, roomGetter);
+        WinDisplay winDisplay = new WinDisplay(sceneController, roomGetter, replayGenerator);
         roomUpdater.addObserver(winDisplay);
         drawableComponents.put(Toggler.ToggleableComponent.WIN_MENU, winMenu);
         /////////////////

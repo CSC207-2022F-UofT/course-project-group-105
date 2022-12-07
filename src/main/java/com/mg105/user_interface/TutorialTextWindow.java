@@ -14,13 +14,16 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Create a window for the tutorial scenes
+ */
 public class TutorialTextWindow implements Toggleable {
-    TutorialTextDisplay tutorialDisplay;
-    Pane tutorialPane = new Pane();
-    Label bottomText = new Label();
-    Label helpText;
-    TutorialTextController textController;
-    Scene tutorialScene = new Scene(tutorialPane, TutorialTexts.HELPER_PANE_X, TutorialTexts.HELPER_PANE_Y);
+    final TutorialTextDisplay tutorialDisplay;
+    final Pane tutorialPane = new Pane();
+    final Label bottomText = new Label();
+    final Label helpText;
+    final TutorialTextController textController;
+    final Scene tutorialScene = new Scene(tutorialPane, TutorialTexts.HELPER_PANE_X, TutorialTexts.HELPER_PANE_Y);
 
     /**
      * Window for the tutorial
@@ -92,7 +95,7 @@ public class TutorialTextWindow implements Toggleable {
             }
 
             if (textController.getShowControls() & textController.isComplete()) {
-                helpText.setText(tutorialDisplay.showControlsText());
+                helpText.setText(TutorialTexts.CONTROLS);
                 helpTimer--;
                 if (helpTimer < 1) {
                     textController.setShowControls(false);

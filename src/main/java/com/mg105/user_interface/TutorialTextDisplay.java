@@ -32,16 +32,6 @@ public class TutorialTextDisplay {
     }
 
     /**
-     * String for reminding user of controls
-     *
-     * @return the actual text displayed to the user
-     */
-    public String showControlsText() {
-        return TutorialTexts.CONTROLS;
-
-    }
-
-    /**
      * Return a label that will show at the bottom of the screen.
      *
      * @return the label

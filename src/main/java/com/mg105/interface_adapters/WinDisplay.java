@@ -1,5 +1,6 @@
 package com.mg105.interface_adapters;
 
+import com.mg105.use_cases.ReplayGenerator;
 import com.mg105.use_cases.RoomGetter;
 
 import java.beans.PropertyChangeEvent;
@@ -11,15 +12,19 @@ import java.beans.PropertyChangeListener;
 public class WinDisplay implements PropertyChangeListener {
     private final Toggler toggler;
     private final RoomGetter roomGetter;
+    private final ReplayGenerator replayGenerator;
 
     /**
      * Construction for the WinDisplay interface adapter
-     * @param toggler toggles the win screen
-     * @param roomGetter gets the current room of the player
+     *
+     * @param toggler         toggles the win screen
+     * @param roomGetter      gets the current room of the player
+     * @param replayGenerator generates a replay
      */
-    public WinDisplay(Toggler toggler, RoomGetter roomGetter){
+    public WinDisplay(Toggler toggler, RoomGetter roomGetter, ReplayGenerator replayGenerator) {
         this.toggler = toggler;
         this.roomGetter = roomGetter;
+        this.replayGenerator = replayGenerator;
     }
 
     /**
@@ -30,8 +35,10 @@ public class WinDisplay implements PropertyChangeListener {
      */
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        if (roomGetter.isFinalRoom()){
+        if (roomGetter.isFinalRoom()) {
+            replayGenerator.reviveCharacters();
             toggler.toggle(Toggler.ToggleableComponent.WIN_MENU);
         }
     }
 }
+
