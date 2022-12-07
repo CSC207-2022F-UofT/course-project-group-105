@@ -2,6 +2,9 @@ package com.mg105.entities;
 
 import java.awt.*;
 
+/**
+ * TreasureChest is a class representing the treasure chests in the game. Unopened chests contain an item.
+ */
 public class TreasureChest {
     private final Item reward;
     private final Point position;
@@ -9,7 +12,6 @@ public class TreasureChest {
 
     /**
      * Create a new treasure chest at a position with a certain reward.
-     *
      * Note that none of these should be null.
      *
      * @param reward   the reward for opening the chest.

@@ -87,7 +87,9 @@ public class Inventory {
         }
         return false;
     }
-
+    /**
+     * Removes all the items from the inventory.
+     */
     public void removeAll() {
         for (int i = numberOfItems() - 1; i >=0; i--) {
             this.items.remove(i);
