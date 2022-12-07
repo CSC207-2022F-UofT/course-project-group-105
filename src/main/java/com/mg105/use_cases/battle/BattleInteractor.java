@@ -114,6 +114,7 @@ public class BattleInteractor {
     /**
      * Returns the current health of the BattleCharacter with the given name.
      *
+     * @param name the name of the character.
      * @return the desired BattleCharacter's current health.
      */
     public int getCharacterHealth(String name) {
@@ -123,6 +124,7 @@ public class BattleInteractor {
     /**
      * Returns the current damage stat of the BattleCharacter with the given name.
      *
+     * @param name the name of the character.
      * @return the desired BattleCharacter's current damage.
      */
     public int getCharacterDamage(String name) {
@@ -133,6 +135,7 @@ public class BattleInteractor {
      * Returns the stats of the BattleCharacter with the given name's moves.
      * Stats order: Move1 health change, Move1 damage change, Move2 health change, Move2 damage change.
      *
+     * @param name the name of the character.
      * @return the desired BattleCharacter's move stats.
      */
     public int[] getCharacterMoveStats(String name) {
@@ -145,6 +148,7 @@ public class BattleInteractor {
      * Returns the names of the BattleCharacter with the given name's moves.
      * Stats order: Move1 name, Move2 name.
      *
+     * @param name the name of the character.
      * @return the desired BattleCharacter's move names.
      */
     public String[] getCharacterMoveNames(String name) {
