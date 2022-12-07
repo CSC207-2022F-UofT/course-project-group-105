@@ -39,6 +39,7 @@ public class ReplayGenerator {
      * Revive all characters and add them to the list of alive characters
      */
     public void reviveCharacters() {
+        // revive the characters
         MegaPotion potion = new MegaPotion();
         potion.consume(state, PartyConstants.ALL_PARTY_MEMBER_NAMES[0]);
 
@@ -50,6 +51,12 @@ public class ReplayGenerator {
 
         MegaPotion potion4 = new MegaPotion();
         potion4.consume(state, PartyConstants.ALL_PARTY_MEMBER_NAMES[3]);
+
+        // set the characters to max health
+        for (int i = 0; i < state.charactersList().size(); i++) {
+            state.charactersList().get(i).fullHealCharacter();
+        }
+
     }
 
     /**
