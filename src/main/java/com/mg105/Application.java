@@ -135,7 +135,7 @@ public class Application extends javafx.application.Application {
         /////WinGame Scene/////
         ReplayGeneratorButton winButton = new ReplayGeneratorButton(replayGeneratorInterpreter, sceneController, Toggler.ToggleableComponent.WIN_MENU);
         WinMenu winMenu = new WinMenu(winButton);
-        WinDisplay winDisplay = new WinDisplay(sceneController, roomGetter, state);
+        WinDisplay winDisplay = new WinDisplay(sceneController, roomGetter, replayGenerator);
         roomUpdater.addObserver(winDisplay);
         drawableComponents.put(Toggler.ToggleableComponent.WIN_MENU, winMenu);
         /////////////////
