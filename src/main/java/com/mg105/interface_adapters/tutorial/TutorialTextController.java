@@ -5,12 +5,18 @@ import com.mg105.utils.TutorialTexts;
 
 import java.util.List;
 
+/**
+ * A controller that converts phase number into displayed text
+ */
 public class TutorialTextController {
 
     private final PlayerGetsTutorial tutorial = new PlayerGetsTutorial(TutorialTexts.PHASES, 0);
     private boolean changeText;
     private boolean showControls = false;
 
+    /**
+     * A constructor for the tutorial controller
+     */
     public TutorialTextController(boolean changeText) {
         this.changeText = changeText;
     }
@@ -86,6 +92,7 @@ public class TutorialTextController {
     /**
      * Returns if the action has been performed
      *
+     * @param action that is checked
      * @return if the specified action has been performed
      */
     public boolean getActionPerformed(String action) {

@@ -16,7 +16,7 @@ public class ReplayGenerator {
     /**
      * Create a new replaygenerator
      *
-     * @param state the game state.
+     * @param state      the game state.
      * @param resetables resetable things.
      */
     public ReplayGenerator(@NotNull GameState state, @NotNull Resetable... resetables) {
@@ -53,5 +53,6 @@ public class ReplayGenerator {
         for (Resetable resetable : resetables) {
             resetable.reset();
         }
+
     }
 }
