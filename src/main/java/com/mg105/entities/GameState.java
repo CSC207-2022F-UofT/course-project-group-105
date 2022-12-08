@@ -64,15 +64,6 @@ public class GameState {
     }
 
     /**
-     * Returns the list of characters in the party
-     *
-     * @return a list of all characters in party
-     */
-    public ArrayList<BattleCharacter> charactersList() {
-        return this.party;
-    }
-
-    /**
      * Returns the character in party based on the given name
      * Only returns a party member that is not fainted
      * return null iff the name is not of a non-fainted party member

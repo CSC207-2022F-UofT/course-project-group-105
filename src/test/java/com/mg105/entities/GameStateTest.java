@@ -39,4 +39,17 @@ public class GameStateTest {
     void getWalkingCharacter() {
         assertEquals(walkingCharacter, state.getWalkingCharacter());
     }
+
+    @Test
+    void getParty() {
+        assertEquals(0, state.getParty().size());
+    }
+
+    @Test
+    void removeCurrEncounter() {
+        state.setCurrEncounter(new Battle(new ArrayList<>(), new ArrayList<>()));
+        assertTrue(state.hasCurrEncounter());
+        state.removeCurrEncounter();
+        assertFalse(state.hasCurrEncounter());
+    }
 }

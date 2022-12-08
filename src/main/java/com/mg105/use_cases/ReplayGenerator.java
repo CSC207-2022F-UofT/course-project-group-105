@@ -54,8 +54,8 @@ public class ReplayGenerator {
         potion4.consume(state, PartyConstants.ALL_PARTY_MEMBER_NAMES[3]);
 
         // set the characters to max health
-        for (int i = 0; i < state.charactersList().size(); i++) {
-            state.charactersList().get(i).fullHealCharacter();
+        for (int i = 0; i < state.getParty().size(); i++) {
+            state.getParty().get(i).fullHealCharacter();
         }
 
     }
