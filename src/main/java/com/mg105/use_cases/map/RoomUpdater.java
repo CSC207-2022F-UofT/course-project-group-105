@@ -1,4 +1,4 @@
-package com.mg105.use_cases;
+package com.mg105.use_cases.map;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -12,7 +12,7 @@ import java.beans.PropertyChangeSupport;
  * <p>
  * RoomUpdater makes use of the Java9+ Observable pattern.
  */
-public class RoomUpdater {
+public class RoomUpdater implements RoomUpdaterInterface {
     private final @NotNull PropertyChangeSupport observable;
 
     /**
@@ -25,6 +25,7 @@ public class RoomUpdater {
     /**
      * Trigger an update on all the components that need updating on a room state change.
      */
+    @Override
     public void updateRoom() {
         observable.firePropertyChange("", null, null);
     }

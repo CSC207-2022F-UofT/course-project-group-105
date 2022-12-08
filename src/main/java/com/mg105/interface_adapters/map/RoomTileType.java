@@ -1,9 +1,9 @@
-package com.mg105.interface_adapters;
+package com.mg105.interface_adapters.map;
 
 /**
  * Types of tiles that can appear within a room.
  */
-public enum TileType {
+public enum RoomTileType {
     /** Empty floor that can be walked on */
     FLOOR,
     /** Wall that cannot be walked on.  Mainly used for the border */

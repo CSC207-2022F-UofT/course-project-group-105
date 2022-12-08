@@ -2,6 +2,7 @@ package com.mg105.use_cases;
 
 import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.GameState;
+import com.mg105.use_cases.map.MapGenerator;
 import com.mg105.entities.items.MegaPotion;
 import com.mg105.utils.PartyConstants;
 import org.jetbrains.annotations.NotNull;
@@ -53,8 +54,8 @@ public class ReplayGenerator {
         potion4.consume(state, PartyConstants.ALL_PARTY_MEMBER_NAMES[3]);
 
         // set the characters to max health
-        for (int i = 0; i < state.charactersList().size(); i++) {
-            state.charactersList().get(i).fullHealCharacter();
+        for (int i = 0; i < state.getParty().size(); i++) {
+            state.getParty().get(i).fullHealCharacter();
         }
 
     }

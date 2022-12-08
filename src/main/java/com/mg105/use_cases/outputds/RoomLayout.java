@@ -1,9 +1,9 @@
 package com.mg105.use_cases.outputds;
 
 import org.jetbrains.annotations.NotNull;
-import java.util.List;
 
 import java.awt.*;
+import java.util.List;
 
 /**
  * The layout of a room.

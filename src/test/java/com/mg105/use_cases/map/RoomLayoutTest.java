@@ -1,13 +1,13 @@
-package com.mg105.use_cases;
+package com.mg105.use_cases.map;
 
 import com.mg105.use_cases.outputds.RoomLayout;
 import org.junit.jupiter.api.Test;
-import java.util.List;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RoomLayoutTest {
     @Test

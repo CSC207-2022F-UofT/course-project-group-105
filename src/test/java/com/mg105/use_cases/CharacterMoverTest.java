@@ -2,6 +2,9 @@ package com.mg105.use_cases;
 
 import com.mg105.entities.*;
 import com.mg105.entities.items.UpgradeToken;
+import com.mg105.use_cases.map.CharacterMover;
+import com.mg105.use_cases.map.CharacterMoverInterface;
+import com.mg105.use_cases.map.RoomUpdater;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CharacterMoverTest {
     private GameState state;
-    private CharacterMover mover;
+    private CharacterMoverInterface mover;
 
     @BeforeEach
     void setup() {

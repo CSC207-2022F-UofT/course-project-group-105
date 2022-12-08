@@ -1,11 +1,11 @@
-package com.mg105.use_cases;
+package com.mg105.use_cases.map;
 
 import org.junit.jupiter.api.Test;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RoomUpdaterTest {
     @Test

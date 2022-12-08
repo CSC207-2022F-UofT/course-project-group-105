@@ -1,8 +1,8 @@
 package com.mg105.interface_adapters.battle;
 
 import com.mg105.interface_adapters.Toggler;
-import com.mg105.use_cases.battle.BattlePresenterInterface;
 import com.mg105.use_cases.battle.BattleInteractor;
+import com.mg105.use_cases.battle.BattlePresenterInterface;
 
 import java.util.ArrayList;
 

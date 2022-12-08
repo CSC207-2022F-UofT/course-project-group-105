@@ -1,10 +1,10 @@
 package com.mg105.entities;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.NoSuchElementException;
-
-import org.jetbrains.annotations.NotNull;
 
 /**
  * A class that represents the state of the game
@@ -13,7 +13,6 @@ import org.jetbrains.annotations.NotNull;
  */
 
 public class GameState {
-    private Room firstRoom;
     private Room lastRoom;
     private Room currentRoom;
 
@@ -62,15 +61,6 @@ public class GameState {
      */
     public Inventory getInventory() {
         return this.inventory;
-    }
-
-    /**
-     * Returns the list of characters in the party
-     *
-     * @return a list of all characters in party
-     */
-    public ArrayList<BattleCharacter> charactersList() {
-        return this.party;
     }
 
     /**
@@ -174,7 +164,6 @@ public class GameState {
      * @param lastRoom  the end room of the map (where the game is won).
      */
     public void setMap(@NotNull Room firstRoom, @NotNull Room lastRoom) {
-        this.firstRoom = firstRoom;
         this.currentRoom = firstRoom;
         this.lastRoom = lastRoom;
     }
@@ -258,18 +247,6 @@ public class GameState {
      */
     public void setCurrOpponent(OpponentSet currOpponent) {
         this.currOpponent = currOpponent;
-    }
-
-    /**
-     * Get if the player is in the first room.
-     *
-     * @return true if the player is in the first room, false otherwise.
-     */
-    public boolean isCurrentRoomFirstRoom() {
-        // NOTE: In this case it is actually ok to directly compare the two via == and not .equals()... This is because
-        // we actually care that this is exactly the same instance of the room, not just two rooms that happen to have
-        // the same configuration.
-        return currentRoom == firstRoom;
     }
 
     /**

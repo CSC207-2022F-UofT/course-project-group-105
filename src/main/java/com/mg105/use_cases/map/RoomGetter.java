@@ -1,4 +1,4 @@
-package com.mg105.use_cases;
+package com.mg105.use_cases.map;
 
 import com.mg105.entities.Doorway;
 import com.mg105.entities.GameState;
@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * RoomGetter is responsible for getting the state current room.
  */
-public class RoomGetter {
+public class RoomGetter implements RoomGetterInterface {
     private final @NotNull GameState state;
 
     /**
@@ -33,6 +33,7 @@ public class RoomGetter {
      *
      * @return the current room.
      */
+    @Override
     public @NotNull RoomLayout getCurrentRoomLayout() {
         List<Point> closedChests = new ArrayList<>();
         List<Point> openChests = new ArrayList<>();
@@ -59,17 +60,21 @@ public class RoomGetter {
 
     /**
      * Retrieves the WalkingCharacter sprite name String, returns a file name/location corresponding to the name.
+     *
      * @return a String representing the file name/location for the selected character sprite.
      */
-    public String getWalkingSprite() {
+    @Override
+    public @NotNull String getWalkingSprite() {
         return "/sprites/" + state.getWalkingCharacter().getSpriteName() + ".png";
     }
 
     /**
      * Checks if the player is in the final room
+     *
      * @return whether the player is in the final room
      */
-    public boolean isFinalRoom(){
+    @Override
+    public boolean isFinalRoom() {
         return state.isCurrentRoomLastRoom();
     }
 }
