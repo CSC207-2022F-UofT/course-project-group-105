@@ -21,6 +21,10 @@ public class PartyDataAccess implements PartyDataInterface {
     private final static int NUMBER_OF_MOVES_PER_CHARACTER = 2;
     private final MoveDataAccess moveDataAccess;
 
+    /**
+     * Creates a new instance of PartyDataAccess
+     * @param moveDataAccess an object that can access data about usable moves
+     */
 
     public PartyDataAccess(MoveDataAccess moveDataAccess) {
         // Could define a new moveDataAccess here but it is passed in to follow dependency inversion
@@ -132,12 +136,24 @@ public class PartyDataAccess implements PartyDataInterface {
 
     }
 
+    /**
+     * Returns objects representing the moves a party member has
+     * @param memberAttributes an array of attributes a party member has
+     * @return objects representing the moves a party member has
+     * @see MoveDetails
+     */
+
     private @NotNull MoveDetails[] moveDetails(String[] memberAttributes) {
 
         return getMoveDetails(getMoveNames(memberAttributes));
 
     }
 
+    /**
+     * Returns the moves a party member has from a given array of their attributes
+     * @param memberAttributes an array of attributes of a party member
+     * @return an array of move names
+     */
     private @NotNull String[] getMoveNames(String[] memberAttributes) {
         String[] names = new String[NUMBER_OF_MOVES_PER_CHARACTER];
 
@@ -148,6 +164,12 @@ public class PartyDataAccess implements PartyDataInterface {
 
     }
 
+    /**
+     * Returns an array of objects representing moves based on the given move name
+     * @param moveNames an array of move names
+     * @return an array of objects representing moves
+     * @see MoveDetails
+     */
     private @NotNull MoveDetails[] getMoveDetails(String[] moveNames) {
 
         // moveNames should have the same length as NUMBER_OF_MOVES_PER_CHARACTER
@@ -163,6 +185,13 @@ public class PartyDataAccess implements PartyDataInterface {
         return details;
 
     }
+
+    /**
+     * Returns the appropriate column number based on the desired stat
+     * returns -1 iff provided an invalid stat
+     * @param rowName the desired stat
+     * @return an integer representing the column that stat is located in the "database"
+     */
 
     private int getColumnNumber(String rowName) {
         return switch (rowName) {

@@ -44,6 +44,14 @@ public class PartyCreator implements StateSetter {
 
     }
 
+    /**
+     * Returns a BattleCharacter
+     * @param details an object that represents the attributes of a battle character
+     * @return a BattleCharacter based on the details object
+     * @see BattleCharacterDetails
+     * @see BattleCharacter
+     */
+
     private @NotNull BattleCharacter createPartyMember(@NotNull BattleCharacterDetails details) {
         Move first = createMove(details.getMoveDetails()[0]);
         Move second = createMove(details.getMoveDetails()[1]);
@@ -51,6 +59,14 @@ public class PartyCreator implements StateSetter {
         return new BattleCharacter(details.getMaxHp(), details.getName(), details.getDmg(), details.getSpeed(),
             details.isOpponent(), first, second);
     }
+
+    /**
+     * Returns a Move
+     * @param details an object that represents the details of a move
+     * @return a Move object based on the details
+     * @see MoveDetails
+     * @see Move
+     */
 
     private @NotNull Move createMove(@NotNull MoveDetails details) {
         return new Move(details.getHealthChange(), details.getDamageChange(), details.getName(), details.isFriendly());

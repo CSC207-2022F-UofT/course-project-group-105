@@ -11,11 +11,18 @@ import static com.mg105.utils.MoveConstants.*;
 
 public class MoveDataCreator extends DataStorageCreator {
 
+    /**
+     * Creates a new instance of MoveDataCreator
+     */
     public MoveDataCreator(){
         super(MOVE_DATA_PATH, getInitialData());
 
     }
 
+    /**
+     * Returns the data about the moves in the initial state of the game (aka a "new game file")
+     * @return the data about the moves in the initial state of the game
+     */
     private static @NotNull String[][] getInitialData(){
 
         String[] header = {"name","moveChange","damageChange","isFriendly"};
@@ -28,7 +35,5 @@ public class MoveDataCreator extends DataStorageCreator {
         String[] m7 =  {SURPRISE_ATTACK,"-5","0",IS_FALSE};
         String[] m8 =  {SABOTAGE,"-2","-2",IS_FALSE};
         return new String[][]{header, m1, m2, m3, m4, m5, m6, m7, m8};
-
-
     }
 }

@@ -36,18 +36,30 @@ public class InventoryDisplay implements InventoryViewInterface, Toggleable {
         this.controller = controller;
     }
 
+    /**
+     * Returns the character selected by the user
+     * @return the character selected by the user
+     */
     private String getCharacterSelected() {
         return this.characterSelected;
     }
 
+    /**
+     * Returns the dropdown where user can select a party member
+     * @return the dropdown where user can select a party member
+     */
     private @NotNull ComboBox<String> buildCharacterDropdown() {
         ComboBox<String> partySelector = new ComboBox<>();
         partySelector.getItems().addAll(PartyConstants.ALL_PARTY_MEMBER_NAMES);
         partySelector.setOnAction(e -> this.characterSelected = partySelector.getSelectionModel().getSelectedItem());
-        partySelector.setValue(PartyConstants.ALL_PARTY_MEMBER_NAMES[0]);
+        partySelector.setValue(characterSelected);
         return partySelector;
     }
 
+    /**
+     * Returns the component that really has all the details necessary for the scene
+     * @return the component that really has all the details necessary for the scene
+     */
     private @NotNull VBox buildLayout() {
         this.itemsDisplay = new VBox(10);
         this.itemsDisplay.getChildren().add(new Label("Inventory"));
@@ -154,6 +166,11 @@ public class InventoryDisplay implements InventoryViewInterface, Toggleable {
         addItemView(name, description, isUsable, quantity);
     }
 
+    /**
+     * Creates a use item button
+     * @param name of item to create use item button
+     * @return the use item button
+     */
     private Button getUseItemButton(String name) {
         Button useItem = new Button("Use Item");
         useItem.setOnAction(e ->

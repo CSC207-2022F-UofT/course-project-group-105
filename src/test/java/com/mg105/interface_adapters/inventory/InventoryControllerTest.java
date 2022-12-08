@@ -109,13 +109,6 @@ class InventoryControllerTest {
         assertEquals(5, inventory.numberOfItems(ItemConstants.HEALTH_POTION_NAME));
     }
 
-
-    //
-
-    @Test
-    void useItem() {
-    }
-
     @Test
     void useItemInventoryNotExists() {
         Inventory inventory = new Inventory();
@@ -192,13 +185,5 @@ class InventoryControllerTest {
         inventoryController.useItem(ItemConstants.HEALTH_POTION_NAME, ALL_PARTY_MEMBER_NAMES[1]);
         assertEquals(5, inventory.numberOfItems(ItemConstants.HEALTH_POTION_NAME));
         assertEquals(1, party[1].getHp());
-    }
-
-
-    // Can't really test this since it is just a get request and send that data to the presenter
-
-    @Test
-    void getInventoryDetails() {
-
     }
 }

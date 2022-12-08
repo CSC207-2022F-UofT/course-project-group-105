@@ -21,6 +21,12 @@ public abstract class DataStorageCreator implements CreateDataStorage {
 
     @NotNull private final String[][] initialData;
 
+    /**
+     * Creates a new instance of DataStorageCreator
+     * @param path the file path to create data to
+     * @param initialData the inital data to create
+     */
+
      public DataStorageCreator(@NotNull String path, @NotNull String[][] initialData){
          this.path = path;
          this.initialData = initialData;
