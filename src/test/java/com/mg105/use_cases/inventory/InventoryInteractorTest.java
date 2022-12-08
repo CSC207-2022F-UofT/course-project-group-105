@@ -251,13 +251,4 @@ class InventoryInteractorTest {
         assertEquals(5, inventory.numberOfItems(ItemConstants.HEALTH_POTION_NAME));
         assertEquals(1, party[1].getHp());
     }
-
-
-    // Can't really test this since it is just a get request and send that data to the presenter (method
-    // returns nothing)
-
-    @Test
-    void getInventoryDetails() {
-
-    }
 }

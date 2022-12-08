@@ -15,11 +15,18 @@ import static com.mg105.utils.StatConstants.*;
 
 public class PartyDataCreator extends DataStorageCreator {
 
+    /**
+     * Creates a new instance of party data creator
+     */
     public PartyDataCreator(){
         super(PARTY_DATA_PATH, getInitialData());
 
     }
 
+    /**
+     * Returns the data about the party in the initial state of the game (aka a "new game file")
+     * @return the data about the party in the initial state of the game
+     */
     private static @NotNull String[][] getInitialData(){
 
         String[] header = {"name",MAX_HP,DAMAGE,SPEED,"isOpponent","moveName","moveName"};

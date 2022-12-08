@@ -55,11 +55,4 @@ public class InventoryController {
     public void getInventoryDetails() {
         interactor.getInventoryDetails();
     }
-
-    /**
-     * Removes all items from the inventory
-     */
-    public void removeAll() {
-        this.interactor.removeInventory();
-    }
 }

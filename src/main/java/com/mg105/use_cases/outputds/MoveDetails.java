@@ -13,6 +13,13 @@ public class MoveDetails {
     private final int damageChange;
     private final boolean isFriendly;
 
+    /**
+     * Creates a new instance of MoveDetails
+     * @param name of the move
+     * @param healthChange of the move
+     * @param damageChange of the move
+     * @param isFriendly true iff the move is friendly
+     */
     public MoveDetails(@NotNull String name, int healthChange, int damageChange,
                        boolean isFriendly) {
         this.name = name;
