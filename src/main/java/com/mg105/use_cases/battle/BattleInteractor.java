@@ -19,22 +19,20 @@ import static com.mg105.utils.ItemConstants.UPGRADE_TOKEN_NAME;
  */
 public class BattleInteractor {
 
+    private final static int MAX_UPGRADE_TOKEN_REWARDED = 3;
     private final GameState state;
-
-    private BattlePresenterInterface presenter;
-
     private final InventoryInteractor inventoryInteractor;
 
     private final Saver saver;
-
-    private final static int MAX_UPGRADE_TOKEN_REWARDED = 3;
+    private BattlePresenterInterface presenter;
 
 
     /**
      * Creates a new BattleInteractor with a reference to the GameState.
-     * @param state the GameState to be referred to.
+     *
+     * @param state               the GameState to be referred to.
      * @param inventoryInteractor the inventoryInteractor to be referred to.
-     * @param saver an instance of Saver used to save data.
+     * @param saver               an instance of Saver used to save data.
      */
     public BattleInteractor(GameState state, InventoryInteractor inventoryInteractor, Saver saver) {
 
@@ -164,6 +162,7 @@ public class BattleInteractor {
      * If encounter is still in progress, get the next moving character.
      * If opponent is moving, choose a random move and random target and use it.
      * returns null iff the battle has ended
+     *
      * @return a String of the name of the moving character
      */
     public String roundStart() {
@@ -281,7 +280,7 @@ public class BattleInteractor {
 
         //If the move is to be used on a character on the same team, and the move is meant to heal, then increase the
         // healing effect applied by the move based on the caster's damage stat.
-        if(m.isFriendly() && m.getHealthChange() > 0) {
+        if (m.isFriendly() && m.getHealthChange() > 0) {
             target.modifyHealth(Math.floorDiv(caster.getDmg(), 2));
         }
 

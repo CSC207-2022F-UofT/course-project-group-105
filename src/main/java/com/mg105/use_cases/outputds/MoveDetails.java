@@ -8,7 +8,8 @@ import org.jetbrains.annotations.NotNull;
 
 public class MoveDetails {
 
-    @NotNull private final String name;
+    @NotNull
+    private final String name;
     private final int healthChange;
     private final int damageChange;
     private final boolean isFriendly;

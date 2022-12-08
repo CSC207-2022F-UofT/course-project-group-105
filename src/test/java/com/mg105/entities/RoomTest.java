@@ -4,11 +4,11 @@ import com.mg105.entities.items.MegaPotion;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.awt.Point;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RoomTest {
     private List<TreasureChest> chests;
@@ -24,7 +24,7 @@ class RoomTest {
         opponents = new ArrayList<>();
 
         doorways = new ArrayList<>();
-        doorways.add(new Doorway(new Point(), new Room(new ArrayList<>(),new ArrayList<>(),new ArrayList<>())));
+        doorways.add(new Doorway(new Point(), new Room(new ArrayList<>(), new ArrayList<>(), new ArrayList<>())));
 
         // We create copies to test for modification
         room = new Room(

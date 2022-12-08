@@ -18,20 +18,20 @@ import org.junit.jupiter.api.Test;
 import java.awt.*;
 
 import static com.mg105.utils.PartyConstants.ALL_PARTY_MEMBER_NAMES;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SaverTest {
 
     // PartyCreator and PartyDataAccess and MoveDataAccess are all tested through this as well!
 
-    // This test only works for the "inital" state of the user party and moves
-    // This is not because the class is depedent on the initial state but because of the
+    // This test only works for the "initial" state of the user party and moves
+    // This is not because the class is dependent on the initial state but because of the
     // hard coded expected values
 
     private static final GameState state = new GameState(new Inventory(), new WalkingCharacter(new Point()));
 
     private static final PartyDataAccess pda = new PartyDataAccess(new MoveDataAccess());
-    private static final StateSetter[] setters  = {new PartyCreator(pda)};
+    private static final StateSetter[] setters = {new PartyCreator(pda)};
 
     private static final GameStateSetter setter = new GameStateSetter(setters);
 
@@ -40,7 +40,7 @@ class SaverTest {
     private static final Saver saver = new Saver(savers);
 
     @BeforeAll
-    static void setData(){
+    static void setData() {
         PartyDataCreator pd = new PartyDataCreator();
         pd.createDataStorage();
         MoveDataCreator m = new MoveDataCreator();

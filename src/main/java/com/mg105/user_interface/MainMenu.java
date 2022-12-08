@@ -8,12 +8,11 @@ import org.jetbrains.annotations.NotNull;
 
 public class MainMenu implements Toggleable {
     private final @NotNull Scene scene;
-    private final @NotNull Pane layout;
 
     public MainMenu(@NotNull MapGeneratorButton startButton) {
         Button generateMapButton = new Button("Start Game");
         generateMapButton.setOnAction(startButton);
-        layout = new StackPane();
+        @NotNull Pane layout = new StackPane();
         layout.getChildren().add(generateMapButton);
         scene = new Scene(layout, 600, 600);
     }

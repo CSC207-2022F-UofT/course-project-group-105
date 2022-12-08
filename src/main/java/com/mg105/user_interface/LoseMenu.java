@@ -8,13 +8,12 @@ import org.jetbrains.annotations.NotNull;
 
 public class LoseMenu implements Toggleable {
     private final @NotNull Scene scene;
-    private final @NotNull Pane layout;
 
     public LoseMenu(@NotNull ReplayGeneratorButton ReplayButton) {
         Button generateMapButton = new Button("Replay The Game");
         //Clean Inventory
         generateMapButton.setOnAction(ReplayButton);
-        layout = new StackPane();
+        @NotNull Pane layout = new StackPane();
         layout.getChildren().add(generateMapButton);
         scene = new Scene(layout, 600, 600);
     }

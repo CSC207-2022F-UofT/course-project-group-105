@@ -23,12 +23,13 @@ public class UpgradeToken extends Item implements Consumable {
 
     /**
      * Upgrades the stats of the given character
-     * @param state the state of the game
+     *
+     * @param state         the state of the game
      * @param characterName the name of the character to use the item on
      */
     @Override
     public void consume(@NotNull GameState state, @NotNull String characterName) {
-        BattleCharacter  character = state.getPartyMember(characterName);
+        BattleCharacter character = state.getPartyMember(characterName);
         character.modifyDamage(1);
         character.modifyMaxHp(1);
         character.modifySpeed(1);

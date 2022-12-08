@@ -1,11 +1,12 @@
 package com.mg105.entities;
+
 import com.mg105.entities.items.HealthPotion;
 import com.mg105.entities.items.MegaPotion;
-import com.mg105.use_cases.map.RoomUpdater;
-import com.mg105.use_cases.outputds.ItemDetails;
 import com.mg105.use_cases.ChestInteractor;
 import com.mg105.use_cases.inventory.InventoryInteractor;
 import com.mg105.use_cases.inventory.InventoryPresenterInterface;
+import com.mg105.use_cases.map.RoomUpdater;
+import com.mg105.use_cases.outputds.ItemDetails;
 import com.mg105.utils.PartyConstants;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -49,11 +50,11 @@ class ChestTest {
     };
     private static final InventoryInteractor inventoryInteractor = new InventoryInteractor(game, pres);
     private static final ChestInteractor chestInteractor = new ChestInteractor(game, inventoryInteractor, new RoomUpdater());
+    private static final Inventory in = game.getInventory();
     private static final ArrayList<TreasureChest> chestList1 = new ArrayList<>();
     private static final ArrayList<TreasureChest> chestList2 = new ArrayList<>();
     private static final ArrayList<OpponentSet> opponents = new ArrayList<>();
     private static final ArrayList<Doorway> doors = new ArrayList<>();
-    private static final Inventory in = game.getInventory();
 
     @BeforeEach
     void setUp() {

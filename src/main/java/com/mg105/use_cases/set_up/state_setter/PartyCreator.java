@@ -15,10 +15,12 @@ import org.jetbrains.annotations.NotNull;
  */
 
 public class PartyCreator implements StateSetter {
-    @NotNull private final PartyDataInterface party_access;
+    @NotNull
+    private final PartyDataInterface party_access;
 
     /**
      * Creates a new instance of PartyCreator
+     *
      * @param partyAccess an object that is used to access information of the party from the data storage system
      */
     public PartyCreator(@NotNull PartyDataInterface partyAccess) {

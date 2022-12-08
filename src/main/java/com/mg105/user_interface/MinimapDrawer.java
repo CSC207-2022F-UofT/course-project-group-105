@@ -16,16 +16,13 @@ import java.awt.*;
  */
 public class MinimapDrawer implements Toggleable {
     private static final int CANVAS_SIZE = 400;
-
-    private final @NotNull MinimapInterpreterInterface interpreter;
-
-    private final @NotNull Scene scene;
-    private final @NotNull Group group;
-
     private static final @NotNull Color PATH_COLOR = Color.rgb(135, 160, 227);
     private static final @NotNull Color ROOM_COLOR = Color.rgb(205, 220, 255);
     private static final @NotNull Color CURRENT_ROOM_COLOR = Color.rgb(200, 150, 61);
     private static final @NotNull Color BACKGROUND_COLOR = Color.rgb(38, 44, 68);
+    private final @NotNull MinimapInterpreterInterface interpreter;
+    private final @NotNull Scene scene;
+    private final @NotNull Group group;
 
     /**
      * Create a new MinimapDrawer.
@@ -94,13 +91,13 @@ public class MinimapDrawer implements Toggleable {
                         group.getChildren().add(r);
 
                         // Now we draw the lines that sick out
-                        final int xMidpoint = leftPadding +  x * cellDimension + cellDimension / 2;
+                        final int xMidpoint = leftPadding + x * cellDimension + cellDimension / 2;
                         final int yMidpoint = topPadding + y * cellDimension + cellDimension / 2;
                         final int strokeWidth = cellDimension / 10;
                         final int strokeWidthCorrection = strokeWidth / 2;
 
                         // Line coming out the top
-                        if (y > 0 && map[y-1][x] != null) {
+                        if (y > 0 && map[y - 1][x] != null) {
                             Line l = new Line();
                             l.setStartX(xMidpoint);
                             l.setEndX(xMidpoint);
@@ -112,7 +109,7 @@ public class MinimapDrawer implements Toggleable {
                         }
 
                         // Line coming out the bottom
-                        if (y < map.length - 1 && map[y+1][x] != null) {
+                        if (y < map.length - 1 && map[y + 1][x] != null) {
                             Line l = new Line();
                             l.setStartX(xMidpoint);
                             l.setEndX(xMidpoint);
@@ -124,7 +121,7 @@ public class MinimapDrawer implements Toggleable {
                         }
 
                         // Line coming out the left
-                        if (x > 0 && map[y][x-1] != null) {
+                        if (x > 0 && map[y][x - 1] != null) {
                             Line l = new Line();
                             l.setStartX(leftPadding + x * cellDimension + innerCellPadding - strokeWidthCorrection);
                             l.setEndX(leftPadding + x * cellDimension + strokeWidthCorrection);
@@ -136,7 +133,7 @@ public class MinimapDrawer implements Toggleable {
                         }
 
                         // Line coming out the right
-                        if (x < map[0].length - 1 && map[y][x+1] != null) {
+                        if (x < map[0].length - 1 && map[y][x + 1] != null) {
                             Line l = new Line();
                             l.setStartX(leftPadding + x * cellDimension + cellDimension - innerCellPadding + strokeWidthCorrection);
                             l.setEndX(leftPadding + x * cellDimension + cellDimension - strokeWidthCorrection);

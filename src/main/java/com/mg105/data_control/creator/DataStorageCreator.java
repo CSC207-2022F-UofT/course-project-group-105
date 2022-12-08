@@ -17,14 +17,16 @@ import java.util.Arrays;
 
 public abstract class DataStorageCreator implements CreateDataStorage {
 
-    @NotNull private final String path;
+    @NotNull
+    private final String path;
 
-    @NotNull private final String[][] initialData;
+    @NotNull
+    private final String[][] initialData;
 
-     public DataStorageCreator(@NotNull String path, @NotNull String[][] initialData){
-         this.path = path;
-         this.initialData = initialData;
-     }
+    public DataStorageCreator(@NotNull String path, @NotNull String[][] initialData) {
+        this.path = path;
+        this.initialData = initialData;
+    }
 
     /**
      * Creates a data storage system for the specific aspect of the game this class pertains to
@@ -49,8 +51,7 @@ public abstract class DataStorageCreator implements CreateDataStorage {
                 writer.close();
 
             }
-        }
-        catch(IOException e) {
+        } catch (IOException e) {
             e.getStackTrace();
         }
     }

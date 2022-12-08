@@ -13,17 +13,15 @@ import java.util.NoSuchElementException;
  */
 
 public class GameState {
-    private Room lastRoom;
-    private Room currentRoom;
-
-    private OpponentSet currOpponent;
     private final ArrayList<BattleCharacter> party;
     private final WalkingCharacter walkingCharacter;
     private final Inventory inventory;
-    private Battle currEncounter = null;
-
     //Potentially useless. Keeps track of party characters who faint in battle.
     private final ArrayList<BattleCharacter> fainted = new ArrayList<>();
+    private Room lastRoom;
+    private Room currentRoom;
+    private OpponentSet currOpponent;
+    private Battle currEncounter = null;
 
     /**
      * Create a new game state.
@@ -110,7 +108,7 @@ public class GameState {
 
     /**
      * Removes the given fainted party
-     * This should only be done to fainted party members who's hp is about to become above zero
+     * This should only be done to fainted party members whose hp is about to become above zero
      *
      * @param characterName the name of the party member that is fainted
      */
@@ -178,6 +176,15 @@ public class GameState {
     }
 
     /**
+     * Set the current room.  room must be graph-connected to the rest of the map.
+     *
+     * @param room the room to be set.
+     */
+    public void setCurrentRoom(@NotNull Room room) {
+        this.currentRoom = room;
+    }
+
+    /**
      * Returns the active Battle, or null if there is none.
      *
      * @return the current Battle, or null if there is no active encounter.
@@ -223,6 +230,17 @@ public class GameState {
     }
 
     /**
+     * Sets these BattleCharacters as the party
+     * This function should really only ever be called once
+     *
+     * @param party the battles character to the set the party to
+     */
+    public void setParty(@NotNull BattleCharacter[] party) {
+        this.party.clear();
+        this.party.addAll(Arrays.asList(party));
+    }
+
+    /**
      * Returns an ArrayList of the player's fainted characters.
      *
      * @return An ArrayList of the player's fainted characters.
@@ -259,25 +277,5 @@ public class GameState {
         // we actually care that this is exactly the same instance of the room, not just two rooms that happen to have
         // the same configuration.
         return currentRoom == lastRoom;
-    }
-
-    /**
-     * Set the current room.  room must be graph-connected to the rest of the map.
-     *
-     * @param room the room to be set.
-     */
-    public void setCurrentRoom(@NotNull Room room) {
-        this.currentRoom = room;
-    }
-
-    /**
-     * Sets these BattleCharacters as the party
-     * This function should really only ever be called once
-     *
-     * @param party the battles character to the set the party to
-     */
-    public void setParty(@NotNull BattleCharacter[] party) {
-        this.party.clear();
-        this.party.addAll(Arrays.asList(party));
     }
 }

@@ -86,6 +86,7 @@ public class RoomInterpreter implements RoomInterpreterInterface {
 
     /**
      * Retrieves the sprite String currently associated with the WalkingCharacter.
+     *
      * @return a file name/location as a String for the desired character sprite.
      */
     @Override

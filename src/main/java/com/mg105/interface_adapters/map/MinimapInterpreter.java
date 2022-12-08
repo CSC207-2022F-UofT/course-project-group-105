@@ -17,10 +17,9 @@ import java.beans.PropertyChangeListener;
  */
 public class MinimapInterpreter implements PropertyChangeListener, Resetable, MinimapInterpreterInterface {
     private final @NotNull RoomGetterInterface getter;
-
+    private final @NotNull Point currentRoom;
     private @Nullable Point lastPosition;
     private @NotNull MinimapRoomState[][] mapSoFar;
-    private final @NotNull Point currentRoom;
 
     /**
      * Create a new MinimapInterpreter.
@@ -50,7 +49,7 @@ public class MinimapInterpreter implements PropertyChangeListener, Resetable, Mi
      * Update room position data.
      *
      * @param evt A PropertyChangeEvent object describing the event source
-     *          and the property that has changed.
+     *            and the property that has changed.
      */
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
@@ -64,7 +63,7 @@ public class MinimapInterpreter implements PropertyChangeListener, Resetable, Mi
         if ((new PointComparator(lastPosition)).distanceTo(currentPosition) > 1) { // We must have changed rooms
             if (currentPosition.y == 0) { // We moved down into a new room
                 currentRoom.y += 1;
-            } else if (currentPosition.y == MapConstants.ROOM_SIZE-1) { // we moved up into a new room
+            } else if (currentPosition.y == MapConstants.ROOM_SIZE - 1) { // we moved up into a new room
                 currentRoom.y -= 1;
             } else if (currentPosition.x == 0) { // we move right into a new room
                 currentRoom.x += 1;
@@ -76,13 +75,13 @@ public class MinimapInterpreter implements PropertyChangeListener, Resetable, Mi
             mapSoFar[currentRoom.y][currentRoom.x] = MinimapRoomState.EXPLORED;
 
             // Set look for potential next rooms
-            for (Point nextDoowayPosition : layout.getDoorways()) {
+            for (Point nextDoorwayPosition : layout.getDoorways()) {
                 Point nextRoom = new Point(currentRoom);
-                if (nextDoowayPosition.y == 0) {
+                if (nextDoorwayPosition.y == 0) {
                     nextRoom.y -= 1;
-                } else if (nextDoowayPosition.y == MapConstants.ROOM_SIZE-1) {
+                } else if (nextDoorwayPosition.y == MapConstants.ROOM_SIZE - 1) {
                     nextRoom.y += 1;
-                } else if (nextDoowayPosition.x == 0) {
+                } else if (nextDoorwayPosition.x == 0) {
                     nextRoom.x -= 1;
                 } else {
                     nextRoom.x += 1;

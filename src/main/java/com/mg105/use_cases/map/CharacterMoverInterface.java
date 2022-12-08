@@ -3,7 +3,7 @@ package com.mg105.use_cases.map;
 import java.awt.*;
 
 /**
- * A interface that represents a class that moves a character.
+ * An interface that represents a class that moves a character.
  */
 public interface CharacterMoverInterface {
     /**

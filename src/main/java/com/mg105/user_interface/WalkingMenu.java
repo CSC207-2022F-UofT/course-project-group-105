@@ -29,6 +29,7 @@ public class WalkingMenu implements EventHandler<ActionEvent>, Toggleable {
     /**
      * Creates a new WalkingMenu with reference to a controller class.
      * Sets up UI elements.
+     *
      * @param controller the WalkVisController to be referred to.
      */
     public WalkingMenu(WalkVisController controller) {
@@ -71,6 +72,7 @@ public class WalkingMenu implements EventHandler<ActionEvent>, Toggleable {
     /**
      * Handles button events.
      * Pressing the select button updates the WalkingCharacter to represent the desired walking character sprite.
+     *
      * @param event the event which occurred.
      */
     @Override

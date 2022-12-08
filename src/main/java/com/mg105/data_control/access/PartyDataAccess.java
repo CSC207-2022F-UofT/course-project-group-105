@@ -23,7 +23,7 @@ public class PartyDataAccess implements PartyDataInterface {
 
 
     public PartyDataAccess(MoveDataAccess moveDataAccess) {
-        // Could define a new moveDataAccess here but it is passed in to follow dependency inversion
+        // Could define a new moveDataAccess here, but it is passed in to follow dependency inversion
         this.moveDataAccess = moveDataAccess;
     }
 

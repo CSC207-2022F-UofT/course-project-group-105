@@ -21,14 +21,15 @@ import java.util.HashMap;
 
 public class InventoryDisplay implements InventoryViewInterface, Toggleable {
 
-    private Boolean isVisible = false;
-    private VBox itemsDisplay;
     private final HashMap<String, HBox> itemNameToInfo = new HashMap<>();
     private final InventoryController controller;
+    private Boolean isVisible = false;
+    private VBox itemsDisplay;
     private String characterSelected = PartyConstants.ALL_PARTY_MEMBER_NAMES[0];
 
     /**
      * Creates a new instance of inventory display
+     *
      * @param controller an object that interprets user inputs to make changes about the inventory
      */
 

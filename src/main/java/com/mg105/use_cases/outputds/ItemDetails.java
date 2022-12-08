@@ -7,17 +7,19 @@ import org.jetbrains.annotations.NotNull;
  */
 public class ItemDetails {
     private final int count;
-    @NotNull private final String description;
-    @NotNull private final String name;
+    @NotNull
+    private final String description;
+    @NotNull
+    private final String name;
     private final Boolean isUsable;
 
     /**
      * Create new ItemDetails for an item.
      *
-     * @param name the name of the item.
+     * @param name        the name of the item.
      * @param description the description of the item.
-     * @param count the count of the item.
-     * @param isUsable whether the item is usable.
+     * @param count       the count of the item.
+     * @param isUsable    whether the item is usable.
      */
     public ItemDetails(@NotNull String name, @NotNull String description, int count, boolean isUsable) {
         this.name = name;
