@@ -26,6 +26,7 @@ public class BattlePresenter implements BattlePresenterInterface {
      * this instance.
      *
      * @param interactor the BattleInteractor to be referred to.
+     * @param toggler    the toggler used to change windows.
      */
     public BattlePresenter(BattleInteractor interactor, Toggler toggler) {
         this.interactor = interactor;
@@ -63,6 +64,7 @@ public class BattlePresenter implements BattlePresenterInterface {
     /**
      * Returns the current health of the BattleCharacter with the given name.
      *
+     * @param name the desired character.
      * @return the desired BattleCharacter's current health.
      */
     public int givenCharacterHealth(String name) {
@@ -72,6 +74,7 @@ public class BattlePresenter implements BattlePresenterInterface {
     /**
      * Returns the current damage stat of the BattleCharacter with the given name.
      *
+     * @param name the desired character.
      * @return the desired BattleCharacter's current damage.
      */
     public int givenCharacterDamage(String name) {
@@ -82,6 +85,7 @@ public class BattlePresenter implements BattlePresenterInterface {
      * Returns the stats of the BattleCharacter with the given name's moves.
      * Stats order: Move1 health change, Move1 damage change, Move2 health change, Move2 damage change.
      *
+     * @param name the desired character's name
      * @return the desired BattleCharacter's move stats.
      */
     public int[] givenCharacterMoveStats(String name) {
@@ -92,6 +96,7 @@ public class BattlePresenter implements BattlePresenterInterface {
      * Returns the names of the BattleCharacter with the given name's moves.
      * Stats order: Move1 name, Move2 name.
      *
+     * @param name the desired character's name
      * @return the desired BattleCharacter's move names.
      */
     public String[] givenCharacterMoveNames(String name) {

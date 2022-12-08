@@ -22,6 +22,9 @@ public class DataStorageSystemCreator {
         this.builders = builders;
     }
 
+    /**
+     * Create a new data storage.
+     */
     public void create() {
         for (CreateDataStorage builder : this.builders) {
             builder.createDataStorage();

@@ -6,9 +6,17 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * The main game menu.
+ */
 public class MainMenu implements Toggleable {
     private final @NotNull Scene scene;
 
+    /**
+     * Create a new MainMenu.
+     *
+     * @param startButton the button that starts the game.
+     */
     public MainMenu(@NotNull MapGeneratorButton startButton) {
         Button generateMapButton = new Button("Start Game");
         generateMapButton.setOnAction(startButton);

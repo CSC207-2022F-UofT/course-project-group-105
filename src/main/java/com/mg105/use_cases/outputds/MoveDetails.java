@@ -14,6 +14,14 @@ public class MoveDetails {
     private final int damageChange;
     private final boolean isFriendly;
 
+    /**
+     * Create a new MoveDetails instance.
+     *
+     * @param name         the name of the move.
+     * @param healthChange the health change of the move.
+     * @param damageChange the damage change of the move.
+     * @param isFriendly   if the move should operate on the party.
+     */
     public MoveDetails(@NotNull String name, int healthChange, int damageChange,
                        boolean isFriendly) {
         this.name = name;

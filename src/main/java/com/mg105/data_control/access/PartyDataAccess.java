@@ -16,12 +16,19 @@ import java.util.List;
 
 import static com.mg105.utils.DataAccessConstants.PARTY_DATA_PATH;
 
+/**
+ * PartyDataAccess is used to get persistent data about the party.
+ */
 public class PartyDataAccess implements PartyDataInterface {
 
     private final static int NUMBER_OF_MOVES_PER_CHARACTER = 2;
     private final MoveDataAccess moveDataAccess;
 
-
+    /**
+     * Create a new PartyDataAccess instance.
+     *
+     * @param moveDataAccess the move data accessor.
+     */
     public PartyDataAccess(MoveDataAccess moveDataAccess) {
         // Could define a new moveDataAccess here, but it is passed in to follow dependency inversion
         this.moveDataAccess = moveDataAccess;

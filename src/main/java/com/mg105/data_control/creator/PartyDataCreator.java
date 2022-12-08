@@ -14,7 +14,9 @@ import static com.mg105.utils.StatConstants.*;
  */
 
 public class PartyDataCreator extends DataStorageCreator {
-
+    /**
+     * Create a new PartyDataCreator.
+     */
     public PartyDataCreator() {
         super(PARTY_DATA_PATH, getInitialData());
 

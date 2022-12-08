@@ -16,6 +16,8 @@ public class TutorialTextController {
 
     /**
      * A constructor for the tutorial controller
+     *
+     * @param changeText whether to initially change the text.
      */
     public TutorialTextController(boolean changeText) {
         this.changeText = changeText;

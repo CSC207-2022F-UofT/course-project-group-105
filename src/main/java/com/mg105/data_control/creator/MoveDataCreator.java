@@ -10,12 +10,19 @@ import static com.mg105.utils.MoveConstants.*;
  */
 
 public class MoveDataCreator extends DataStorageCreator {
-
+    /**
+     * Create a new MoveDataCreator
+     */
     public MoveDataCreator() {
         super(MOVE_DATA_PATH, getInitialData());
 
     }
 
+    /**
+     * Gets the initial data.
+     *
+     * @return the initial data.
+     */
     private static @NotNull String[][] getInitialData() {
 
         String[] header = {"name", "moveChange", "damageChange", "isFriendly"};

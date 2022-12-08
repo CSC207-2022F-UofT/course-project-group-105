@@ -126,6 +126,9 @@ public class BattleCharacter implements Comparable<BattleCharacter> {
         }
     }
 
+    /**
+     * Ensure this BattleCharacter is completely healed. (Has their maximum health value.
+     */
     public void fullHealCharacter() {
         this.modifyHealth(this.getMaxHp());
     }

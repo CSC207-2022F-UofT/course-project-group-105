@@ -23,8 +23,10 @@ public class ItemConstants {
     /**
      * The constant for the name of HealthPotion.
      */
-
     public static final String HEALTH_POTION_NAME = "Health Potion";
+    /**
+     * The description of a health potion
+     */
     public static final String HEALTH_POTION_DESCRIPTION = "This potion will heal a character by " +
         HealthPotion.getHealingPoints() + " points";
 
@@ -32,7 +34,9 @@ public class ItemConstants {
      * The constant for the name of MegaPotion.
      */
     public static final String MEGA_POTION_NAME = "Mega Health Potion";
-
+    /**
+     * The description of a mega health potion
+     */
     public static final String MEGA_POTION_DESCRIPTION = "This potion will heal a character by " +
         MegaPotion.getHealingPoints() + " points";
 
