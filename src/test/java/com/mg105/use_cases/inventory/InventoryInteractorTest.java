@@ -168,13 +168,6 @@ class InventoryInteractorTest {
         assertEquals(5, inventory.numberOfItems(ItemConstants.HEALTH_POTION_NAME));
     }
 
-
-    //
-
-    @Test
-    void useItem() {
-    }
-
     @Test
     void useItemInventoryNotExists() {
         Inventory inventory = new Inventory();
