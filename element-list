@@ -6,10 +6,12 @@ com.mg105.entities.items
 com.mg105.interface_adapters
 com.mg105.interface_adapters.battle
 com.mg105.interface_adapters.inventory
+com.mg105.interface_adapters.map
 com.mg105.interface_adapters.tutorial
 com.mg105.use_cases
 com.mg105.use_cases.battle
 com.mg105.use_cases.inventory
+com.mg105.use_cases.map
 com.mg105.use_cases.outputds
 com.mg105.use_cases.save
 com.mg105.use_cases.set_up.data_system_creator

@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="script-dir/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="script.js"></script>
-<script type="text/javascript" src="script-dir/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="script-dir/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="index-page">
@@ -85,7 +85,7 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Adds the details of the item to the display</div>
 </dd>
-<dt><a href="com/mg105/use_cases/RoomUpdater.html#addObserver(java.beans.PropertyChangeListener)" class="member-name-link">addObserver(PropertyChangeListener)</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/RoomUpdater.html" title="class in com.mg105.use_cases">RoomUpdater</a></dt>
+<dt><a href="com/mg105/use_cases/map/RoomUpdater.html#addObserver(java.beans.PropertyChangeListener)" class="member-name-link">addObserver(PropertyChangeListener)</a> - Method in class com.mg105.use_cases.map.<a href="com/mg105/use_cases/map/RoomUpdater.html" title="class in com.mg105.use_cases.map">RoomUpdater</a></dt>
 <dd>
 <div class="block">Add a new observer to the RoomUpdater.</div>
 </dd>
@@ -247,23 +247,23 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Check if tutorial phases should advance</div>
 </dd>
-<dt><a href="com/mg105/use_cases/CharacterMover.html" class="type-name-link" title="class in com.mg105.use_cases">CharacterMover</a> - Class in <a href="com/mg105/use_cases/package-summary.html">com.mg105.use_cases</a></dt>
+<dt><a href="com/mg105/use_cases/map/CharacterMover.html" class="type-name-link" title="class in com.mg105.use_cases.map">CharacterMover</a> - Class in <a href="com/mg105/use_cases/map/package-summary.html">com.mg105.use_cases.map</a></dt>
 <dd>
 <div class="block">Move the player within a room.</div>
 </dd>
-<dt><a href="com/mg105/use_cases/CharacterMover.html#%3Cinit%3E(com.mg105.entities.GameState,com.mg105.use_cases.RoomUpdater)" class="member-name-link">CharacterMover(GameState, RoomUpdater)</a> - Constructor for class com.mg105.use_cases.<a href="com/mg105/use_cases/CharacterMover.html" title="class in com.mg105.use_cases">CharacterMover</a></dt>
+<dt><a href="com/mg105/use_cases/map/CharacterMover.html#%3Cinit%3E(com.mg105.entities.GameState,com.mg105.use_cases.map.RoomUpdaterInterface)" class="member-name-link">CharacterMover(GameState, RoomUpdaterInterface)</a> - Constructor for class com.mg105.use_cases.map.<a href="com/mg105/use_cases/map/CharacterMover.html" title="class in com.mg105.use_cases.map">CharacterMover</a></dt>
 <dd>
 <div class="block">Create a CharacterMover to operate on state and to update the room visuals via the updater</div>
 </dd>
-<dt><a href="com/mg105/entities/GameState.html#charactersList()" class="member-name-link">charactersList()</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/GameState.html" title="class in com.mg105.entities">GameState</a></dt>
+<dt><a href="com/mg105/use_cases/map/CharacterMoverInterface.html" class="type-name-link" title="interface in com.mg105.use_cases.map">CharacterMoverInterface</a> - Interface in <a href="com/mg105/use_cases/map/package-summary.html">com.mg105.use_cases.map</a></dt>
 <dd>
-<div class="block">Returns the list of characters in the party</div>
+<div class="block">A interface that represents a class that moves a character.</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/TileType.html#CHEST" class="member-name-link">CHEST</a> - Enum constant in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/TileType.html" title="enum class in com.mg105.interface_adapters">TileType</a></dt>
+<dt><a href="com/mg105/interface_adapters/map/RoomTileType.html#CHEST" class="member-name-link">CHEST</a> - Enum constant in enum class com.mg105.interface_adapters.map.<a href="com/mg105/interface_adapters/map/RoomTileType.html" title="enum class in com.mg105.interface_adapters.map">RoomTileType</a></dt>
 <dd>
 <div class="block">A treasure chest</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/TileType.html#CHEST_OPEN" class="member-name-link">CHEST_OPEN</a> - Enum constant in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/TileType.html" title="enum class in com.mg105.interface_adapters">TileType</a></dt>
+<dt><a href="com/mg105/interface_adapters/map/RoomTileType.html#CHEST_OPEN" class="member-name-link">CHEST_OPEN</a> - Enum constant in enum class com.mg105.interface_adapters.map.<a href="com/mg105/interface_adapters/map/RoomTileType.html" title="enum class in com.mg105.interface_adapters.map">RoomTileType</a></dt>
 <dd>
 <div class="block">A treasure chest that has been opened</div>
 </dd>
@@ -271,7 +271,7 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">A class that interacts with TreasureChests.</div>
 </dd>
-<dt><a href="com/mg105/use_cases/ChestInteractor.html#%3Cinit%3E(com.mg105.entities.GameState,com.mg105.use_cases.inventory.InventoryInteractor,com.mg105.use_cases.RoomUpdater)" class="member-name-link">ChestInteractor(GameState, InventoryInteractor, RoomUpdater)</a> - Constructor for class com.mg105.use_cases.<a href="com/mg105/use_cases/ChestInteractor.html" title="class in com.mg105.use_cases">ChestInteractor</a></dt>
+<dt><a href="com/mg105/use_cases/ChestInteractor.html#%3Cinit%3E(com.mg105.entities.GameState,com.mg105.use_cases.inventory.InventoryInteractor,com.mg105.use_cases.map.RoomUpdaterInterface)" class="member-name-link">ChestInteractor(GameState, InventoryInteractor, RoomUpdaterInterface)</a> - Constructor for class com.mg105.use_cases.<a href="com/mg105/use_cases/ChestInteractor.html" title="class in com.mg105.use_cases">ChestInteractor</a></dt>
 <dd>
 <div class="block">Creates a ChestInteractor to interact with chests in a GameState.</div>
 </dd>
@@ -291,6 +291,8 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/interface_adapters/inventory/package-summary.html">com.mg105.interface_adapters.inventory</a> - package com.mg105.interface_adapters.inventory</dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/mg105/interface_adapters/map/package-summary.html">com.mg105.interface_adapters.map</a> - package com.mg105.interface_adapters.map</dt>
+<dd>&nbsp;</dd>
 <dt><a href="com/mg105/interface_adapters/tutorial/package-summary.html">com.mg105.interface_adapters.tutorial</a> - package com.mg105.interface_adapters.tutorial</dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/use_cases/package-summary.html">com.mg105.use_cases</a> - package com.mg105.use_cases</dt>
@@ -298,6 +300,8 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/mg105/use_cases/battle/package-summary.html">com.mg105.use_cases.battle</a> - package com.mg105.use_cases.battle</dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/use_cases/inventory/package-summary.html">com.mg105.use_cases.inventory</a> - package com.mg105.use_cases.inventory</dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/mg105/use_cases/map/package-summary.html">com.mg105.use_cases.map</a> - package com.mg105.use_cases.map</dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mg105/use_cases/outputds/package-summary.html">com.mg105.use_cases.outputds</a> - package com.mg105.use_cases.outputds</dt>
 <dd>&nbsp;</dd>
@@ -450,7 +454,7 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Use one of (given) the given caster's moves on the given target.</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/TileType.html#EXIT" class="member-name-link">EXIT</a> - Enum constant in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/TileType.html" title="enum class in com.mg105.interface_adapters">TileType</a></dt>
+<dt><a href="com/mg105/interface_adapters/map/RoomTileType.html#EXIT" class="member-name-link">EXIT</a> - Enum constant in enum class com.mg105.interface_adapters.map.<a href="com/mg105/interface_adapters/map/RoomTileType.html" title="enum class in com.mg105.interface_adapters.map">RoomTileType</a></dt>
 <dd>
 <div class="block">A doorway</div>
 </dd>
@@ -458,14 +462,14 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Constant string for good luck text</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/MinimapInterpreter.RoomState.html#EXPLORED" class="member-name-link">EXPLORED</a> - Enum constant in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/MinimapInterpreter.RoomState.html" title="enum class in com.mg105.interface_adapters">MinimapInterpreter.RoomState</a></dt>
+<dt><a href="com/mg105/interface_adapters/map/MinimapRoomState.html#EXPLORED" class="member-name-link">EXPLORED</a> - Enum constant in enum class com.mg105.interface_adapters.map.<a href="com/mg105/interface_adapters/map/MinimapRoomState.html" title="enum class in com.mg105.interface_adapters.map">MinimapRoomState</a></dt>
 <dd>
 <div class="block">The room has been visited at least once</div>
 </dd>
 </dl>
 <h2 class="title" id="I:F">F</h2>
 <dl class="index">
-<dt><a href="com/mg105/interface_adapters/TileType.html#FLOOR" class="member-name-link">FLOOR</a> - Enum constant in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/TileType.html" title="enum class in com.mg105.interface_adapters">TileType</a></dt>
+<dt><a href="com/mg105/interface_adapters/map/RoomTileType.html#FLOOR" class="member-name-link">FLOOR</a> - Enum constant in enum class com.mg105.interface_adapters.map.<a href="com/mg105/interface_adapters/map/RoomTileType.html" title="enum class in com.mg105.interface_adapters.map">RoomTileType</a></dt>
 <dd>
 <div class="block">Empty floor that can be walked on</div>
 </dd>
@@ -494,17 +498,29 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Creates a new instance of GameStateSetters</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/MapGeneratorInterpreter.html#generateMap()" class="member-name-link">generateMap()</a> - Method in class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/MapGeneratorInterpreter.html" title="class in com.mg105.interface_adapters">MapGeneratorInterpreter</a></dt>
+<dt><a href="com/mg105/interface_adapters/map/MapGeneratorInterpreter.html#generateMap()" class="member-name-link">generateMap()</a> - Method in class com.mg105.interface_adapters.map.<a href="com/mg105/interface_adapters/map/MapGeneratorInterpreter.html" title="class in com.mg105.interface_adapters.map">MapGeneratorInterpreter</a></dt>
 <dd>
 <div class="block">Generate (or re-generate) the map.</div>
 </dd>
-<dt><a href="com/mg105/use_cases/MapGenerator.html#generateMap()" class="member-name-link">generateMap()</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/MapGenerator.html" title="class in com.mg105.use_cases">MapGenerator</a></dt>
+<dt><a href="com/mg105/interface_adapters/map/MapGeneratorInterpreterInterface.html#generateMap()" class="member-name-link">generateMap()</a> - Method in interface com.mg105.interface_adapters.map.<a href="com/mg105/interface_adapters/map/MapGeneratorInterpreterInterface.html" title="interface in com.mg105.interface_adapters.map">MapGeneratorInterpreterInterface</a></dt>
+<dd>
+<div class="block">Generate the map.</div>
+</dd>
+<dt><a href="com/mg105/use_cases/map/MapGenerator.html#generateMap()" class="member-name-link">generateMap()</a> - Method in class com.mg105.use_cases.map.<a href="com/mg105/use_cases/map/MapGenerator.html" title="class in com.mg105.use_cases.map">MapGenerator</a></dt>
 <dd>
 <div class="block">Generates a map.</div>
 </dd>
-<dt><a href="com/mg105/use_cases/CharacterMover.html#generateMapMoveBy(java.awt.Point)" class="member-name-link">generateMapMoveBy(Point)</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/CharacterMover.html" title="class in com.mg105.use_cases">CharacterMover</a></dt>
+<dt><a href="com/mg105/use_cases/map/MapGeneratorInterface.html#generateMap()" class="member-name-link">generateMap()</a> - Method in interface com.mg105.use_cases.map.<a href="com/mg105/use_cases/map/MapGeneratorInterface.html" title="interface in com.mg105.use_cases.map">MapGeneratorInterface</a></dt>
+<dd>
+<div class="block">Generate the map.</div>
+</dd>
+<dt><a href="com/mg105/use_cases/map/CharacterMover.html#generateMapMoveBy(java.awt.Point)" class="member-name-link">generateMapMoveBy(Point)</a> - Method in class com.mg105.use_cases.map.<a href="com/mg105/use_cases/map/CharacterMover.html" title="class in com.mg105.use_cases.map">CharacterMover</a></dt>
 <dd>
 <div class="block">Attempt to move by direction.</div>
+</dd>
+<dt><a href="com/mg105/use_cases/map/CharacterMoverInterface.html#generateMapMoveBy(java.awt.Point)" class="member-name-link">generateMapMoveBy(Point)</a> - Method in interface com.mg105.use_cases.map.<a href="com/mg105/use_cases/map/CharacterMoverInterface.html" title="interface in com.mg105.use_cases.map">CharacterMoverInterface</a></dt>
+<dd>
+<div class="block">Move the character by direction.</div>
 </dd>
 <dt><a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html#getActionPerformed(java.lang.String)" class="member-name-link">getActionPerformed(String)</a> - Method in class com.mg105.interface_adapters.tutorial.<a href="com/mg105/interface_adapters/tutorial/TutorialTextController.html" title="class in com.mg105.interface_adapters.tutorial">TutorialTextController</a></dt>
 <dd>
@@ -537,6 +553,14 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/mg105/use_cases/battle/BattleInteractor.html#getCharacterMoveStats(java.lang.String)" class="member-name-link">getCharacterMoveStats(String)</a> - Method in class com.mg105.use_cases.battle.<a href="com/mg105/use_cases/battle/BattleInteractor.html" title="class in com.mg105.use_cases.battle">BattleInteractor</a></dt>
 <dd>
 <div class="block">Returns the stats of the BattleCharacter with the given name's moves.</div>
+</dd>
+<dt><a href="com/mg105/interface_adapters/map/RoomInterpreter.html#getCharacterSprite()" class="member-name-link">getCharacterSprite()</a> - Method in class com.mg105.interface_adapters.map.<a href="com/mg105/interface_adapters/map/RoomInterpreter.html" title="class in com.mg105.interface_adapters.map">RoomInterpreter</a></dt>
+<dd>
+<div class="block">Retrieves the sprite String currently associated with the WalkingCharacter.</div>
+</dd>
+<dt><a href="com/mg105/interface_adapters/map/RoomInterpreterInterface.html#getCharacterSprite()" class="member-name-link">getCharacterSprite()</a> - Method in interface com.mg105.interface_adapters.map.<a href="com/mg105/interface_adapters/map/RoomInterpreterInterface.html" title="interface in com.mg105.interface_adapters.map">RoomInterpreterInterface</a></dt>
+<dd>
+<div class="block">Get the path of the current character sprite.</div>
 </dd>
 <dt><a href="com/mg105/entities/WalkingCharacter.html#getCharPosition()" class="member-name-link">getCharPosition()</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/WalkingCharacter.html" title="class in com.mg105.entities">WalkingCharacter</a></dt>
 <dd>
@@ -574,21 +598,33 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Get the current visible component.</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/MinimapInterpreter.html#getCurrentPosition()" class="member-name-link">getCurrentPosition()</a> - Method in class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/MinimapInterpreter.html" title="class in com.mg105.interface_adapters">MinimapInterpreter</a></dt>
+<dt><a href="com/mg105/interface_adapters/map/MinimapInterpreter.html#getCurrentPosition()" class="member-name-link">getCurrentPosition()</a> - Method in class com.mg105.interface_adapters.map.<a href="com/mg105/interface_adapters/map/MinimapInterpreter.html" title="class in com.mg105.interface_adapters.map">MinimapInterpreter</a></dt>
 <dd>
 <div class="block">Get the current position in (x, y)-coordinates of the result of getMapSoFar.</div>
+</dd>
+<dt><a href="com/mg105/interface_adapters/map/MinimapInterpreterInterface.html#getCurrentPosition()" class="member-name-link">getCurrentPosition()</a> - Method in interface com.mg105.interface_adapters.map.<a href="com/mg105/interface_adapters/map/MinimapInterpreterInterface.html" title="interface in com.mg105.interface_adapters.map">MinimapInterpreterInterface</a></dt>
+<dd>
+<div class="block">Get the current room position</div>
 </dd>
 <dt><a href="com/mg105/entities/GameState.html#getCurrentRoom()" class="member-name-link">getCurrentRoom()</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/GameState.html" title="class in com.mg105.entities">GameState</a></dt>
 <dd>
 <div class="block">Get the room the player happens to currently be in.</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/RoomInterpreter.html#getCurrentRoom()" class="member-name-link">getCurrentRoom()</a> - Method in class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/RoomInterpreter.html" title="class in com.mg105.interface_adapters">RoomInterpreter</a></dt>
+<dt><a href="com/mg105/interface_adapters/map/RoomInterpreter.html#getCurrentRoom()" class="member-name-link">getCurrentRoom()</a> - Method in class com.mg105.interface_adapters.map.<a href="com/mg105/interface_adapters/map/RoomInterpreter.html" title="class in com.mg105.interface_adapters.map">RoomInterpreter</a></dt>
 <dd>
 <div class="block">Get the current room as represented in an easier to draw grid.</div>
 </dd>
-<dt><a href="com/mg105/use_cases/RoomGetter.html#getCurrentRoomLayout()" class="member-name-link">getCurrentRoomLayout()</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/RoomGetter.html" title="class in com.mg105.use_cases">RoomGetter</a></dt>
+<dt><a href="com/mg105/interface_adapters/map/RoomInterpreterInterface.html#getCurrentRoom()" class="member-name-link">getCurrentRoom()</a> - Method in interface com.mg105.interface_adapters.map.<a href="com/mg105/interface_adapters/map/RoomInterpreterInterface.html" title="interface in com.mg105.interface_adapters.map">RoomInterpreterInterface</a></dt>
+<dd>
+<div class="block">Lay out the current room as a square of tiles to be displayed.</div>
+</dd>
+<dt><a href="com/mg105/use_cases/map/RoomGetter.html#getCurrentRoomLayout()" class="member-name-link">getCurrentRoomLayout()</a> - Method in class com.mg105.use_cases.map.<a href="com/mg105/use_cases/map/RoomGetter.html" title="class in com.mg105.use_cases.map">RoomGetter</a></dt>
 <dd>
 <div class="block">Get the current room.</div>
+</dd>
+<dt><a href="com/mg105/use_cases/map/RoomGetterInterface.html#getCurrentRoomLayout()" class="member-name-link">getCurrentRoomLayout()</a> - Method in interface com.mg105.use_cases.map.<a href="com/mg105/use_cases/map/RoomGetterInterface.html" title="interface in com.mg105.use_cases.map">RoomGetterInterface</a></dt>
+<dd>
+<div class="block">Get the current room as a layout.</div>
 </dd>
 <dt><a href="com/mg105/entities/GameState.html#getCurrOpponent()" class="member-name-link">getCurrOpponent()</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/GameState.html" title="class in com.mg105.entities">GameState</a></dt>
 <dd>
@@ -674,9 +710,13 @@ loadScripts(document, 'script');</script>
 <div class="block">Returns the limit of the inventory
  The limit of the inventory is the maximum possible number of items that could be placed in it</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/MinimapInterpreter.html#getMapSoFar()" class="member-name-link">getMapSoFar()</a> - Method in class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/MinimapInterpreter.html" title="class in com.mg105.interface_adapters">MinimapInterpreter</a></dt>
+<dt><a href="com/mg105/interface_adapters/map/MinimapInterpreter.html#getMapSoFar()" class="member-name-link">getMapSoFar()</a> - Method in class com.mg105.interface_adapters.map.<a href="com/mg105/interface_adapters/map/MinimapInterpreter.html" title="class in com.mg105.interface_adapters.map">MinimapInterpreter</a></dt>
 <dd>
 <div class="block">Get the current explored map.</div>
+</dd>
+<dt><a href="com/mg105/interface_adapters/map/MinimapInterpreterInterface.html#getMapSoFar()" class="member-name-link">getMapSoFar()</a> - Method in interface com.mg105.interface_adapters.map.<a href="com/mg105/interface_adapters/map/MinimapInterpreterInterface.html" title="interface in com.mg105.interface_adapters.map">MinimapInterpreterInterface</a></dt>
+<dd>
+<div class="block">Get the current state of the minimap.</div>
 </dd>
 <dt><a href="com/mg105/entities/BattleCharacter.html#getMaxHp()" class="member-name-link">getMaxHp()</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/BattleCharacter.html" title="class in com.mg105.entities">BattleCharacter</a></dt>
 <dd>
@@ -780,9 +820,13 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Returns the correct party member given a name</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/RoomInterpreter.html#getPlayer()" class="member-name-link">getPlayer()</a> - Method in class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/RoomInterpreter.html" title="class in com.mg105.interface_adapters">RoomInterpreter</a></dt>
+<dt><a href="com/mg105/interface_adapters/map/RoomInterpreter.html#getPlayer()" class="member-name-link">getPlayer()</a> - Method in class com.mg105.interface_adapters.map.<a href="com/mg105/interface_adapters/map/RoomInterpreter.html" title="class in com.mg105.interface_adapters.map">RoomInterpreter</a></dt>
 <dd>
 <div class="block">Get the current player position in the room.</div>
+</dd>
+<dt><a href="com/mg105/interface_adapters/map/RoomInterpreterInterface.html#getPlayer()" class="member-name-link">getPlayer()</a> - Method in interface com.mg105.interface_adapters.map.<a href="com/mg105/interface_adapters/map/RoomInterpreterInterface.html" title="interface in com.mg105.interface_adapters.map">RoomInterpreterInterface</a></dt>
+<dd>
+<div class="block">Get the position of the player within the room.</div>
 </dd>
 <dt><a href="com/mg105/use_cases/outputds/RoomLayout.html#getPlayer()" class="member-name-link">getPlayer()</a> - Method in class com.mg105.use_cases.outputds.<a href="com/mg105/use_cases/outputds/RoomLayout.html" title="class in com.mg105.use_cases.outputds">RoomLayout</a></dt>
 <dd>
@@ -864,9 +908,13 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Get the current WalkingCharacter the user is controlling.</div>
 </dd>
-<dt><a href="com/mg105/use_cases/RoomGetter.html#getWalkingSprite()" class="member-name-link">getWalkingSprite()</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/RoomGetter.html" title="class in com.mg105.use_cases">RoomGetter</a></dt>
+<dt><a href="com/mg105/use_cases/map/RoomGetter.html#getWalkingSprite()" class="member-name-link">getWalkingSprite()</a> - Method in class com.mg105.use_cases.map.<a href="com/mg105/use_cases/map/RoomGetter.html" title="class in com.mg105.use_cases.map">RoomGetter</a></dt>
 <dd>
 <div class="block">Retrieves the WalkingCharacter sprite name String, returns a file name/location corresponding to the name.</div>
+</dd>
+<dt><a href="com/mg105/use_cases/map/RoomGetterInterface.html#getWalkingSprite()" class="member-name-link">getWalkingSprite()</a> - Method in interface com.mg105.use_cases.map.<a href="com/mg105/use_cases/map/RoomGetterInterface.html" title="interface in com.mg105.use_cases.map">RoomGetterInterface</a></dt>
+<dd>
+<div class="block">Get the current walking sprite.</div>
 </dd>
 <dt><a href="com/mg105/interface_adapters/battle/BattlePresenter.html#givenCharacterDamage(java.lang.String)" class="member-name-link">givenCharacterDamage(String)</a> - Method in class com.mg105.interface_adapters.battle.<a href="com/mg105/interface_adapters/battle/BattlePresenter.html" title="class in com.mg105.interface_adapters.battle">BattlePresenter</a></dt>
 <dd>
@@ -964,7 +1012,7 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">InputInterpreter takes in keyboard inputs and distributes them to their appropriate use cases.</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/InputInterpreter.html#%3Cinit%3E(com.mg105.use_cases.CharacterMover,com.mg105.interface_adapters.Toggler,com.mg105.interface_adapters.tutorial.TutorialTextController,com.mg105.use_cases.ChestInteractor,com.mg105.use_cases.OpponentSetInteractor)" class="member-name-link">InputInterpreter(CharacterMover, Toggler, TutorialTextController, ChestInteractor, OpponentSetInteractor)</a> - Constructor for class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/InputInterpreter.html" title="class in com.mg105.interface_adapters">InputInterpreter</a></dt>
+<dt><a href="com/mg105/interface_adapters/InputInterpreter.html#%3Cinit%3E(com.mg105.use_cases.map.CharacterMoverInterface,com.mg105.interface_adapters.Toggler,com.mg105.interface_adapters.tutorial.TutorialTextController,com.mg105.use_cases.ChestInteractor,com.mg105.use_cases.OpponentSetInteractor)" class="member-name-link">InputInterpreter(CharacterMoverInterface, Toggler, TutorialTextController, ChestInteractor, OpponentSetInteractor)</a> - Constructor for class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/InputInterpreter.html" title="class in com.mg105.interface_adapters">InputInterpreter</a></dt>
 <dd>
 <div class="block">Create a new InputInterpreter that translates keyboard inputs to appropriate function invocations.</div>
 </dd>
@@ -1060,17 +1108,17 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Check if all required actions performed by player</div>
 </dd>
-<dt><a href="com/mg105/entities/GameState.html#isCurrentRoomFirstRoom()" class="member-name-link">isCurrentRoomFirstRoom()</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/GameState.html" title="class in com.mg105.entities">GameState</a></dt>
-<dd>
-<div class="block">Get if the player is in the first room.</div>
-</dd>
 <dt><a href="com/mg105/entities/GameState.html#isCurrentRoomLastRoom()" class="member-name-link">isCurrentRoomLastRoom()</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/GameState.html" title="class in com.mg105.entities">GameState</a></dt>
 <dd>
 <div class="block">Get if the player is in the last room.</div>
 </dd>
-<dt><a href="com/mg105/use_cases/RoomGetter.html#isFinalRoom()" class="member-name-link">isFinalRoom()</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/RoomGetter.html" title="class in com.mg105.use_cases">RoomGetter</a></dt>
+<dt><a href="com/mg105/use_cases/map/RoomGetter.html#isFinalRoom()" class="member-name-link">isFinalRoom()</a> - Method in class com.mg105.use_cases.map.<a href="com/mg105/use_cases/map/RoomGetter.html" title="class in com.mg105.use_cases.map">RoomGetter</a></dt>
 <dd>
 <div class="block">Checks if the player is in the final room</div>
+</dd>
+<dt><a href="com/mg105/use_cases/map/RoomGetterInterface.html#isFinalRoom()" class="member-name-link">isFinalRoom()</a> - Method in interface com.mg105.use_cases.map.<a href="com/mg105/use_cases/map/RoomGetterInterface.html" title="interface in com.mg105.use_cases.map">RoomGetterInterface</a></dt>
+<dd>
+<div class="block">Get whether the current room is the last room.</div>
 </dd>
 <dt><a href="com/mg105/entities/Move.html#isFriendly()" class="member-name-link">isFriendly()</a> - Method in class com.mg105.entities.<a href="com/mg105/entities/Move.html" title="class in com.mg105.entities">Move</a></dt>
 <dd>
@@ -1178,7 +1226,7 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">MapDrawer draws the map as a grid of tiles.</div>
 </dd>
-<dt><a href="com/mg105/user_interface/MapDrawer.html#%3Cinit%3E(com.mg105.interface_adapters.RoomInterpreter)" class="member-name-link">MapDrawer(RoomInterpreter)</a> - Constructor for class com.mg105.user_interface.<a href="com/mg105/user_interface/MapDrawer.html" title="class in com.mg105.user_interface">MapDrawer</a></dt>
+<dt><a href="com/mg105/user_interface/MapDrawer.html#%3Cinit%3E(com.mg105.interface_adapters.map.RoomInterpreterInterface)" class="member-name-link">MapDrawer(RoomInterpreterInterface)</a> - Constructor for class com.mg105.user_interface.<a href="com/mg105/user_interface/MapDrawer.html" title="class in com.mg105.user_interface">MapDrawer</a></dt>
 <dd>
 <div class="block">Create an instance of MapDrawer.</div>
 </dd>
@@ -1210,15 +1258,15 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">The minimum possible width of map rooms</div>
 </dd>
-<dt><a href="com/mg105/use_cases/MapGenerator.html" class="type-name-link" title="class in com.mg105.use_cases">MapGenerator</a> - Class in <a href="com/mg105/use_cases/package-summary.html">com.mg105.use_cases</a></dt>
+<dt><a href="com/mg105/use_cases/map/MapGenerator.html" class="type-name-link" title="class in com.mg105.use_cases.map">MapGenerator</a> - Class in <a href="com/mg105/use_cases/map/package-summary.html">com.mg105.use_cases.map</a></dt>
 <dd>
 <div class="block">MapGenerator generates the map</div>
 </dd>
-<dt><a href="com/mg105/use_cases/MapGenerator.html#%3Cinit%3E(com.mg105.entities.GameState)" class="member-name-link">MapGenerator(GameState)</a> - Constructor for class com.mg105.use_cases.<a href="com/mg105/use_cases/MapGenerator.html" title="class in com.mg105.use_cases">MapGenerator</a></dt>
+<dt><a href="com/mg105/use_cases/map/MapGenerator.html#%3Cinit%3E(com.mg105.entities.GameState)" class="member-name-link">MapGenerator(GameState)</a> - Constructor for class com.mg105.use_cases.map.<a href="com/mg105/use_cases/map/MapGenerator.html" title="class in com.mg105.use_cases.map">MapGenerator</a></dt>
 <dd>
 <div class="block">Creates a new MapGenerator that acts on a GameState.</div>
 </dd>
-<dt><a href="com/mg105/use_cases/MapGenerator.html#%3Cinit%3E(com.mg105.entities.GameState,java.util.Random)" class="member-name-link">MapGenerator(GameState, Random)</a> - Constructor for class com.mg105.use_cases.<a href="com/mg105/use_cases/MapGenerator.html" title="class in com.mg105.use_cases">MapGenerator</a></dt>
+<dt><a href="com/mg105/use_cases/map/MapGenerator.html#%3Cinit%3E(com.mg105.entities.GameState,java.util.Random)" class="member-name-link">MapGenerator(GameState, Random)</a> - Constructor for class com.mg105.use_cases.map.<a href="com/mg105/use_cases/map/MapGenerator.html" title="class in com.mg105.use_cases.map">MapGenerator</a></dt>
 <dd>
 <div class="block">Create a new MapGenerator that acts on a GameState</div>
 </dd>
@@ -1226,17 +1274,25 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">MapGeneratorButton acts as the event handler for the actual JavaFX button that will generate a map.</div>
 </dd>
-<dt><a href="com/mg105/user_interface/MapGeneratorButton.html#%3Cinit%3E(com.mg105.interface_adapters.MapGeneratorInterpreter,com.mg105.interface_adapters.Toggler)" class="member-name-link">MapGeneratorButton(MapGeneratorInterpreter, Toggler)</a> - Constructor for class com.mg105.user_interface.<a href="com/mg105/user_interface/MapGeneratorButton.html" title="class in com.mg105.user_interface">MapGeneratorButton</a></dt>
+<dt><a href="com/mg105/user_interface/MapGeneratorButton.html#%3Cinit%3E(com.mg105.interface_adapters.map.MapGeneratorInterpreterInterface,com.mg105.interface_adapters.Toggler)" class="member-name-link">MapGeneratorButton(MapGeneratorInterpreterInterface, Toggler)</a> - Constructor for class com.mg105.user_interface.<a href="com/mg105/user_interface/MapGeneratorButton.html" title="class in com.mg105.user_interface">MapGeneratorButton</a></dt>
 <dd>
 <div class="block">Create a new MapGeneratorButton.</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/MapGeneratorInterpreter.html" class="type-name-link" title="class in com.mg105.interface_adapters">MapGeneratorInterpreter</a> - Class in <a href="com/mg105/interface_adapters/package-summary.html">com.mg105.interface_adapters</a></dt>
+<dt><a href="com/mg105/use_cases/map/MapGeneratorInterface.html" class="type-name-link" title="interface in com.mg105.use_cases.map">MapGeneratorInterface</a> - Interface in <a href="com/mg105/use_cases/map/package-summary.html">com.mg105.use_cases.map</a></dt>
+<dd>
+<div class="block">Something that generates the map.</div>
+</dd>
+<dt><a href="com/mg105/interface_adapters/map/MapGeneratorInterpreter.html" class="type-name-link" title="class in com.mg105.interface_adapters.map">MapGeneratorInterpreter</a> - Class in <a href="com/mg105/interface_adapters/map/package-summary.html">com.mg105.interface_adapters.map</a></dt>
 <dd>
 <div class="block">MapGeneratorInterpreter asks as a thin interface adapter whose sole purpose is to maintain clean architecture.</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/MapGeneratorInterpreter.html#%3Cinit%3E(com.mg105.use_cases.MapGenerator)" class="member-name-link">MapGeneratorInterpreter(MapGenerator)</a> - Constructor for class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/MapGeneratorInterpreter.html" title="class in com.mg105.interface_adapters">MapGeneratorInterpreter</a></dt>
+<dt><a href="com/mg105/interface_adapters/map/MapGeneratorInterpreter.html#%3Cinit%3E(com.mg105.use_cases.map.MapGeneratorInterface)" class="member-name-link">MapGeneratorInterpreter(MapGeneratorInterface)</a> - Constructor for class com.mg105.interface_adapters.map.<a href="com/mg105/interface_adapters/map/MapGeneratorInterpreter.html" title="class in com.mg105.interface_adapters.map">MapGeneratorInterpreter</a></dt>
 <dd>
 <div class="block">Create a new MapGeneratorInterpreter.</div>
+</dd>
+<dt><a href="com/mg105/interface_adapters/map/MapGeneratorInterpreterInterface.html" class="type-name-link" title="interface in com.mg105.interface_adapters.map">MapGeneratorInterpreterInterface</a> - Interface in <a href="com/mg105/interface_adapters/map/package-summary.html">com.mg105.interface_adapters.map</a></dt>
+<dd>
+<div class="block">An interface for map generation.</div>
 </dd>
 <dt><a href="com/mg105/utils/StatConstants.html#MAX_HP" class="member-name-link">MAX_HP</a> - Static variable in class com.mg105.utils.<a href="com/mg105/utils/StatConstants.html" title="class in com.mg105.utils">StatConstants</a></dt>
 <dd>&nbsp;</dd>
@@ -1262,19 +1318,23 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Draw the Minimap.</div>
 </dd>
-<dt><a href="com/mg105/user_interface/MinimapDrawer.html#%3Cinit%3E(com.mg105.interface_adapters.MinimapInterpreter)" class="member-name-link">MinimapDrawer(MinimapInterpreter)</a> - Constructor for class com.mg105.user_interface.<a href="com/mg105/user_interface/MinimapDrawer.html" title="class in com.mg105.user_interface">MinimapDrawer</a></dt>
+<dt><a href="com/mg105/user_interface/MinimapDrawer.html#%3Cinit%3E(com.mg105.interface_adapters.map.MinimapInterpreterInterface)" class="member-name-link">MinimapDrawer(MinimapInterpreterInterface)</a> - Constructor for class com.mg105.user_interface.<a href="com/mg105/user_interface/MinimapDrawer.html" title="class in com.mg105.user_interface">MinimapDrawer</a></dt>
 <dd>
 <div class="block">Create a new MinimapDrawer.</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/MinimapInterpreter.html" class="type-name-link" title="class in com.mg105.interface_adapters">MinimapInterpreter</a> - Class in <a href="com/mg105/interface_adapters/package-summary.html">com.mg105.interface_adapters</a></dt>
+<dt><a href="com/mg105/interface_adapters/map/MinimapInterpreter.html" class="type-name-link" title="class in com.mg105.interface_adapters.map">MinimapInterpreter</a> - Class in <a href="com/mg105/interface_adapters/map/package-summary.html">com.mg105.interface_adapters.map</a></dt>
 <dd>
 <div class="block">The MinimapInterpreter processes room change data an interprets its implicit position.</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/MinimapInterpreter.html#%3Cinit%3E(com.mg105.use_cases.RoomGetter)" class="member-name-link">MinimapInterpreter(RoomGetter)</a> - Constructor for class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/MinimapInterpreter.html" title="class in com.mg105.interface_adapters">MinimapInterpreter</a></dt>
+<dt><a href="com/mg105/interface_adapters/map/MinimapInterpreter.html#%3Cinit%3E(com.mg105.use_cases.map.RoomGetterInterface)" class="member-name-link">MinimapInterpreter(RoomGetterInterface)</a> - Constructor for class com.mg105.interface_adapters.map.<a href="com/mg105/interface_adapters/map/MinimapInterpreter.html" title="class in com.mg105.interface_adapters.map">MinimapInterpreter</a></dt>
 <dd>
 <div class="block">Create a new MinimapInterpreter.</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/MinimapInterpreter.RoomState.html" class="type-name-link" title="enum class in com.mg105.interface_adapters">MinimapInterpreter.RoomState</a> - Enum Class in <a href="com/mg105/interface_adapters/package-summary.html">com.mg105.interface_adapters</a></dt>
+<dt><a href="com/mg105/interface_adapters/map/MinimapInterpreterInterface.html" class="type-name-link" title="interface in com.mg105.interface_adapters.map">MinimapInterpreterInterface</a> - Interface in <a href="com/mg105/interface_adapters/map/package-summary.html">com.mg105.interface_adapters.map</a></dt>
+<dd>
+<div class="block">A class that handles the interpretation of the minimaps internal state.</div>
+</dd>
+<dt><a href="com/mg105/interface_adapters/map/MinimapRoomState.html" class="type-name-link" title="enum class in com.mg105.interface_adapters.map">MinimapRoomState</a> - Enum Class in <a href="com/mg105/interface_adapters/map/package-summary.html">com.mg105.interface_adapters.map</a></dt>
 <dd>
 <div class="block">Possible knowledge states of a room.</div>
 </dd>
@@ -1402,7 +1462,7 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">The upper bound on the nullifying effect of an opponent's unfriendly move.</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/TileType.html#OPPONENT_SET" class="member-name-link">OPPONENT_SET</a> - Enum constant in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/TileType.html" title="enum class in com.mg105.interface_adapters">TileType</a></dt>
+<dt><a href="com/mg105/interface_adapters/map/RoomTileType.html#OPPONENT_SET" class="member-name-link">OPPONENT_SET</a> - Enum constant in enum class com.mg105.interface_adapters.map.<a href="com/mg105/interface_adapters/map/RoomTileType.html" title="enum class in com.mg105.interface_adapters.map">RoomTileType</a></dt>
 <dd>
 <div class="block">A potential battle</div>
 </dd>
@@ -1501,7 +1561,7 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Create a new PointComparator.</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/MinimapInterpreter.html#propertyChange(java.beans.PropertyChangeEvent)" class="member-name-link">propertyChange(PropertyChangeEvent)</a> - Method in class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/MinimapInterpreter.html" title="class in com.mg105.interface_adapters">MinimapInterpreter</a></dt>
+<dt><a href="com/mg105/interface_adapters/map/MinimapInterpreter.html#propertyChange(java.beans.PropertyChangeEvent)" class="member-name-link">propertyChange(PropertyChangeEvent)</a> - Method in class com.mg105.interface_adapters.map.<a href="com/mg105/interface_adapters/map/MinimapInterpreter.html" title="class in com.mg105.interface_adapters.map">MinimapInterpreter</a></dt>
 <dd>
 <div class="block">Update room position data.</div>
 </dd>
@@ -1582,7 +1642,7 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Removes an item from the inventory ui.</div>
 </dd>
-<dt><a href="com/mg105/use_cases/RoomUpdater.html#removeObserver(java.beans.PropertyChangeListener)" class="member-name-link">removeObserver(PropertyChangeListener)</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/RoomUpdater.html" title="class in com.mg105.use_cases">RoomUpdater</a></dt>
+<dt><a href="com/mg105/use_cases/map/RoomUpdater.html#removeObserver(java.beans.PropertyChangeListener)" class="member-name-link">removeObserver(PropertyChangeListener)</a> - Method in class com.mg105.use_cases.map.<a href="com/mg105/use_cases/map/RoomUpdater.html" title="class in com.mg105.use_cases.map">RoomUpdater</a></dt>
 <dd>
 <div class="block">Remove an observer from the RoomUpdater.</div>
 </dd>
@@ -1616,7 +1676,7 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="com/mg105/interface_adapters/ReplayGeneratorInterpreter.html#%3Cinit%3E(com.mg105.use_cases.ReplayGenerator)" class="member-name-link">ReplayGeneratorInterpreter(ReplayGenerator)</a> - Constructor for class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/ReplayGeneratorInterpreter.html" title="class in com.mg105.interface_adapters">ReplayGeneratorInterpreter</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="com/mg105/interface_adapters/MinimapInterpreter.html#reset()" class="member-name-link">reset()</a> - Method in class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/MinimapInterpreter.html" title="class in com.mg105.interface_adapters">MinimapInterpreter</a></dt>
+<dt><a href="com/mg105/interface_adapters/map/MinimapInterpreter.html#reset()" class="member-name-link">reset()</a> - Method in class com.mg105.interface_adapters.map.<a href="com/mg105/interface_adapters/map/MinimapInterpreter.html" title="class in com.mg105.interface_adapters.map">MinimapInterpreter</a></dt>
 <dd>
 <div class="block">Reset the minimap to its 'factory new' state.</div>
 </dd>
@@ -1652,21 +1712,29 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">The width and height of a room in tiles, must be at leats 8</div>
 </dd>
-<dt><a href="com/mg105/use_cases/RoomGetter.html" class="type-name-link" title="class in com.mg105.use_cases">RoomGetter</a> - Class in <a href="com/mg105/use_cases/package-summary.html">com.mg105.use_cases</a></dt>
+<dt><a href="com/mg105/use_cases/map/RoomGetter.html" class="type-name-link" title="class in com.mg105.use_cases.map">RoomGetter</a> - Class in <a href="com/mg105/use_cases/map/package-summary.html">com.mg105.use_cases.map</a></dt>
 <dd>
 <div class="block">RoomGetter is responsible for getting the state current room.</div>
 </dd>
-<dt><a href="com/mg105/use_cases/RoomGetter.html#%3Cinit%3E(com.mg105.entities.GameState)" class="member-name-link">RoomGetter(GameState)</a> - Constructor for class com.mg105.use_cases.<a href="com/mg105/use_cases/RoomGetter.html" title="class in com.mg105.use_cases">RoomGetter</a></dt>
+<dt><a href="com/mg105/use_cases/map/RoomGetter.html#%3Cinit%3E(com.mg105.entities.GameState)" class="member-name-link">RoomGetter(GameState)</a> - Constructor for class com.mg105.use_cases.map.<a href="com/mg105/use_cases/map/RoomGetter.html" title="class in com.mg105.use_cases.map">RoomGetter</a></dt>
 <dd>
 <div class="block">Create a new RoomGetter for a given sate.</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/RoomInterpreter.html" class="type-name-link" title="class in com.mg105.interface_adapters">RoomInterpreter</a> - Class in <a href="com/mg105/interface_adapters/package-summary.html">com.mg105.interface_adapters</a></dt>
+<dt><a href="com/mg105/use_cases/map/RoomGetterInterface.html" class="type-name-link" title="interface in com.mg105.use_cases.map">RoomGetterInterface</a> - Interface in <a href="com/mg105/use_cases/map/package-summary.html">com.mg105.use_cases.map</a></dt>
+<dd>
+<div class="block">Get attributes about the current room.</div>
+</dd>
+<dt><a href="com/mg105/interface_adapters/map/RoomInterpreter.html" class="type-name-link" title="class in com.mg105.interface_adapters.map">RoomInterpreter</a> - Class in <a href="com/mg105/interface_adapters/map/package-summary.html">com.mg105.interface_adapters.map</a></dt>
 <dd>
 <div class="block">RoomInterpreter interprets the current room in a format that is easier to draw from.</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/RoomInterpreter.html#%3Cinit%3E(com.mg105.use_cases.RoomGetter)" class="member-name-link">RoomInterpreter(RoomGetter)</a> - Constructor for class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/RoomInterpreter.html" title="class in com.mg105.interface_adapters">RoomInterpreter</a></dt>
+<dt><a href="com/mg105/interface_adapters/map/RoomInterpreter.html#%3Cinit%3E(com.mg105.use_cases.map.RoomGetterInterface)" class="member-name-link">RoomInterpreter(RoomGetterInterface)</a> - Constructor for class com.mg105.interface_adapters.map.<a href="com/mg105/interface_adapters/map/RoomInterpreter.html" title="class in com.mg105.interface_adapters.map">RoomInterpreter</a></dt>
 <dd>
 <div class="block">Create a new RoomInterpreter that will get its information from getter.</div>
+</dd>
+<dt><a href="com/mg105/interface_adapters/map/RoomInterpreterInterface.html" class="type-name-link" title="interface in com.mg105.interface_adapters.map">RoomInterpreterInterface</a> - Interface in <a href="com/mg105/interface_adapters/map/package-summary.html">com.mg105.interface_adapters.map</a></dt>
+<dd>
+<div class="block">Layout the current room.</div>
 </dd>
 <dt><a href="com/mg105/use_cases/outputds/RoomLayout.html" class="type-name-link" title="class in com.mg105.use_cases.outputds">RoomLayout</a> - Class in <a href="com/mg105/use_cases/outputds/package-summary.html">com.mg105.use_cases.outputds</a></dt>
 <dd>
@@ -1676,13 +1744,22 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Create a room given some number of chests, opponents, and doorways.</div>
 </dd>
-<dt><a href="com/mg105/use_cases/RoomUpdater.html" class="type-name-link" title="class in com.mg105.use_cases">RoomUpdater</a> - Class in <a href="com/mg105/use_cases/package-summary.html">com.mg105.use_cases</a></dt>
+<dt><a href="com/mg105/interface_adapters/map/RoomTileType.html" class="type-name-link" title="enum class in com.mg105.interface_adapters.map">RoomTileType</a> - Enum Class in <a href="com/mg105/interface_adapters/map/package-summary.html">com.mg105.interface_adapters.map</a></dt>
+<dd>
+<div class="block">Types of tiles that can appear within a room.</div>
+</dd>
+<dt><a href="com/mg105/use_cases/map/RoomUpdater.html" class="type-name-link" title="class in com.mg105.use_cases.map">RoomUpdater</a> - Class in <a href="com/mg105/use_cases/map/package-summary.html">com.mg105.use_cases.map</a></dt>
 <dd>
 <div class="block">RoomUpdater updates any components that need updating when the state of the current room changes.</div>
 </dd>
-<dt><a href="com/mg105/use_cases/RoomUpdater.html#%3Cinit%3E()" class="member-name-link">RoomUpdater()</a> - Constructor for class com.mg105.use_cases.<a href="com/mg105/use_cases/RoomUpdater.html" title="class in com.mg105.use_cases">RoomUpdater</a></dt>
+<dt><a href="com/mg105/use_cases/map/RoomUpdater.html#%3Cinit%3E()" class="member-name-link">RoomUpdater()</a> - Constructor for class com.mg105.use_cases.map.<a href="com/mg105/use_cases/map/RoomUpdater.html" title="class in com.mg105.use_cases.map">RoomUpdater</a></dt>
 <dd>
 <div class="block">Create a new RoomUpdater.</div>
+</dd>
+<dt><a href="com/mg105/use_cases/map/RoomUpdaterInterface.html" class="type-name-link" title="interface in com.mg105.use_cases.map">RoomUpdaterInterface</a> - Interface in <a href="com/mg105/use_cases/map/package-summary.html">com.mg105.use_cases.map</a></dt>
+<dd>
+<div class="block">RoomUpdaterInterface is the smallest possible interface to be used by anything that changes anything relating to the
+ current map.</div>
 </dd>
 <dt><a href="com/mg105/interface_adapters/battle/BattlePresenter.html#roundStart()" class="member-name-link">roundStart()</a> - Method in class com.mg105.interface_adapters.battle.<a href="com/mg105/interface_adapters/battle/BattlePresenter.html" title="class in com.mg105.interface_adapters.battle">BattlePresenter</a></dt>
 <dd>
@@ -1896,10 +1973,6 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">The size in pixels of a single tile on the screen</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/TileType.html" class="type-name-link" title="enum class in com.mg105.interface_adapters">TileType</a> - Enum Class in <a href="com/mg105/interface_adapters/package-summary.html">com.mg105.interface_adapters</a></dt>
-<dd>
-<div class="block">Types of tiles that can appear within a room.</div>
-</dd>
 <dt><a href="com/mg105/user_interface/BattleMenu.html#toggle(boolean)" class="member-name-link">toggle(boolean)</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/BattleMenu.html" title="class in com.mg105.user_interface">BattleMenu</a></dt>
 <dd>
 <div class="block">Set the visibility of this component.</div>
@@ -2005,7 +2078,7 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:U">U</h2>
 <dl class="index">
-<dt><a href="com/mg105/interface_adapters/MinimapInterpreter.RoomState.html#UNEXPLORED" class="member-name-link">UNEXPLORED</a> - Enum constant in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/MinimapInterpreter.RoomState.html" title="enum class in com.mg105.interface_adapters">MinimapInterpreter.RoomState</a></dt>
+<dt><a href="com/mg105/interface_adapters/map/MinimapRoomState.html#UNEXPLORED" class="member-name-link">UNEXPLORED</a> - Enum constant in enum class com.mg105.interface_adapters.map.<a href="com/mg105/interface_adapters/map/MinimapRoomState.html" title="enum class in com.mg105.interface_adapters.map">MinimapRoomState</a></dt>
 <dd>
 <div class="block">The room is implied to exist but is unexplored.</div>
 </dd>
@@ -2017,13 +2090,13 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Updates the display corresponding to the given affected character.</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/RoomInterpreter.html#updateCharacterSprite()" class="member-name-link">updateCharacterSprite()</a> - Method in class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/RoomInterpreter.html" title="class in com.mg105.interface_adapters">RoomInterpreter</a></dt>
-<dd>
-<div class="block">Retrieves the sprite String currently associated with the WalkingCharacter.</div>
-</dd>
-<dt><a href="com/mg105/use_cases/RoomUpdater.html#updateRoom()" class="member-name-link">updateRoom()</a> - Method in class com.mg105.use_cases.<a href="com/mg105/use_cases/RoomUpdater.html" title="class in com.mg105.use_cases">RoomUpdater</a></dt>
+<dt><a href="com/mg105/use_cases/map/RoomUpdater.html#updateRoom()" class="member-name-link">updateRoom()</a> - Method in class com.mg105.use_cases.map.<a href="com/mg105/use_cases/map/RoomUpdater.html" title="class in com.mg105.use_cases.map">RoomUpdater</a></dt>
 <dd>
 <div class="block">Trigger an update on all the components that need updating on a room state change.</div>
+</dd>
+<dt><a href="com/mg105/use_cases/map/RoomUpdaterInterface.html#updateRoom()" class="member-name-link">updateRoom()</a> - Method in interface com.mg105.use_cases.map.<a href="com/mg105/use_cases/map/RoomUpdaterInterface.html" title="interface in com.mg105.use_cases.map">RoomUpdaterInterface</a></dt>
+<dd>
+<div class="block">Notify all components when something has changed in the room.</div>
 </dd>
 <dt><a href="com/mg105/user_interface/MapDrawer.html#updateRoom()" class="member-name-link">updateRoom()</a> - Method in class com.mg105.user_interface.<a href="com/mg105/user_interface/MapDrawer.html" title="class in com.mg105.user_interface">MapDrawer</a></dt>
 <dd>
@@ -2087,11 +2160,11 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:V">V</h2>
 <dl class="index">
-<dt><a href="com/mg105/interface_adapters/MinimapInterpreter.RoomState.html#valueOf(java.lang.String)" class="member-name-link">valueOf(String)</a> - Static method in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/MinimapInterpreter.RoomState.html" title="enum class in com.mg105.interface_adapters">MinimapInterpreter.RoomState</a></dt>
+<dt><a href="com/mg105/interface_adapters/map/MinimapRoomState.html#valueOf(java.lang.String)" class="member-name-link">valueOf(String)</a> - Static method in enum class com.mg105.interface_adapters.map.<a href="com/mg105/interface_adapters/map/MinimapRoomState.html" title="enum class in com.mg105.interface_adapters.map">MinimapRoomState</a></dt>
 <dd>
 <div class="block">Returns the enum constant of this class with the specified name.</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/TileType.html#valueOf(java.lang.String)" class="member-name-link">valueOf(String)</a> - Static method in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/TileType.html" title="enum class in com.mg105.interface_adapters">TileType</a></dt>
+<dt><a href="com/mg105/interface_adapters/map/RoomTileType.html#valueOf(java.lang.String)" class="member-name-link">valueOf(String)</a> - Static method in enum class com.mg105.interface_adapters.map.<a href="com/mg105/interface_adapters/map/RoomTileType.html" title="enum class in com.mg105.interface_adapters.map">RoomTileType</a></dt>
 <dd>
 <div class="block">Returns the enum constant of this class with the specified name.</div>
 </dd>
@@ -2099,12 +2172,12 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Returns the enum constant of this class with the specified name.</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/MinimapInterpreter.RoomState.html#values()" class="member-name-link">values()</a> - Static method in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/MinimapInterpreter.RoomState.html" title="enum class in com.mg105.interface_adapters">MinimapInterpreter.RoomState</a></dt>
+<dt><a href="com/mg105/interface_adapters/map/MinimapRoomState.html#values()" class="member-name-link">values()</a> - Static method in enum class com.mg105.interface_adapters.map.<a href="com/mg105/interface_adapters/map/MinimapRoomState.html" title="enum class in com.mg105.interface_adapters.map">MinimapRoomState</a></dt>
 <dd>
 <div class="block">Returns an array containing the constants of this enum class, in
 the order they are declared.</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/TileType.html#values()" class="member-name-link">values()</a> - Static method in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/TileType.html" title="enum class in com.mg105.interface_adapters">TileType</a></dt>
+<dt><a href="com/mg105/interface_adapters/map/RoomTileType.html#values()" class="member-name-link">values()</a> - Static method in enum class com.mg105.interface_adapters.map.<a href="com/mg105/interface_adapters/map/RoomTileType.html" title="enum class in com.mg105.interface_adapters.map">RoomTileType</a></dt>
 <dd>
 <div class="block">Returns an array containing the constants of this enum class, in
 the order they are declared.</div>
@@ -2161,11 +2234,11 @@ the order they are declared.</div>
 <dd>
 <div class="block">Creates a new WalkVisInteractor with reference to GameState.</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/TileType.html#WALL" class="member-name-link">WALL</a> - Enum constant in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/TileType.html" title="enum class in com.mg105.interface_adapters">TileType</a></dt>
+<dt><a href="com/mg105/interface_adapters/map/RoomTileType.html#WALL" class="member-name-link">WALL</a> - Enum constant in enum class com.mg105.interface_adapters.map.<a href="com/mg105/interface_adapters/map/RoomTileType.html" title="enum class in com.mg105.interface_adapters.map">RoomTileType</a></dt>
 <dd>
 <div class="block">Wall that cannot be walked on.</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/TileType.html#WALL_WITH_FACE" class="member-name-link">WALL_WITH_FACE</a> - Enum constant in enum class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/TileType.html" title="enum class in com.mg105.interface_adapters">TileType</a></dt>
+<dt><a href="com/mg105/interface_adapters/map/RoomTileType.html#WALL_WITH_FACE" class="member-name-link">WALL_WITH_FACE</a> - Enum constant in enum class com.mg105.interface_adapters.map.<a href="com/mg105/interface_adapters/map/RoomTileType.html" title="enum class in com.mg105.interface_adapters.map">RoomTileType</a></dt>
 <dd>
 <div class="block">A wall where you can see the side</div>
 </dd>
@@ -2181,7 +2254,7 @@ the order they are declared.</div>
 <dd>
 <div class="block">Decides when to show game win screen</div>
 </dd>
-<dt><a href="com/mg105/interface_adapters/WinDisplay.html#%3Cinit%3E(com.mg105.interface_adapters.Toggler,com.mg105.use_cases.RoomGetter,com.mg105.use_cases.ReplayGenerator)" class="member-name-link">WinDisplay(Toggler, RoomGetter, ReplayGenerator)</a> - Constructor for class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/WinDisplay.html" title="class in com.mg105.interface_adapters">WinDisplay</a></dt>
+<dt><a href="com/mg105/interface_adapters/WinDisplay.html#%3Cinit%3E(com.mg105.interface_adapters.Toggler,com.mg105.use_cases.map.RoomGetterInterface,com.mg105.use_cases.ReplayGenerator)" class="member-name-link">WinDisplay(Toggler, RoomGetterInterface, ReplayGenerator)</a> - Constructor for class com.mg105.interface_adapters.<a href="com/mg105/interface_adapters/WinDisplay.html" title="class in com.mg105.interface_adapters">WinDisplay</a></dt>
 <dd>
 <div class="block">Construction for the WinDisplay interface adapter</div>
 </dd>
