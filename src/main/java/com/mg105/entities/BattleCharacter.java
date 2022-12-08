@@ -15,13 +15,14 @@ public class BattleCharacter implements Comparable<BattleCharacter> {
 
     /**
      * Creates a new BattleCharacter with the given stats.
-     * @param health The integer amount of (max) health the character will have.
-     * @param name The character's name String.
-     * @param attack The integer amount of the character's attack strength.
-     * @param speed The speed integer of the character.
+     *
+     * @param health     The integer amount of (max) health the character will have.
+     * @param name       The character's name String.
+     * @param attack     The integer amount of the character's attack strength.
+     * @param speed      The speed integer of the character.
      * @param isOpponent boolean for if character is an opponent.
-     * @param first The first Move the character can use.
-     * @param second The second Move the character can use.
+     * @param first      The first Move the character can use.
+     * @param second     The second Move the character can use.
      */
     public BattleCharacter(int health, String name, int attack, int speed, boolean isOpponent, Move first,
                            Move second) {
@@ -123,6 +124,10 @@ public class BattleCharacter implements Comparable<BattleCharacter> {
         } else if (this.hp >= this.maxHp) {
             this.hp = this.maxHp;
         }
+    }
+
+    public void fullHealCharacter() {
+        this.modifyHealth(this.getMaxHp());
     }
 
     /**

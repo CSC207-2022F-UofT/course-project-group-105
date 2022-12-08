@@ -3,6 +3,8 @@ package com.mg105.use_cases;
 import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.GameState;
 import com.mg105.use_cases.map.MapGenerator;
+import com.mg105.entities.items.MegaPotion;
+import com.mg105.utils.PartyConstants;
 import org.jetbrains.annotations.NotNull;
 
 
@@ -32,6 +34,30 @@ public class ReplayGenerator {
         for (BattleCharacter bc : state.getParty()) {
             bc.modifyHealth(bc.getMaxHp());
         }
+    }
+
+    /**
+     * Revive all characters and add them to the list of alive characters
+     */
+    public void reviveCharacters() {
+        // revive the characters
+        MegaPotion potion = new MegaPotion();
+        potion.consume(state, PartyConstants.ALL_PARTY_MEMBER_NAMES[0]);
+
+        MegaPotion potion2 = new MegaPotion();
+        potion2.consume(state, PartyConstants.ALL_PARTY_MEMBER_NAMES[1]);
+
+        MegaPotion potion3 = new MegaPotion();
+        potion3.consume(state, PartyConstants.ALL_PARTY_MEMBER_NAMES[2]);
+
+        MegaPotion potion4 = new MegaPotion();
+        potion4.consume(state, PartyConstants.ALL_PARTY_MEMBER_NAMES[3]);
+
+        // set the characters to max health
+        for (int i = 0; i < state.charactersList().size(); i++) {
+            state.charactersList().get(i).fullHealCharacter();
+        }
+
     }
 
     /**
