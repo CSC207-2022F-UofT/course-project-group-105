@@ -54,22 +54,6 @@ public class BattleInteractor {
      * Creates a new encounter with random opponents and sets it as the current encounter in GameState.
      */
     public void createEncounter() {
-        /* OLD RANDOMLY GENERATED OPPONENTS CODE
-        Random rand = new Random();
-
-        ArrayList<BattleCharacter> opponents = new ArrayList<>();
-
-        for (int i = 0; i < 4; ++i){
-            int charHealth = rand.nextInt(5, 41);
-            int charDmg = rand.nextInt(1, 11);
-            int charSpeed = rand.nextInt(3, 16);
-            Move m1 = new Move(-rand.nextInt(1, 8), 0, "first", false);
-            Move m2 = new Move(rand.nextInt(1, 4), 0, "second", true);
-            BattleCharacter character = new BattleCharacter(charHealth, "Opponent " + i,
-                charDmg, charSpeed, true, m1, m2);
-            opponents.add(character);
-        }
-         */
         ArrayList<BattleCharacter> opponents = new ArrayList<>(state.getCurrOpponent().getOpponents());
         ArrayList<BattleCharacter> party = this.state.getParty();
         Battle b = new Battle(opponents, party);
@@ -310,12 +294,9 @@ public class BattleInteractor {
         if (status == 1) {
             addReward();
             return true;
-        } else if (status == -1) {
-            state.getParty().addAll(state.getFainted());
-            state.getFainted().removeAll(state.getParty());
         }
 
-        // since at this point status != 0, status must == -1 (battle was lost)
+        // status must == -1 (battle was lost) or 0 (battle was forfeited)
         return false;
     }
 

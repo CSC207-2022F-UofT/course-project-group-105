@@ -71,8 +71,17 @@ public class ReplayGenerator {
      * Replay the game by interacting with the MapGenerator class
      */
     public void replay() {
+        //Handles the forfeit case, where party is not empty yet.
+        state.getFainted().addAll(state.getParty());
+        state.setParty(new BattleCharacter[] {});
+
+        //Party is empty, fainted is full.
+        state.getParty().addAll(state.getFainted());
+        state.getFainted().removeAll(state.getParty());
+
         this.inventoryClean();
         this.attributeInheritance();
+
         // incomplete remake, need to amend later. exactly implementation should depend
         // on other use cases' implementation
         MapGenerator isekai = new MapGenerator(state);

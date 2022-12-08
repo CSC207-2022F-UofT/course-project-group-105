@@ -37,6 +37,8 @@ public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterfac
     private final Label o3 = new Label();
 
     private final Button nextRound;
+
+    private final Button forfeit;
     private final Button moveOne;
     private final Button moveTwo;
 
@@ -72,6 +74,11 @@ public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterfac
         nextRound.setId("Next Round");
         nextRound.setOnAction(this);
         grid.add(nextRound, 10, 30);
+
+        forfeit = new Button("Forfeit");
+        forfeit.setId("Forfeit");
+        forfeit.setOnAction(this);
+        grid.add(forfeit, 10, 2);
 
         grid.add(p0, 1, 4);
         grid.add(p1, 1, 8);
@@ -295,8 +302,9 @@ public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterfac
                 //If opponent moved, re-enable nextRound button
                 nextRound.setDisable(false);
             }
-
-        } else if (source.equals(moveOne)) {
+        } else if (source.equals(forfeit)) {
+            presenter.endBattle();
+        } else if(source.equals(moveOne)) {
             moveNum = 1;
             displayTargets();
         } else if (source.equals(moveTwo)) {
