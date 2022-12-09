@@ -68,12 +68,29 @@ on any Unix-like operating system (or the built-in IntelliJ IDEA terminal).
     - Persistence: When a battle ends your characters' stats are automatically saved and are recalled on next game open.
       Even if you lose the game your characters' stats get saved!
     - Minimap: Press 'm' to open a minimap that will show a visual representation of the map you've discovered so far!
+  - Keyboard layout:
+    - `w`, `a`, `s`, `d`: movement keys, in the usual configuration.
+    - `e`: interact with an adjacent chest on the map.
+    - `f`: fight an adjacent enemy on the map.
+    - `m`: open the minimap (any key closes it).
+    - `i`: open/close the inventory.
+    - `<SPACEBAR>`: open the walking menu.
+    - `k`: open the help text.
+    - `t`: start the tutorial.
 - Code Organization
-  - Code is organized by layers, `com.mg105.user_interface`, `com.mg105.interface_adapters`, `com.mg105.use_cases`, `com.mg105.entities`.
+  - Code is organized by layers, `com.mg105.user_interface`, `com.mg105.interface_adapters`, `com.mg105.data_control`, `com.mg105.use_cases`, `com.mg105.entities`.
   - The `com.mg105.user_interface` package is the only package that knows anything about the graphics library, JavaFX.
   - The `com.mg105.utils` package mostly keeps track of constants.
 - Testing
-  - As of 246787a13d, test coverage is at 44%, 96% for `com.mg105.entities` only and 86% for `com.mg105.use_cases` only.
+  - As of [96e8a0a3](https://github.com/CSC207-2022F-UofT/course-project-group-105/pull/101/commits/96e8a0a3081fbd400cdc11552415465772a5a1a1), (line) test coverage is as follows:
+    - `com.mg105.entities`: 90%
+    - `com.mg105.use_cases`: 90%
+    - `com.mg105.data_control`: 76%
+    - `com.mg105.interface_adapters`: 57%
+    - `com.mg105.user_interface`: 1%
+    - `com.mg105.utils`: 100%
+    - Total: 51%
+  - Some tests assume a **completely clean** environment, if some tests fail delete `move_data.csv` and `party_data.csv` and run them again.
 - Documentation
   - Current up-to-date Javadoc can be found [here](https://docs.mg105.com/).
 - Extra GitHub Features Used
