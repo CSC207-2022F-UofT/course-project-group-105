@@ -10,18 +10,23 @@ import org.jetbrains.annotations.NotNull;
 
 public class DataStorageSystemCreator {
 
-    @NotNull private final CreateDataStorage[] builders;
+    @NotNull
+    private final CreateDataStorage[] builders;
 
     /**
      * Creates a new instance of DataStorageSystemCreator
+     *
      * @param builders a group of objects that help build certain parts of the data storage system
      */
-    public DataStorageSystemCreator(@NotNull CreateDataStorage[] builders){
+    public DataStorageSystemCreator(@NotNull CreateDataStorage[] builders) {
         this.builders = builders;
     }
 
-    public void create(){
-        for(CreateDataStorage builder: this.builders){
+    /**
+     * Create a new data storage.
+     */
+    public void create() {
+        for (CreateDataStorage builder : this.builders) {
             builder.createDataStorage();
         }
     }

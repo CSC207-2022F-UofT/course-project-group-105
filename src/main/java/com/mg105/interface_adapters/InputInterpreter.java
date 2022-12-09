@@ -106,12 +106,12 @@ public class InputInterpreter {
 
             case WALK_MENU -> {
                 if (key.equals(" ")) {
-                        toggler.toggle(Toggler.ToggleableComponent.WALK_MENU);
+                    toggler.toggle(Toggler.ToggleableComponent.WALK_MENU);
                 }
             }
             case MINIMAP -> toggler.toggle(Toggler.ToggleableComponent.MINIMAP);
             case INVENTORY -> {
-                if(key.equals("i")){
+                if (key.equals("i")) {
                     toggler.toggle(Toggler.ToggleableComponent.INVENTORY);
                 }
             }

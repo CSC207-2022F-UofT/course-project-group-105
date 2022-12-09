@@ -16,6 +16,9 @@ import java.util.List;
 
 import static com.mg105.utils.DataAccessConstants.PARTY_DATA_PATH;
 
+/**
+ * PartyDataAccess implements the data access layer.
+ */
 public class PartyDataAccess implements PartyDataInterface {
 
     private final static int NUMBER_OF_MOVES_PER_CHARACTER = 2;
@@ -23,6 +26,7 @@ public class PartyDataAccess implements PartyDataInterface {
 
     /**
      * Creates a new instance of PartyDataAccess
+     *
      * @param moveDataAccess an object that can access data about usable moves
      */
 
@@ -138,6 +142,7 @@ public class PartyDataAccess implements PartyDataInterface {
 
     /**
      * Returns objects representing the moves a party member has
+     *
      * @param memberAttributes an array of attributes a party member has
      * @return objects representing the moves a party member has
      * @see MoveDetails
@@ -151,6 +156,7 @@ public class PartyDataAccess implements PartyDataInterface {
 
     /**
      * Returns the moves a party member has from a given array of their attributes
+     *
      * @param memberAttributes an array of attributes of a party member
      * @return an array of move names
      */
@@ -166,6 +172,7 @@ public class PartyDataAccess implements PartyDataInterface {
 
     /**
      * Returns an array of objects representing moves based on the given move name
+     *
      * @param moveNames an array of move names
      * @return an array of objects representing moves
      * @see MoveDetails
@@ -189,6 +196,7 @@ public class PartyDataAccess implements PartyDataInterface {
     /**
      * Returns the appropriate column number based on the desired stat
      * returns -1 iff provided an invalid stat
+     *
      * @param rowName the desired stat
      * @return an integer representing the column that stat is located in the "database"
      */

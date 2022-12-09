@@ -12,7 +12,6 @@ public interface MinimapInterpreterInterface {
      * Get the current state of the minimap.
      *
      * @return the current state of the minimap.
-     *
      * @see MinimapInterpreterInterface#getCurrentPosition()
      */
     @NotNull MinimapRoomState[][] getMapSoFar();
@@ -21,7 +20,6 @@ public interface MinimapInterpreterInterface {
      * Get the current room position
      *
      * @return the current room indexes in the result of getMapSoFar().
-     *
      * @see MinimapInterpreterInterface#getMapSoFar()
      */
     @NotNull Point getCurrentPosition();

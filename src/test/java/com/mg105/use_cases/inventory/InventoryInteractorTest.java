@@ -17,7 +17,7 @@ class InventoryInteractorTest {
     // Some implementation of the interface (it's not really important for the tests since it really only
     // testing if the interactor mutates the entities properly)
 
-    InventoryPresenterInterface res = new InventoryPresenterInterface() {
+    final InventoryPresenterInterface res = new InventoryPresenterInterface() {
         @Override
         public void addItem(boolean isSuccessful, ItemDetails itemDetails) {
 
@@ -38,18 +38,18 @@ class InventoryInteractorTest {
 
         }
     };
-    BattleCharacter b1 = new BattleCharacter(1, ALL_PARTY_MEMBER_NAMES[0], 2, 3, false,
+    final BattleCharacter b1 = new BattleCharacter(1, ALL_PARTY_MEMBER_NAMES[0], 2, 3, false,
         new Move(0, 0, "m1", false),
         new Move(0, 0, "m2", false));
-    BattleCharacter b2 = new BattleCharacter(1, ALL_PARTY_MEMBER_NAMES[1], 2, 3, false,
+    final BattleCharacter b2 = new BattleCharacter(1, ALL_PARTY_MEMBER_NAMES[1], 2, 3, false,
         new Move(0, 0, "m1", false),
         new Move(0, 0, "m2", false));
-    BattleCharacter b3 = new BattleCharacter(1, ALL_PARTY_MEMBER_NAMES[2], 2, 3, false,
+    final BattleCharacter b3 = new BattleCharacter(1, ALL_PARTY_MEMBER_NAMES[2], 2, 3, false,
         new Move(0, 0, "m1", false),
         new Move(0, 0, "m2", false));
 
-    BattleCharacter[] party = {b1, b2, b3};
-    WalkingCharacter walkingCharacter = new WalkingCharacter((new Point(0, 0)));
+    final BattleCharacter[] party = {b1, b2, b3};
+    final WalkingCharacter walkingCharacter = new WalkingCharacter((new Point(0, 0)));
 
     @Test
     void addItemEmptyInventoryExists() {

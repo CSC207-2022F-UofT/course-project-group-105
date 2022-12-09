@@ -16,6 +16,8 @@ public class TutorialTextController {
 
     /**
      * A constructor for the tutorial controller
+     *
+     * @param changeText whether to initially change the text.
      */
     public TutorialTextController(boolean changeText) {
         this.changeText = changeText;
@@ -54,21 +56,21 @@ public class TutorialTextController {
     }
 
     /**
-     * Tell player the controls again
-     *
-     * @param show the text on the screen when true
-     */
-    public void setShowControls(boolean show) {
-        this.showControls = show;
-    }
-
-    /**
      * Check if player should be shown controls again
      *
      * @return whether player should be shown the control texts
      */
     public boolean getShowControls() {
         return this.showControls;
+    }
+
+    /**
+     * Tell player the controls again
+     *
+     * @param show the text on the screen when true
+     */
+    public void setShowControls(boolean show) {
+        this.showControls = show;
     }
 
     /**

@@ -15,10 +15,12 @@ import org.jetbrains.annotations.NotNull;
  */
 
 public class PartyCreator implements StateSetter {
-    @NotNull private final PartyDataInterface party_access;
+    @NotNull
+    private final PartyDataInterface party_access;
 
     /**
      * Creates a new instance of PartyCreator
+     *
      * @param partyAccess an object that is used to access information of the party from the data storage system
      */
     public PartyCreator(@NotNull PartyDataInterface partyAccess) {
@@ -46,6 +48,7 @@ public class PartyCreator implements StateSetter {
 
     /**
      * Returns a BattleCharacter
+     *
      * @param details an object that represents the attributes of a battle character
      * @return a BattleCharacter based on the details object
      * @see BattleCharacterDetails
@@ -62,6 +65,7 @@ public class PartyCreator implements StateSetter {
 
     /**
      * Returns a Move
+     *
      * @param details an object that represents the details of a move
      * @return a Move object based on the details
      * @see MoveDetails

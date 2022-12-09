@@ -5,7 +5,7 @@ import com.mg105.use_cases.outputds.ItemDetails;
 /**
  * This interface should be implemented by the InventoryPresenter class
  * <p>
- * It represents the data that should be formated and displayed by the view
+ * It represents the data that should be formatted and displayed by the view
  */
 
 public interface InventoryPresenterInterface {

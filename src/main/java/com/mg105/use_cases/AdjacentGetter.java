@@ -11,6 +11,7 @@ class AdjacentGetter {
 
     /**
      * Creates a list of four adjacent coordinates on the map next to the WalkingCharacter.
+     *
      * @param coord the current WalkingCharacter position.
      * @return the list of adjacent coordinates.
      */

@@ -11,12 +11,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MoveDataAccessTest {
 
-    // This test only works for the "inital" state of the user party and moves
-    // This is not because the class is depedent on the initial state but because of the
+    // This test only works for the "initial" state of the user party and moves
+    // This is not because the class is dependent on the initial state but because of the
     // hard coded expected values
 
     @BeforeAll
-    static void setData(){
+    static void setData() {
         MoveDataCreator c = new MoveDataCreator();
         c.createDataStorage();
     }

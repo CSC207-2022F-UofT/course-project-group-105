@@ -62,8 +62,8 @@ public class RoomInterpreterTest {
             List<Point> doorways = new ArrayList<>();
             doorways.add(new Point(0, 2));
             doorways.add(new Point(1, 0));
-            doorways.add(new Point(MapConstants.ROOM_SIZE-1, 3));
-            doorways.add(new Point(1, MapConstants.ROOM_SIZE-1));
+            doorways.add(new Point(MapConstants.ROOM_SIZE - 1, 3));
+            doorways.add(new Point(1, MapConstants.ROOM_SIZE - 1));
 
             return new RoomLayout(closedChests, openChests, opponents, doorways, new Point(4, 4));
         }

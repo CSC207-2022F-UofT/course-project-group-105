@@ -15,16 +15,20 @@ import org.jetbrains.annotations.NotNull;
 
 public class InventoryInteractor implements InventoryInteractorInputInterface {
 
-    @NotNull private final GameState state;
+    @NotNull
+    private final GameState state;
 
-    @NotNull private final ItemFactory itemFactory = new ItemFactory();
+    @NotNull
+    private final ItemFactory itemFactory = new ItemFactory();
 
-    @NotNull private final InventoryPresenterInterface response;
+    @NotNull
+    private final InventoryPresenterInterface response;
 
     /**
      * Creates a new instance of InventoryInteractor
+     *
      * @param gamestate the current state of the game
-     * @param response an object the represents what data to perhaps output
+     * @param response  an object the represents what data to perhaps output
      */
 
     public InventoryInteractor(@NotNull GameState gamestate, @NotNull InventoryPresenterInterface response) {
@@ -86,7 +90,7 @@ public class InventoryInteractor implements InventoryInteractorInputInterface {
             response.useItem(false, characterName, getItemDetails(itemName));
             return;
         }
-        boolean isUsed = state.getInventory().useItem(state, itemName,characterName);
+        boolean isUsed = state.getInventory().useItem(state, itemName, characterName);
 
         response.useItem(isUsed, characterName, getItemDetails(itemName));
     }
@@ -116,33 +120,27 @@ public class InventoryInteractor implements InventoryInteractorInputInterface {
     /**
      * Returns the limit of the inventory
      * The limit of the inventory is the maximum possible number of items that could be placed in it
+     *
      * @return and integer representing the limit of the inventory
      */
 
-    public int getInventoryLimit(){
+    public int getInventoryLimit() {
         return state.getInventory().limit();
     }
 
     /**
      * Returns the number of items currently in the inventory
+     *
      * @return the number of items currently in the inventory
      */
 
-    public int getNumOfItem(){
+    public int getNumOfItem() {
         return state.getInventory().numberOfItems();
     }
 
     /**
-     * Removes all items from the inventory
-     */
-    @Override
-    public void removeInventory()
-    {
-        this.state.getInventory().removeAll();
-    }
-
-    /**
      * Returns an object that represents the details of a give item
+     *
      * @param itemName the name of the item
      * @return an object that represents the details of a give item
      * @see ItemDetails
@@ -153,6 +151,7 @@ public class InventoryInteractor implements InventoryInteractorInputInterface {
 
     /**
      * Returns true iff itemName is actually an item in the game
+     *
      * @param itemName the name of the item
      * @return true iff itemName is actually an item in the game
      */
@@ -168,6 +167,7 @@ public class InventoryInteractor implements InventoryInteractorInputInterface {
 
     /**
      * Returns the count of the item in the inventory
+     *
      * @param itemName the name of the item
      * @return the count of the item in the inventory
      */
@@ -178,6 +178,7 @@ public class InventoryInteractor implements InventoryInteractorInputInterface {
 
     /**
      * Returns true iff characterName is the name of a party member
+     *
      * @param characterName a name
      * @return true iff characterName is the name of a party member
      */
@@ -192,6 +193,7 @@ public class InventoryInteractor implements InventoryInteractorInputInterface {
 
     /**
      * Returns true iff the item is usable
+     *
      * @param itemName the name of item
      * @return true iff the item is usable
      */
@@ -208,6 +210,7 @@ public class InventoryInteractor implements InventoryInteractorInputInterface {
     /**
      * Returns the description of item
      * Precondition itemName is the name of a valid item
+     *
      * @param itemName the name of the item
      * @return the description of item
      */

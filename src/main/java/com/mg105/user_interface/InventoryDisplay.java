@@ -21,14 +21,15 @@ import java.util.HashMap;
 
 public class InventoryDisplay implements InventoryViewInterface, Toggleable {
 
-    private Boolean isVisible = false;
-    private VBox itemsDisplay;
     private final HashMap<String, HBox> itemNameToInfo = new HashMap<>();
     private final InventoryController controller;
+    private Boolean isVisible = false;
+    private VBox itemsDisplay;
     private String characterSelected = PartyConstants.ALL_PARTY_MEMBER_NAMES[0];
 
     /**
      * Creates a new instance of inventory display
+     *
      * @param controller an object that interprets user inputs to make changes about the inventory
      */
 
@@ -38,6 +39,7 @@ public class InventoryDisplay implements InventoryViewInterface, Toggleable {
 
     /**
      * Returns the character selected by the user
+     *
      * @return the character selected by the user
      */
     private String getCharacterSelected() {
@@ -46,6 +48,7 @@ public class InventoryDisplay implements InventoryViewInterface, Toggleable {
 
     /**
      * Returns the dropdown where user can select a party member
+     *
      * @return the dropdown where user can select a party member
      */
     private @NotNull ComboBox<String> buildCharacterDropdown() {
@@ -58,6 +61,7 @@ public class InventoryDisplay implements InventoryViewInterface, Toggleable {
 
     /**
      * Returns the component that really has all the details necessary for the scene
+     *
      * @return the component that really has all the details necessary for the scene
      */
     private @NotNull VBox buildLayout() {
@@ -168,6 +172,7 @@ public class InventoryDisplay implements InventoryViewInterface, Toggleable {
 
     /**
      * Creates a use item button
+     *
      * @param name of item to create use item button
      * @return the use item button
      */

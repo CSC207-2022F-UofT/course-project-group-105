@@ -8,17 +8,19 @@ import org.jetbrains.annotations.NotNull;
 
 public class MoveDetails {
 
-    @NotNull private final String name;
+    @NotNull
+    private final String name;
     private final int healthChange;
     private final int damageChange;
     private final boolean isFriendly;
 
     /**
      * Creates a new instance of MoveDetails
-     * @param name of the move
+     *
+     * @param name         of the move
      * @param healthChange of the move
      * @param damageChange of the move
-     * @param isFriendly true iff the move is friendly
+     * @param isFriendly   true iff the move is friendly
      */
     public MoveDetails(@NotNull String name, int healthChange, int damageChange,
                        boolean isFriendly) {

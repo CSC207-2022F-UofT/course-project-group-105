@@ -10,11 +10,13 @@ import org.jetbrains.annotations.NotNull;
 
 public class InventoryController {
 
-    @NotNull private final InventoryInteractorInputInterface interactor;
+    @NotNull
+    private final InventoryInteractorInputInterface interactor;
 
 
     /**
      * Creates a new instance of inventory controller
+     *
      * @param interactor an object that interacts directly with the inventory
      */
 

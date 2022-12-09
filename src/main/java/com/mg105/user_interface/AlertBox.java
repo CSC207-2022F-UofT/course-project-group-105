@@ -18,6 +18,7 @@ public class AlertBox {
 
     /**
      * Displays a modal that must be resolved before switches to a different window
+     *
      * @param msg the message to display`
      */
 
