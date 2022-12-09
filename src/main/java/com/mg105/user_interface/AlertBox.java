@@ -14,11 +14,14 @@ import javafx.stage.Stage;
  * This message is usually related to if an action the user performed was successful or not.
  */
 public class AlertBox {
+
+
     /**
-     * Display an AlertBox.
+     * Displays a modal that must be resolved before switches to a different window
      *
-     * @param msg the message to display on the alert box
+     * @param msg the message to display`
      */
+
     public void display(String msg) {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);

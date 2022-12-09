@@ -14,6 +14,7 @@ import java.util.Arrays;
  * Really the only reason for this class is get rid of the duplicate code warnings (the CreateDataStorage)
  * interface is really enough for OOP
  */
+
 public abstract class DataStorageCreator implements CreateDataStorage {
 
     @NotNull
@@ -23,11 +24,12 @@ public abstract class DataStorageCreator implements CreateDataStorage {
     private final String[][] initialData;
 
     /**
-     * Create a new DataStorageCreator.
+     * Creates a new instance of DataStorageCreator
      *
-     * @param path        the path to store the data at.
-     * @param initialData the initial data.
+     * @param path        the file path to create data to
+     * @param initialData the inital data to create
      */
+
     public DataStorageCreator(@NotNull String path, @NotNull String[][] initialData) {
         this.path = path;
         this.initialData = initialData;

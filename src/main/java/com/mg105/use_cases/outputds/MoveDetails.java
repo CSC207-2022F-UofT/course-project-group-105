@@ -15,12 +15,12 @@ public class MoveDetails {
     private final boolean isFriendly;
 
     /**
-     * Create a new MoveDetails instance.
+     * Creates a new instance of MoveDetails
      *
-     * @param name         the name of the move.
-     * @param healthChange the health change of the move.
-     * @param damageChange the damage change of the move.
-     * @param isFriendly   if the move should operate on the party.
+     * @param name         of the move
+     * @param healthChange of the move
+     * @param damageChange of the move
+     * @param isFriendly   true iff the move is friendly
      */
     public MoveDetails(@NotNull String name, int healthChange, int damageChange,
                        boolean isFriendly) {

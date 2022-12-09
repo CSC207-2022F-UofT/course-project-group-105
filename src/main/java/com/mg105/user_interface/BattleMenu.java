@@ -304,7 +304,7 @@ public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterfac
             }
         } else if (source.equals(forfeit)) {
             presenter.endBattle();
-        } else if(source.equals(moveOne)) {
+        } else if (source.equals(moveOne)) {
             moveNum = 1;
             displayTargets();
         } else if (source.equals(moveTwo)) {

@@ -73,7 +73,7 @@ public class ReplayGenerator {
     public void replay() {
         //Handles the forfeit case, where party is not empty yet.
         state.getFainted().addAll(state.getParty());
-        state.setParty(new BattleCharacter[] {});
+        state.setParty(new BattleCharacter[]{});
 
         //Party is empty, fainted is full.
         state.getParty().addAll(state.getFainted());
