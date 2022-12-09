@@ -98,7 +98,7 @@ on any Unix-like operating system (or the built-in IntelliJ IDEA terminal).
   - GitHub releases for every merge into `main`, built by GitHub actions ([link](https://github.com/CSC207-2022F-UofT/course-project-group-105/releases)).
   - GitHub pages that host up-to-date Javadoc of `main`, built automatically by GitHub actions ([link](https://docs.mg105.com/)).
 
-## Please Read
+## Note for Apple Silicon Users (m1 and beyond chips)
 Due to some dependency issues this game will NOT build properly for anyone using Apple Silicon (m1 or m2 chips). You
 should still be able to make changes and run and create tests.
 
