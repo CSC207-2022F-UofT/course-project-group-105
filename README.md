@@ -22,6 +22,10 @@ Next, navigate to the [latest GitHub release](https://github.com/CSC207-2022F-Uo
 
 Finally, navigate to the `bin` folder and run either `course-project-group-105.bat` (on Windows) or `course-project-group-105`.
 
+Note: because JavaFX has native components, it is somewhat hit-or-miss whether the pre-compiled Jar will on a specific platform/operating system combination. It is only known to consistently work on Linux+amd64
+
+*If it does not work, try the instructions in the next section*
+
 ## Build (and Run) from Source
 
 ### IntelliJ IDEA (IDE) Instructions
