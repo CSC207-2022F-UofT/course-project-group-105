@@ -2,8 +2,8 @@ package com.mg105.use_cases;
 
 import com.mg105.entities.BattleCharacter;
 import com.mg105.entities.GameState;
-import com.mg105.use_cases.map.MapGenerator;
 import com.mg105.entities.items.MegaPotion;
+import com.mg105.use_cases.map.MapGenerator;
 import com.mg105.utils.PartyConstants;
 import org.jetbrains.annotations.NotNull;
 
@@ -17,7 +17,7 @@ public class ReplayGenerator {
     private final @NotNull Resetable[] resetables;
 
     /**
-     * Create a new replaygenerator
+     * Create a new ReplayGenerator
      *
      * @param state      the game state.
      * @param resetables resetable things.
@@ -73,7 +73,7 @@ public class ReplayGenerator {
     public void replay() {
         //Handles the forfeit case, where party is not empty yet.
         state.getFainted().addAll(state.getParty());
-        state.setParty(new BattleCharacter[] {});
+        state.setParty(new BattleCharacter[]{});
 
         //Party is empty, fainted is full.
         state.getParty().addAll(state.getFainted());

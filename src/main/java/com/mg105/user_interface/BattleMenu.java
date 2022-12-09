@@ -16,7 +16,7 @@ import java.util.ArrayList;
 /**
  * This class uses JavaFX and is displayed during an active battle.
  */
-public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterface, Toggleable{
+public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterface, Toggleable {
 
     private final BattlePresenter presenter;
     private final String[] playerNames = new String[4];
@@ -58,6 +58,7 @@ public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterfac
     /**
      * Creates a new BattleMenu.
      * Sets every UI element, except for labels which are set when the view is toggled on.
+     *
      * @param battlePres the BattlePresenter to refer to (following MVP pattern)
      */
     public BattleMenu(BattlePresenter battlePres) {
@@ -143,7 +144,7 @@ public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterfac
     /**
      * Sets the names of the player and opponent characters participating in the active battle.
      *
-     * @param playerNames array of name Strings representing player characters.
+     * @param playerNames   array of name Strings representing player characters.
      * @param opponentNames array of name Strings representing opponents.
      */
     @Override
@@ -172,7 +173,7 @@ public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterfac
      * @param character the character who needs to be updated on the screen.
      */
     @Override
-    public void updateCharacter(String character){
+    public void updateCharacter(String character) {
         if (playerNames[0].equals(character)) {
             updateCharacterData(character, 0, p0, false);
         } else if (playerNames[1].equals(character)) {
@@ -234,6 +235,7 @@ public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterfac
      * target characters and the move buttons to disappear.
      * The target buttons only become visible when the character they represent can be targeted with the selected move,
      * and pressing them will apply the move onto the character and make the target buttons disappear.
+     *
      * @param event the event which occurred.
      */
     @Override
@@ -295,21 +297,20 @@ public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterfac
 
                 moveOne.setText(moveNames[0] + "\n Hp: " + moveStats[0] + ", Dmg: " + moveStats[1]);
                 moveTwo.setText(moveNames[1] + "\n Hp: " + moveStats[2] + ", Dmg: " + moveStats[3]);
-            } else if(opponentNames[0].equals(moving) || opponentNames[1].equals(moving) ||
+            } else if (opponentNames[0].equals(moving) || opponentNames[1].equals(moving) ||
                 opponentNames[2].equals(moving) || opponentNames[3].equals(moving)) {
                 //If opponent moved, re-enable nextRound button
                 nextRound.setDisable(false);
             }
-
         } else if (source.equals(forfeit)) {
             presenter.endBattle();
-        } else if(source.equals(moveOne)) {
+        } else if (source.equals(moveOne)) {
             moveNum = 1;
             displayTargets();
-        } else if(source.equals(moveTwo)) {
+        } else if (source.equals(moveTwo)) {
             moveNum = 2;
             displayTargets();
-        } else if(source.equals(targetP0)) {
+        } else if (source.equals(targetP0)) {
             targetP0.setVisible(false);
             targetP1.setVisible(false);
             targetP2.setVisible(false);
@@ -319,7 +320,7 @@ public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterfac
 
             //Re-enable nextRound button after a move has been made.
             nextRound.setDisable(false);
-        } else if(source.equals(targetP1)) {
+        } else if (source.equals(targetP1)) {
             targetP0.setVisible(false);
             targetP1.setVisible(false);
             targetP2.setVisible(false);
@@ -329,7 +330,7 @@ public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterfac
 
             //Re-enable nextRound button after a move has been made.
             nextRound.setDisable(false);
-        } else if(source.equals(targetP2)) {
+        } else if (source.equals(targetP2)) {
             targetP0.setVisible(false);
             targetP1.setVisible(false);
             targetP2.setVisible(false);
@@ -339,7 +340,7 @@ public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterfac
 
             //Re-enable nextRound button after a move has been made.
             nextRound.setDisable(false);
-        } else if(source.equals(targetP3)) {
+        } else if (source.equals(targetP3)) {
             targetP0.setVisible(false);
             targetP1.setVisible(false);
             targetP2.setVisible(false);
@@ -349,7 +350,7 @@ public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterfac
 
             //Re-enable nextRound button after a move has been made.
             nextRound.setDisable(false);
-        } else if(source.equals(targetO0)) {
+        } else if (source.equals(targetO0)) {
             targetO0.setVisible(false);
             targetO1.setVisible(false);
             targetO2.setVisible(false);
@@ -359,7 +360,7 @@ public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterfac
 
             //Re-enable nextRound button after a move has been made.
             nextRound.setDisable(false);
-        } else if(source.equals(targetO1)) {
+        } else if (source.equals(targetO1)) {
             targetO0.setVisible(false);
             targetO1.setVisible(false);
             targetO2.setVisible(false);
@@ -369,7 +370,7 @@ public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterfac
 
             //Re-enable nextRound button after a move has been made.
             nextRound.setDisable(false);
-        } else if(source.equals(targetO2)) {
+        } else if (source.equals(targetO2)) {
             targetO0.setVisible(false);
             targetO1.setVisible(false);
             targetO2.setVisible(false);
@@ -379,7 +380,7 @@ public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterfac
 
             //Re-enable nextRound button after a move has been made.
             nextRound.setDisable(false);
-        } else if(source.equals(targetO3)) {
+        } else if (source.equals(targetO3)) {
             targetO0.setVisible(false);
             targetO1.setVisible(false);
             targetO2.setVisible(false);
@@ -394,9 +395,10 @@ public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterfac
 
     /**
      * Helper function for updateCharacter.
-     * @param character name String of the character to be updated.
-     * @param position index of the character's data in the data arrays.
-     * @param lbl Label object to be updated.
+     *
+     * @param character  name String of the character to be updated.
+     * @param position   index of the character's data in the data arrays.
+     * @param lbl        Label object to be updated.
      * @param isOpponent boolean for whether the character is an opponent or not.
      */
     private void updateCharacterData(String character, int position, Label lbl, boolean isOpponent) {
@@ -458,8 +460,9 @@ public class BattleMenu implements EventHandler<ActionEvent>, BattleMenuInterfac
 
     /**
      * Helper function to initialize the character labels.
-     * @param lbl Label object corresponding to the character.
-     * @param position Integer representing index of character's data in data arrays.
+     *
+     * @param lbl        Label object corresponding to the character.
+     * @param position   Integer representing index of character's data in data arrays.
      * @param isOpponent Boolean of whether the character is an opponent.
      */
     private void setupCharacterLabel(Label lbl, int position, boolean isOpponent) {

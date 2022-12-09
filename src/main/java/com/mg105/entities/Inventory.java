@@ -87,20 +87,19 @@ public class Inventory {
         }
         return false;
     }
+
     /**
      * Removes all the items from the inventory.
      */
     public void removeAll() {
-        for (int i = numberOfItems() - 1; i >=0; i--) {
-            this.items.remove(i);
-        }
+        items.clear();
     }
 
     /**
      * Uses the item on the given character
      *
-     * @param state The current state of the game
-     * @param itemName  The name of the item to use
+     * @param state         The current state of the game
+     * @param itemName      The name of the item to use
      * @param characterName the character to use the item on
      * @return true iff the item with a name of itemName was used
      * @see Item

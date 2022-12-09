@@ -54,13 +54,6 @@ public class TutorialTexts {
      */
     public static final List<String> PHASES
         = Arrays.asList("...", "story", "tell move", "tell attack", "tell use item", "exit room", "hotkeys");
-
-    /**
-     * Constant array containing the actual text shown to the player
-     */
-    public static final List<String> PHASES_TEXT = Arrays.asList("",
-        TutorialTexts.STORY, TutorialTexts.TELL_MOVE, TutorialTexts.TELL_ATTACK, TutorialTexts.TELL_USE_ITEM, TutorialTexts.EXIT_ROOM, TutorialTexts.HOTKEYS);
-
     /**
      * Constant string for story text
      */
@@ -68,27 +61,22 @@ public class TutorialTexts {
         Welcome to mountain climber. You must battle your way
         to the top of the mountain. Inside various rooms
         you will encounter enemies and find treasures.""";
-
     /**
      * Constant string for move text
      */
     public static final String TELL_MOVE = "Move your character with the WASD keys.";
-
     /**
      * Constant string for attack text
      */
     public static final String TELL_ATTACK = "Use the battle button [f] to attack the enemies.";
-
     /**
      * Constant string for open chest text
      */
     public static final String TELL_USE_ITEM = "Open treasure chests using the [e] key..";
-
     /**
      * Constant string for good luck text
      */
     public static final String EXIT_ROOM = "Good luck on your journey!";
-
     /**
      * Constant string for telling player the game controls
      */
@@ -96,12 +84,15 @@ public class TutorialTexts {
                    Hotkeys:  Press K for help. Press WASD to return to game.\s
         Game Controls:  Use WASD to move. Use battle key [f] to  \s
                          initiate battles. Open chests using [e].""";
-
     /**
      * Constant string for telling the player the hotkeys
      */
     public static final String HOTKEYS = "Hint: Press [WASD] to return to the game. Press K for help!";
-
+    /**
+     * Constant array containing the actual text shown to the player
+     */
+    public static final List<String> PHASES_TEXT = Arrays.asList("",
+        TutorialTexts.STORY, TutorialTexts.TELL_MOVE, TutorialTexts.TELL_ATTACK, TutorialTexts.TELL_USE_ITEM, TutorialTexts.EXIT_ROOM, TutorialTexts.HOTKEYS);
     /**
      * Constant string reminding player how to move
      */

@@ -27,9 +27,4 @@ public interface InventoryInteractorInputInterface {
      * Collects and sends data the represents the state of the inventory
      */
     void getInventoryDetails();
-
-    /**
-     * Removes all items from the inventory
-     */
-    void removeInventory();
 }

@@ -10,11 +10,11 @@ class BattleTest {
     @Test
     void getMovingCharacter() {
         Move m1 = new Move(5, 0, "first", true);
-        Move m2 = new Move(0, 1, "second",true);
+        Move m2 = new Move(0, 1, "second", true);
 
         BattleCharacter op1 = new BattleCharacter(10, "Michael", 10, 10, true, m1, m2);
         BattleCharacter op2 = new BattleCharacter(6, "Alex", 12, 14, true, m1, m2);
-        BattleCharacter p1 = new BattleCharacter(14, "Mariam", 7, 11,false, m1, m2);
+        BattleCharacter p1 = new BattleCharacter(14, "Mariam", 7, 11, false, m1, m2);
         BattleCharacter p2 = new BattleCharacter(9, "Leslie", 6, 8, false, m1, m2);
 
         ArrayList<BattleCharacter> opponents = new ArrayList<>();
@@ -42,7 +42,7 @@ class BattleTest {
     @Test
     void removeCharWin() {
         Move m1 = new Move(5, 0, "first", true);
-        Move m2 = new Move(0, 1, "second",true);
+        Move m2 = new Move(0, 1, "second", true);
 
         BattleCharacter op1 = new BattleCharacter(10, "Michael", 10, 10, true, m1, m2);
         BattleCharacter op2 = new BattleCharacter(6, "Alex", 12, 14, true, m1, m2);
@@ -69,7 +69,7 @@ class BattleTest {
     @Test
     void removeCharLoss() {
         Move m1 = new Move(5, 0, "first", true);
-        Move m2 = new Move(0, 1, "second",true);
+        Move m2 = new Move(0, 1, "second", true);
 
         BattleCharacter op1 = new BattleCharacter(10, "Michael", 10, 10, true, m1, m2);
         BattleCharacter op2 = new BattleCharacter(6, "Alex", 12, 14, true, m1, m2);
@@ -96,7 +96,7 @@ class BattleTest {
     @Test
     void getBattleCharacter() {
         Move m1 = new Move(5, 0, "first", true);
-        Move m2 = new Move(0, 1, "second",true);
+        Move m2 = new Move(0, 1, "second", true);
 
         BattleCharacter op1 = new BattleCharacter(10, "Michael", 10, 10, true, m1, m2);
         BattleCharacter op2 = new BattleCharacter(6, "Alex", 12, 14, true, m1, m2);

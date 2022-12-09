@@ -1,12 +1,12 @@
 package com.mg105.use_cases;
 
-import org.junit.jupiter.api.Test;
 import com.mg105.entities.*;
 import com.mg105.entities.items.UpgradeToken;
+import org.junit.jupiter.api.Test;
 
 import java.awt.*;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ReplayGeneratorTest {
     @Test

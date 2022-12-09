@@ -1,10 +1,8 @@
-package com.mg105.use_cases.Battle;
+package com.mg105.use_cases.battle;
 
 import com.mg105.data_control.access.MoveDataAccess;
 import com.mg105.data_control.access.PartyDataAccess;
 import com.mg105.entities.*;
-import com.mg105.use_cases.battle.BattleInteractor;
-import com.mg105.use_cases.battle.BattlePresenterInterface;
 import com.mg105.use_cases.inventory.InventoryInteractor;
 import com.mg105.use_cases.inventory.InventoryPresenterInterface;
 import com.mg105.use_cases.outputds.ItemDetails;
@@ -18,11 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 class BattleInteractorTest {
-
-    private Saver createSaver(GameState state){
-        PartySaver[] partySavers = {new PartySaver(state, new PartyDataAccess(new MoveDataAccess()))};
-        return new Saver(partySavers);
-    }
 
     private static final InventoryPresenterInterface inventoryPresenterInterface = new InventoryPresenterInterface() {
         @Override
@@ -45,7 +38,6 @@ class BattleInteractorTest {
 
         }
     };
-
     private final static BattlePresenterInterface presenter = new BattlePresenterInterface() {
         @Override
         public void setViewNames(String[] partyNames, String[] opponentNames) {
@@ -58,22 +50,27 @@ class BattleInteractorTest {
         }
     };
 
+    private Saver createSaver(GameState state) {
+        PartySaver[] partySavers = {new PartySaver(state, new PartyDataAccess(new MoveDataAccess()))};
+        return new Saver(partySavers);
+    }
+
     @Test
     void createValidEncounter() {
         Inventory inventory = new Inventory();
         WalkingCharacter character = new WalkingCharacter(new Point(0, 0));
         BattleCharacter p1 = new BattleCharacter(14, "Leslie", 7, 8, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
         BattleCharacter p2 = new BattleCharacter(9, "Mariam", 6, 11, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
         BattleCharacter p3 = new BattleCharacter(10, "Michael", 10, 10, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
         BattleCharacter p4 = new BattleCharacter(6, "Alex", 12, 14, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
 
         BattleCharacter[] party = {p1, p2, p3, p4};
 
@@ -117,16 +114,16 @@ class BattleInteractorTest {
         WalkingCharacter character = new WalkingCharacter(new Point(0, 0));
         BattleCharacter p1 = new BattleCharacter(14, "Leslie", 7, 8, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
         BattleCharacter p2 = new BattleCharacter(9, "Mariam", 6, 11, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
         BattleCharacter p3 = new BattleCharacter(10, "Michael", 10, 10, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
         BattleCharacter p4 = new BattleCharacter(6, "Alex", 12, 14, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
 
         BattleCharacter[] party = {p1, p2, p3, p4};
 
@@ -174,16 +171,16 @@ class BattleInteractorTest {
         WalkingCharacter character = new WalkingCharacter(new Point(0, 0));
         BattleCharacter p1 = new BattleCharacter(14, "Leslie", 7, 8, false,
             new Move(-2000, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
         BattleCharacter p2 = new BattleCharacter(9, "Mariam", 6, 11, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
         BattleCharacter p3 = new BattleCharacter(10, "Michael", 10, 10, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
         BattleCharacter p4 = new BattleCharacter(6, "Alex", 12, 14, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
 
         BattleCharacter[] party = {p1, p2, p3, p4};
 
@@ -230,16 +227,16 @@ class BattleInteractorTest {
         WalkingCharacter character = new WalkingCharacter(new Point(0, 0));
         BattleCharacter p1 = new BattleCharacter(14, "Leslie", 7, 2000, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
         BattleCharacter p2 = new BattleCharacter(9, "Mariam", 6, 11, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
         BattleCharacter p3 = new BattleCharacter(10, "Michael", 10, 10, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
         BattleCharacter p4 = new BattleCharacter(6, "Alex", 12, 14, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
 
         BattleCharacter[] party = {p1, p2, p3, p4};
 
@@ -285,16 +282,16 @@ class BattleInteractorTest {
         WalkingCharacter character = new WalkingCharacter(new Point(0, 0));
         BattleCharacter p1 = new BattleCharacter(14, "Leslie", 7, 8, false,
             new Move(-2000, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
         BattleCharacter p2 = new BattleCharacter(9, "Mariam", 6, 11, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
         BattleCharacter p3 = new BattleCharacter(10, "Michael", 10, 10, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
         BattleCharacter p4 = new BattleCharacter(6, "Alex", 12, 14, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
 
         BattleCharacter[] party = {p1, p2, p3, p4};
 
@@ -322,7 +319,7 @@ class BattleInteractorTest {
         WalkingCharacter character = new WalkingCharacter(new Point(0, 0));
         BattleCharacter p1 = new BattleCharacter(14, "Leslie", 7, 8, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
 
         BattleCharacter[] party = {p1};
 
@@ -350,7 +347,7 @@ class BattleInteractorTest {
         WalkingCharacter character = new WalkingCharacter(new Point(0, 0));
         BattleCharacter p1 = new BattleCharacter(14, "Leslie", 7, 8, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
 
         BattleCharacter[] party = {p1};
 

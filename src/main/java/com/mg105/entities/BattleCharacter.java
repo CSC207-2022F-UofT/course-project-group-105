@@ -5,13 +5,13 @@ package com.mg105.entities;
  * specific character.
  */
 public class BattleCharacter implements Comparable<BattleCharacter> {
-    private int hp;
-    private int maxHp;
     private final String name;
-    private int dmg;
-    private int speed;
     private final boolean isOpponent;
     private final Move[] moves = new Move[2];
+    private int hp;
+    private int maxHp;
+    private int dmg;
+    private int speed;
 
     /**
      * Creates a new BattleCharacter with the given stats.
@@ -126,6 +126,9 @@ public class BattleCharacter implements Comparable<BattleCharacter> {
         }
     }
 
+    /**
+     * Ensure this BattleCharacter is completely healed. (Has their maximum health value.
+     */
     public void fullHealCharacter() {
         this.modifyHealth(this.getMaxHp());
     }

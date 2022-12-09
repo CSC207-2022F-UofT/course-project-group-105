@@ -80,6 +80,6 @@ public class PlayerGetsTutorial {
     public boolean getActionPerformed(String action) {
         return this.tutorial.actionPerformedGetter(action);
     }
-    
+
 }
 

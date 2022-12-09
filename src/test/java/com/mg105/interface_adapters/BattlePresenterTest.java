@@ -20,11 +20,6 @@ import java.util.List;
 
 class BattlePresenterTest {
 
-    private Saver createSaver(GameState state){
-        PartySaver[] partySavers = {new PartySaver(state, new PartyDataAccess(new MoveDataAccess()))};
-        return new Saver(partySavers);
-    }
-
     private static final InventoryPresenterInterface inventoryPresenterInterface = new InventoryPresenterInterface() {
         @Override
         public void addItem(boolean isSuccessful, ItemDetails itemDetails) {
@@ -46,7 +41,6 @@ class BattlePresenterTest {
 
         }
     };
-
     private final static BattleMenuInterface view = new BattleMenuInterface() {
         @Override
         public void setNames(String[] playerNames, String[] opponentNames) {
@@ -58,7 +52,6 @@ class BattlePresenterTest {
 
         }
     };
-
     private final static Toggler toggle = new Toggler() {
         @Override
         public void toggle(@org.jetbrains.annotations.NotNull ToggleableComponent component) {
@@ -72,22 +65,27 @@ class BattlePresenterTest {
         }
     };
 
+    private Saver createSaver(GameState state) {
+        PartySaver[] partySavers = {new PartySaver(state, new PartyDataAccess(new MoveDataAccess()))};
+        return new Saver(partySavers);
+    }
+
     @Test
     void startValidBattle() {
         Inventory inventory = new Inventory();
         WalkingCharacter character = new WalkingCharacter(new Point(0, 0));
         BattleCharacter p1 = new BattleCharacter(14, "Leslie", 7, 8, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
         BattleCharacter p2 = new BattleCharacter(9, "Mariam", 6, 11, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
         BattleCharacter p3 = new BattleCharacter(10, "Michael", 10, 10, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
         BattleCharacter p4 = new BattleCharacter(6, "Alex", 12, 14, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
 
         BattleCharacter[] party = {p1, p2, p3, p4};
 
@@ -132,16 +130,16 @@ class BattlePresenterTest {
         WalkingCharacter character = new WalkingCharacter(new Point(0, 0));
         BattleCharacter p1 = new BattleCharacter(14, "Leslie", 7, 8, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
         BattleCharacter p2 = new BattleCharacter(9, "Mariam", 6, 11, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
         BattleCharacter p3 = new BattleCharacter(10, "Michael", 10, 10, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
         BattleCharacter p4 = new BattleCharacter(6, "Alex", 12, 14, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
 
         BattleCharacter[] party = {p1, p2, p3, p4};
 
@@ -190,16 +188,16 @@ class BattlePresenterTest {
         WalkingCharacter character = new WalkingCharacter(new Point(0, 0));
         BattleCharacter p1 = new BattleCharacter(14, "Leslie", 7, 8, false,
             new Move(-2000, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
         BattleCharacter p2 = new BattleCharacter(9, "Mariam", 6, 11, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
         BattleCharacter p3 = new BattleCharacter(10, "Michael", 10, 10, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
         BattleCharacter p4 = new BattleCharacter(6, "Alex", 12, 14, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
 
         BattleCharacter[] party = {p1, p2, p3, p4};
 
@@ -243,16 +241,16 @@ class BattlePresenterTest {
         WalkingCharacter character = new WalkingCharacter(new Point(0, 0));
         BattleCharacter p1 = new BattleCharacter(14, "Leslie", 7, 2000, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
         BattleCharacter p2 = new BattleCharacter(9, "Mariam", 6, 11, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
         BattleCharacter p3 = new BattleCharacter(10, "Michael", 10, 10, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
         BattleCharacter p4 = new BattleCharacter(6, "Alex", 12, 14, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
 
         BattleCharacter[] party = {p1, p2, p3, p4};
 
@@ -295,7 +293,7 @@ class BattlePresenterTest {
         WalkingCharacter character = new WalkingCharacter(new Point(0, 0));
         BattleCharacter p1 = new BattleCharacter(14, "Leslie", 7, 8, false,
             new Move(-5, 0, "first", false),
-            new Move(0, 1, "second",true));
+            new Move(0, 1, "second", true));
 
         BattleCharacter[] party = {p1};
 

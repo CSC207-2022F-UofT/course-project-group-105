@@ -10,7 +10,7 @@ public interface BattleMenuInterface {
     /**
      * Sets the names of the player and opponent characters participating in the active battle.
      *
-     * @param playerNames array of name Strings representing player characters.
+     * @param playerNames   array of name Strings representing player characters.
      * @param opponentNames array of name Strings representing opponents.
      */
     void setNames(String[] playerNames, String[] opponentNames);

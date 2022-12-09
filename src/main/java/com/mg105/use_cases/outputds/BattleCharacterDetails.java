@@ -8,22 +8,24 @@ import org.jetbrains.annotations.NotNull;
 
 public class BattleCharacterDetails {
 
-    @NotNull private final String name;
+    @NotNull
+    private final String name;
     private final int maxHp;
     private final int dmg;
     private final int speed;
 
     private final boolean isOpponent;
-    @NotNull private final MoveDetails[] moveDetails;
+    @NotNull
+    private final MoveDetails[] moveDetails;
 
     /**
      * Create new BattleCharacterDetails for a BattleCharacter.
      *
-     * @param name the name of the character.
-     * @param maxHp the max HP of the character.
-     * @param dmg  the damage output of the character.
-     * @param speed the chacter's speed.
-     * @param isOpponent whether the character is an opponent.
+     * @param name        the name of the character.
+     * @param maxHp       the max HP of the character.
+     * @param dmg         the damage output of the character.
+     * @param speed       the character's speed.
+     * @param isOpponent  whether the character is an opponent.
      * @param moveDetails a list of the details for the character's moves.
      */
     public BattleCharacterDetails(@NotNull String name, int maxHp, int dmg, int speed, boolean isOpponent,
