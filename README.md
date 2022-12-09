@@ -82,14 +82,14 @@ on any Unix-like operating system (or the built-in IntelliJ IDEA terminal).
   - The `com.mg105.user_interface` package is the only package that knows anything about the graphics library, JavaFX.
   - The `com.mg105.utils` package mostly keeps track of constants.
 - Testing
-  - As of [TODO](), (line) test coverage is as follows:
-    - `com.mg105.entities`: TODO%
-    - `com.mg105.use_cases`: TODO%
-    - `com.mg105.data_control`: TODO%
-    - `com.mg105.interface_adapters`: TODO%
-    - `com.mg105.user_interface`: TODO%
-    - `com.mg105.utils`: TODO%
-    - Total: TODO%
+  - As of [96e8a0a3](https://github.com/CSC207-2022F-UofT/course-project-group-105/pull/101/commits/96e8a0a3081fbd400cdc11552415465772a5a1a1), (line) test coverage is as follows:
+    - `com.mg105.entities`: 90%
+    - `com.mg105.use_cases`: 90%
+    - `com.mg105.data_control`: 76%
+    - `com.mg105.interface_adapters`: 57%
+    - `com.mg105.user_interface`: 1%
+    - `com.mg105.utils`: 100%
+    - Total: 51%
   - Some tests assume a **completely clean** environment, if some tests fail delete `move_data.csv` and `party_data.csv` and run them again.
 - Documentation
   - Current up-to-date Javadoc can be found [here](https://docs.mg105.com/).
