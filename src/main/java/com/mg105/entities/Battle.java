@@ -9,17 +9,18 @@ import java.util.NoSuchElementException;
  * and the order in which they would move, along with a number of upgrade tokens upon victory.
  */
 public class Battle {
-    //battleStatus: 0 for in progress, -1 for loss, 1 for win
-    private int battleStatus;
     private final ArrayList<BattleCharacter> opponents;
     private final ArrayList<BattleCharacter> playerCharacters;
     private final ArrayList<BattleCharacter> moveQueue = new ArrayList<>();
+    //battleStatus: 0 for in progress, -1 for loss, 1 for win
+    private int battleStatus;
 
     /**
      * Creates a new Battle instance with ongoing status, given BattleCharacters, and a Queue of the characters sorted
      * by their speed stats.
+     *
      * @param opponents a collection of opponent BattleCharacters.
-     * @param party a collection of player BattleCharacters.
+     * @param party     a collection of player BattleCharacters.
      */
     public Battle(ArrayList<BattleCharacter> opponents, ArrayList<BattleCharacter> party) {
         this.battleStatus = 0;

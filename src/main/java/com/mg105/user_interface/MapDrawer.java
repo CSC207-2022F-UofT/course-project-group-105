@@ -1,7 +1,7 @@
 package com.mg105.user_interface;
 
-import com.mg105.interface_adapters.RoomInterpreter;
-import com.mg105.interface_adapters.TileType;
+import com.mg105.interface_adapters.map.RoomInterpreterInterface;
+import com.mg105.interface_adapters.map.RoomTileType;
 import com.mg105.utils.MapConstants;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -20,11 +20,11 @@ import java.util.Objects;
  * MapDrawer draws the map as a grid of tiles.
  */
 public class MapDrawer implements PropertyChangeListener, Toggleable {
-    private final @NotNull RoomInterpreter interpreter;
+    private final @NotNull RoomInterpreterInterface interpreter;
 
     private final @NotNull Scene scene;
     private final @NotNull Group group;
-    private final @NotNull Map<TileType, Image> tiles;
+    private final @NotNull Map<RoomTileType, Image> tiles;
     private final @NotNull Map<String, Image> playerSprites;
     private final @NotNull Image missingTile;
     private boolean isVisible;
@@ -34,7 +34,7 @@ public class MapDrawer implements PropertyChangeListener, Toggleable {
      *
      * @param interpreter the room interpreter used to format the data in an acceptable way for this class.
      */
-    public MapDrawer(@NotNull RoomInterpreter interpreter) {
+    public MapDrawer(@NotNull RoomInterpreterInterface interpreter) {
         this.interpreter = interpreter;
 
         group = new Group();
@@ -48,13 +48,13 @@ public class MapDrawer implements PropertyChangeListener, Toggleable {
         missingTile = new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/tiles/missing.png")));
 
         tiles = new HashMap<>(6);
-        tiles.put(TileType.FLOOR, new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/tiles/floor.png"))));
-        tiles.put(TileType.WALL, new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/tiles/wall.png"))));
-        tiles.put(TileType.WALL_WITH_FACE, new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/tiles/wall_face.png"))));
-        tiles.put(TileType.EXIT, new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/tiles/exit.png"))));
-        tiles.put(TileType.CHEST, new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/tiles/chest.png"))));
-        tiles.put(TileType.CHEST_OPEN, new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/tiles/chest_open.png"))));
-        tiles.put(TileType.OPPONENT_SET, new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/tiles/battle.png"))));
+        tiles.put(RoomTileType.FLOOR, new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/tiles/floor.png"))));
+        tiles.put(RoomTileType.WALL, new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/tiles/wall.png"))));
+        tiles.put(RoomTileType.WALL_WITH_FACE, new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/tiles/wall_face.png"))));
+        tiles.put(RoomTileType.EXIT, new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/tiles/exit.png"))));
+        tiles.put(RoomTileType.CHEST, new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/tiles/chest.png"))));
+        tiles.put(RoomTileType.CHEST_OPEN, new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/tiles/chest_open.png"))));
+        tiles.put(RoomTileType.OPPONENT_SET, new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/tiles/battle.png"))));
 
         playerSprites = new HashMap<>(4);
         playerSprites.put("/sprites/A.png", new Image(Objects.requireNonNull(MapDrawer.class.getResourceAsStream("/sprites/A.png"))));
@@ -94,7 +94,7 @@ public class MapDrawer implements PropertyChangeListener, Toggleable {
      * current room.
      */
     public void updateRoom() {
-        TileType[][] room = interpreter.getCurrentRoom();
+        RoomTileType[][] room = interpreter.getCurrentRoom();
 
         group.getChildren().clear();
 
@@ -113,7 +113,7 @@ public class MapDrawer implements PropertyChangeListener, Toggleable {
         }
 
         Point player = interpreter.getPlayer();
-        ImageView playerTile = new ImageView(playerSprites.getOrDefault(interpreter.updateCharacterSprite(), missingTile));
+        ImageView playerTile = new ImageView(playerSprites.getOrDefault(interpreter.getCharacterSprite(), missingTile));
         playerTile.setPreserveRatio(true);
         playerTile.setX(player.x * MapConstants.TILE_SIZE);
         playerTile.setY(player.y * MapConstants.TILE_SIZE);

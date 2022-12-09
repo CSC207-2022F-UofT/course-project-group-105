@@ -1,7 +1,7 @@
-package com.mg105.interface_adapters;
+package com.mg105.interface_adapters.map;
 
 import com.mg105.use_cases.Resetable;
-import com.mg105.use_cases.RoomGetter;
+import com.mg105.use_cases.map.RoomGetterInterface;
 import com.mg105.use_cases.outputds.RoomLayout;
 import com.mg105.utils.MapConstants;
 import com.mg105.utils.PointComparator;
@@ -15,19 +15,18 @@ import java.beans.PropertyChangeListener;
 /**
  * The MinimapInterpreter processes room change data an interprets its implicit position.
  */
-public class MinimapInterpreter implements PropertyChangeListener, Resetable {
-    private final @NotNull RoomGetter getter;
-
-    private @Nullable Point lastPosition;
-    private @NotNull RoomState[][] mapSoFar;
+public class MinimapInterpreter implements PropertyChangeListener, Resetable, MinimapInterpreterInterface {
+    private final @NotNull RoomGetterInterface getter;
     private final @NotNull Point currentRoom;
+    private @Nullable Point lastPosition;
+    private @NotNull MinimapRoomState[][] mapSoFar;
 
     /**
      * Create a new MinimapInterpreter.
      *
      * @param getter the RoomGetter that will get room information.
      */
-    public MinimapInterpreter(@NotNull RoomGetter getter) {
+    public MinimapInterpreter(@NotNull RoomGetterInterface getter) {
         this.getter = getter;
         currentRoom = new Point();
 
@@ -40,8 +39,8 @@ public class MinimapInterpreter implements PropertyChangeListener, Resetable {
     @Override
     public void reset() {
         lastPosition = null;
-        mapSoFar = new RoomState[1][1];
-        mapSoFar[0][0] = RoomState.EXPLORED;
+        mapSoFar = new MinimapRoomState[1][1];
+        mapSoFar[0][0] = MinimapRoomState.EXPLORED;
         currentRoom.x = 0;
         currentRoom.y = 0;
     }
@@ -50,7 +49,7 @@ public class MinimapInterpreter implements PropertyChangeListener, Resetable {
      * Update room position data.
      *
      * @param evt A PropertyChangeEvent object describing the event source
-     *          and the property that has changed.
+     *            and the property that has changed.
      */
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
@@ -64,7 +63,7 @@ public class MinimapInterpreter implements PropertyChangeListener, Resetable {
         if ((new PointComparator(lastPosition)).distanceTo(currentPosition) > 1) { // We must have changed rooms
             if (currentPosition.y == 0) { // We moved down into a new room
                 currentRoom.y += 1;
-            } else if (currentPosition.y == MapConstants.ROOM_SIZE-1) { // we moved up into a new room
+            } else if (currentPosition.y == MapConstants.ROOM_SIZE - 1) { // we moved up into a new room
                 currentRoom.y -= 1;
             } else if (currentPosition.x == 0) { // we move right into a new room
                 currentRoom.x += 1;
@@ -73,16 +72,16 @@ public class MinimapInterpreter implements PropertyChangeListener, Resetable {
             }
 
             autoBumpMapSoFarBecauseOf(currentRoom);
-            mapSoFar[currentRoom.y][currentRoom.x] = RoomState.EXPLORED;
+            mapSoFar[currentRoom.y][currentRoom.x] = MinimapRoomState.EXPLORED;
 
             // Set look for potential next rooms
-            for (Point nextDoowayPosition : layout.getDoorways()) {
+            for (Point nextDoorwayPosition : layout.getDoorways()) {
                 Point nextRoom = new Point(currentRoom);
-                if (nextDoowayPosition.y == 0) {
+                if (nextDoorwayPosition.y == 0) {
                     nextRoom.y -= 1;
-                } else if (nextDoowayPosition.y == MapConstants.ROOM_SIZE-1) {
+                } else if (nextDoorwayPosition.y == MapConstants.ROOM_SIZE - 1) {
                     nextRoom.y += 1;
-                } else if (nextDoowayPosition.x == 0) {
+                } else if (nextDoorwayPosition.x == 0) {
                     nextRoom.x -= 1;
                 } else {
                     nextRoom.x += 1;
@@ -90,7 +89,7 @@ public class MinimapInterpreter implements PropertyChangeListener, Resetable {
 
                 autoBumpMapSoFarBecauseOf(nextRoom, currentRoom);
                 if (mapSoFar[nextRoom.y][nextRoom.x] == null) {
-                    mapSoFar[nextRoom.y][nextRoom.x] = RoomState.UNEXPLORED;
+                    mapSoFar[nextRoom.y][nextRoom.x] = MinimapRoomState.UNEXPLORED;
                 }
             }
         }
@@ -103,7 +102,8 @@ public class MinimapInterpreter implements PropertyChangeListener, Resetable {
      *
      * @return the currently explored map.
      */
-    public @NotNull RoomState[][] getMapSoFar() {
+    @Override
+    public @NotNull MinimapRoomState[][] getMapSoFar() {
         return mapSoFar;
     }
 
@@ -112,6 +112,7 @@ public class MinimapInterpreter implements PropertyChangeListener, Resetable {
      *
      * @return the current room you are in.
      */
+    @Override
     public @NotNull Point getCurrentPosition() {
         return new Point(currentRoom);
     }
@@ -128,11 +129,11 @@ public class MinimapInterpreter implements PropertyChangeListener, Resetable {
     private void autoBumpMapSoFarBecauseOf(@NotNull Point next, @NotNull Point... toMaintain) {
         int yOffset = 0;
         int xOffset = 0;
-        RoomState[][] nextMap = new RoomState[0][0];
+        MinimapRoomState[][] nextMap = new MinimapRoomState[0][0];
         boolean needsBump = false;
 
         if (next.x < 0 || next.x >= mapSoFar[0].length) {
-            nextMap = new RoomState[mapSoFar.length][mapSoFar[0].length + 1];
+            nextMap = new MinimapRoomState[mapSoFar.length][mapSoFar[0].length + 1];
             if (next.x < 0) {
                 xOffset = 1;
                 next.x += 1;
@@ -142,7 +143,7 @@ public class MinimapInterpreter implements PropertyChangeListener, Resetable {
             }
             needsBump = true;
         } else if (next.y < 0 || next.y >= mapSoFar.length) {
-            nextMap = new RoomState[mapSoFar.length + 1][mapSoFar[0].length];
+            nextMap = new MinimapRoomState[mapSoFar.length + 1][mapSoFar[0].length];
             if (next.y < 0) {
                 yOffset = 1;
                 next.y += 1;
@@ -161,17 +162,5 @@ public class MinimapInterpreter implements PropertyChangeListener, Resetable {
 
             mapSoFar = nextMap;
         }
-    }
-
-    /**
-     * Possible knowledge states of a room.
-     * <p>
-     * Note that we treat 'null' as a roomm state being unknown.
-     */
-    public enum RoomState {
-        /** The room is implied to exist but is unexplored. */
-        UNEXPLORED,
-        /** The room has been visited at least once */
-        EXPLORED
     }
 }

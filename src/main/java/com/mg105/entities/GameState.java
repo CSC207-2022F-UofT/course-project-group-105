@@ -1,9 +1,10 @@
 package com.mg105.entities;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.NoSuchElementException;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * A class that represents the state of the game
@@ -12,18 +13,15 @@ import org.jetbrains.annotations.NotNull;
  */
 
 public class GameState {
-    private Room firstRoom;
-    private Room lastRoom;
-    private Room currentRoom;
-
-    private OpponentSet currOpponent;
     private final ArrayList<BattleCharacter> party;
     private final WalkingCharacter walkingCharacter;
     private final Inventory inventory;
-    private Battle currEncounter = null;
-
     //Potentially useless. Keeps track of party characters who faint in battle.
     private final ArrayList<BattleCharacter> fainted = new ArrayList<>();
+    private Room lastRoom;
+    private Room currentRoom;
+    private OpponentSet currOpponent;
+    private Battle currEncounter = null;
 
     /**
      * Create a new game state.
@@ -66,7 +64,8 @@ public class GameState {
     /**
      * Returns the character in party based on the given name
      * Only returns a party member that is not fainted
-     * return null iff the name is not of an non-fainted party member
+     * return null iff the name is not of a non-fainted party member
+     *
      * @param characterName the name of the character
      * @return a character in party
      */
@@ -82,9 +81,10 @@ public class GameState {
 
     /**
      * Adds the battleCharacter to the party
+     *
      * @param character the ALIVE character to add to the party
      */
-    public void addPartyMemberToAlive(BattleCharacter character){
+    public void addPartyMemberToAlive(BattleCharacter character) {
         this.party.add(character);
     }
 
@@ -92,6 +92,7 @@ public class GameState {
      * Returns the character in the party based on the given name
      * Only returns a party member that is fainted
      * return null iff the name is not of a fainted party member
+     *
      * @param characterName the name of the character to be returned
      * @return a character in party
      */
@@ -107,12 +108,13 @@ public class GameState {
 
     /**
      * Removes the given fainted party
-     * This should only be done to fainted party members who's hp is about to become above zero
+     * This should only be done to fainted party members whose hp is about to become above zero
+     *
      * @param characterName the name of the party member that is fainted
      */
-    public void removeFaintedPartyMember(@NotNull String characterName){
+    public void removeFaintedPartyMember(@NotNull String characterName) {
         BattleCharacter character = getFaintedPartyMember(characterName);
-        if(character == null){
+        if (character == null) {
             return;
         }
         this.fainted.remove(character);
@@ -120,20 +122,21 @@ public class GameState {
 
     /**
      * Returns the correct party member given a name
+     *
      * @param characterName the name of the party member to return
      * @return the correct party member given a name
      * @throws NoSuchElementException iff there is no party member of this name
      */
 
-    public @NotNull BattleCharacter getPartyMember(String characterName) throws NoSuchElementException{
+    public @NotNull BattleCharacter getPartyMember(String characterName) throws NoSuchElementException {
         BattleCharacter member = getPartyAliveMember(characterName);
-        if(member != null){
+        if (member != null) {
             return member;
         }
 
         member = getFaintedPartyMember(characterName);
 
-        if(member != null){
+        if (member != null) {
             return member;
         }
 
@@ -159,7 +162,6 @@ public class GameState {
      * @param lastRoom  the end room of the map (where the game is won).
      */
     public void setMap(@NotNull Room firstRoom, @NotNull Room lastRoom) {
-        this.firstRoom = firstRoom;
         this.currentRoom = firstRoom;
         this.lastRoom = lastRoom;
     }
@@ -171,6 +173,15 @@ public class GameState {
      */
     public @NotNull Room getCurrentRoom() {
         return currentRoom;
+    }
+
+    /**
+     * Set the current room.  room must be graph-connected to the rest of the map.
+     *
+     * @param room the room to be set.
+     */
+    public void setCurrentRoom(@NotNull Room room) {
+        this.currentRoom = room;
     }
 
     /**
@@ -195,16 +206,17 @@ public class GameState {
      * Removes the current active battle from the game state.
      */
 
-    public void removeCurrEncounter(){
+    public void removeCurrEncounter() {
         this.currEncounter = null;
     }
 
     /**
      * Returns true iff the player is currently in a battle
+     *
      * @return true iff the player is currently in a battle
      */
 
-    public boolean hasCurrEncounter(){
+    public boolean hasCurrEncounter() {
         return this.currEncounter != null;
     }
 
@@ -218,6 +230,17 @@ public class GameState {
     }
 
     /**
+     * Sets these BattleCharacters as the party
+     * This function should really only ever be called once
+     *
+     * @param party the battles character to the set the party to
+     */
+    public void setParty(@NotNull BattleCharacter[] party) {
+        this.party.clear();
+        this.party.addAll(Arrays.asList(party));
+    }
+
+    /**
      * Returns an ArrayList of the player's fainted characters.
      *
      * @return An ArrayList of the player's fainted characters.
@@ -228,6 +251,7 @@ public class GameState {
 
     /**
      * Returns the currently selected OpponentSet.
+     *
      * @return the currently selected OpponentSet.
      */
     public OpponentSet getCurrOpponent() {
@@ -236,22 +260,11 @@ public class GameState {
 
     /**
      * Sets the current OpponentSet to be faced.
+     *
      * @param currOpponent the currently selected OpponentSet.
      */
     public void setCurrOpponent(OpponentSet currOpponent) {
         this.currOpponent = currOpponent;
-    }
-
-    /**
-     * Get if the player is in the first room.
-     *
-     * @return true if the player is in the first room, false otherwise.
-     */
-    public boolean isCurrentRoomFirstRoom() {
-        // NOTE: In this case it is actually ok to directly compare the two via == and not .equals()... This is because
-        // we actually care that this is exactly the same instance of the room, not just two rooms that happen to have
-        // the same configuration.
-        return currentRoom == firstRoom;
     }
 
     /**
@@ -264,25 +277,5 @@ public class GameState {
         // we actually care that this is exactly the same instance of the room, not just two rooms that happen to have
         // the same configuration.
         return currentRoom == lastRoom;
-    }
-
-    /**
-     * Set the current room.  room must be graph-connected to the rest of the map.
-     *
-     * @param room the room to be set.
-     */
-    public void setCurrentRoom(@NotNull Room room) {
-        this.currentRoom = room;
-    }
-
-    /**
-     * Sets these BattleCharacters as the party
-     * This function should really only ever be called once
-     *
-     * @param party the battles character to the set the party to
-     */
-    public void setParty(@NotNull BattleCharacter[] party) {
-        this.party.clear();
-        this.party.addAll(Arrays.asList(party));
     }
 }

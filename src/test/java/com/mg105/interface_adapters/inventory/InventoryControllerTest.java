@@ -3,9 +3,9 @@ package com.mg105.interface_adapters.inventory;
 import com.mg105.entities.*;
 import com.mg105.entities.items.HealthPotion;
 import com.mg105.entities.items.UpgradeToken;
-import com.mg105.use_cases.outputds.ItemDetails;
 import com.mg105.use_cases.inventory.InventoryInteractor;
 import com.mg105.use_cases.inventory.InventoryPresenterInterface;
+import com.mg105.use_cases.outputds.ItemDetails;
 import com.mg105.utils.ItemConstants;
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +19,7 @@ class InventoryControllerTest {
     // Some implementation of the interface (it's not really important for the tests since it really only
     // testing if the interactor mutates the entities properly)
 
-    InventoryPresenterInterface res = new InventoryPresenterInterface() {
+    final InventoryPresenterInterface res = new InventoryPresenterInterface() {
         @Override
         public void addItem(boolean isSuccessful, ItemDetails itemDetails) {
 
@@ -41,18 +41,18 @@ class InventoryControllerTest {
         }
     };
 
-    BattleCharacter b1 = new BattleCharacter(1, ALL_PARTY_MEMBER_NAMES[0], 2, 3, false,
+    final BattleCharacter b1 = new BattleCharacter(1, ALL_PARTY_MEMBER_NAMES[0], 2, 3, false,
         new Move(0, 0, "m1", false),
         new Move(0, 0, "m2", false));
-    BattleCharacter b2 = new BattleCharacter(1, ALL_PARTY_MEMBER_NAMES[1], 2, 3, false,
+    final BattleCharacter b2 = new BattleCharacter(1, ALL_PARTY_MEMBER_NAMES[1], 2, 3, false,
         new Move(0, 0, "m1", false),
         new Move(0, 0, "m2", false));
-    BattleCharacter b3 = new BattleCharacter(1, ALL_PARTY_MEMBER_NAMES[2], 2, 3, false,
+    final BattleCharacter b3 = new BattleCharacter(1, ALL_PARTY_MEMBER_NAMES[2], 2, 3, false,
         new Move(0, 0, "m1", false),
         new Move(0, 0, "m2", false));
 
-    BattleCharacter[] party = {b1, b2, b3};
-    WalkingCharacter walkingCharacter = new WalkingCharacter((new Point(0, 0)));
+    final BattleCharacter[] party = {b1, b2, b3};
+    final WalkingCharacter walkingCharacter = new WalkingCharacter((new Point(0, 0)));
 
     @Test
     void removeItemInventoryNotExists() {
@@ -107,13 +107,6 @@ class InventoryControllerTest {
         assertEquals(6, inventory.numberOfItems(ItemConstants.HEALTH_POTION_NAME));
         inventoryController.removeItem(ItemConstants.HEALTH_POTION_NAME);
         assertEquals(5, inventory.numberOfItems(ItemConstants.HEALTH_POTION_NAME));
-    }
-
-
-    //
-
-    @Test
-    void useItem() {
     }
 
     @Test
@@ -192,13 +185,5 @@ class InventoryControllerTest {
         inventoryController.useItem(ItemConstants.HEALTH_POTION_NAME, ALL_PARTY_MEMBER_NAMES[1]);
         assertEquals(5, inventory.numberOfItems(ItemConstants.HEALTH_POTION_NAME));
         assertEquals(1, party[1].getHp());
-    }
-
-
-    // Can't really test this since it is just a get request and send that data to the presenter
-
-    @Test
-    void getInventoryDetails() {
-
     }
 }

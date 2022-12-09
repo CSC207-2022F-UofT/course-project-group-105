@@ -5,23 +5,24 @@ package com.mg105.entities;
  * specific character.
  */
 public class BattleCharacter implements Comparable<BattleCharacter> {
-    private int hp;
-    private int maxHp;
     private final String name;
-    private int dmg;
-    private int speed;
     private final boolean isOpponent;
     private final Move[] moves = new Move[2];
+    private int hp;
+    private int maxHp;
+    private int dmg;
+    private int speed;
 
     /**
      * Creates a new BattleCharacter with the given stats.
-     * @param health The integer amount of (max) health the character will have.
-     * @param name The character's name String.
-     * @param attack The integer amount of the character's attack strength.
-     * @param speed The speed integer of the character.
+     *
+     * @param health     The integer amount of (max) health the character will have.
+     * @param name       The character's name String.
+     * @param attack     The integer amount of the character's attack strength.
+     * @param speed      The speed integer of the character.
      * @param isOpponent boolean for if character is an opponent.
-     * @param first The first Move the character can use.
-     * @param second The second Move the character can use.
+     * @param first      The first Move the character can use.
+     * @param second     The second Move the character can use.
      */
     public BattleCharacter(int health, String name, int attack, int speed, boolean isOpponent, Move first,
                            Move second) {
@@ -123,6 +124,13 @@ public class BattleCharacter implements Comparable<BattleCharacter> {
         } else if (this.hp >= this.maxHp) {
             this.hp = this.maxHp;
         }
+    }
+
+    /**
+     * Ensure this BattleCharacter is completely healed. (Has their maximum health value.
+     */
+    public void fullHealCharacter() {
+        this.modifyHealth(this.getMaxHp());
     }
 
     /**

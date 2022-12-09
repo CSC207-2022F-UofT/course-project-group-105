@@ -10,8 +10,9 @@ import org.jetbrains.annotations.NotNull;
 public interface Consumable {
 
     /**
-     *This method allow a character to use an item on themselves. It does NOT remove an item from the inventory.
-     * @param state the state of the game
+     * This method allow a character to use an item on themselves. It does NOT remove an item from the inventory.
+     *
+     * @param state         the state of the game
      * @param characterName the name of the character to use the item on
      */
     void consume(@NotNull GameState state, @NotNull String characterName);

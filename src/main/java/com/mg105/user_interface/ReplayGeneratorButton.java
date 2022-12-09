@@ -1,10 +1,10 @@
 package com.mg105.user_interface;
 
 import com.mg105.interface_adapters.ReplayGeneratorInterpreter;
-import javafx.event.ActionEvent;
-import org.jetbrains.annotations.NotNull;
 import com.mg105.interface_adapters.Toggler;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import org.jetbrains.annotations.NotNull;
 
 
 /**

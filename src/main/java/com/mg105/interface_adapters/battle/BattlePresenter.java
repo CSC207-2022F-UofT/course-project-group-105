@@ -1,8 +1,8 @@
 package com.mg105.interface_adapters.battle;
 
 import com.mg105.interface_adapters.Toggler;
-import com.mg105.use_cases.battle.BattlePresenterInterface;
 import com.mg105.use_cases.battle.BattleInteractor;
+import com.mg105.use_cases.battle.BattlePresenterInterface;
 
 import java.util.ArrayList;
 
@@ -24,7 +24,9 @@ public class BattlePresenter implements BattlePresenterInterface {
     /**
      * Creates a new BattlePresenter with reference to a given BattleInteractor, and sets the interactor to refer to
      * this instance.
+     *
      * @param interactor the BattleInteractor to be referred to.
+     * @param toggler    the toggler used to change windows.
      */
     public BattlePresenter(BattleInteractor interactor, Toggler toggler) {
         this.interactor = interactor;
@@ -62,6 +64,7 @@ public class BattlePresenter implements BattlePresenterInterface {
     /**
      * Returns the current health of the BattleCharacter with the given name.
      *
+     * @param name the desired character.
      * @return the desired BattleCharacter's current health.
      */
     public int givenCharacterHealth(String name) {
@@ -71,6 +74,7 @@ public class BattlePresenter implements BattlePresenterInterface {
     /**
      * Returns the current damage stat of the BattleCharacter with the given name.
      *
+     * @param name the desired character.
      * @return the desired BattleCharacter's current damage.
      */
     public int givenCharacterDamage(String name) {
@@ -81,6 +85,7 @@ public class BattlePresenter implements BattlePresenterInterface {
      * Returns the stats of the BattleCharacter with the given name's moves.
      * Stats order: Move1 health change, Move1 damage change, Move2 health change, Move2 damage change.
      *
+     * @param name the desired character's name
      * @return the desired BattleCharacter's move stats.
      */
     public int[] givenCharacterMoveStats(String name) {
@@ -91,6 +96,7 @@ public class BattlePresenter implements BattlePresenterInterface {
      * Returns the names of the BattleCharacter with the given name's moves.
      * Stats order: Move1 name, Move2 name.
      *
+     * @param name the desired character's name
      * @return the desired BattleCharacter's move names.
      */
     public String[] givenCharacterMoveNames(String name) {
@@ -102,6 +108,7 @@ public class BattlePresenter implements BattlePresenterInterface {
      * If encounter is still in progress, get the next moving character.
      * If opponent is moving, choose a random move and random target and use it.
      * returns null iff the battle has ended
+     *
      * @return a String of the name of the moving character
      */
     public String roundStart() {
@@ -113,7 +120,7 @@ public class BattlePresenter implements BattlePresenterInterface {
      * Note: Function should only be called from view when caster is friendly, so method does not accommodate for case
      * where caster is an opponent.
      *
-     * @param moveNum integer representing which of the two Moves is being used.
+     * @param moveNum    integer representing which of the two Moves is being used.
      * @param casterName String representing the name of the given moving BattleCharacter.
      * @return ArrayList of Strings representing the names of every possible target BattleCharacter.
      */
@@ -123,7 +130,8 @@ public class BattlePresenter implements BattlePresenterInterface {
 
     /**
      * Use one of (given) the given caster's moves on the given target.
-     * @param moveNum integer representing which of the two moves is being used.
+     *
+     * @param moveNum    integer representing which of the two moves is being used.
      * @param casterName String representing the name of the caster BattleCharacter.
      * @param targetName String representing the name of the target BattleCharacter.
      */
@@ -133,7 +141,8 @@ public class BattlePresenter implements BattlePresenterInterface {
 
     /**
      * Set the characters in the view.
-     * @param partyNames the name strings of the party characters.
+     *
+     * @param partyNames    the name strings of the party characters.
      * @param opponentNames the name strings of the opponent characters.
      */
     @Override
@@ -143,6 +152,7 @@ public class BattlePresenter implements BattlePresenterInterface {
 
     /**
      * Call on the BattleMenuInterface to update the displayed information for the given character.
+     *
      * @param targetName the name String of the character whose information displayed on the view needs to be updated.
      */
     @Override
@@ -158,7 +168,7 @@ public class BattlePresenter implements BattlePresenterInterface {
     public void endBattle() {
         toggler.toggle(BATTLE);
         boolean hasWon = interactor.endBattle();
-        if(!hasWon){
+        if (!hasWon) {
             toggler.toggle(LOSE_MENU);
 
         }

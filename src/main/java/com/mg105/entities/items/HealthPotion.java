@@ -23,19 +23,25 @@ public class HealthPotion extends Item implements Consumable {
         super(ItemConstants.HEALTH_POTION_NAME);
     }
 
+    /**
+     * Gets the healing points that the potion provides to a character.
+     *
+     * @return the healing points that this potion has.
+     */
     public static int getHealingPoints() {
         return HEALING_POINTS;
     }
 
     /**
      * Heals the battleCharacter provided
-     * @param state the state of the game
+     *
+     * @param state         the state of the game
      * @param characterName the name of the character to use the item on
      */
     @Override
     public void consume(@NotNull GameState state, @NotNull String characterName) {
         BattleCharacter character = state.getPartyMember(characterName);
-        if(character.getHp() == 0){
+        if (character.getHp() == 0) {
             state.removeFaintedPartyMember(characterName);
             state.addPartyMemberToAlive(character);
         }

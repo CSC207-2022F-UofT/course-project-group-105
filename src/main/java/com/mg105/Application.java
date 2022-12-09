@@ -1,19 +1,28 @@
 package com.mg105;
 
-import com.mg105.interface_adapters.battle.BattlePresenter;
-import com.mg105.interface_adapters.tutorial.TutorialTextController;
 import com.mg105.data_control.access.MoveDataAccess;
 import com.mg105.data_control.access.PartyDataAccess;
 import com.mg105.data_control.creator.MoveDataCreator;
 import com.mg105.data_control.creator.PartyDataCreator;
-import com.mg105.entities.*;
+import com.mg105.entities.GameState;
+import com.mg105.entities.Inventory;
+import com.mg105.entities.WalkingCharacter;
 import com.mg105.interface_adapters.*;
+import com.mg105.interface_adapters.battle.BattlePresenter;
 import com.mg105.interface_adapters.inventory.InventoryController;
 import com.mg105.interface_adapters.inventory.InventoryPresenter;
+import com.mg105.interface_adapters.map.MapGeneratorInterpreter;
+import com.mg105.interface_adapters.map.MinimapInterpreter;
+import com.mg105.interface_adapters.map.RoomInterpreter;
+import com.mg105.interface_adapters.map.RoomInterpreterInterface;
+import com.mg105.interface_adapters.tutorial.TutorialTextController;
+import com.mg105.use_cases.ChestInteractor;
+import com.mg105.use_cases.OpponentSetInteractor;
+import com.mg105.use_cases.ReplayGenerator;
+import com.mg105.use_cases.WalkVisInteractor;
 import com.mg105.use_cases.battle.BattleInteractor;
-import com.mg105.user_interface.*;
-import com.mg105.use_cases.*;
 import com.mg105.use_cases.inventory.InventoryInteractor;
+import com.mg105.use_cases.map.*;
 import com.mg105.use_cases.save.PartySaver;
 import com.mg105.use_cases.save.Save;
 import com.mg105.use_cases.save.Saver;
@@ -21,8 +30,10 @@ import com.mg105.use_cases.set_up.data_system_creator.CreateDataStorage;
 import com.mg105.use_cases.set_up.data_system_creator.DataStorageSystemCreator;
 import com.mg105.use_cases.set_up.state_setter.GameStateSetter;
 import com.mg105.use_cases.set_up.state_setter.PartyCreator;
+import com.mg105.user_interface.*;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -68,8 +79,8 @@ public class Application extends javafx.application.Application {
         MapGeneratorButton generateMapButton = new MapGeneratorButton(mapGeneratorInterpreter, sceneController);
         MainMenu mainMenu = new MainMenu(generateMapButton);
 
-        RoomGetter roomGetter = new RoomGetter(state);
-        RoomInterpreter roomInterpreter = new RoomInterpreter(roomGetter);
+        RoomGetterInterface roomGetter = new RoomGetter(state);
+        RoomInterpreterInterface roomInterpreter = new RoomInterpreter(roomGetter);
         MapDrawer mapDrawer = new MapDrawer(roomInterpreter);
         drawableComponents.put(Toggler.ToggleableComponent.MAIN_MENU, mainMenu);
         drawableComponents.put(Toggler.ToggleableComponent.MAP, mapDrawer);
@@ -129,12 +140,12 @@ public class Application extends javafx.application.Application {
         RoomUpdater roomUpdater = new RoomUpdater();
         roomUpdater.addObserver(mapDrawer);
         roomUpdater.addObserver(minimapInterpreter);
-        CharacterMover characterMover = new CharacterMover(state, roomUpdater);
+        CharacterMoverInterface characterMover = new CharacterMover(state, roomUpdater);
 
         /////WinGame Scene/////
         ReplayGeneratorButton winButton = new ReplayGeneratorButton(replayGeneratorInterpreter, sceneController, Toggler.ToggleableComponent.WIN_MENU);
         WinMenu winMenu = new WinMenu(winButton);
-        WinDisplay winDisplay= new WinDisplay(sceneController, roomGetter);
+        WinDisplay winDisplay = new WinDisplay(sceneController, roomGetter, replayGenerator);
         roomUpdater.addObserver(winDisplay);
         drawableComponents.put(Toggler.ToggleableComponent.WIN_MENU, winMenu);
         /////////////////

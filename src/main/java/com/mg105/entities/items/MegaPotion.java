@@ -21,19 +21,25 @@ public class MegaPotion extends Item implements Consumable {
         super(ItemConstants.MEGA_POTION_NAME);
     }
 
+    /**
+     * Gets the healing points that the mega potion provides to a character.
+     *
+     * @return the healing points that this potion has.
+     */
     public static int getHealingPoints() {
         return HEALING_POINTS;
     }
 
     /**
      * Heals the battleCharacter provided
-     * @param state the state of the game
+     *
+     * @param state         the state of the game
      * @param characterName the name of the character to use the item on
      */
     @Override
     public void consume(@NotNull GameState state, @NotNull String characterName) {
         BattleCharacter character = state.getFaintedPartyMember(characterName);
-        if(character != null){
+        if (character != null) {
             state.removeFaintedPartyMember(characterName);
             state.addPartyMemberToAlive(character);
             character.modifyHealth(HEALING_POINTS);
@@ -42,7 +48,7 @@ public class MegaPotion extends Item implements Consumable {
 
         character = state.getPartyAliveMember(characterName);
 
-        if(character ==  null){
+        if (character == null) {
             return;
         }
         character.modifyHealth(HEALING_POINTS);

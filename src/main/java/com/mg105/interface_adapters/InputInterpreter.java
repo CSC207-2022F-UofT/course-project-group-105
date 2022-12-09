@@ -1,9 +1,9 @@
 package com.mg105.interface_adapters;
 
-import com.mg105.use_cases.ChestInteractor;
 import com.mg105.interface_adapters.tutorial.TutorialTextController;
-import com.mg105.use_cases.CharacterMover;
+import com.mg105.use_cases.ChestInteractor;
 import com.mg105.use_cases.OpponentSetInteractor;
+import com.mg105.use_cases.map.CharacterMoverInterface;
 import com.mg105.utils.TutorialTexts;
 import org.jetbrains.annotations.NotNull;
 
@@ -13,7 +13,7 @@ import java.awt.*;
  * InputInterpreter takes in keyboard inputs and distributes them to their appropriate use cases.
  */
 public class InputInterpreter {
-    private final @NotNull CharacterMover mover;
+    private final @NotNull CharacterMoverInterface mover;
     private final @NotNull Toggler toggler;
     private final @NotNull ChestInteractor chestInteractor;
     private final @NotNull TutorialTextController textChanger;
@@ -23,12 +23,13 @@ public class InputInterpreter {
     /**
      * Create a new InputInterpreter that translates keyboard inputs to appropriate function invocations.
      *
-     * @param mover           the character mover.
-     * @param toggler         the toggler used to change the displayed interface.
-     * @param textChanger     the text controller for tutorial
-     * @param chestInteractor the ChestInteractor used to interact with chests.
+     * @param mover              the character mover.
+     * @param toggler            the toggler used to change the displayed interface.
+     * @param textChanger        the text controller for tutorial
+     * @param chestInteractor    the ChestInteractor used to interact with chests.
+     * @param opponentInteractor the interactor used to interact with opponents.
      */
-    public InputInterpreter(@NotNull CharacterMover mover, @NotNull Toggler toggler,
+    public InputInterpreter(@NotNull CharacterMoverInterface mover, @NotNull Toggler toggler,
                             @NotNull TutorialTextController textChanger, @NotNull ChestInteractor chestInteractor,
                             @NotNull OpponentSetInteractor opponentInteractor) {
         this.mover = mover;
@@ -105,12 +106,12 @@ public class InputInterpreter {
 
             case WALK_MENU -> {
                 if (key.equals(" ")) {
-                        toggler.toggle(Toggler.ToggleableComponent.WALK_MENU);
+                    toggler.toggle(Toggler.ToggleableComponent.WALK_MENU);
                 }
             }
             case MINIMAP -> toggler.toggle(Toggler.ToggleableComponent.MINIMAP);
             case INVENTORY -> {
-                if(key.equals("i")){
+                if (key.equals("i")) {
                     toggler.toggle(Toggler.ToggleableComponent.INVENTORY);
                 }
             }

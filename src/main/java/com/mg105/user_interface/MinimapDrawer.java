@@ -1,11 +1,12 @@
 package com.mg105.user_interface;
 
-import com.mg105.interface_adapters.MinimapInterpreter;
+import com.mg105.interface_adapters.map.MinimapInterpreterInterface;
+import com.mg105.interface_adapters.map.MinimapRoomState;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.paint.Color;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
@@ -15,23 +16,20 @@ import java.awt.*;
  */
 public class MinimapDrawer implements Toggleable {
     private static final int CANVAS_SIZE = 400;
-
-    private final @NotNull MinimapInterpreter interpreter;
-
-    private final @NotNull Scene scene;
-    private final @NotNull Group group;
-
     private static final @NotNull Color PATH_COLOR = Color.rgb(135, 160, 227);
     private static final @NotNull Color ROOM_COLOR = Color.rgb(205, 220, 255);
     private static final @NotNull Color CURRENT_ROOM_COLOR = Color.rgb(200, 150, 61);
     private static final @NotNull Color BACKGROUND_COLOR = Color.rgb(38, 44, 68);
+    private final @NotNull MinimapInterpreterInterface interpreter;
+    private final @NotNull Scene scene;
+    private final @NotNull Group group;
 
     /**
      * Create a new MinimapDrawer.
      *
      * @param interpreter the MinimapInterpreter that will process room change data.
      */
-    public MinimapDrawer(@NotNull MinimapInterpreter interpreter) {
+    public MinimapDrawer(@NotNull MinimapInterpreterInterface interpreter) {
         this.interpreter = interpreter;
 
         group = new Group();
@@ -58,7 +56,7 @@ public class MinimapDrawer implements Toggleable {
     @Override
     public void toggle(boolean isVisible) {
         if (isVisible) {
-            MinimapInterpreter.RoomState[][] map = interpreter.getMapSoFar();
+            MinimapRoomState[][] map = interpreter.getMapSoFar();
             Point currentPosition = interpreter.getCurrentPosition();
 
             final int cellDimension = CANVAS_SIZE / Math.max(map.length, map[0].length);
@@ -82,7 +80,7 @@ public class MinimapDrawer implements Toggleable {
                     }
 
                     // Rectangle for each room
-                    if (map[y][x] == MinimapInterpreter.RoomState.EXPLORED) {
+                    if (map[y][x] == MinimapRoomState.EXPLORED) {
                         // First we draw the middle square
                         Rectangle r = new Rectangle();
                         r.setX(leftPadding + innerCellPadding + x * cellDimension);
@@ -93,13 +91,13 @@ public class MinimapDrawer implements Toggleable {
                         group.getChildren().add(r);
 
                         // Now we draw the lines that sick out
-                        final int xMidpoint = leftPadding +  x * cellDimension + cellDimension / 2;
+                        final int xMidpoint = leftPadding + x * cellDimension + cellDimension / 2;
                         final int yMidpoint = topPadding + y * cellDimension + cellDimension / 2;
                         final int strokeWidth = cellDimension / 10;
                         final int strokeWidthCorrection = strokeWidth / 2;
 
                         // Line coming out the top
-                        if (y > 0 && map[y-1][x] != null) {
+                        if (y > 0 && map[y - 1][x] != null) {
                             Line l = new Line();
                             l.setStartX(xMidpoint);
                             l.setEndX(xMidpoint);
@@ -111,7 +109,7 @@ public class MinimapDrawer implements Toggleable {
                         }
 
                         // Line coming out the bottom
-                        if (y < map.length - 1 && map[y+1][x] != null) {
+                        if (y < map.length - 1 && map[y + 1][x] != null) {
                             Line l = new Line();
                             l.setStartX(xMidpoint);
                             l.setEndX(xMidpoint);
@@ -123,7 +121,7 @@ public class MinimapDrawer implements Toggleable {
                         }
 
                         // Line coming out the left
-                        if (x > 0 && map[y][x-1] != null) {
+                        if (x > 0 && map[y][x - 1] != null) {
                             Line l = new Line();
                             l.setStartX(leftPadding + x * cellDimension + innerCellPadding - strokeWidthCorrection);
                             l.setEndX(leftPadding + x * cellDimension + strokeWidthCorrection);
@@ -135,7 +133,7 @@ public class MinimapDrawer implements Toggleable {
                         }
 
                         // Line coming out the right
-                        if (x < map[0].length - 1 && map[y][x+1] != null) {
+                        if (x < map[0].length - 1 && map[y][x + 1] != null) {
                             Line l = new Line();
                             l.setStartX(leftPadding + x * cellDimension + cellDimension - innerCellPadding + strokeWidthCorrection);
                             l.setEndX(leftPadding + x * cellDimension + cellDimension - strokeWidthCorrection);

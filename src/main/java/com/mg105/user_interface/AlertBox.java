@@ -3,20 +3,24 @@ package com.mg105.user_interface;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
+import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.scene.control.Label;
-
-import java.awt.*;
 
 /**
  * AlertBox is a component that creates a new window and display a users a message.
  * This message is usually related to if an action the user performed was successful or not.
  */
 public class AlertBox {
+
+
+    /**
+     * Displays a modal that must be resolved before switches to a different window
+     *
+     * @param msg the message to display`
+     */
 
     public void display(String msg) {
         Stage window = new Stage();

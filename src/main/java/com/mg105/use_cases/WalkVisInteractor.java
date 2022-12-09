@@ -13,6 +13,7 @@ public class WalkVisInteractor {
 
     /**
      * Creates a new WalkVisInteractor with reference to GameState.
+     *
      * @param state the GameState being referred to.
      */
     public WalkVisInteractor(GameState state) {
@@ -21,6 +22,7 @@ public class WalkVisInteractor {
 
     /**
      * Updates the current WalkingCharacter's sprite attribute.
+     *
      * @param spriteName the name of the desired character sprite to be used.
      */
     public void setWalkingSprite(String spriteName) {

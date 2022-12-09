@@ -22,22 +22,22 @@ public class WalkingCharacter {
     }
 
     /**
-     * Set the walking character's coordinates.
-     *
-     * @param position the new position of the walking character.
-     */
-    public void setCharPosition(@NotNull Point position) {
-        charPosition = new Point(position);
-        // We create copies to avoid accidental modification
-    }
-
-    /**
      * Return the position of the walking character.
      *
      * @return the coordinates that the walking character is at.
      */
     public Point getCharPosition() {
         return new Point(this.charPosition);
+        // We create copies to avoid accidental modification
+    }
+
+    /**
+     * Set the walking character's coordinates.
+     *
+     * @param position the new position of the walking character.
+     */
+    public void setCharPosition(@NotNull Point position) {
+        charPosition = new Point(position);
         // We create copies to avoid accidental modification
     }
 

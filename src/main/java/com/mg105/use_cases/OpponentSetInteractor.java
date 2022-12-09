@@ -1,8 +1,9 @@
 package com.mg105.use_cases;
 
-import com.mg105.entities.*;
+import com.mg105.entities.GameState;
+import com.mg105.entities.OpponentSet;
 
-import java.awt.Point;
+import java.awt.*;
 import java.util.List;
 
 /**
@@ -13,6 +14,7 @@ public class OpponentSetInteractor {
 
     /**
      * Creates a new OpponentSetInteractor with a reference to GameState.
+     *
      * @param gameState the GameState to be referred to.
      */
     public OpponentSetInteractor(GameState gameState) {
@@ -21,8 +23,9 @@ public class OpponentSetInteractor {
 
     /**
      * Checks if a given spot on the map contains an OpponentSet.
+     *
      * @param coordinates A Point representing a coordinate being checked for an OpponentSet.
-     * @param opponents A collection of OpponentSets being searched for in the given Point.
+     * @param opponents   A collection of OpponentSets being searched for in the given Point.
      * @return the OpponentSet if opponent is found, or null if it is not.
      */
     public static OpponentSet compareLists(Point coordinates, List<OpponentSet> opponents) {
@@ -36,6 +39,7 @@ public class OpponentSetInteractor {
 
     /**
      * Checks if an OpponentSet is adjacent to the player character.
+     *
      * @return the OpponentSet if the opponent is found, or null if it is not.
      */
     public OpponentSet verifyOpponent() {
@@ -55,6 +59,7 @@ public class OpponentSetInteractor {
 
     /**
      * Sets the OpponentSet in the GameState to the one adjacent to the player.
+     *
      * @return whether there was an OpponentSet next to the player (true) or not (false).
      */
     public boolean setOpponentSet() {

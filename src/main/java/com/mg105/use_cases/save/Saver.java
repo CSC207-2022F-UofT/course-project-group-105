@@ -9,10 +9,12 @@ import org.jetbrains.annotations.NotNull;
 
 public class Saver implements Save {
 
-    @NotNull private final Save[] saver;
+    @NotNull
+    private final Save[] saver;
 
     /**
      * Creates a new instance of saver
+     *
      * @param savers a group of object that can be used to save piece of the game state's data
      */
     public Saver(@NotNull Save[] savers) {

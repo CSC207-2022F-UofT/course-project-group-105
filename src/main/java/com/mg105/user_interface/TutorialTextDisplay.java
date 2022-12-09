@@ -25,19 +25,9 @@ public class TutorialTextDisplay {
      */
     public String showBottomText(String displayedText) {
         String tutorialText;
-        int phase_idx = tutorialControl.getTutorial().allPhases().indexOf(displayedText);
+        int phase_idx = tutorialControl.allPhases().indexOf(displayedText);
         tutorialText = TutorialTexts.PHASES_TEXT.get(phase_idx);
         return tutorialText;
-
-    }
-
-    /**
-     * String for reminding user of controls
-     *
-     * @return the actual text displayed to the user
-     */
-    public String showControlsText() {
-        return TutorialTexts.CONTROLS;
 
     }
 

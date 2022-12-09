@@ -10,7 +10,8 @@ public interface StateSetter {
 
     /**
      * Sets some aspect of the gameState in this method
+     *
+     * @param state the game state to act on.
      */
-
     void setState(GameState state);
 }

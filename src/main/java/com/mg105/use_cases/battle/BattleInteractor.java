@@ -1,6 +1,9 @@
 package com.mg105.use_cases.battle;
 
-import com.mg105.entities.*;
+import com.mg105.entities.Battle;
+import com.mg105.entities.BattleCharacter;
+import com.mg105.entities.GameState;
+import com.mg105.entities.Move;
 import com.mg105.use_cases.inventory.InventoryInteractor;
 import com.mg105.use_cases.save.Saver;
 
@@ -16,22 +19,20 @@ import static com.mg105.utils.ItemConstants.UPGRADE_TOKEN_NAME;
  */
 public class BattleInteractor {
 
+    private final static int MAX_UPGRADE_TOKEN_REWARDED = 3;
     private final GameState state;
-
-    private BattlePresenterInterface presenter;
-
     private final InventoryInteractor inventoryInteractor;
 
     private final Saver saver;
-
-    private final static int MAX_UPGRADE_TOKEN_REWARDED = 3;
+    private BattlePresenterInterface presenter;
 
 
     /**
      * Creates a new BattleInteractor with a reference to the GameState.
-     * @param state the GameState to be referred to.
+     *
+     * @param state               the GameState to be referred to.
      * @param inventoryInteractor the inventoryInteractor to be referred to.
-     * @param saver an instance of Saver used to save data.
+     * @param saver               an instance of Saver used to save data.
      */
     public BattleInteractor(GameState state, InventoryInteractor inventoryInteractor, Saver saver) {
 
@@ -53,22 +54,6 @@ public class BattleInteractor {
      * Creates a new encounter with random opponents and sets it as the current encounter in GameState.
      */
     public void createEncounter() {
-        /* OLD RANDOMLY GENERATED OPPONENTS CODE
-        Random rand = new Random();
-
-        ArrayList<BattleCharacter> opponents = new ArrayList<>();
-
-        for (int i = 0; i < 4; ++i){
-            int charHealth = rand.nextInt(5, 41);
-            int charDmg = rand.nextInt(1, 11);
-            int charSpeed = rand.nextInt(3, 16);
-            Move m1 = new Move(-rand.nextInt(1, 8), 0, "first", false);
-            Move m2 = new Move(rand.nextInt(1, 4), 0, "second", true);
-            BattleCharacter character = new BattleCharacter(charHealth, "Opponent " + i,
-                charDmg, charSpeed, true, m1, m2);
-            opponents.add(character);
-        }
-         */
         ArrayList<BattleCharacter> opponents = new ArrayList<>(state.getCurrOpponent().getOpponents());
         ArrayList<BattleCharacter> party = this.state.getParty();
         Battle b = new Battle(opponents, party);
@@ -114,6 +99,7 @@ public class BattleInteractor {
     /**
      * Returns the current health of the BattleCharacter with the given name.
      *
+     * @param name the name of the character.
      * @return the desired BattleCharacter's current health.
      */
     public int getCharacterHealth(String name) {
@@ -123,6 +109,7 @@ public class BattleInteractor {
     /**
      * Returns the current damage stat of the BattleCharacter with the given name.
      *
+     * @param name the name of the character.
      * @return the desired BattleCharacter's current damage.
      */
     public int getCharacterDamage(String name) {
@@ -133,6 +120,7 @@ public class BattleInteractor {
      * Returns the stats of the BattleCharacter with the given name's moves.
      * Stats order: Move1 health change, Move1 damage change, Move2 health change, Move2 damage change.
      *
+     * @param name the name of the character.
      * @return the desired BattleCharacter's move stats.
      */
     public int[] getCharacterMoveStats(String name) {
@@ -145,6 +133,7 @@ public class BattleInteractor {
      * Returns the names of the BattleCharacter with the given name's moves.
      * Stats order: Move1 name, Move2 name.
      *
+     * @param name the name of the character.
      * @return the desired BattleCharacter's move names.
      */
     public String[] getCharacterMoveNames(String name) {
@@ -157,6 +146,7 @@ public class BattleInteractor {
      * If encounter is still in progress, get the next moving character.
      * If opponent is moving, choose a random move and random target and use it.
      * returns null iff the battle has ended
+     *
      * @return a String of the name of the moving character
      */
     public String roundStart() {
@@ -274,7 +264,7 @@ public class BattleInteractor {
 
         //If the move is to be used on a character on the same team, and the move is meant to heal, then increase the
         // healing effect applied by the move based on the caster's damage stat.
-        if(m.isFriendly() && m.getHealthChange() > 0) {
+        if (m.isFriendly() && m.getHealthChange() > 0) {
             target.modifyHealth(Math.floorDiv(caster.getDmg(), 2));
         }
 
@@ -304,12 +294,9 @@ public class BattleInteractor {
         if (status == 1) {
             addReward();
             return true;
-        } else if (status == -1) {
-            state.getParty().addAll(state.getFainted());
-            state.getFainted().removeAll(state.getParty());
         }
 
-        // since at this point status != 0, status must == -1 (battle was lost)
+        // status must == -1 (battle was lost) or 0 (battle was forfeited)
         return false;
     }
 

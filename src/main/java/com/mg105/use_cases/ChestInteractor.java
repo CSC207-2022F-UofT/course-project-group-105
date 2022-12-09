@@ -1,20 +1,26 @@
 package com.mg105.use_cases;
 
-import java.awt.*;
-import java.util.List;
-
 import com.mg105.entities.GameState;
 import com.mg105.entities.Item;
 import com.mg105.entities.Room;
 import com.mg105.entities.TreasureChest;
 import com.mg105.use_cases.inventory.InventoryInteractor;
+import com.mg105.use_cases.map.RoomUpdaterInterface;
 import org.jetbrains.annotations.NotNull;
 
+import java.awt.*;
+import java.util.List;
+
+/**
+ * A class that interacts with TreasureChests.
+ * <p>
+ * ChestInteractor can remove items from nearby unopened TreasureChests and add them to the inventory.
+ */
 public class ChestInteractor {
 
     private final @NotNull GameState gameState;
     private final @NotNull InventoryInteractor interactor;
-    private final @NotNull RoomUpdater updater;
+    private final @NotNull RoomUpdaterInterface updater;
 
     /**
      * Creates a ChestInteractor to interact with chests in a GameState.
@@ -25,7 +31,7 @@ public class ChestInteractor {
      */
     public ChestInteractor(@NotNull GameState gameState,
                            @NotNull InventoryInteractor interactor,
-                           @NotNull RoomUpdater updater) {
+                           @NotNull RoomUpdaterInterface updater) {
         this.gameState = gameState;
         this.interactor = interactor;
         this.updater = updater;
@@ -34,6 +40,8 @@ public class ChestInteractor {
     /**
      * Checks if a given spot on the map contains a TreasureChest.
      *
+     * @param coordinates the coordinates of a specific spot in the Room.
+     * @param chests      the list of chests in the current Room.
      * @return the TreasureChest if chest is found. Otherwise, return null.
      */
     public TreasureChest compareLists(Point coordinates, List<TreasureChest> chests) {
