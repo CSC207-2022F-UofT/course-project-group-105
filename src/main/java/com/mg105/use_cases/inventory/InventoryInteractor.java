@@ -139,14 +139,6 @@ public class InventoryInteractor implements InventoryInteractorInputInterface {
     }
 
     /**
-     * Removes all items from the inventory
-     */
-    @Override
-    public void removeInventory() {
-        this.state.getInventory().removeAll();
-    }
-
-    /**
      * Returns an object that represents the details of a give item
      *
      * @param itemName the name of the item
