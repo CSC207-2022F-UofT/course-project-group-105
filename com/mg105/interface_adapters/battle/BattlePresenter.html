@@ -212,6 +212,7 @@ implements <a href="../../use_cases/battle/BattlePresenterInterface.html" title=
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>interactor</code> - the BattleInteractor to be referred to.</dd>
+<dd><code>toggler</code> - the toggler used to change windows.</dd>
 </dl>
 </section>
 </li>
@@ -261,6 +262,8 @@ implements <a href="../../use_cases/battle/BattlePresenterInterface.html" title=
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">givenCharacterHealth</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
 <div class="block">Returns the current health of the BattleCharacter with the given name.</div>
 <dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>name</code> - the desired character.</dd>
 <dt>Returns:</dt>
 <dd>the desired BattleCharacter's current health.</dd>
 </dl>
@@ -272,6 +275,8 @@ implements <a href="../../use_cases/battle/BattlePresenterInterface.html" title=
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">givenCharacterDamage</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
 <div class="block">Returns the current damage stat of the BattleCharacter with the given name.</div>
 <dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>name</code> - the desired character.</dd>
 <dt>Returns:</dt>
 <dd>the desired BattleCharacter's current damage.</dd>
 </dl>
@@ -284,6 +289,8 @@ implements <a href="../../use_cases/battle/BattlePresenterInterface.html" title=
 <div class="block">Returns the stats of the BattleCharacter with the given name's moves.
  Stats order: Move1 health change, Move1 damage change, Move2 health change, Move2 damage change.</div>
 <dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>name</code> - the desired character's name</dd>
 <dt>Returns:</dt>
 <dd>the desired BattleCharacter's move stats.</dd>
 </dl>
@@ -296,6 +303,8 @@ implements <a href="../../use_cases/battle/BattlePresenterInterface.html" title=
 <div class="block">Returns the names of the BattleCharacter with the given name's moves.
  Stats order: Move1 name, Move2 name.</div>
 <dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>name</code> - the desired character's name</dd>
 <dt>Returns:</dt>
 <dd>the desired BattleCharacter's move names.</dd>
 </dl>

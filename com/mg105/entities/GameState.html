@@ -195,7 +195,7 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeFaintedPartyMember(java.lang.String)" class="member-name-link">removeFaintedPartyMember</a><wbr>(@NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;characterName)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Removes the given fainted party
- This should only be done to fainted party members who's hp is about to become above zero</div>
+ This should only be done to fainted party members whose hp is about to become above zero</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCurrEncounter(com.mg105.entities.Battle)" class="member-name-link">setCurrEncounter</a><wbr>(<a href="Battle.html" title="class in com.mg105.entities">Battle</a>&nbsp;currEncounter)</code></div>
@@ -348,7 +348,7 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeFaintedPartyMember</span><wbr><span class="parameters">(@NotNull
  @NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;characterName)</span></div>
 <div class="block">Removes the given fainted party
- This should only be done to fainted party members who's hp is about to become above zero</div>
+ This should only be done to fainted party members whose hp is about to become above zero</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>characterName</code> - the name of the party member that is fainted</dd>
@@ -415,6 +415,18 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="setCurrentRoom(com.mg105.entities.Room)">
+<h3>setCurrentRoom</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setCurrentRoom</span><wbr><span class="parameters">(@NotNull
+ @NotNull <a href="Room.html" title="class in com.mg105.entities">Room</a>&nbsp;room)</span></div>
+<div class="block">Set the current room.  room must be graph-connected to the rest of the map.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>room</code> - the room to be set.</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="getCurrEncounter()">
 <h3>getCurrEncounter</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Battle.html" title="class in com.mg105.entities">Battle</a></span>&nbsp;<span class="element-name">getCurrEncounter</span>()</div>
@@ -466,6 +478,19 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="setParty(com.mg105.entities.BattleCharacter[])">
+<h3>setParty</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setParty</span><wbr><span class="parameters">(@NotNull
+ @NotNull <a href="BattleCharacter.html" title="class in com.mg105.entities">BattleCharacter</a>[]&nbsp;party)</span></div>
+<div class="block">Sets these BattleCharacters as the party
+ This function should really only ever be called once</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>party</code> - the battles character to the set the party to</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="getFainted()">
 <h3>getFainted</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="BattleCharacter.html" title="class in com.mg105.entities">BattleCharacter</a>&gt;</span>&nbsp;<span class="element-name">getFainted</span>()</div>
@@ -506,31 +531,6 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>true if the player is in the last room, false otherwise.</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="setCurrentRoom(com.mg105.entities.Room)">
-<h3>setCurrentRoom</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setCurrentRoom</span><wbr><span class="parameters">(@NotNull
- @NotNull <a href="Room.html" title="class in com.mg105.entities">Room</a>&nbsp;room)</span></div>
-<div class="block">Set the current room.  room must be graph-connected to the rest of the map.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>room</code> - the room to be set.</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="setParty(com.mg105.entities.BattleCharacter[])">
-<h3>setParty</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setParty</span><wbr><span class="parameters">(@NotNull
- @NotNull <a href="BattleCharacter.html" title="class in com.mg105.entities">BattleCharacter</a>[]&nbsp;party)</span></div>
-<div class="block">Sets these BattleCharacters as the party
- This function should really only ever be called once</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>party</code> - the battles character to the set the party to</dd>
 </dl>
 </section>
 </li>
